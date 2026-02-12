@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>矿机原始日志 - {{ miner.serial_number }}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .log-container {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        .log-category {
+            background: #2d2d30;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .log-category-header {
+            color: #3498db;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .log-content {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .pool-card, .board-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .pool-header, .board-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .pool-index, .board-index {
+            background: #3498db;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .status-alive {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .status-dead {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .info-label {
+            color: #7f8c8d;
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+        }
+        .info-value {
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            color: #7f8c8d;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        .tab:hover {
+            color: #3498db;
+        }
+        .tab.active {
+            color: #3498db;
+            border-bottom-color: #3498db;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部导航 -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-server"></i>
+                <span>矿机管理平台</span>
+            </div>
+            <div class="nav-menu">
+                <a href="/"><i class="fas fa-tachometer-alt"></i> 仪表板</a>
+                <a href="/miner/{{ miner.id }}"><i class="fas fa-microchip"></i> 矿机详情</a>
+                <a href="#" class="active"><i class="fas fa-file-alt"></i> 原始日志</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn-primary" onclick="refreshLogs()">
+                    <i class="fas fa-sync-alt"></i> 刷新日志
+                </button>
+                <a href="/miner/{{ miner.id }}" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> 返回详情
+                </a>
+            </div>
+        </nav>
+
+        <!-- 矿机信息 -->
+        <div class="miner-info-card">
+            <h2><i class="fas fa-file-code"></i> {{ miner.location if miner.location else miner.serial_number }} - 原始运行日志</h2>
+            <div class="miner-meta">
+                <div class="meta-item">
+                    <i class="fas fa-network-wired"></i>
+                    <span>IP: {{ miner.ip_address }}</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-desktop"></i>
+                    <span>型号: {{ miner.model }}</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-circle" style="color: {% if miner.status == 'online' %}#27ae60{% else %}#e74c3c{% endif %};"></i>
+                    <span>状态: {{ miner.status }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 选项卡 -->
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('pools')">
+                <i class="fas fa-swimming-pool"></i> 矿池配置
+            </button>
+            <button class="tab" onclick="switchTab('boards')">
+                <i class="fas fa-microchip"></i> 算力板状态
+            </button>
+            <button class="tab" onclick="switchTab('raw')">
+                <i class="fas fa-terminal"></i> 原始日志
+            </button>
+        </div>
+
+        <!-- 矿池配置 -->
+        <div id="pools-tab" class="tab-content active">
+            <div id="poolsContent">
+                <div style="text-align:center; padding:60px; color:#999;">
+                    <i class="fas fa-spinner fa-spin" style="font-size:48px; margin-bottom:20px;"></i>
+                    <p>加载中...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 算力板状态 -->
+        <div id="boards-tab" class="tab-content">
+            <div id="boardsContent">
+                <div style="text-align:center; padding:60px; color:#999;">
+                    <i class="fas fa-spinner fa-spin" style="font-size:48px; margin-bottom:20px;"></i>
+                    <p>加载中...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 原始日志 -->
+        <div id="raw-tab" class="tab-content">
+            <div id="rawLogsContent">
+                <div style="text-align:center; padding:60px; color:#999;">
+                    <i class="fas fa-spinner fa-spin" style="font-size:48px; margin-bottom:20px;"></i>
+                    <p>加载中...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentData = null;
+
+        // 切换选项卡
+        function switchTab(tabName) {
+            // 更新选项卡样式
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            event.target.closest('.tab').classList.add('active');
+            
+            // 显示对应内容
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+        }
+
+        // 加载数据
+        async function loadData() {
+            try {
+                const response = await fetch('/api/miner/{{ miner.id }}/detailed-info');
+                const result = await response.json();
+                
+                if (result.success) {
+                    currentData = result;
+                    displayPools(result.pools);
+                    displayBoards(result.boards);
+                    displayRawLogs(result.raw_logs);
+                } else {
+                    showError(result.message || '加载失败');
+                }
+            } catch (error) {
+                showError('请求失败: ' + error.message);
+            }
+        }
+
+        // 显示矿池信息
+        function displayPools(pools) {
+            if (!pools || pools.length === 0) {
+                document.getElementById('poolsContent').innerHTML = `
+                    <div style="text-align:center; padding:60px; color:#999;">
+                        <i class="fas fa-info-circle" style="font-size:48px; margin-bottom:20px;"></i>
+                        <p>无矿池配置信息</p>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '';
+            pools.forEach(pool => {
+                const statusClass = pool.status === 'Alive' ? 'status-alive' : 'status-dead';
+                const rejectRate = pool.accepted > 0 ? (pool.rejected / pool.accepted * 100).toFixed(2) : 0;
+                
+                html += `
+                    <div class="pool-card">
+                        <div class="pool-header">
+                            <div class="pool-index">${pool.index}</div>
+                            <div>
+                                <h3 style="margin:0; color:#2c3e50;">矿池 ${pool.index}</h3>
+                                <span class="${statusClass}"><i class="fas fa-circle"></i> ${pool.status}</span>
+                            </div>
+                        </div>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">矿池地址</span>
+                                <span class="info-value" style="word-break:break-all;">${pool.url}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">矿工账户</span>
+                                <span class="info-value">${pool.user}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">优先级</span>
+                                <span class="info-value">${pool.priority}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">接受份额</span>
+                                <span class="info-value" style="color:#27ae60;">${pool.accepted}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">拒绝份额</span>
+                                <span class="info-value" style="color:#e74c3c;">${pool.rejected}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">过期份额</span>
+                                <span class="info-value">${pool.stale}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">拒绝率</span>
+                                <span class="info-value">${rejectRate}%</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">难度</span>
+                                <span class="info-value">${pool.difficulty}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('poolsContent').innerHTML = html;
+        }
+
+        // 显示算力板信息
+        function displayBoards(boards) {
+            if (!boards || boards.length === 0) {
+                document.getElementById('boardsContent').innerHTML = `
+                    <div style="text-align:center; padding:60px; color:#999;">
+                        <i class="fas fa-info-circle" style="font-size:48px; margin-bottom:20px;"></i>
+                        <p>无算力板信息</p>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '';
+            boards.forEach(board => {
+                const statusClass = board.status === 'Alive' ? 'status-alive' : 'status-dead';
+                const enabledIcon = board.enabled === 'Y' ? '<i class="fas fa-check-circle" style="color:#27ae60;"></i>' : '<i class="fas fa-times-circle" style="color:#e74c3c;"></i>';
+                const hashrateTH = (board.mhs_av / 1000000).toFixed(2);
+                
+                html += `
+                    <div class="board-card">
+                        <div class="board-header">
+                            <div class="board-index">${board.index}</div>
+                            <div>
+                                <h3 style="margin:0; color:#2c3e50;">算力板 ${board.index} - ${board.name}</h3>
+                                <span class="${statusClass}"><i class="fas fa-circle"></i> ${board.status}</span>
+                                ${enabledIcon} ${board.enabled === 'Y' ? '已启用' : '已禁用'}
+                            </div>
+                        </div>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">平均算力</span>
+                                <span class="info-value">${hashrateTH} TH/s</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">实时算力 (5s)</span>
+                                <span class="info-value">${(board.mhs_5s / 1000000).toFixed(2)} TH/s</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">温度</span>
+                                <span class="info-value" style="color:${board.temperature > 75 ? '#e74c3c' : '#27ae60'};">${board.temperature}°C</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">芯片数量</span>
+                                <span class="info-value">${board.chips}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">频率</span>
+                                <span class="info-value">${board.freq} MHz</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">电压</span>
+                                <span class="info-value">${board.voltage} V</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">接受份额</span>
+                                <span class="info-value" style="color:#27ae60;">${board.accepted}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">拒绝份额</span>
+                                <span class="info-value" style="color:#e74c3c;">${board.rejected}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">硬件错误</span>
+                                <span class="info-value" style="color:${board.hardware_errors > 100 ? '#e74c3c' : '#95a5a6'};">${board.hardware_errors}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">效用值</span>
+                                <span class="info-value">${board.utility.toFixed(2)}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('boardsContent').innerHTML = html;
+        }
+
+        // 显示原始日志
+        function displayRawLogs(logs) {
+            if (!logs || logs.length === 0) {
+                document.getElementById('rawLogsContent').innerHTML = `
+                    <div style="text-align:center; padding:60px; color:#999;">
+                        <i class="fas fa-info-circle" style="font-size:48px; margin-bottom:20px;"></i>
+                        <p>无原始日志</p>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '<div class="log-container">';
+            logs.forEach(log => {
+                html += `
+                    <div class="log-category">
+                        <div class="log-category-header">
+                            <i class="fas fa-terminal"></i>
+                            ${log.category}
+                        </div>
+                        <div class="log-content">${log.content}</div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            
+            document.getElementById('rawLogsContent').innerHTML = html;
+        }
+
+        // 显示错误
+        function showError(message) {
+            const errorHtml = `
+                <div style="text-align:center; padding:60px; color:#e74c3c;">
+                    <i class="fas fa-exclamation-triangle" style="font-size:48px; margin-bottom:20px;"></i>
+                    <p>${message}</p>
+                </div>
+            `;
+            document.getElementById('poolsContent').innerHTML = errorHtml;
+            document.getElementById('boardsContent').innerHTML = errorHtml;
+            document.getElementById('rawLogsContent').innerHTML = errorHtml;
+        }
+
+        // 刷新日志
+        async function refreshLogs() {
+            const btn = event.target;
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 刷新中...';
+            btn.disabled = true;
+            
+            await loadData();
+            
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+            
+            alert('日志刷新完成！');
+        }
+
+        // 页面加载时获取数据
+        document.addEventListener('DOMContentLoaded', function() {
+            loadData();
+        });
+    </script>
+</body>
+</html>

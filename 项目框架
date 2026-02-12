@@ -1,0 +1,27 @@
+miner_management/
+├── app.py                    # 主应用入口
+├── requirements.txt          # 依赖包列表
+├── config.py                # 配置文件
+├── database/
+│   ├── __init__.py
+│   └── models.py            # 数据库模型
+├── miners/
+│   ├── __init__.py
+│   ├── scanner.py           # 矿机扫描器
+│   ├── api_client.py        # 矿机API客户端
+│   └── analyzer.py          # 数据分析器
+├── utils/
+│   ├── __init__.py
+│   ├── excel_loader.py      # Excel数据加载
+│   └── network_tools.py     # 网络工具
+├── static/                  # 静态文件
+│   ├── css/
+│   ├── js/
+│   └── images/
+├── templates/               # HTML模板
+│   ├── index.html
+│   ├── dashboard.html
+│   └── miner_detail.html
+└── data/
+    ├── miner_data.db        # SQLite数据库
+    └── logs/               # 日志文件

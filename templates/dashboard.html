@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>矿机管理平台 - 仪表板</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部导航 -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-server"></i>
+                <span>矿机管理平台</span>
+            </div>
+            <div class="nav-menu">
+                <a href="/" class="active"><i class="fas fa-tachometer-alt"></i> 仪表板</a>
+                <a href="/statistics"><i class="fas fa-chart-line"></i> 统计报表</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn-primary" onclick="scanAllMiners()">
+                    <i class="fas fa-sync-alt"></i> 扫描矿机
+                </button>
+                <button class="btn btn-secondary" onclick="triggerDataCollect()">
+                    <i class="fas fa-database"></i> 立即采集
+                </button>
+                <button class="btn btn-secondary" onclick="openScanModal()">
+                    <i class="fas fa-search"></i> IP扫描添加
+                </button>
+            </div>
+        </nav>
+
+        <!-- 统计卡片 -->
+        <div class="stats-cards">
+            <div class="stat-card card-online">
+                <div class="stat-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-value">{{ online_miners }}</div>
+                    <div class="stat-label">在线矿机</div>
+                </div>
+            </div>
+            
+            <div class="stat-card card-offline">
+                <div class="stat-icon">
+                    <i class="fas fa-times-circle"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-value">{{ offline_miners }}</div>
+                    <div class="stat-label">离线矿机</div>
+                </div>
+            </div>
+            
+            <div class="stat-card card-hashrate">
+                <div class="stat-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-value">{{ total_hashrate }} TH/s</div>
+                    <div class="stat-label">总算力</div>
+                </div>
+            </div>
+            
+            <div class="stat-card card-error">
+                <div class="stat-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-value">{{ zero_hashrate_miners }}</div>
+                    <div class="stat-label">故障矿机(0算力)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 矿机列表 -->
+        <div class="miner-list">
+            <div class="section-header">
+                <h3><i class="fas fa-list"></i> 矿机列表</h3>
+                <div class="section-actions" style="display:flex; gap:10px;">
+                    <select id="sortBy" onchange="sortMiners()" class="search-input" style="width:150px;">
+                        <option value="default">默认排序</option>
+                        <option value="hashrate-desc">算力 ↓ 高到低</option>
+                        <option value="hashrate-asc">算力 ↑ 低到高</option>
+                        <option value="ip-desc">IP ↓ 降序</option>
+                        <option value="ip-asc">IP ↑ 升序</option>
+                    </select>
+                    <input type="text" id="searchMiners" placeholder="搜索矿机..." class="search-input" onkeyup="searchMiners()">
+                </div>
+            </div>
+            
+            <table class="miner-table">
+                <thead>
+                    <tr>
+                        <th style="width:60px;">序号</th>
+                        <th>矿机名称</th>
+                        <th>IP地址</th>
+                        <th>型号</th>
+                        <th>状态</th>
+                        <th>算力 (TH/s)</th>
+                        <th>温度 (°C)</th>
+                        <th>最后在线</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for miner in miners %}
+                    <tr>
+                        <td style="text-align:center; color:#7f8c8d; font-weight:600;">{{ loop.index }}</td>
+                        <td>{{ miner.location if miner.location else miner.serial_number }}</td>
+                        <td>{{ miner.ip_address or '未分配IP' }}</td>
+                        <td>{{ miner.model }}</td>
+                        <td>
+                            <span class="status-badge status-{{ miner.status }}">
+                                {% if miner.status == 'online' %}
+                                    <i class="fas fa-circle"></i> 在线
+                                {% elif miner.status == 'offline' %}
+                                    <i class="fas fa-circle"></i> 离线
+                                {% else %}
+                                    <i class="fas fa-circle"></i> 未知
+                                {% endif %}
+                            </span>
+                        </td>
+                        <td>
+                            {% if miner.status == 'online' and miner.latest_stat %}
+                                {{ "%.2f"|format(miner.latest_stat.hashrate) }}
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if miner.status == 'online' and miner.latest_stat %}
+                                {{ "%.1f"|format(miner.latest_stat.temperature) }}
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if miner.last_seen %}
+                                {{ miner.last_seen.strftime('%m-%d %H:%M') }}
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="/miner/{{ miner.id }}" class="btn-sm btn-info">
+                                <i class="fas fa-info-circle"></i> 详情
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 告警面板 -->
+        <div class="alerts-panel">
+            <div class="section-header">
+                <h3><i class="fas fa-bell"></i> 最近告警</h3>
+            </div>
+            
+            {% if recent_alerts %}
+            <div class="alerts-list">
+                {% for alert in recent_alerts %}
+                <div class="alert-item alert-{{ alert.severity }}">
+                    <div class="alert-icon">
+                        {% if alert.severity == 'critical' %}
+                            <i class="fas fa-exclamation-triangle"></i>
+                        {% elif alert.severity == 'warning' %}
+                            <i class="fas fa-exclamation-circle"></i>
+                        {% else %}
+                            <i class="fas fa-info-circle"></i>
+                        {% endif %}
+                    </div>
+                    <div class="alert-content">
+                        <div class="alert-title">{{ alert.alert_type }}</div>
+                        <div class="alert-message">{{ alert.message }}</div>
+                        <div class="alert-time">{{ alert.created_at.strftime('%m-%d %H:%M') }}</div>
+                    </div>
+                    <div class="alert-actions">
+                        <button class="btn-sm btn-resolve" onclick="resolveAlert({{ alert.id }})">
+                            <i class="fas fa-check"></i> 解决
+                        </button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="no-data">
+                <i class="fas fa-check-circle"></i>
+                <p>没有未解决的告警</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- IP扫描模态框 -->
+    <div id="scanModal" class="modal">
+        <div class="modal-content" style="max-width: 560px;">
+            <div class="modal-header">
+                <h4>IP范围扫描添加矿机</h4>
+                <span class="close" onclick="closeScanModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="scanForm">
+                    <div class="form-group">
+                        <label>IP地址范围 <span style="color:#888">(必填)</span>:</label>
+                        <input type="text" id="ipRange" name="ip_range" placeholder="如: 10.102.0.0/24 或 10.102.0.1-10.102.0.100" required>
+                        <small style="color:#888">支持: CIDR(10.102.0.0/24)、范围(10.102.0.1-10.102.0.100)、多个用逗号分隔</small>
+                    </div>
+                    <div class="form-group">
+                        <label>矿池过滤 <span style="color:#888">(可选)</span>:</label>
+                        <input type="text" id="poolFilter" name="pool_filter" placeholder="如: pool.btc.com 或 btc.com">
+                        <small style="color:#888">仅添加矿池URL包含该关键词的矿机，留空则添加所有发现的矿机</small>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" id="scanBtn">
+                            <i class="fas fa-search"></i> 开始扫描
+                        </button>
+                    </div>
+                </form>
+                <div id="scanResult" class="hidden" style="margin-top:15px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let allMiners = [];  // 存储所有矿机数据
+        
+        // 页面加载时保存矿机数据
+        document.addEventListener('DOMContentLoaded', function() {
+            const rows = document.querySelectorAll('.miner-table tbody tr');
+            allMiners = Array.from(rows).map(row => {
+                const cells = row.cells;
+                return {
+                    element: row,
+                    index: cells[0].textContent.trim(),  // 序号
+                    name: cells[1].textContent.trim(),   // 矿机名称
+                    ip: cells[2].textContent.trim(),     // IP地址
+                    hashrate: parseFloat(cells[5].textContent) || 0,  // 算力（第6列）
+                    temperature: parseFloat(cells[6].textContent) || 0  // 温度（第7列）
+                };
+            });
+        });
+        
+        // 排序矿机
+        function sortMiners() {
+            const sortBy = document.getElementById('sortBy').value;
+            const tbody = document.querySelector('.miner-table tbody');
+            
+            let sorted = [...allMiners];
+            
+            switch(sortBy) {
+                case 'hashrate-desc':
+                    sorted.sort((a, b) => b.hashrate - a.hashrate);
+                    break;
+                case 'hashrate-asc':
+                    sorted.sort((a, b) => a.hashrate - b.hashrate);
+                    break;
+                case 'ip-desc':
+                    sorted.sort((a, b) => {
+                        const ipA = a.ip.split('.').map(num => parseInt(num));
+                        const ipB = b.ip.split('.').map(num => parseInt(num));
+                        for (let i = 0; i < 4; i++) {
+                            if (ipA[i] !== ipB[i]) return ipB[i] - ipA[i];
+                        }
+                        return 0;
+                    });
+                    break;
+                case 'ip-asc':
+                    sorted.sort((a, b) => {
+                        const ipA = a.ip.split('.').map(num => parseInt(num));
+                        const ipB = b.ip.split('.').map(num => parseInt(num));
+                        for (let i = 0; i < 4; i++) {
+                            if (ipA[i] !== ipB[i]) return ipA[i] - ipB[i];
+                        }
+                        return 0;
+                    });
+                    break;
+                default:
+                    // 默认排序 - 保持原顺序
+                    break;
+            }
+            
+            // 重新排列 DOM 并更新序号
+            tbody.innerHTML = '';
+            sorted.forEach((item, index) => {
+                // 更新序号列
+                item.element.cells[0].textContent = index + 1;
+                tbody.appendChild(item.element);
+            });
+        }
+        
+        // 搜索矿机
+        function searchMiners() {
+            const searchTerm = document.getElementById('searchMiners').value.toLowerCase();
+            const rows = document.querySelectorAll('.miner-table tbody tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        }
+        
+        // 扫描所有矿机
+        async function scanAllMiners() {
+            const btn = event.target;
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 扫描中...';
+            btn.disabled = true;
+            
+            try {
+                const response = await fetch('/scan', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert(`扫描完成！在线: ${result.data.online}, 离线: ${result.data.offline}`);
+                    location.reload();
+                } else {
+                    alert('扫描失败: ' + result.message);
+                }
+            } catch (error) {
+                alert('请求失败: ' + error.message);
+            } finally {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
+        }
+        
+        // 立即采集（AI 训练数据）
+        async function triggerDataCollect() {
+            if (!confirm('确定要立即执行一次数据采集吗？这将采集所有矿机的完整数据用于 AI 训练。')) return;
+            try {
+                const response = await fetch('/api/collect-now', { method: 'POST' });
+                const result = await response.json();
+                if (result.success) {
+                    const r = result.result || {};
+                    alert(`采集完成！成功: ${r.success || 0}, 失败: ${r.failed || 0}, 总计: ${r.total || 0}`);
+                } else {
+                    alert('采集失败: ' + (result.message || '未知错误'));
+                }
+            } catch (error) {
+                alert('请求失败: ' + error.message);
+            }
+        }
+        
+        // 打开IP扫描模态框
+        function openScanModal() {
+            document.getElementById('scanModal').style.display = 'block';
+            document.getElementById('scanResult').classList.add('hidden');
+        }
+        
+        // 关闭IP扫描模态框
+        function closeScanModal() {
+            document.getElementById('scanModal').style.display = 'none';
+        }
+        
+        // 处理IP扫描
+        document.getElementById('scanForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const ipRange = document.getElementById('ipRange').value.trim();
+            const poolFilter = document.getElementById('poolFilter').value.trim();
+            const resultDiv = document.getElementById('scanResult');
+            const scanBtn = document.getElementById('scanBtn');
+            
+            if (!ipRange) {
+                alert('请输入IP地址范围');
+                return;
+            }
+            
+            scanBtn.disabled = true;
+            scanBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 扫描中...';
+            resultDiv.classList.add('hidden');
+            
+            try {
+                const response = await fetch('/api/scan-discover', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        ip_range: ipRange,
+                        pool_filter: poolFilter
+                    }),
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    const importedCount = result.imported || 0;
+                    const totalIps = result.total_ips || 0;
+                    const discoveredCount = result.count || 0;  // 发现的矿机数量在 count 字段
+                    
+                    let statusClass = 'success-message';
+                    let statusIcon = 'fa-check-circle';
+                    let warningMsg = '';
+                    
+                    // 如果发现的矿机数少于预期，显示警告
+                    if (discoveredCount > 0 && discoveredCount < 100) {
+                        warningMsg = `<div style="margin-top:10px; color:#f39c12; font-size:0.9rem;">
+                            <i class="fas fa-exclamation-triangle"></i> 
+                            提示: 如果预期有更多矿机，请检查：<br>
+                            1. 矿机是否在线且网络可达<br>
+                            2. 矿池过滤条件是否正确<br>
+                            3. 矿机端口 4028 是否开放
+                        </div>`;
+                    }
+                    
+                    resultDiv.innerHTML = `
+                        <div class="${statusClass}">
+                            <i class="fas ${statusIcon}"></i>
+                            <strong>扫描完成！</strong><br>
+                            扫描 IP 数量: ${totalIps} 个<br>
+                            发现矿机: ${discoveredCount} 台<br>
+                            成功导入: ${importedCount} 台<br>
+                            <small style="color:#888; margin-top:5px; display:block;">
+                                ℹ️ 每次扫描会替换矿机列表，仅保留本次发现的矿机
+                            </small>
+                            ${warningMsg}
+                        </div>
+                    `;
+                    resultDiv.classList.remove('hidden');
+                    setTimeout(() => location.reload(), 3000);
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="error-message">
+                            <i class="fas fa-times-circle"></i>
+                            ${result.error || '扫描失败'}
+                        </div>
+                    `;
+                    resultDiv.classList.remove('hidden');
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="error-message">
+                        <i class="fas fa-times-circle"></i>
+                        请求失败: ${error.message}
+                    </div>
+                `;
+                resultDiv.classList.remove('hidden');
+            } finally {
+                scanBtn.disabled = false;
+                scanBtn.innerHTML = '<i class="fas fa-search"></i> 开始扫描';
+            }
+        });
+        
+        // 解决告警
+        async function resolveAlert(alertId) {
+            if (!confirm('确认解决此告警吗？')) return;
+            
+            try {
+                const response = await fetch(`/alert/${alertId}/resolve`, {
+                    method: 'POST',
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert('告警已解决');
+                    location.reload();
+                } else {
+                    alert('操作失败: ' + result.message);
+                }
+            } catch (error) {
+                alert('请求失败: ' + error.message);
+            }
+        }
+        
+        // 点击模态框外部关闭
+        window.onclick = function(event) {
+            const modal = document.getElementById('scanModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
