@@ -64,11 +64,14 @@ class AntminerAPIJsonRPC:
             
             data = json.loads(text[json_start:json_end])
             
-            if 'STATUS' not in data or not data['STATUS']:
-                return None
-            
-            status = data['STATUS'][0]
-            if status.get('STATUS') != 'S':
+            # 部分固件可能返回不同格式，放宽 STATUS 校验
+            if 'STATUS' in data and data['STATUS']:
+                status = data['STATUS'][0]
+                code = str(status.get('STATUS', '')).upper()
+                # 'S'=成功, 'E'=错误；无 STATUS 时若有 SUMMARY 也可尝试解析
+                if code == 'E':
+                    return None
+            elif 'SUMMARY' not in data:
                 return None
             
             return data
@@ -77,6 +80,33 @@ class AntminerAPIJsonRPC:
             print(f"[ERROR] JSON-RPC 命令失败 {self.ip}:{command} - {e}")
             return None
     
+    def _parse_hashrate_from_summary(self, summary: dict) -> float:
+        """
+        从 SUMMARY 解析算力，兼容多种固件格式
+        不同固件可能使用: GHS av, GHS 5s, GHS 15m, MHS av, MHS 5s, Hashrate 等
+        """
+        # 尝试多种字段名（优先级：GHS av > GHS 5s > GHS 15m > MHS av > Hashrate）
+        candidates = [
+            ("GHS av", 1000),   # GH/s -> TH/s 除以 1000
+            ("GHS 5s", 1000),
+            ("GHS 15m", 1000),
+            ("GH Safrompool", 1000),
+            ("MHS av", 1000000),  # MH/s -> TH/s 除以 1000000
+            ("MHS 5s", 1000000),
+            ("Hashrate", 1000),
+            ("hashrate", 1000),
+        ]
+        for field, divisor in candidates:
+            val = summary.get(field)
+            if val is not None:
+                try:
+                    v = float(val)
+                    if v > 0:
+                        return v / divisor
+                except (TypeError, ValueError):
+                    pass
+        return 0.0
+
     async def get_summary(self) -> Optional[Dict]:
         """获取汇总信息"""
         print(f"[DEBUG] JSON-RPC 获取 summary: {self.ip}")
@@ -86,14 +116,17 @@ class AntminerAPIJsonRPC:
         
         summary = data['SUMMARY'][0] if data['SUMMARY'] else {}
         
+        hashrate = self._parse_hashrate_from_summary(summary)
+        power = float(summary.get('Power', summary.get('Watt', summary.get('power', 0))))
+        
         result = {
             'ip': self.ip,
             'timestamp': datetime.now(),
             'model': 'Antminer',
-            'hashrate': float(summary.get('GHS av', 0)) / 1000,  # 转 TH/s
-            'power_usage': float(summary.get('Power', summary.get('Watt', 0))),
-            'uptime': int(summary.get('Elapsed', 0)),
-            'hw_errors': int(summary.get('Hardware Errors', 0)),
+            'hashrate': hashrate,
+            'power_usage': power,
+            'uptime': int(summary.get('Elapsed', summary.get('elapsed', 0))),
+            'hw_errors': int(summary.get('Hardware Errors', summary.get('hw_errors', 0))),
         }
         
         print(f"[DEBUG] summary 解析: hashrate={result['hashrate']}, power={result['power_usage']}")
@@ -159,6 +192,22 @@ class AntminerAPIJsonRPC:
         print(f"[DEBUG] pools 解析: {result['pool']}")
         return result
     
+    async def _get_hashrate_from_devs(self) -> Optional[float]:
+        """从 DEVS 命令汇总各算力板算力（当 summary 无有效算力时作为备用）"""
+        data = await self._send_command("devs")
+        if not data or 'DEVS' not in data:
+            return None
+        total_ghs = 0
+        for dev in data.get('DEVS', []):
+            if isinstance(dev, dict):
+                mhs = float(dev.get('MHS av', dev.get('mhs_av', 0)) or 0)
+                ghs = float(dev.get('GHS av', dev.get('ghs_av', 0)) or 0)
+                if mhs > 0:
+                    total_ghs += mhs / 1000  # MH/s -> GH/s
+                elif ghs > 0:
+                    total_ghs += ghs
+        return total_ghs / 1000 if total_ghs > 0 else None  # GH/s -> TH/s
+
     async def get_full_summary(self) -> Optional[Dict]:
         """获取完整汇总信息（整合多个命令）"""
         print(f"[DEBUG] ===== JSON-RPC 开始获取完整信息: {self.ip} =====")
@@ -167,6 +216,13 @@ class AntminerAPIJsonRPC:
         if not summary_data:
             print(f"[ERROR] summary 为空，返回 None")
             return None
+        
+        # 若 summary 算力为 0 但矿机可能在线，尝试从 DEVS 获取（部分固件 summary 格式不同）
+        if (summary_data.get('hashrate') or 0) <= 0:
+            devs_hashrate = await self._get_hashrate_from_devs()
+            if devs_hashrate and devs_hashrate > 0:
+                summary_data['hashrate'] = devs_hashrate
+                print(f"[DEBUG] 从 DEVS 获取算力: {devs_hashrate} TH/s")
         
         stats_data = await self.get_stats()
         pools_data = await self.get_pools()

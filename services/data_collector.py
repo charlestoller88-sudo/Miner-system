@@ -146,6 +146,23 @@ class DataCollector:
                         elif cat == "POOLS":
                             raw_pools = content
             
+            # 避免重复故障快照：若上一条快照已是故障且不足 5 分钟，则不再写入本条故障快照
+            if fault_type and fault_type != "normal":
+                last = (
+                    self.db.query(MinerRawSnapshot)
+                    .filter(MinerRawSnapshot.miner_id == miner.id)
+                    .order_by(MinerRawSnapshot.timestamp.desc())
+                    .first()
+                )
+                if (
+                    last
+                    and last.fault_type
+                    and last.fault_type != "normal"
+                    and last.timestamp
+                ):
+                    delta = (datetime.now() - last.timestamp).total_seconds()
+                    if delta < 300:
+                        return None
             snapshot = MinerRawSnapshot(
                 miner_id=miner.id,
                 timestamp=datetime.now(),

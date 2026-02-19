@@ -140,6 +140,9 @@
                 <button class="btn btn-primary" onclick="refreshLogs()">
                     <i class="fas fa-sync-alt"></i> 刷新日志
                 </button>
+                <button class="btn btn-info" onclick="downloadLogs()" id="btnDownloadLogs" style="display:none;">
+                    <i class="fas fa-download"></i> 下载日志
+                </button>
                 <a href="/miner/{{ miner.id }}" class="btn btn-secondary">
                     <i class="fas fa-arrow-left"></i> 返回详情
                 </a>
@@ -167,19 +170,22 @@
 
         <!-- 选项卡 -->
         <div class="tabs">
-            <button class="tab active" onclick="switchTab('pools')">
+            <button class="tab" onclick="switchTab('pools')">
                 <i class="fas fa-swimming-pool"></i> 矿池配置
             </button>
             <button class="tab" onclick="switchTab('boards')">
                 <i class="fas fa-microchip"></i> 算力板状态
             </button>
+            <button class="tab active" onclick="switchTab('history')">
+                <i class="fas fa-history"></i> 历史日志
+            </button>
             <button class="tab" onclick="switchTab('raw')">
-                <i class="fas fa-terminal"></i> 原始日志
+                <i class="fas fa-terminal"></i> API 数据
             </button>
         </div>
 
         <!-- 矿池配置 -->
-        <div id="pools-tab" class="tab-content active">
+        <div id="pools-tab" class="tab-content">
             <div id="poolsContent">
                 <div style="text-align:center; padding:60px; color:#999;">
                     <i class="fas fa-spinner fa-spin" style="font-size:48px; margin-bottom:20px;"></i>
@@ -198,7 +204,17 @@
             </div>
         </div>
 
-        <!-- 原始日志 -->
+        <!-- 历史日志（全部运行日志） -->
+        <div id="history-tab" class="tab-content active">
+            <div id="historyLogsContent">
+                <div style="text-align:center; padding:60px; color:#999;">
+                    <i class="fas fa-spinner fa-spin" style="font-size:48px; margin-bottom:20px;"></i>
+                    <p>加载中...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- API 原始数据 -->
         <div id="raw-tab" class="tab-content">
             <div id="rawLogsContent">
                 <div style="text-align:center; padding:60px; color:#999;">
@@ -386,33 +402,97 @@
             document.getElementById('boardsContent').innerHTML = html;
         }
 
-        // 显示原始日志
+        function escapeHtml(text) {
+            if (!text) return '';
+            return String(text)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        let fullLogContent = '';  // 存储完整日志，用于下载
+
+        // 显示历史日志、API 数据
         function displayRawLogs(logs) {
-            if (!logs || logs.length === 0) {
-                document.getElementById('rawLogsContent').innerHTML = `
-                    <div style="text-align:center; padding:60px; color:#999;">
-                        <i class="fas fa-info-circle" style="font-size:48px; margin-bottom:20px;"></i>
-                        <p>无原始日志</p>
+            fullLogContent = '';
+            const emptyHtml = `
+                <div style="text-align:center; padding:60px; color:#999;">
+                    <i class="fas fa-info-circle" style="font-size:48px; margin-bottom:20px;"></i>
+                    <p>无矿机运行日志</p>
+                </div>
+            `;
+
+            const systemLog = logs && logs.find(l => l.category === 'SYSTEM_LOG');
+            const apiLogs = (logs || []).filter(l => l.category !== 'SYSTEM_LOG');
+
+            if (systemLog && systemLog.content) {
+                fullLogContent = systemLog.content;
+                const historyHtml = `
+                    <div class="log-category" style="border-left-color:#9b59b6;">
+                        <div class="log-category-header" style="color:#9b59b6;">
+                            <i class="fas fa-history"></i> 历史日志（全部运行日志）
+                        </div>
+                        <div class="log-content" style="white-space:pre; font-family:Consolas,Monaco,monospace;">${escapeHtml(systemLog.content)}</div>
                     </div>
                 `;
-                return;
+                document.getElementById('historyLogsContent').innerHTML = '<div class="log-container">' + historyHtml + '</div>';
+                document.getElementById('btnDownloadLogs').style.display = 'inline-block';
+            } else {
+                document.getElementById('historyLogsContent').innerHTML = `
+                    <div class="log-container">
+                        <div style="background:#fff3cd; padding:12px; border-radius:6px; color:#856404;">
+                            <i class="fas fa-exclamation-triangle"></i> 未能获取矿机运行日志。请确认矿机在线，fix-freq/原厂固件需在 config.py 中配置 MINER_CREDENTIALS 为 root/root。可运行 <code>python scripts/diagnose_log_fetch.py 矿机IP</code> 诊断。
+                        </div>
+                    </div>
+                `;
+                document.getElementById('btnDownloadLogs').style.display = 'none';
             }
 
-            let html = '<div class="log-container">';
-            logs.forEach(log => {
-                html += `
-                    <div class="log-category">
-                        <div class="log-category-header">
-                            <i class="fas fa-terminal"></i>
-                            ${log.category}
+            // API 原始数据 tab
+            let apiHtml = '';
+            if (apiLogs.length > 0) {
+                apiLogs.forEach(log => {
+                    apiHtml += `
+                        <div class="log-category" style="margin-bottom:15px;">
+                            <div class="log-category-header"><i class="fas fa-code"></i> ${log.category}</div>
+                            <div class="log-content">${escapeHtml(log.content)}</div>
                         </div>
-                        <div class="log-content">${log.content}</div>
-                    </div>
-                `;
-            });
-            html += '</div>';
-            
-            document.getElementById('rawLogsContent').innerHTML = html;
+                    `;
+                });
+            } else {
+                apiHtml = '<div style="color:#999; padding:20px;">无 API 原始数据</div>';
+            }
+            document.getElementById('rawLogsContent').innerHTML = '<div class="log-container">' + apiHtml + '</div>';
+        }
+
+        // 下载日志为 txt
+        function downloadLogs() {
+            if (!fullLogContent) {
+                alert('暂无可下载的日志');
+                return;
+            }
+            const sn = '{{ miner.serial_number }}' || 'miner';
+            const dt = new Date().toISOString().slice(0, 19).replace(/[-:T]/g, '');
+            const filename = `miner_${sn}_${dt}.txt`;
+            const blob = new Blob([fullLogContent], { type: 'text/plain;charset=utf-8' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = filename;
+            a.click();
+            URL.revokeObjectURL(a.href);
+        }
+
+        function toggleApiData() {
+            const el = document.getElementById('apiRawData');
+            const icon = document.getElementById('apiDataIcon');
+            if (el.style.display === 'none') {
+                el.style.display = 'block';
+                if (icon) icon.className = 'fas fa-chevron-up';
+            } else {
+                el.style.display = 'none';
+                if (icon) icon.className = 'fas fa-chevron-down';
+            }
         }
 
         // 显示错误
@@ -425,7 +505,9 @@
             `;
             document.getElementById('poolsContent').innerHTML = errorHtml;
             document.getElementById('boardsContent').innerHTML = errorHtml;
+            document.getElementById('historyLogsContent').innerHTML = errorHtml;
             document.getElementById('rawLogsContent').innerHTML = errorHtml;
+            document.getElementById('btnDownloadLogs').style.display = 'none';
         }
 
         // 刷新日志

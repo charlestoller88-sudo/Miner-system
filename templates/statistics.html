@@ -224,6 +224,20 @@
             </div>
         </div>
 
+        <!-- 故障矿机日志（逐个下载） -->
+        <div class="report-section">
+            <div class="section-header">
+                <h3><i class="fas fa-file-alt"></i> 故障矿机日志（逐个下载）</h3>
+                <button class="btn-sm btn-secondary" onclick="loadFaultMiners()">
+                    <i class="fas fa-sync-alt"></i> 刷新列表
+                </button>
+            </div>
+            <p style="color:#7f8c8d; font-size:0.9rem; margin-bottom:15px;">仅显示当前零算力或低算力（&lt;50 TH/s）的矿机，可逐台下载运行日志便于分析。若无日志请先到矿机详情页点击「刷新日志」。</p>
+            <div id="faultMinersContainer">
+                <div style="text-align:center; color:#999; padding:20px;">点击「刷新列表」加载故障矿机</div>
+            </div>
+        </div>
+
         <!-- 图表区域 -->
         <div class="chart-section">
             <div class="section-header">
@@ -502,9 +516,33 @@
             alert('导出功能开发中... 可扩展为导出 PDF 或 Excel 格式');
         }
         
+        // 加载故障矿机列表（逐个下载日志）
+        async function loadFaultMiners() {
+            const container = document.getElementById('faultMinersContainer');
+            container.innerHTML = '<div style="text-align:center; color:#3498db; padding:20px;"><i class="fas fa-spinner fa-spin"></i> 加载中...</div>';
+            try {
+                const res = await fetch('/api/statistics/fault-miners');
+                const data = await res.json();
+                if (!data.success || !data.fault_miners || data.fault_miners.length === 0) {
+                    container.innerHTML = '<div style="text-align:center; color:#7f8c8d; padding:20px;">当前无故障矿机（零算力/低算力）</div>';
+                    return;
+                }
+                let html = '<table class="report-table"><thead><tr><th>IP</th><th>序列号</th><th>型号</th><th>算力</th><th>操作</th></tr></thead><tbody>';
+                data.fault_miners.forEach(function(m) {
+                    const hashrateDisplay = m.hashrate !== null ? (m.hashrate + ' TH/s') : '无数据';
+                    html += '<tr><td>' + (m.ip_address || '-') + '</td><td>' + (m.serial_number || '-') + '</td><td>' + (m.model || '-') + '</td><td>' + hashrateDisplay + '</td><td><a href="/api/statistics/export-fault-miner-logs?miner_id=' + m.id + '" class="btn btn-sm btn-secondary" download><i class="fas fa-download"></i> 下载日志</a></td></tr>';
+                });
+                html += '</tbody></table>';
+                container.innerHTML = html;
+            } catch (e) {
+                container.innerHTML = '<div style="text-align:center; color:#e74c3c;">加载失败: ' + (e.message || '未知错误') + '</div>';
+            }
+        }
+
         // 页面加载时自动获取数据
         document.addEventListener('DOMContentLoaded', function() {
             loadStatistics();
+            loadFaultMiners();
         });
     </script>
 </body>

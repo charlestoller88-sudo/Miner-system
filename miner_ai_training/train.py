@@ -8,10 +8,11 @@ from pathlib import Path
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, confusion_matrix
 
-# 故障类型
+# 故障类型（根因具体化，与 preprocess.FAULT_TYPES 一致）
 FAULT_TYPES = [
-    "normal", "zero_hashrate", "low_hashrate",
-    "high_temperature", "hw_errors", "pool_issue", "offline", "other"
+    "normal", "fan_fault", "asic_not_detected", "power_issue", "cable_connection",
+    "pool_issue", "board_damage", "high_temperature", "hw_errors", "offline",
+    "zero_hashrate", "low_hashrate", "other",
 ]
 
 
@@ -32,14 +33,17 @@ def load_data(csv_path: str):
         raise ValueError("数据中缺少标签列 (labeled_fault_type / label / fault_type)")
     
     from sklearn.preprocessing import LabelEncoder
+    def to_known_label(v):
+        v = (v or "").strip() or "other"
+        return v if v in FAULT_TYPES else "other"
     le = LabelEncoder()
     le.fit(FAULT_TYPES)
-    y = le.transform(df[label_col].fillna("other").astype(str))
+    y = le.transform(df[label_col].fillna("other").astype(str).apply(to_known_label))
     
     return X, y, le, available
 
 
-def train_sklearn(X, y, available):
+def train_sklearn(X, y, available, le):
     """使用 sklearn 模型训练（轻量，易于导出）"""
     from sklearn.ensemble import RandomForestClassifier
     
@@ -49,7 +53,8 @@ def train_sklearn(X, y, available):
     clf.fit(X_train, y_train)
     
     y_pred = clf.predict(X_test)
-    print(classification_report(y_test, y_pred, target_names=FAULT_TYPES[:clf.n_classes_]))
+    class_names = list(le.classes_)
+    print(classification_report(y_test, y_pred, target_names=class_names, zero_division=0))
     print("混淆矩阵:")
     print(confusion_matrix(y_test, y_pred))
     
@@ -140,7 +145,7 @@ def main():
     print(f"样本数: {len(X)}, 特征: {feature_cols}")
     
     if args.model == "sklearn":
-        clf, X_train, _ = train_sklearn(X, y, feature_cols)
+        clf, X_train, _ = train_sklearn(X, y, feature_cols, le)
         
         # 保存
         import joblib

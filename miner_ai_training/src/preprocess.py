@@ -6,10 +6,11 @@ import numpy as np
 from pathlib import Path
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 
-# 故障类型映射
+# 故障类型（根因具体化，与 config.FAULT_TYPES_ROOT_CAUSE 及前端标注选项一致）
 FAULT_TYPES = [
-    "normal", "zero_hashrate", "low_hashrate",
-    "high_temperature", "hw_errors", "pool_issue", "offline", "other"
+    "normal", "fan_fault", "asic_not_detected", "power_issue", "cable_connection",
+    "pool_issue", "board_damage", "high_temperature", "hw_errors", "offline",
+    "zero_hashrate", "low_hashrate", "other",
 ]
 
 
@@ -101,9 +102,14 @@ def prepare_features(df: pd.DataFrame) -> tuple:
     if "label" not in df.columns:
         infer_labels(df)
     
+    # 标注中可能出现的历史类型（如旧版 zero_hashrate）均在 FAULT_TYPES 中；未知类型归为 other
+    def to_known_label(v):
+        v = (v or "").strip() or "other"
+        return v if v in FAULT_TYPES else "other"
+    
     le = LabelEncoder()
     le.fit(FAULT_TYPES)
-    y = le.transform(df["label"].fillna("other").astype(str))
+    y = le.transform(df["label"].fillna("other").astype(str).apply(to_known_label))
     
     return X.values, y, le, available
 

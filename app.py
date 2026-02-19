@@ -1,13 +1,13 @@
 from fastapi import FastAPI, Request, Depends, Form, UploadFile, File, Body
-from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
+from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
+from sqlalchemy import func, or_
 from datetime import datetime, timedelta
 import asyncio
 import json
 from pathlib import Path
-from sqlalchemy import func, case
 from contextlib import asynccontextmanager
 
 from database.models import get_db, init_db, Miner, MinerStat, Alert, MinerLog, MinerRawSnapshot, FaultLabel, AIDiagnosisFeedback
@@ -132,25 +132,9 @@ async def dashboard(request: Request, db: Session = Depends(get_db)):
                 # 没有统计数据的也算故障
                 zero_hashrate_miners += 1
         
-        # 获取矿机列表及其最新状态 - 修复SQLite排序问题
+        # 获取矿机列表及其最新状态，默认按算力从高到低排序
         miners = []
-        
-        # 自定义状态排序顺序：online -> offline -> error -> unknown
-        status_order = case(
-            (Miner.status == 'online', 1),
-            (Miner.status == 'offline', 2),
-            (Miner.status == 'error', 3),
-            else_=4
-        )
-        
-        # 使用coalesce处理NULL值，将NULL转换为一个很远的过去时间，确保排在最后
-        null_date = datetime(1970, 1, 1)
-        last_seen_order = func.coalesce(Miner.last_seen, null_date)
-        
-        miner_query = db.query(Miner).order_by(
-            status_order,
-            last_seen_order.desc()
-        ).all()
+        miner_query = db.query(Miner).all()
         
         for miner in miner_query:
             # 获取矿机最新状态
@@ -167,6 +151,9 @@ async def dashboard(request: Request, db: Session = Depends(get_db)):
                 'last_seen': miner.last_seen,
                 'latest_stat': latest_stat
             })
+        
+        # 按算力从高到低排序（无数据/0算力的排最后）
+        miners.sort(key=lambda m: (m['latest_stat'].hashrate or 0) if m['latest_stat'] else 0, reverse=True)
         
         context = {
             "request": request,
@@ -804,6 +791,129 @@ async def generate_statistics_report(hours: int = 12, db: Session = Depends(get_
     except Exception as e:
         return {"success": False, "message": f"生成报告失败: {str(e)}"}
 
+
+@app.get("/api/statistics/fault-miners")
+async def get_fault_miners_list(db: Session = Depends(get_db)):
+    """获取当前零算力及低算力（<50 TH/s）矿机列表，用于统计页逐个下载日志"""
+    try:
+        low_threshold = float(config.THRESHOLDS.get("low_hashrate", 50))
+        miners = db.query(Miner).filter(Miner.ip_address.isnot(None)).all()
+        fault_list = []
+        for m in miners:
+            latest = (
+                db.query(MinerStat)
+                .filter(MinerStat.miner_id == m.id)
+                .order_by(MinerStat.timestamp.desc())
+                .first()
+            )
+            if latest is None or (latest.hashrate is None) or (float(latest.hashrate) < low_threshold):
+                hashrate_val = latest.hashrate if latest and latest.hashrate is not None else None
+                fault_list.append({
+                    "id": m.id,
+                    "ip_address": m.ip_address,
+                    "serial_number": m.serial_number or "-",
+                    "model": m.model or "-",
+                    "hashrate": round(float(hashrate_val), 2) if hashrate_val is not None else None,
+                })
+        return {"success": True, "fault_miners": fault_list}
+    except Exception as e:
+        return {"success": False, "fault_miners": [], "message": str(e)}
+
+
+@app.get("/api/statistics/export-fault-miner-logs", response_class=Response)
+async def export_fault_miner_logs(miner_id: int = None, db: Session = Depends(get_db)):
+    """导出指定矿机（零算力/低算力）的运行日志，单台下载。导出前会先实时拉取该矿机当日运行日志。"""
+    if miner_id is None:
+        return JSONResponse(
+            status_code=400,
+            content={"success": False, "message": "请指定 miner_id，或在统计报表页从故障矿机列表中逐个下载"},
+        )
+    try:
+        low_threshold = float(config.THRESHOLDS.get("low_hashrate", 50))
+        miner = db.query(Miner).filter(Miner.id == miner_id).first()
+        if not miner:
+            return JSONResponse(status_code=404, content={"success": False, "message": "矿机不存在"})
+        latest = (
+            db.query(MinerStat)
+            .filter(MinerStat.miner_id == miner.id)
+            .order_by(MinerStat.timestamp.desc())
+            .first()
+        )
+        if latest is not None and latest.hashrate is not None and float(latest.hashrate) >= low_threshold:
+            return JSONResponse(
+                status_code=400,
+                content={"success": False, "message": "该矿机当前算力正常，仅支持导出故障矿机日志"},
+            )
+        if latest and latest.hashrate is not None:
+            hashrate_str = f"{latest.hashrate:.2f} TH/s"
+        else:
+            hashrate_str = "无数据"
+
+        # 导出前先实时拉取该矿机运行日志（与矿机详情页「刷新日志」同一逻辑）
+        log_fetcher = MinerLogFetcher(db)
+        fetch_result = await log_fetcher.fetch_and_save_logs(miner)
+        logs_for_export = []
+        if fetch_result.get("logs"):
+            for log in fetch_result["logs"]:
+                ts = log.get("timestamp")
+                if hasattr(ts, "strftime"):
+                    ts_str = ts.strftime("%Y-%m-%d %H:%M:%S")
+                else:
+                    ts_str = str(ts) if ts else ""
+                logs_for_export.append({
+                    "ts": ts_str,
+                    "log_type": log.get("log_type") or "info",
+                    "content": log.get("content") or "",
+                    "analysis": log.get("analysis"),
+                })
+        if not logs_for_export:
+            # 拉取失败或为空时，使用数据库中已有日志
+            db_logs = (
+                db.query(MinerLog)
+                .filter(MinerLog.miner_id == miner.id)
+                .order_by(MinerLog.timestamp.desc())
+                .limit(100)
+                .all()
+            )
+            for log in reversed(db_logs):
+                ts = log.timestamp.strftime("%Y-%m-%d %H:%M:%S") if log.timestamp else ""
+                logs_for_export.append({
+                    "ts": ts,
+                    "log_type": log.log_type or "info",
+                    "content": log.content or "",
+                    "analysis": log.analysis_result,
+                })
+
+        lines = [
+            "=" * 60,
+            f"故障矿机运行日志 - {miner.ip_address}",
+            f"导出时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
+            f"IP: {miner.ip_address}  序列号: {miner.serial_number}  型号: {miner.model or '-'}  当前算力: {hashrate_str}",
+            "=" * 60,
+            "",
+        ]
+        if logs_for_export:
+            for entry in logs_for_export:
+                lines.append(f"[{entry['ts']}] [{entry['log_type']}] {entry['content']}")
+                if entry.get("analysis"):
+                    lines.append(f"  → 分析: {entry['analysis']}")
+        else:
+            lines.append("（实时拉取失败且无历史日志：矿机可能离线、固件不支持或网络不通，请检查 IP 与矿机状态后重试）")
+        content = "\n".join(lines)
+        safe_name = (miner.ip_address or "").replace(".", "_") + "_" + (miner.serial_number or str(miner.id))[:20]
+        filename = f"fault_log_{safe_name}_{datetime.now().strftime('%Y%m%d_%H%M')}.txt"
+        return Response(
+            content=content.encode("utf-8"),
+            media_type="text/plain; charset=utf-8",
+            headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+        )
+    except Exception as e:
+        return JSONResponse(
+            status_code=500,
+            content={"success": False, "message": str(e)},
+        )
+
+
 # ========== AI 训练数据采集与标注 API ==========
 
 @app.post("/api/collect-now")
@@ -817,14 +927,86 @@ async def trigger_data_collection(db: Session = Depends(get_db)):
     except Exception as e:
         return {"success": False, "message": str(e)}
 
+def _five_min_bucket_key(ts) -> tuple:
+    """5 分钟时间桶：(date, hour, minute//5)，用于同一 5 分钟内只保留一条"""
+    if ts is None:
+        return None
+    if hasattr(ts, "date"):
+        d, t = ts.date(), ts
+    else:
+        try:
+            t = datetime.strptime(str(ts)[:19], "%Y-%m-%dT%H:%M:%S") if isinstance(ts, str) else ts
+            d = t.date() if hasattr(t, "date") else t
+        except Exception:
+            return None
+    return (d, t.hour, t.minute // 5)
+
+
 @app.get("/api/miner/{miner_id}/snapshots")
-async def get_miner_snapshots(miner_id: int, limit: int = 20, db: Session = Depends(get_db)):
-    """获取矿机最近快照（用于标注）"""
+async def get_miner_snapshots(
+    miner_id: int,
+    limit: int = 500,
+    unlabeled_only: bool = True,
+    fault_only: bool = True,
+    db: Session = Depends(get_db),
+):
+    """
+    获取矿机待标记故障快照（用于标注）。
+    - 仅返回「故障」快照：算力低于 50 TH/s 或无算力（与 config.THRESHOLDS 一致）。
+    - 只排除已标注过的快照 ID，不按日整日排除，以便当天新产生的故障快照仍会出现在清单中。
+    - 同一矿机 5 分钟内只保留一条代表快照，避免 5 分钟内重复标记。
+    - 按日期倒序排序：当天排最上，依次昨天、前天……（即 timestamp 倒序）。
+    """
     try:
-        snapshots = db.query(MinerRawSnapshot).filter(
-            MinerRawSnapshot.miner_id == miner_id
-        ).order_by(MinerRawSnapshot.timestamp.desc()).limit(limit).all()
-        
+        low_threshold = float(config.THRESHOLDS.get("low_hashrate", 50))
+        query = db.query(MinerRawSnapshot).filter(MinerRawSnapshot.miner_id == miner_id)
+
+        if unlabeled_only:
+            # 只排除已标注过的 snapshot_id，不按日排除，这样当天后续新产生的故障快照仍会显示
+            labeled_ids = db.query(FaultLabel.snapshot_id).filter(
+                FaultLabel.miner_id == miner_id,
+                FaultLabel.snapshot_id.isnot(None),
+            ).distinct().all()
+            labeled_ids = [r[0] for r in labeled_ids if r[0]]
+            if labeled_ids:
+                query = query.filter(~MinerRawSnapshot.id.in_(labeled_ids))
+
+        # 只保留故障快照：无算力或算力低于阈值
+        if fault_only:
+            query = query.filter(
+                or_(
+                    MinerRawSnapshot.hashrate.is_(None),
+                    MinerRawSnapshot.hashrate < low_threshold,
+                )
+            )
+
+        # 按时间倒序（当天在最上），多取一些再做 5 分钟去重
+        candidates = (
+            query.order_by(MinerRawSnapshot.timestamp.desc())
+            .limit(limit * 2 + 500)
+            .all()
+        )
+
+        # 同一矿机 5 分钟内只保留一条（保留该时间窗内最新的一条）
+        seen_buckets = set()
+        snapshots = []
+        for s in candidates:
+            if not s.timestamp:
+                snapshots.append(s)
+                if len(snapshots) >= limit:
+                    break
+                continue
+            key = _five_min_bucket_key(s.timestamp)
+            if key is None:
+                continue
+            if key not in seen_buckets:
+                seen_buckets.add(key)
+                snapshots.append(s)
+                if len(snapshots) >= limit:
+                    break
+
+        snapshots.sort(key=lambda x: (x.timestamp or datetime.min), reverse=True)
+
         return {
             "success": True,
             "snapshots": [
@@ -850,7 +1032,7 @@ async def label_snapshot(
     body: dict = Body(...),
     db: Session = Depends(get_db)
 ):
-    """标注快照的故障类型"""
+    """标注快照的故障类型（单个）"""
     try:
         snapshot = db.query(MinerRawSnapshot).filter(MinerRawSnapshot.id == snapshot_id).first()
         if not snapshot:
@@ -873,6 +1055,73 @@ async def label_snapshot(
     except Exception as e:
         db.rollback()
         return {"success": False, "message": str(e)}
+
+
+@app.post("/api/snapshot/batch-label")
+async def batch_label_snapshots(
+    body: dict = Body(...),
+    db: Session = Depends(get_db)
+):
+    """批量标注多个快照（相同故障类型、原因、方案）"""
+    try:
+        snapshot_ids = body.get("snapshot_ids", [])
+        if not snapshot_ids:
+            return {"success": False, "message": "请至少选择一个快照"}
+        
+        fault_type = body.get("fault_type", "")
+        fault_cause = body.get("fault_cause", "").strip() or None
+        solution = body.get("solution", "").strip() or None
+        
+        snapshots = db.query(MinerRawSnapshot).filter(
+            MinerRawSnapshot.id.in_(snapshot_ids)
+        ).all()
+        
+        if len(snapshots) != len(snapshot_ids):
+            return {"success": False, "message": "部分快照不存在"}
+        
+        for snapshot in snapshots:
+            # 若已有标注则更新，否则新增
+            existing = db.query(FaultLabel).filter(
+                FaultLabel.snapshot_id == snapshot.id
+            ).first()
+            if existing:
+                existing.fault_type = fault_type
+                existing.fault_cause = fault_cause
+                existing.solution = solution
+            else:
+                label = FaultLabel(
+                    miner_id=snapshot.miner_id,
+                    snapshot_id=snapshot.id,
+                    fault_type=fault_type,
+                    fault_cause=fault_cause,
+                    solution=solution,
+                )
+                db.add(label)
+        
+        db.commit()
+        return {"success": True, "message": f"已成功标注 {len(snapshots)} 条快照"}
+    except Exception as e:
+        db.rollback()
+        return {"success": False, "message": str(e)}
+
+
+@app.get("/api/label-history")
+async def get_label_history(db: Session = Depends(get_db)):
+    """获取历史标注的可能原因和处理方案（用于快速填充，按最近使用排序）"""
+    try:
+        labels = db.query(FaultLabel).filter(
+            (FaultLabel.fault_cause.isnot(None)) & (FaultLabel.fault_cause != "")
+        ).order_by(FaultLabel.labeled_at.desc()).limit(100).all()
+        causes = list(dict.fromkeys([l.fault_cause for l in labels if l.fault_cause]))[:30]
+        
+        labels2 = db.query(FaultLabel).filter(
+            (FaultLabel.solution.isnot(None)) & (FaultLabel.solution != "")
+        ).order_by(FaultLabel.labeled_at.desc()).limit(100).all()
+        solutions = list(dict.fromkeys([l.solution for l in labels2 if l.solution]))[:30]
+        
+        return {"success": True, "fault_causes": causes, "solutions": solutions}
+    except Exception as e:
+        return {"success": False, "fault_causes": [], "solutions": []}
 
 @app.post("/api/miner/{miner_id}/ai-diagnose")
 async def ai_diagnose_miner(miner_id: int, db: Session = Depends(get_db)):

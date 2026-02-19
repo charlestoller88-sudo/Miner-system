@@ -44,14 +44,14 @@ def export_to_csv(
     
     snapshots = query.all()
     
-    # 获取人工标注
+    # 获取人工标注（分批查询，避免 SQLite 单句 IN 参数数量超限，如 999）
     snapshot_ids = [s.id for s in snapshots]
-    labels = {
-        l.snapshot_id: l
-        for l in db.query(FaultLabel)
-        .filter(FaultLabel.snapshot_id.in_(snapshot_ids))
-        .all()
-    }
+    labels = {}
+    batch_size = 500
+    for i in range(0, len(snapshot_ids), batch_size):
+        batch = snapshot_ids[i : i + batch_size]
+        for l in db.query(FaultLabel).filter(FaultLabel.snapshot_id.in_(batch)).all():
+            labels[l.snapshot_id] = l
     
     columns = [
         "id", "miner_id", "timestamp", "miner_model", "hashrate", "power_usage",

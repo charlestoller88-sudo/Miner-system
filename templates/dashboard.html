@@ -82,8 +82,7 @@
                 <h3><i class="fas fa-list"></i> 矿机列表</h3>
                 <div class="section-actions" style="display:flex; gap:10px;">
                     <select id="sortBy" onchange="sortMiners()" class="search-input" style="width:150px;">
-                        <option value="default">默认排序</option>
-                        <option value="hashrate-desc">算力 ↓ 高到低</option>
+                        <option value="hashrate-desc" selected>算力 ↓ 高到低（默认）</option>
                         <option value="hashrate-asc">算力 ↑ 低到高</option>
                         <option value="ip-desc">IP ↓ 降序</option>
                         <option value="ip-asc">IP ↑ 升序</option>
@@ -255,6 +254,7 @@
             
             switch(sortBy) {
                 case 'hashrate-desc':
+                case 'default':
                     sorted.sort((a, b) => b.hashrate - a.hashrate);
                     break;
                 case 'hashrate-asc':

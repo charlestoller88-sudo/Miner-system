@@ -392,6 +392,31 @@ body {
     padding: 25px;
 }
 
+/* 标注故障模态框：固定高度 75vh，内容可滚动（含提交按钮） */
+.label-modal .modal-content {
+    height: 75vh;
+    max-height: 75vh;
+    margin: 5vh auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.label-modal .modal-header {
+    flex-shrink: 0;
+}
+.label-modal .modal-body {
+    flex: 1;
+    min-height: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-bottom: 30px;
+}
+.label-modal .label-modal-submit-wrap {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
 .form-group {
     margin-bottom: 20px;
 }
@@ -404,18 +429,64 @@ body {
 }
 
 .form-group input[type="text"],
-.form-group input[type="number"] {
+.form-group input[type="number"],
+.form-group textarea {
     width: 100%;
     padding: 10px 15px;
     border: 1px solid #ddd;
     border-radius: 6px;
     font-size: 0.9rem;
 }
+.form-group textarea {
+    resize: vertical;
+    font-family: inherit;
+}
 
 .form-group input[type="text"]:focus,
-.form-group input[type="number"]:focus {
+.form-group input[type="number"]:focus,
+.form-group textarea:focus {
     outline: none;
     border-color: #3498db;
+}
+
+/* 标注模态框：历史记录标签 */
+.label-history-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    margin: 4px 6px 4px 0;
+    background: #ecf0f1;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    color: #2c3e50;
+}
+.label-history-tag:hover {
+    background: #3498db;
+    color: #fff;
+}
+.label-history-hint {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+.label-history-tags {
+    margin-top: 4px;
+    flex-wrap: wrap;
+}
+.label-snapshot-item:hover {
+    background: #ecf0f1;
+}
+
+/* 7 行独立输入框 */
+.label-inputs-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.label-input-row {
+    padding: 8px 12px;
+    margin: 0;
 }
 
 .form-group small {

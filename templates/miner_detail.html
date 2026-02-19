@@ -19,8 +19,6 @@
             <div class="nav-menu">
                 <a href="/"><i class="fas fa-tachometer-alt"></i> 仪表板</a>
                 <a href="#" class="active"><i class="fas fa-microchip"></i> 矿机详情</a>
-                <a href="#"><i class="fas fa-bell"></i> 告警中心</a>
-                <a href="#"><i class="fas fa-chart-line"></i> 统计报表</a>
             </div>
             <div class="nav-actions">
                 <button class="btn btn-primary" onclick="scanSingleMiner()">
@@ -411,43 +409,75 @@
         </div>
 
         <!-- 标注故障模态框 -->
-        <div id="labelModal" class="modal">
-            <div class="modal-content" style="max-width: 600px;">
+        <div id="labelModal" class="modal label-modal">
+            <div class="modal-content" style="max-width: 680px;">
                 <div class="modal-header">
                     <h4><i class="fas fa-tag"></i> 标注故障类型</h4>
                     <span class="close" onclick="closeLabelModal()">&times;</span>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>选择快照</label>
-                        <select id="labelSnapshotSelect" class="search-input">
-                            <option value="">加载中...</option>
-                        </select>
+                        <label>
+                            选择快照（可多选）
+                            <a href="javascript:void(0)" onclick="toggleLabelSnapshotAll(true)" style="margin-left:8px;font-size:0.85rem;">全选</a>
+                            <a href="javascript:void(0)" onclick="toggleLabelSnapshotAll(false)" style="margin-left:4px;font-size:0.85rem;">全不选</a>
+                            <span id="labelSnapshotCount" style="color:#888;margin-left:8px;"></span>
+                        </label>
+                        <div id="labelSnapshotList" class="label-snapshot-list" style="max-height:140px;overflow-y:auto;border:1px solid #ddd;border-radius:6px;padding:8px;background:#fafafa;">
+                            <div style="text-align:center;color:#999;">加载中...</div>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label>故障类型</label>
+                        <label>故障类型（请尽量选择<strong>根本原因</strong>，便于模型学习）</label>
                         <select id="labelFaultType" class="search-input">
                             <option value="normal">正常</option>
-                            <option value="zero_hashrate">0算力</option>
-                            <option value="low_hashrate">低算力</option>
+                            <option value="fan_fault">风扇故障</option>
+                            <option value="asic_not_detected">算力板/ASIC 未检测</option>
+                            <option value="power_issue">供电异常</option>
+                            <option value="cable_connection">排线/连接问题</option>
+                            <option value="pool_issue">矿池问题</option>
+                            <option value="board_damage">算力板损坏</option>
                             <option value="high_temperature">高温</option>
                             <option value="hw_errors">硬件错误</option>
-                            <option value="pool_issue">矿池问题</option>
                             <option value="offline">离线</option>
+                            <option value="zero_hashrate">0算力（未区分根因时选此项）</option>
+                            <option value="low_hashrate">低算力（未区分根因时选此项）</option>
                             <option value="other">其他</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>可能原因</label>
-                        <input type="text" id="labelFaultCause" class="search-input" placeholder="例如：算力板连接松动">
+                        <label>可能原因（7 条，可单独填写或从历史选择，后台会整合）</label>
+                        <div class="label-inputs-row">
+                            <input type="text" id="labelFaultCause1" class="search-input label-input-row" placeholder="原因 1">
+                            <input type="text" id="labelFaultCause2" class="search-input label-input-row" placeholder="原因 2">
+                            <input type="text" id="labelFaultCause3" class="search-input label-input-row" placeholder="原因 3">
+                            <input type="text" id="labelFaultCause4" class="search-input label-input-row" placeholder="原因 4">
+                            <input type="text" id="labelFaultCause5" class="search-input label-input-row" placeholder="原因 5">
+                            <input type="text" id="labelFaultCause6" class="search-input label-input-row" placeholder="原因 6">
+                            <input type="text" id="labelFaultCause7" class="search-input label-input-row" placeholder="原因 7">
+                        </div>
+                        <div class="label-history-hint">从历史选择（填入第一个空位）：</div>
+                        <div id="labelFaultCauseHistory" class="label-history-tags"></div>
                     </div>
                     <div class="form-group">
-                        <label>处理方案</label>
-                        <input type="text" id="labelSolution" class="search-input" placeholder="例如：重新插拔算力板">
+                        <label>处理方案（7 条，可单独填写或从历史选择，后台会整合）</label>
+                        <div class="label-inputs-row">
+                            <input type="text" id="labelSolution1" class="search-input label-input-row" placeholder="方案 1">
+                            <input type="text" id="labelSolution2" class="search-input label-input-row" placeholder="方案 2">
+                            <input type="text" id="labelSolution3" class="search-input label-input-row" placeholder="方案 3">
+                            <input type="text" id="labelSolution4" class="search-input label-input-row" placeholder="方案 4">
+                            <input type="text" id="labelSolution5" class="search-input label-input-row" placeholder="方案 5">
+                            <input type="text" id="labelSolution6" class="search-input label-input-row" placeholder="方案 6">
+                            <input type="text" id="labelSolution7" class="search-input label-input-row" placeholder="方案 7">
+                        </div>
+                        <div class="label-history-hint">从历史选择（填入第一个空位）：</div>
+                        <div id="labelSolutionHistory" class="label-history-tags"></div>
                     </div>
-                    <button class="btn btn-primary" onclick="submitLabel()">
-                        <i class="fas fa-save"></i> 保存标注
-                    </button>
+                    <div class="label-modal-submit-wrap">
+                        <button class="btn btn-primary" onclick="submitLabel()">
+                            <i class="fas fa-save"></i> 保存标注
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -699,6 +729,19 @@
                 
                 if (result.success && result.diagnosis) {
                     const d = result.diagnosis;
+                    let refHtml = '';
+                    if (d.labeled_reference && d.labeled_reference.length > 0) {
+                        refHtml = '<div style="margin-top:16px; padding:12px; background:#e8f4fd; border-radius:8px; border-left:4px solid #3498db;"><strong style="color:#2980b9;">历史标注参考（您曾填写的同类型故障原因与方案）</strong>' +
+                            d.labeled_reference.map((ref, i) => {
+                                const cause = (ref.fault_cause || '').replace(/</g, '&lt;').replace(/\n/g, '<br>');
+                                const sol = (ref.solution || '').replace(/</g, '&lt;').replace(/\n/g, '<br>');
+                                return '<div style="margin-top:10px; font-size:0.9rem;"><strong>参考 ' + (i + 1) + '</strong><br><span style="color:#555;">可能原因：</span><div style="margin:4px 0;">' + (cause || '-') + '</div><span style="color:#555;">处理方案：</span><div style="margin:4px 0; white-space:pre-wrap;">' + (sol || '-') + '</div></div>';
+                            }).join('') + '</div>';
+                    }
+                    let logHintHtml = '';
+                    if (d.log_hint) {
+                        logHintHtml = '<div style="margin-top:12px; padding:10px; background:#f0f9f0; border-radius:8px; border-left:4px solid #27ae60;"><strong style="color:#1e8449;">运行日志提示</strong><p style="margin:6px 0 0 0; color:#333;">' + (d.log_hint || '').replace(/</g, '&lt;') + '</p></div>';
+                    }
                     contentDiv.innerHTML = `
                         <p><strong>故障类型:</strong> ${d.fault_type || '-'}</p>
                         <p><strong>置信度:</strong> ${((d.confidence || 0) * 100).toFixed(1)}%</p>
@@ -706,6 +749,8 @@
                         <ul style="margin-left:20px; margin-top:8px;">
                             ${(d.suggested_actions || []).map(a => '<li>' + a + '</li>').join('')}
                         </ul>
+                        ${logHintHtml}
+                        ${refHtml}
                     `;
                 } else {
                     contentDiv.innerHTML = '<p style="color:#e74c3c;">' + (result.message || '诊断失败') + '</p>';
@@ -715,25 +760,103 @@
             }
         }
         
+        // 全选/全不选快照
+        function toggleLabelSnapshotAll(checked) {
+            document.querySelectorAll('#labelSnapshotList input[type="checkbox"]').forEach(cb => cb.checked = checked);
+            updateLabelSnapshotCount();
+        }
+        
+        function updateLabelSnapshotCount() {
+            const n = document.querySelectorAll('#labelSnapshotList input[type="checkbox"]:checked').length;
+            document.getElementById('labelSnapshotCount').textContent = n > 0 ? `已选 ${n} 条` : '';
+        }
+        
+        // 将历史字符串按行拆分为独立项（供每条单独选择）
+        function flattenHistory(items) {
+            const seen = new Set();
+            const out = [];
+            for (const s of (items || [])) {
+                const lines = (s || '').split(/\r?\n/).map(l => l.trim()).filter(l => l);
+                for (const line of lines) {
+                    if (!seen.has(line)) { seen.add(line); out.push(line); }
+                }
+                if (lines.length === 0 && s && s.trim()) {
+                    const t = s.trim();
+                    if (!seen.has(t)) { seen.add(t); out.push(t); }
+                }
+            }
+            return out;
+        }
+        
+        // 填入第一个空的可能原因输入框
+        function fillFirstEmptyCause(text) {
+            for (let i = 1; i <= 7; i++) {
+                const el = document.getElementById('labelFaultCause' + i);
+                if (el && !el.value.trim()) { el.value = text; return; }
+            }
+            document.getElementById('labelFaultCause7').value = text;
+        }
+        
+        // 填入第一个空的处理方案输入框
+        function fillFirstEmptySolution(text) {
+            for (let i = 1; i <= 7; i++) {
+                const el = document.getElementById('labelSolution' + i);
+                if (el && !el.value.trim()) { el.value = text; return; }
+            }
+            document.getElementById('labelSolution7').value = text;
+        }
+        
         // 打开标注模态框
         async function openLabelModal() {
             document.getElementById('labelModal').style.display = 'block';
-            const select = document.getElementById('labelSnapshotSelect');
-            select.innerHTML = '<option value="">加载中...</option>';
+            const listEl = document.getElementById('labelSnapshotList');
+            listEl.innerHTML = '<div style="text-align:center;color:#999;">加载中...</div>';
+            
+            // 清空 7 行输入
+            for (let i = 1; i <= 7; i++) {
+                const c = document.getElementById('labelFaultCause' + i);
+                const s = document.getElementById('labelSolution' + i);
+                if (c) c.value = '';
+                if (s) s.value = '';
+            }
             
             try {
-                const response = await fetch(`/api/miner/{{ miner.id }}/snapshots?limit=20`);
-                const result = await response.json();
+                const [snapRes, histRes] = await Promise.all([
+                    fetch(`/api/miner/{{ miner.id }}/snapshots?limit=288`),
+                    fetch('/api/label-history')
+                ]);
+                const snapResult = await snapRes.json();
+                const histResult = await histRes.json();
                 
-                if (result.success && result.snapshots.length > 0) {
-                    select.innerHTML = result.snapshots.map(s => 
-                        `<option value="${s.id}">${new Date(s.timestamp).toLocaleString()} | 算力:${s.hashrate || 0} | 故障:${s.fault_type || '-'}</option>`
-                    ).join('');
+                if (snapResult.success && snapResult.snapshots.length > 0) {
+                    listEl.innerHTML = snapResult.snapshots.map(s => `
+                        <label class="label-snapshot-item" style="display:block;padding:6px 8px;cursor:pointer;border-radius:4px;">
+                            <input type="checkbox" value="${s.id}" onchange="updateLabelSnapshotCount()">
+                            <span style="margin-left:8px;">${new Date(s.timestamp).toLocaleString()} | 算力:${(s.hashrate||0).toFixed(1)} | 故障:${s.fault_type||'-'}</span>
+                        </label>
+                    `).join('');
+                    updateLabelSnapshotCount();
                 } else {
-                    select.innerHTML = '<option value="">暂无快照，请先执行"立即采集"</option>';
+                    listEl.innerHTML = '<div style="text-align:center;color:#999;padding:20px;">暂无快照，请先执行"立即采集"</div>';
                 }
+                
+                // 加载历史记录，拆分为独立项供每条单独选择
+                const causes = flattenHistory(histResult.fault_causes || []);
+                const solutions = flattenHistory(histResult.solutions || []);
+                const causeEl = document.getElementById('labelFaultCauseHistory');
+                const solEl = document.getElementById('labelSolutionHistory');
+                causeEl.innerHTML = causes.length ? 
+                    causes.map((t, i) => 
+                        `<span class="label-history-tag" onclick="fillFirstEmptyCause(window._labelHistoryCausesFlat[${i}])">${(t||'').substring(0,24)}${(t||'').length>24?'...':''}</span>`
+                    ).join('') : '<span style="color:#999;">暂无历史</span>';
+                solEl.innerHTML = solutions.length ? 
+                    solutions.map((t, i) => 
+                        `<span class="label-history-tag" onclick="fillFirstEmptySolution(window._labelHistorySolutionsFlat[${i}])">${(t||'').substring(0,24)}${(t||'').length>24?'...':''}</span>`
+                    ).join('') : '<span style="color:#999;">暂无历史</span>';
+                window._labelHistoryCausesFlat = causes;
+                window._labelHistorySolutionsFlat = solutions;
             } catch (error) {
-                select.innerHTML = '<option value="">加载失败</option>';
+                listEl.innerHTML = '<div style="text-align:center;color:#e74c3c;">加载失败</div>';
             }
         }
         
@@ -744,33 +867,48 @@
         
         // 提交标注
         async function submitLabel() {
-            const snapshotId = document.getElementById('labelSnapshotSelect').value;
-            if (!snapshotId) {
-                alert('请选择要标注的快照');
+            const checked = document.querySelectorAll('#labelSnapshotList input[type="checkbox"]:checked');
+            const snapshotIds = Array.from(checked).map(cb => parseInt(cb.value));
+            
+            if (snapshotIds.length === 0) {
+                alert('请至少选择一个快照');
                 return;
             }
             
             const faultType = document.getElementById('labelFaultType').value;
-            const faultCause = document.getElementById('labelFaultCause').value;
-            const solution = document.getElementById('labelSolution').value;
+            const faultCauseParts = [];
+            for (let i = 1; i <= 7; i++) {
+                const v = (document.getElementById('labelFaultCause' + i) || {}).value.trim();
+                if (v) faultCauseParts.push(v);
+            }
+            const solutionParts = [];
+            for (let i = 1; i <= 7; i++) {
+                const v = (document.getElementById('labelSolution' + i) || {}).value.trim();
+                if (v) solutionParts.push(v);
+            }
+            const faultCause = faultCauseParts.join('\n') || null;
+            const solution = solutionParts.join('\n') || null;
             
             try {
-                const response = await fetch(`/api/snapshot/${snapshotId}/label`, {
+                const url = snapshotIds.length === 1 
+                    ? `/api/snapshot/${snapshotIds[0]}/label` 
+                    : '/api/snapshot/batch-label';
+                const body = snapshotIds.length === 1 
+                    ? { fault_type: faultType, fault_cause: faultCause || null, solution: solution || null }
+                    : { snapshot_ids: snapshotIds, fault_type: faultType, fault_cause: faultCause || null, solution: solution || null };
+                
+                const response = await fetch(url, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        fault_type: faultType,
-                        fault_cause: faultCause,
-                        solution: solution
-                    })
+                    body: JSON.stringify(body)
                 });
                 const result = await response.json();
                 
                 if (result.success) {
-                    alert('标注成功！');
+                    alert(result.message || '标注成功！');
                     closeLabelModal();
                 } else {
-                    alert('标注失败: ' + result.message);
+                    alert('标注失败: ' + (result.message || '未知错误'));
                 }
             } catch (error) {
                 alert('请求失败: ' + error.message);

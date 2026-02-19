@@ -81,3 +81,21 @@ DATA_COLLECTION = {
     'snapshot_retention_days': 30,  # 快照保留天数
     'fetch_full_logs_on_fault': True,  # 故障时是否拉取完整 raw_logs
 }
+
+# 故障类型（根因具体化，供标注与 AI 诊断一致）
+# 标注时请尽量选择「根本原因」而非仅填「0算力/低算力」，便于模型学习
+FAULT_TYPES_ROOT_CAUSE = [
+    "normal",              # 正常
+    "fan_fault",           # 风扇故障
+    "asic_not_detected",   # 算力板/ASIC 未检测
+    "power_issue",         # 供电异常
+    "cable_connection",    # 排线/连接问题
+    "pool_issue",          # 矿池问题
+    "board_damage",        # 算力板损坏
+    "high_temperature",    # 高温
+    "hw_errors",           # 硬件错误
+    "offline",             # 离线
+    "zero_hashrate",       # 0算力（未区分根因时选此项）
+    "low_hashrate",       # 低算力（未区分根因时选此项）
+    "other",               # 其他
+]
