@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>矿机日志 AI 诊断报表</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-server"></i>
+                <span>矿机管理平台</span>
+            </div>
+            <div class="nav-menu">
+                <a href="/"><i class="fas fa-tachometer-alt"></i> 仪表板</a>
+                <a href="/statistics"><i class="fas fa-chart-line"></i> 统计报表</a>
+                <a href="/log-ai-report" class="active"><i class="fas fa-file-medical-alt"></i> 日志 AI 诊断</a>
+            </div>
+            <div class="nav-actions"></div>
+        </nav>
+
+        <div class="miner-info-card" style="max-width: 720px;">
+            <div class="section-header">
+                <h3><i class="fas fa-robot"></i> 批量矿机运行日志诊断</h3>
+            </div>
+            <p style="color:#555; line-height:1.6; margin-bottom:16px;">
+                与独立项目「AI诊断矿机运行日志报告」使用相同逻辑：仅处理<strong>15 分钟总算力 &lt; 50 TH/s</strong> 的日志；
+                规则引擎优先，必要时调用本机 <strong>Ollama</strong>（次数上限见环境变量 <code>MINER_AI_MAX_CALLS</code>）。
+                请将当天导出的 <code>*.txt</code> 全部放入同一批上传，或打包为 <code>.zip</code>（可含子目录）。
+            </p>
+            <p style="color:#888; font-size:0.9rem; margin-bottom:20px;">
+                项目根目录的 <code>fault_patterns_learned.json</code> 为自定义规则，修改后重启服务即生效。
+            </p>
+
+            <form id="logAiForm" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>选择日志文件（多选 .txt 或 .zip）</label>
+                    <input type="file" id="logFiles" name="files" multiple accept=".txt,.zip" required
+                           style="width:100%; padding:8px;">
+                </div>
+                <div class="form-group">
+                    <label>输出文件前缀（可选）</label>
+                    <input type="text" name="output_prefix" id="outputPrefix" value="low_hashrate_ai_report"
+                           class="search-input" style="width:100%; max-width:400px;">
+                </div>
+                <button type="submit" class="btn btn-primary" id="runBtn">
+                    <i class="fas fa-play"></i> 生成诊断报表（下载 zip，内含 CSV 与 Excel）
+                </button>
+            </form>
+            <div id="logAiMsg" style="margin-top:16px; color:#e74c3c; display:none;"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('logAiForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const files = document.getElementById('logFiles').files;
+            const msg = document.getElementById('logAiMsg');
+            const btn = document.getElementById('runBtn');
+            if (!files || files.length === 0) {
+                msg.style.display = 'block';
+                msg.textContent = '请选择至少一个文件';
+                return;
+            }
+            const fd = new FormData();
+            for (let i = 0; i < files.length; i++) {
+                fd.append('files', files[i]);
+            }
+            fd.append('output_prefix', document.getElementById('outputPrefix').value || 'low_hashrate_ai_report');
+
+            msg.style.display = 'none';
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 处理中...';
+
+            try {
+                const res = await fetch('/api/log-ai-report/run', { method: 'POST', body: fd });
+                if (res.ok && res.headers.get('content-type') && res.headers.get('content-type').indexOf('zip') !== -1) {
+                    const blob = await res.blob();
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(blob);
+                    a.download = 'low_hashrate_ai_report.zip';
+                    a.click();
+                    URL.revokeObjectURL(a.href);
+                    const rows = res.headers.get('X-Diagnosis-Rows');
+                    const llm = res.headers.get('X-Diagnosis-Llm-Calls');
+                    msg.style.display = 'block';
+                    msg.style.color = '#27ae60';
+                    msg.textContent = '已生成报表并下载。异常条数: ' + (rows || '-') + '，LLM 调用: ' + (llm || '-');
+                } else {
+                    const j = await res.json().catch(() => ({}));
+                    msg.style.display = 'block';
+                    msg.style.color = '#e74c3c';
+                    msg.textContent = j.message || ('请求失败: HTTP ' + res.status);
+                }
+            } catch (err) {
+                msg.style.display = 'block';
+                msg.style.color = '#e74c3c';
+                msg.textContent = err.message || String(err);
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-play"></i> 生成诊断报表（下载 zip，内含 CSV 与 Excel）';
+            }
+        });
+    </script>
+</body>
+</html>

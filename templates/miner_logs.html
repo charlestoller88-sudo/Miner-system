@@ -258,19 +258,27 @@
             }
         }
 
-        // 显示矿池信息
+        // 显示矿池信息（只读展示，无修改功能）
         function displayPools(pools) {
+            const headerHtml = `
+                <div style="margin-bottom:10px;">
+                    <h3 style="margin:0; font-size:1.05rem; color:#2c3e50;">
+                        <i class="fas fa-swimming-pool"></i> 当前矿池配置
+                    </h3>
+                </div>
+            `;
+
             if (!pools || pools.length === 0) {
-                document.getElementById('poolsContent').innerHTML = `
-                    <div style="text-align:center; padding:60px; color:#999;">
-                        <i class="fas fa-info-circle" style="font-size:48px; margin-bottom:20px;"></i>
+                document.getElementById('poolsContent').innerHTML = headerHtml + `
+                    <div style="text-align:center; padding:40px; color:#999; background:#f8f9fa; border-radius:8px;">
+                        <i class="fas fa-info-circle" style="font-size:40px; margin-bottom:15px;"></i>
                         <p>无矿池配置信息</p>
                     </div>
                 `;
                 return;
             }
 
-            let html = '';
+            let html = headerHtml;
             pools.forEach(pool => {
                 const statusClass = pool.status === 'Alive' ? 'status-alive' : 'status-dead';
                 const rejectRate = pool.accepted > 0 ? (pool.rejected / pool.accepted * 100).toFixed(2) : 0;
@@ -530,6 +538,8 @@
         document.addEventListener('DOMContentLoaded', function() {
             loadData();
         });
+
+        // （已移除矿池配置修改功能，此处仅保留只读展示）
     </script>
 </body>
 </html>

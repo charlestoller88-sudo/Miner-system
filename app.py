@@ -1,19 +1,26 @@
 from fastapi import FastAPI, Request, Depends, Form, UploadFile, File, Body
+import tempfile
+import shutil
 from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
-from sqlalchemy import func, or_
+from pydantic import BaseModel
+from typing import List
+from sqlalchemy import func
 from datetime import datetime, timedelta
 import asyncio
 import json
 from pathlib import Path
 from contextlib import asynccontextmanager
+import io
+import zipfile
 
-from database.models import get_db, init_db, Miner, MinerStat, Alert, MinerLog, MinerRawSnapshot, FaultLabel, AIDiagnosisFeedback
+from database.models import get_db, init_db, Miner, MinerStat, Alert, MinerLog
 from miners.scanner import MinerScanner
 from miners.analyzer import MinerAnalyzer
 from miners.log_fetcher import MinerLogFetcher
+from miners.api_client_jsonrpc import AntminerAPIJsonRPC
 from utils.excel_loader import load_miners_from_excel
 import config
 import os
@@ -25,58 +32,27 @@ os.makedirs("static/images", exist_ok=True)
 os.makedirs("templates", exist_ok=True)
 os.makedirs("data/uploads", exist_ok=True)
 os.makedirs("data/logs", exist_ok=True)
-os.makedirs("data/training_exports", exist_ok=True)
+os.makedirs("data/nightly_runs", exist_ok=True)
 
-# 数据采集后台任务控制
-_collector_task = None
-_collector_stop = False
-
-async def _data_collection_loop():
-    """后台数据采集循环"""
-    global _collector_stop
-    from database.models import SessionLocal
-    from services.data_collector import DataCollector
-    
-    interval = config.DATA_COLLECTION.get("interval_seconds", 300)
-    print(f"[DATA_COLLECTOR] 数据采集服务已启动，间隔 {interval} 秒")
-    
-    while not _collector_stop:
-        try:
-            db = SessionLocal()
-            collector = DataCollector(db)
-            result = await collector.run_collection_cycle()
-            db.close()
-            print(f"[DATA_COLLECTOR] 采集完成: 成功 {result['success']}, 失败 {result['failed']}, 总计 {result['total']}")
-        except Exception as e:
-            print(f"[DATA_COLLECTOR] 采集异常: {e}")
-        
-        for _ in range(interval):
-            if _collector_stop:
-                break
-            await asyncio.sleep(1)
-    
-    print("[DATA_COLLECTOR] 数据采集服务已停止")
+_nightly_scheduler_task = None
 
 # 生命周期管理
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    global _collector_task, _collector_stop
-    # 启动时
+    global _nightly_scheduler_task
     print("矿机管理平台启动中...")
-    # 初始化数据库
     init_db()
-    
-    _collector_stop = False
-    _collector_task = asyncio.create_task(_data_collection_loop())
-    
+    nj = getattr(config, "NIGHTLY_JOB", None) or {}
+    if nj.get("enabled"):
+        from services.nightly_job import nightly_scheduler_loop
+
+        _nightly_scheduler_task = asyncio.create_task(nightly_scheduler_loop())
+        print("[NIGHTLY] 已启用每日定时任务（见 config.NIGHTLY_JOB）")
     yield
-    
-    # 关闭时
-    _collector_stop = True
-    if _collector_task:
-        _collector_task.cancel()
+    if _nightly_scheduler_task:
+        _nightly_scheduler_task.cancel()
         try:
-            await _collector_task
+            await _nightly_scheduler_task
         except asyncio.CancelledError:
             pass
     print("矿机管理平台关闭中...")
@@ -384,6 +360,186 @@ async def get_miners_api(db: Session = Depends(get_db)):
         
     except Exception as e:
         return {"error": str(e)}
+
+
+class BatchPoolConfig(BaseModel):
+    miner_ids: List[int]
+    pool_url: str
+    worker: str
+    password: str = "x"
+
+
+@app.post("/api/miners/batch-set-pool")
+async def batch_set_pool(
+    config_body: BatchPoolConfig,
+    db: Session = Depends(get_db),
+):
+    """
+    批量设置矿池配置（优先针对 bmminer 兼容固件，通过 4028 JSON-RPC addpool）
+    """
+    try:
+        if not config_body.miner_ids:
+            return {"success": False, "message": "请至少选择一台矿机"}
+
+        miners = db.query(Miner).filter(Miner.id.in_(config_body.miner_ids)).all()
+        if not miners:
+            return {"success": False, "message": "未找到任何矿机"}
+
+        success_list = []
+        failed_list = []
+
+        for miner in miners:
+            if not miner.ip_address:
+                failed_list.append(
+                    {"id": miner.id, "ip": None, "reason": "矿机无 IP 地址"}
+                )
+                continue
+
+            try:
+                api = AntminerAPIJsonRPC(miner.ip_address)
+                ok = await set_miner_pool_via_jsonrpc(
+                    api,
+                    pool_url=config_body.pool_url,
+                    worker=config_body.worker,
+                    password=config_body.password or "x",
+                )
+                if ok:
+                    success_list.append({"id": miner.id, "ip": miner.ip_address})
+                else:
+                    failed_list.append(
+                        {
+                            "id": miner.id,
+                            "ip": miner.ip_address,
+                            "reason": "矿机拒绝或命令失败（请检查 API 权限/固件兼容性）",
+                        }
+                    )
+            except Exception as e:
+                failed_list.append(
+                    {"id": miner.id, "ip": miner.ip_address, "reason": str(e)}
+                )
+
+        return {
+            "success": True,
+            "total": len(miners),
+            "success_count": len(success_list),
+            "failed_count": len(failed_list),
+            "success_list": success_list,
+            "failed_list": failed_list,
+        }
+    except Exception as e:
+        return {"success": False, "message": str(e)}
+
+
+class SinglePoolConfig(BaseModel):
+    pool_url: str
+    worker: str
+    password: str = "x"
+
+
+class UpdatePoolConfig(SinglePoolConfig):
+    index: int
+
+
+class DeletePoolConfig(BaseModel):
+    index: int
+
+
+@app.post("/api/miner/{miner_id}/pool/add")
+async def add_single_pool(
+    miner_id: int,
+    body: SinglePoolConfig,
+    db: Session = Depends(get_db),
+):
+    """单台矿机：新增矿池（bmminer JSON-RPC addpool）"""
+    miner = db.query(Miner).filter(Miner.id == miner_id).first()
+    if not miner:
+        return {"success": False, "message": "矿机不存在"}
+    if not miner.ip_address:
+        return {"success": False, "message": "矿机无 IP 地址"}
+
+    try:
+        api = AntminerAPIJsonRPC(miner.ip_address)
+        ok = await set_miner_pool_via_jsonrpc(
+            api,
+            pool_url=body.pool_url,
+            worker=body.worker,
+            password=body.password or "x",
+        )
+        if ok:
+            return {"success": True, "message": "新增矿池成功（bmminer addpool）"}
+        return {
+            "success": False,
+            "message": "矿机返回失败，请检查 API 权限/固件是否支持 addpool",
+        }
+    except Exception as e:
+        return {"success": False, "message": str(e)}
+
+
+@app.post("/api/miner/{miner_id}/pool/update")
+async def update_single_pool(
+    miner_id: int,
+    body: UpdatePoolConfig,
+    db: Session = Depends(get_db),
+):
+    """
+    单台矿机：修改指定索引的矿池
+    实现方式：先 removepool(index)，再 addpool(新配置)
+    """
+    miner = db.query(Miner).filter(Miner.id == miner_id).first()
+    if not miner:
+        return {"success": False, "message": "矿机不存在"}
+    if not miner.ip_address:
+        return {"success": False, "message": "矿机无 IP 地址"}
+
+    try:
+        api = AntminerAPIJsonRPC(miner.ip_address)
+        # 先删除原有矿池
+        removed = await remove_miner_pool_via_jsonrpc(api, pool_index=body.index)
+        if not removed:
+            # 不直接失败，部分固件可能不支持 removepool，对用户给出提示
+            print(f"[WARN] {miner.ip_address} removepool 失败，继续尝试 addpool 覆盖")
+
+        # 再新增新的矿池配置
+        ok = await set_miner_pool_via_jsonrpc(
+            api,
+            pool_url=body.pool_url,
+            worker=body.worker,
+            password=body.password or "x",
+        )
+        if ok:
+            return {"success": True, "message": "修改矿池成功"}
+        return {
+            "success": False,
+            "message": "矿机返回失败，请检查 API 权限/固件是否支持 removepool/addpool",
+        }
+    except Exception as e:
+        return {"success": False, "message": str(e)}
+
+
+@app.post("/api/miner/{miner_id}/pool/delete")
+async def delete_single_pool(
+    miner_id: int,
+    body: DeletePoolConfig,
+    db: Session = Depends(get_db),
+):
+    """单台矿机：删除指定索引的矿池（bmminer JSON-RPC removepool）"""
+    miner = db.query(Miner).filter(Miner.id == miner_id).first()
+    if not miner:
+        return {"success": False, "message": "矿机不存在"}
+    if not miner.ip_address:
+        return {"success": False, "message": "矿机无 IP 地址"}
+
+    try:
+        api = AntminerAPIJsonRPC(miner.ip_address)
+        ok = await remove_miner_pool_via_jsonrpc(api, pool_index=body.index)
+        if ok:
+            return {"success": True, "message": "删除矿池成功"}
+        return {
+            "success": False,
+            "message": "矿机返回失败，请检查 API 权限/固件是否支持 removepool",
+        }
+    except Exception as e:
+        return {"success": False, "message": str(e)}
 
 @app.get("/api/stats/{miner_id}")
 async def get_miner_stats(miner_id: int, hours: int = 24, db: Session = Depends(get_db)):
@@ -914,250 +1070,197 @@ async def export_fault_miner_logs(miner_id: int = None, db: Session = Depends(ge
         )
 
 
-# ========== AI 训练数据采集与标注 API ==========
+@app.get("/api/statistics/export-all-miner-logs", response_class=Response)
+async def export_all_miner_logs(db: Session = Depends(get_db)):
+    """
+    批量导出当前所有有 IP 的矿机运行日志，打包为 zip。
+    - 每台矿机优先实时拉取运行日志（与单台导出逻辑相同），失败时再用数据库已有 MinerLog 兜底。
+    """
+    miners = db.query(Miner).filter(Miner.ip_address.isnot(None)).all()
+    if not miners:
+        return JSONResponse(
+            status_code=400,
+            content={"success": False, "message": "当前没有任何带 IP 的矿机"},
+        )
 
-@app.post("/api/collect-now")
-async def trigger_data_collection(db: Session = Depends(get_db)):
-    """手动触发一次数据采集"""
-    try:
-        from services.data_collector import DataCollector
-        collector = DataCollector(db)
-        result = await collector.run_collection_cycle()
-        return {"success": True, "result": result}
-    except Exception as e:
-        return {"success": False, "message": str(e)}
+    buf = io.BytesIO()
+    zf = zipfile.ZipFile(buf, mode="w", compression=zipfile.ZIP_DEFLATED)
 
-def _five_min_bucket_key(ts) -> tuple:
-    """5 分钟时间桶：(date, hour, minute//5)，用于同一 5 分钟内只保留一条"""
-    if ts is None:
-        return None
-    if hasattr(ts, "date"):
-        d, t = ts.date(), ts
-    else:
+    for miner in miners:
         try:
-            t = datetime.strptime(str(ts)[:19], "%Y-%m-%dT%H:%M:%S") if isinstance(ts, str) else ts
-            d = t.date() if hasattr(t, "date") else t
-        except Exception:
-            return None
-    return (d, t.hour, t.minute // 5)
+            logs_for_export = []
+
+            # 尝试获取详细原始日志（包含 SYSTEM_LOG 等大文本），优先使用这一套
+            detailed = None
+            try:
+                log_fetcher = MinerLogFetcher(db)
+                detailed = await log_fetcher.fetch_detailed_logs(miner)
+            except Exception as e:
+                print(f"[EXPORT_LOGS] 获取矿机 {miner.id} 详细日志失败: {e}")
+
+            if detailed and detailed.get("raw_logs"):
+                for entry in detailed["raw_logs"]:
+                    ts = entry.get("timestamp")
+                    if hasattr(ts, "strftime"):
+                        ts_str = ts.strftime("%Y-%m-%d %H:%M:%S")
+                    else:
+                        ts_str = str(ts) if ts else ""
+                    cat = entry.get("category") or "RAW"
+                    content = entry.get("content") or ""
+                    desc = entry.get("description")
+                    header = f"[{ts_str}] [{cat}]"
+                    if desc:
+                        header += f" {desc}"
+                    logs_for_export.append(header)
+                    logs_for_export.append(content)
+                    logs_for_export.append("")  # 空行分隔不同块
+
+            # 若 detailed/raw_logs 为空，再退回到数据库已有 MinerLog 记录
+            if not logs_for_export:
+                db_logs = (
+                    db.query(MinerLog)
+                    .filter(MinerLog.miner_id == miner.id)
+                    .order_by(MinerLog.timestamp.desc())
+                    .limit(200)
+                    .all()
+                )
+                for log in reversed(db_logs):
+                    ts = log.timestamp.strftime("%Y-%m-%d %H:%M:%S") if log.timestamp else ""
+                    line = f"[{ts}] [{log.log_type or 'info'}] {log.content or ''}"
+                    logs_for_export.append(line)
+                    if log.analysis_result:
+                        logs_for_export.append(f"  → 分析: {log.analysis_result}")
+            lines = [
+                "=" * 60,
+                f"矿机运行日志 - {miner.ip_address}",
+                f"导出时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
+                f"IP: {miner.ip_address}  序列号: {miner.serial_number}  型号: {miner.model or '-'}",
+                "=" * 60,
+                "",
+            ]
+            if logs_for_export:
+                lines.extend(logs_for_export)
+            else:
+                lines.append("（实时拉取失败且无历史日志：矿机可能离线、固件不支持或网络不通，请检查 IP 与矿机状态后重试）")
+
+            content = "\n".join(lines)
+            safe_name = (miner.ip_address or "").replace(".", "_") + "_" + (miner.serial_number or str(miner.id))[:20]
+            filename = f"logs_{safe_name}.txt"
+            zf.writestr(filename, content)
+        except Exception as e:
+            print(f"[EXPORT_LOGS] 导出矿机 {miner.id} 日志失败: {e}")
+            continue
+
+    zf.close()
+    buf.seek(0)
+    zip_name = f"all_miner_logs_{datetime.now().strftime('%Y%m%d_%H%M')}.zip"
+    return Response(
+        content=buf.read(),
+        media_type="application/zip",
+        headers={"Content-Disposition": f'attachment; filename=\"{zip_name}\"'},
+    )
 
 
-@app.get("/api/miner/{miner_id}/snapshots")
-async def get_miner_snapshots(
-    miner_id: int,
-    limit: int = 500,
-    unlabeled_only: bool = True,
-    fault_only: bool = True,
-    db: Session = Depends(get_db),
+def _flatten_txt_to_workdir(work_dir: Path) -> None:
+    """将子目录中的 .txt 移到 work_dir 根目录（与独立版「按日期文件夹」解压结构兼容）。"""
+    for p in list(work_dir.rglob("*.txt")):
+        if p.parent == work_dir:
+            continue
+        dest = work_dir / p.name
+        n = 0
+        while dest.exists():
+            n += 1
+            dest = work_dir / f"{p.stem}_{n}{p.suffix}"
+        shutil.move(str(p), str(dest))
+
+
+@app.get("/log-ai-report", response_class=HTMLResponse)
+async def log_ai_report_page(request: Request):
+    """批量矿机日志 AI 诊断（与独立项目「AI诊断矿机运行日志报告」同源规则 + 可选 Ollama）。"""
+    return templates.TemplateResponse("log_ai_report.html", {"request": request})
+
+
+@app.post("/api/log-ai-report/run")
+async def run_log_ai_report_batch(
+    files: List[UploadFile] = File(...),
+    output_prefix: str = Form("low_hashrate_ai_report"),
 ):
     """
-    获取矿机待标记故障快照（用于标注）。
-    - 仅返回「故障」快照：算力低于 50 TH/s 或无算力（与 config.THRESHOLDS 一致）。
-    - 只排除已标注过的快照 ID，不按日整日排除，以便当天新产生的故障快照仍会出现在清单中。
-    - 同一矿机 5 分钟内只保留一条代表快照，避免 5 分钟内重复标记。
-    - 按日期倒序排序：当天排最上，依次昨天、前天……（即 timestamp 倒序）。
+    上传多个 *.txt 矿机日志，或上传包含日志的 *.zip（可含子目录）。
+    生成 low_hashrate_ai_report.csv / .xlsx 并打包为 zip 下载。
     """
+    from services.local_ai_miner_diagnoser import run_batch_diagnosis
+
+    work = Path(tempfile.mkdtemp(prefix="log_ai_"))
     try:
-        low_threshold = float(config.THRESHOLDS.get("low_hashrate", 50))
-        query = db.query(MinerRawSnapshot).filter(MinerRawSnapshot.miner_id == miner_id)
+        for uf in files:
+            raw_name = uf.filename or "upload"
+            safe = Path(raw_name).name
+            data = await uf.read()
+            if not data:
+                continue
+            if safe.lower().endswith(".zip"):
+                zp = work / safe
+                zp.write_bytes(data)
+                with zipfile.ZipFile(zp, "r") as zf:
+                    zf.extractall(work)
+            else:
+                if not safe.lower().endswith(".txt"):
+                    safe = f"{safe}.txt"
+                (work / safe).write_bytes(data)
 
-        if unlabeled_only:
-            # 只排除已标注过的 snapshot_id，不按日排除，这样当天后续新产生的故障快照仍会显示
-            labeled_ids = db.query(FaultLabel.snapshot_id).filter(
-                FaultLabel.miner_id == miner_id,
-                FaultLabel.snapshot_id.isnot(None),
-            ).distinct().all()
-            labeled_ids = [r[0] for r in labeled_ids if r[0]]
-            if labeled_ids:
-                query = query.filter(~MinerRawSnapshot.id.in_(labeled_ids))
+        _flatten_txt_to_workdir(work)
 
-        # 只保留故障快照：无算力或算力低于阈值
-        if fault_only:
-            query = query.filter(
-                or_(
-                    MinerRawSnapshot.hashrate.is_(None),
-                    MinerRawSnapshot.hashrate < low_threshold,
-                )
+        if not list(work.glob("*.txt")):
+            return JSONResponse(
+                status_code=400,
+                content={"success": False, "message": "未找到有效的 .txt 日志文件（请直接上传 txt，或上传含 txt 的 zip）"},
             )
 
-        # 按时间倒序（当天在最上），多取一些再做 5 分钟去重
-        candidates = (
-            query.order_by(MinerRawSnapshot.timestamp.desc())
-            .limit(limit * 2 + 500)
-            .all()
+        result = run_batch_diagnosis(work, output_prefix=output_prefix.strip() or "low_hashrate_ai_report")
+
+        buf = io.BytesIO()
+        with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as zf:
+            csv_p = Path(result["csv_path"])
+            if csv_p.is_file():
+                zf.write(csv_p, arcname=csv_p.name)
+            xlsx_path = result.get("xlsx_path")
+            if xlsx_path:
+                xp = Path(xlsx_path)
+                if xp.is_file():
+                    zf.write(xp, arcname=xp.name)
+
+        buf.seek(0)
+        stamp = datetime.now().strftime("%Y%m%d_%H%M")
+        zip_name = f"low_hashrate_ai_report_{stamp}.zip"
+        return Response(
+            content=buf.read(),
+            media_type="application/zip",
+            headers={
+                "Content-Disposition": f'attachment; filename="{zip_name}"',
+                "X-Diagnosis-Rows": str(result.get("row_count", 0)),
+                "X-Diagnosis-Llm-Calls": str(result.get("llm_used", 0)),
+            },
         )
-
-        # 同一矿机 5 分钟内只保留一条（保留该时间窗内最新的一条）
-        seen_buckets = set()
-        snapshots = []
-        for s in candidates:
-            if not s.timestamp:
-                snapshots.append(s)
-                if len(snapshots) >= limit:
-                    break
-                continue
-            key = _five_min_bucket_key(s.timestamp)
-            if key is None:
-                continue
-            if key not in seen_buckets:
-                seen_buckets.add(key)
-                snapshots.append(s)
-                if len(snapshots) >= limit:
-                    break
-
-        snapshots.sort(key=lambda x: (x.timestamp or datetime.min), reverse=True)
-
-        return {
-            "success": True,
-            "snapshots": [
-                {
-                    "id": s.id,
-                    "timestamp": s.timestamp.isoformat() if s.timestamp else None,
-                    "hashrate": s.hashrate,
-                    "temperature": s.temperature,
-                    "power_usage": s.power_usage,
-                    "fan_speed": s.fan_speed,
-                    "hw_errors": s.hw_errors,
-                    "fault_type": s.fault_type,
-                }
-                for s in snapshots
-            ]
-        }
+    except FileNotFoundError as e:
+        return JSONResponse(status_code=400, content={"success": False, "message": str(e)})
     except Exception as e:
-        return {"success": False, "message": str(e)}
-
-@app.post("/api/snapshot/{snapshot_id}/label")
-async def label_snapshot(
-    snapshot_id: int,
-    body: dict = Body(...),
-    db: Session = Depends(get_db)
-):
-    """标注快照的故障类型（单个）"""
-    try:
-        snapshot = db.query(MinerRawSnapshot).filter(MinerRawSnapshot.id == snapshot_id).first()
-        if not snapshot:
-            return {"success": False, "message": "快照不存在"}
-        
-        fault_type = body.get("fault_type", "")
-        fault_cause = body.get("fault_cause", "") or None
-        solution = body.get("solution", "") or None
-        
-        label = FaultLabel(
-            miner_id=snapshot.miner_id,
-            snapshot_id=snapshot_id,
-            fault_type=fault_type,
-            fault_cause=fault_cause,
-            solution=solution,
-        )
-        db.add(label)
-        db.commit()
-        return {"success": True, "message": "标注成功"}
-    except Exception as e:
-        db.rollback()
-        return {"success": False, "message": str(e)}
+        return JSONResponse(status_code=500, content={"success": False, "message": str(e)})
+    finally:
+        shutil.rmtree(work, ignore_errors=True)
 
 
-@app.post("/api/snapshot/batch-label")
-async def batch_label_snapshots(
-    body: dict = Body(...),
-    db: Session = Depends(get_db)
-):
-    """批量标注多个快照（相同故障类型、原因、方案）"""
-    try:
-        snapshot_ids = body.get("snapshot_ids", [])
-        if not snapshot_ids:
-            return {"success": False, "message": "请至少选择一个快照"}
-        
-        fault_type = body.get("fault_type", "")
-        fault_cause = body.get("fault_cause", "").strip() or None
-        solution = body.get("solution", "").strip() or None
-        
-        snapshots = db.query(MinerRawSnapshot).filter(
-            MinerRawSnapshot.id.in_(snapshot_ids)
-        ).all()
-        
-        if len(snapshots) != len(snapshot_ids):
-            return {"success": False, "message": "部分快照不存在"}
-        
-        for snapshot in snapshots:
-            # 若已有标注则更新，否则新增
-            existing = db.query(FaultLabel).filter(
-                FaultLabel.snapshot_id == snapshot.id
-            ).first()
-            if existing:
-                existing.fault_type = fault_type
-                existing.fault_cause = fault_cause
-                existing.solution = solution
-            else:
-                label = FaultLabel(
-                    miner_id=snapshot.miner_id,
-                    snapshot_id=snapshot.id,
-                    fault_type=fault_type,
-                    fault_cause=fault_cause,
-                    solution=solution,
-                )
-                db.add(label)
-        
-        db.commit()
-        return {"success": True, "message": f"已成功标注 {len(snapshots)} 条快照"}
-    except Exception as e:
-        db.rollback()
-        return {"success": False, "message": str(e)}
+@app.post("/api/nightly/run-now")
+async def nightly_run_now():
+    """
+    立即执行一轮：按 NIGHTLY_JOB 的网段与矿池过滤扫描 → 拉取命中矿机详细日志 → 生成诊断报表。
+    不检查 enabled（force=True），便于调试；输出目录为 data/nightly_runs/日期/。
+    """
+    from services.nightly_job import run_nightly_pipeline
 
+    result = await run_nightly_pipeline(force=True)
+    return result
 
-@app.get("/api/label-history")
-async def get_label_history(db: Session = Depends(get_db)):
-    """获取历史标注的可能原因和处理方案（用于快速填充，按最近使用排序）"""
-    try:
-        labels = db.query(FaultLabel).filter(
-            (FaultLabel.fault_cause.isnot(None)) & (FaultLabel.fault_cause != "")
-        ).order_by(FaultLabel.labeled_at.desc()).limit(100).all()
-        causes = list(dict.fromkeys([l.fault_cause for l in labels if l.fault_cause]))[:30]
-        
-        labels2 = db.query(FaultLabel).filter(
-            (FaultLabel.solution.isnot(None)) & (FaultLabel.solution != "")
-        ).order_by(FaultLabel.labeled_at.desc()).limit(100).all()
-        solutions = list(dict.fromkeys([l.solution for l in labels2 if l.solution]))[:30]
-        
-        return {"success": True, "fault_causes": causes, "solutions": solutions}
-    except Exception as e:
-        return {"success": False, "fault_causes": [], "solutions": []}
-
-@app.post("/api/miner/{miner_id}/ai-diagnose")
-async def ai_diagnose_miner(miner_id: int, db: Session = Depends(get_db)):
-    """AI 诊断矿机（模型未部署时使用规则引擎）"""
-    try:
-        snapshot = db.query(MinerRawSnapshot).filter(
-            MinerRawSnapshot.miner_id == miner_id
-        ).order_by(MinerRawSnapshot.timestamp.desc()).first()
-        
-        if not snapshot:
-            return {"success": False, "message": "暂无快照数据，请先执行数据采集"}
-        
-        from services.ai_diagnoser import diagnose_miner
-        result = diagnose_miner(snapshot, db)
-        return {"success": True, "diagnosis": result}
-    except Exception as e:
-        return {"success": False, "message": str(e)}
-
-@app.post("/api/ai-diagnosis/feedback")
-async def ai_diagnosis_feedback(body: dict = Body(...), db: Session = Depends(get_db)):
-    """AI 诊断用户反馈"""
-    try:
-        feedback = AIDiagnosisFeedback(
-            snapshot_id=body.get("snapshot_id"),
-            miner_id=body.get("miner_id"),
-            ai_fault_type=body.get("ai_fault_type"),
-            ai_confidence=body.get("ai_confidence"),
-            user_correct=body.get("user_correct"),
-            user_actual_fault_type=body.get("user_actual_fault_type"),
-        )
-        db.add(feedback)
-        db.commit()
-        return {"success": True}
-    except Exception as e:
-        db.rollback()
-        return {"success": False, "message": str(e)}
 
 # 创建简单的错误页面模板
 @app.get("/error")

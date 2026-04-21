@@ -19,13 +19,11 @@
             <div class="nav-menu">
                 <a href="/" class="active"><i class="fas fa-tachometer-alt"></i> 仪表板</a>
                 <a href="/statistics"><i class="fas fa-chart-line"></i> 统计报表</a>
+                <a href="/log-ai-report"><i class="fas fa-file-medical-alt"></i> 日志 AI 诊断</a>
             </div>
             <div class="nav-actions">
                 <button class="btn btn-primary" onclick="scanAllMiners()">
                     <i class="fas fa-sync-alt"></i> 扫描矿机
-                </button>
-                <button class="btn btn-secondary" onclick="triggerDataCollect()">
-                    <i class="fas fa-database"></i> 立即采集
                 </button>
                 <button class="btn btn-secondary" onclick="openScanModal()">
                     <i class="fas fa-search"></i> IP扫描添加
@@ -94,6 +92,9 @@
             <table class="miner-table">
                 <thead>
                     <tr>
+                        <th style="width:40px;">
+                            <input type="checkbox" id="selectAll" onclick="toggleSelectAll(this)">
+                        </th>
                         <th style="width:60px;">序号</th>
                         <th>矿机名称</th>
                         <th>IP地址</th>
@@ -108,6 +109,9 @@
                 <tbody>
                     {% for miner in miners %}
                     <tr>
+                        <td style="text-align:center;">
+                            <input type="checkbox" class="miner-checkbox" value="{{ miner.id }}">
+                        </td>
                         <td style="text-align:center; color:#7f8c8d; font-weight:600;">{{ loop.index }}</td>
                         <td>{{ miner.location if miner.location else miner.serial_number }}</td>
                         <td>{{ miner.ip_address or '未分配IP' }}</td>
@@ -226,6 +230,40 @@
         </div>
     </div>
 
+    <!-- 批量设置矿池模态框 -->
+    <div id="batchPoolModal" class="modal">
+        <div class="modal-content" style="max-width: 520px;">
+            <div class="modal-header">
+                <h4>批量设置矿池</h4>
+                <span class="close" onclick="closeBatchPoolModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>选中矿机数量：</label>
+                    <span id="selectedMinerCount">0</span> 台
+                </div>
+                <div class="form-group">
+                    <label>矿池 URL：</label>
+                    <input type="text" id="batchPoolUrl" placeholder="如: stratum+tcp://pool.btc.com:3333">
+                </div>
+                <div class="form-group">
+                    <label>矿工名 (Worker)：</label>
+                    <input type="text" id="batchWorker" placeholder="如: account.worker1">
+                </div>
+                <div class="form-group">
+                    <label>密码 (Password)：</label>
+                    <input type="text" id="batchPassword" value="x">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" onclick="submitBatchPool()">
+                        <i class="fas fa-save"></i> 提交设置
+                    </button>
+                </div>
+                <div id="batchPoolResult" class="hidden" style="margin-top:10px;"></div>
+            </div>
+        </div>
+    </div>
+
     <script>
         let allMiners = [];  // 存储所有矿机数据
         
@@ -236,11 +274,13 @@
                 const cells = row.cells;
                 return {
                     element: row,
-                    index: cells[0].textContent.trim(),  // 序号
-                    name: cells[1].textContent.trim(),   // 矿机名称
-                    ip: cells[2].textContent.trim(),     // IP地址
-                    hashrate: parseFloat(cells[5].textContent) || 0,  // 算力（第6列）
-                    temperature: parseFloat(cells[6].textContent) || 0  // 温度（第7列）
+                    // 增加了选择列，序号列从 index 1 开始
+                    index: cells[1].textContent.trim(),
+                    name: cells[2].textContent.trim(),
+                    ip: cells[3].textContent.trim(),
+                    // 0:选择,1:序号,2:名称,3:IP,4:型号,5:状态,6:算力,7:温度
+                    hashrate: parseFloat(cells[6].textContent) || 0,
+                    temperature: parseFloat(cells[7].textContent) || 0
                 };
             });
         });
@@ -288,8 +328,8 @@
             // 重新排列 DOM 并更新序号
             tbody.innerHTML = '';
             sorted.forEach((item, index) => {
-                // 更新序号列
-                item.element.cells[0].textContent = index + 1;
+                // 更新序号列（现在在第 2 列）
+                item.element.cells[1].textContent = index + 1;
                 tbody.appendChild(item.element);
             });
         }
@@ -334,23 +374,6 @@
             } finally {
                 btn.innerHTML = originalText;
                 btn.disabled = false;
-            }
-        }
-        
-        // 立即采集（AI 训练数据）
-        async function triggerDataCollect() {
-            if (!confirm('确定要立即执行一次数据采集吗？这将采集所有矿机的完整数据用于 AI 训练。')) return;
-            try {
-                const response = await fetch('/api/collect-now', { method: 'POST' });
-                const result = await response.json();
-                if (result.success) {
-                    const r = result.result || {};
-                    alert(`采集完成！成功: ${r.success || 0}, 失败: ${r.failed || 0}, 总计: ${r.total || 0}`);
-                } else {
-                    alert('采集失败: ' + (result.message || '未知错误'));
-                }
-            } catch (error) {
-                alert('请求失败: ' + error.message);
             }
         }
         
@@ -477,9 +500,93 @@
         
         // 点击模态框外部关闭
         window.onclick = function(event) {
-            const modal = document.getElementById('scanModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
+            const scanModal = document.getElementById('scanModal');
+            const batchModal = document.getElementById('batchPoolModal');
+            if (event.target == scanModal) {
+                scanModal.style.display = 'none';
+            }
+            if (event.target == batchModal) {
+                batchModal.style.display = 'none';
+            }
+        }
+
+        // 批量设置矿池相关函数
+        function toggleSelectAll(checkbox) {
+            const items = document.querySelectorAll('.miner-checkbox');
+            items.forEach(cb => { cb.checked = checkbox.checked; });
+        }
+
+        function openBatchPoolModal() {
+            const checked = document.querySelectorAll('.miner-checkbox:checked');
+            if (checked.length === 0) {
+                alert('请先勾选至少一台矿机');
+                return;
+            }
+            document.getElementById('selectedMinerCount').textContent = checked.length;
+            document.getElementById('batchPoolModal').style.display = 'block';
+            document.getElementById('batchPoolResult').classList.add('hidden');
+        }
+
+        function closeBatchPoolModal() {
+            document.getElementById('batchPoolModal').style.display = 'none';
+        }
+
+        async function submitBatchPool() {
+            const checked = document.querySelectorAll('.miner-checkbox:checked');
+            if (checked.length === 0) {
+                alert('请先勾选至少一台矿机');
+                return;
+            }
+
+            const poolUrl = document.getElementById('batchPoolUrl').value.trim();
+            const worker = document.getElementById('batchWorker').value.trim();
+            const password = document.getElementById('batchPassword').value.trim() || 'x';
+
+            if (!poolUrl || !worker) {
+                alert('矿池 URL 和矿工名不能为空');
+                return;
+            }
+
+            const minerIds = Array.from(checked).map(cb => parseInt(cb.value));
+            const resultDiv = document.getElementById('batchPoolResult');
+
+            try {
+                const resp = await fetch('/api/miners/batch-set-pool', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        miner_ids: minerIds,
+                        pool_url: poolUrl,
+                        worker: worker,
+                        password: password,
+                    }),
+                });
+
+                const data = await resp.json();
+                if (data.success) {
+                    resultDiv.innerHTML = `
+                        <div class="success-message">
+                            <i class="fas fa-check-circle"></i>
+                            已提交设置。成功: ${data.success_count} 台，失败: ${data.failed_count} 台
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="error-message">
+                            <i class="fas fa-times-circle"></i>
+                            操作失败: ${data.message || '未知错误'}
+                        </div>
+                    `;
+                }
+                resultDiv.classList.remove('hidden');
+            } catch (e) {
+                resultDiv.innerHTML = `
+                    <div class="error-message">
+                        <i class="fas fa-times-circle"></i>
+                        请求失败: ${e.message}
+                    </div>
+                `;
+                resultDiv.classList.remove('hidden');
             }
         }
     </script>

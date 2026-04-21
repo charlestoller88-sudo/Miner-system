@@ -1,0 +1,22 @@
+{
+  "说明": "在此追加「主因 + 匹配条件 + 处理步骤」，保存后重新运行 local_ai_miner_diagnoser.py 即生效，无需改 Python。",
+  "sop_overrides": {},
+  "extra_rules": [
+    {
+      "id": "example_custom_rule",
+      "enabled": false,
+      "primary_cause": "示例：自定义主因名称",
+      "solutions": [
+        "示例步骤1",
+        "示例步骤2"
+      ],
+      "match": {
+        "patterns_any": ["your_keyword_or_regex"],
+        "min_total_hits": 5
+      },
+      "only_after_primary_unknown": true,
+      "skip_if_curtailment_sleep": true,
+      "skip_if_log_matches": ["no chips detected", "{err:i3}"]
+    }
+  ]
+}

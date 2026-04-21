@@ -74,28 +74,16 @@ THRESHOLDS = {
     'hw_errors_high': 100,  # 硬件错误超过此值告警
 }
 
-# AI 训练数据采集配置
-DATA_COLLECTION = {
-    'interval_seconds': 300,      # 采集间隔（秒）
-    'store_raw_json': True,       # 是否存储原始 JSON
-    'snapshot_retention_days': 30,  # 快照保留天数
-    'fetch_full_logs_on_fault': True,  # 故障时是否拉取完整 raw_logs
+# 每日定时：网段扫描 + 矿池过滤 + 全量拉取日志 + 生成 AI 诊断报表（与「日志 AI 诊断」同源）
+# 使用 utils.ip_scanner.discover_miners，不会清空数据库矿机列表。
+NIGHTLY_JOB = {
+    'enabled': False,  # 改为 True 后，服务启动时在每天指定时刻自动执行
+    'hour': 0,
+    'minute': 0,
+    # 网段：None 表示使用上方 IP_RANGES（多个逗号拼接）；也可设为字符串或列表
+    'ip_ranges': None,
+    # 矿池 URL 关键词（与 IP 扫描页一致），如 binance、poolbinance；留空则不过滤矿池
+    'pool_filter': '',
+    'log_concurrency': 8,  # 同时拉取日志的并发数
+    'output_prefix': 'low_hashrate_ai_report',
 }
-
-# 故障类型（根因具体化，供标注与 AI 诊断一致）
-# 标注时请尽量选择「根本原因」而非仅填「0算力/低算力」，便于模型学习
-FAULT_TYPES_ROOT_CAUSE = [
-    "normal",              # 正常
-    "fan_fault",           # 风扇故障
-    "asic_not_detected",   # 算力板/ASIC 未检测
-    "power_issue",         # 供电异常
-    "cable_connection",    # 排线/连接问题
-    "pool_issue",          # 矿池问题
-    "board_damage",        # 算力板损坏
-    "high_temperature",    # 高温
-    "hw_errors",           # 硬件错误
-    "offline",             # 离线
-    "zero_hashrate",       # 0算力（未区分根因时选此项）
-    "low_hashrate",       # 低算力（未区分根因时选此项）
-    "other",               # 其他
-]

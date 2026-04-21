@@ -79,6 +79,53 @@ class AntminerAPIJsonRPC:
         except Exception as e:
             print(f"[ERROR] JSON-RPC 命令失败 {self.ip}:{command} - {e}")
             return None
+
+    async def send_raw(self, payload: Dict) -> Optional[Dict]:
+        """
+        发送原始 JSON 负载（用于带 parameter 的写入命令，如 addpool）
+        主要用于 bmminer 这类兼容 cgminer API 的固件。
+        """
+        try:
+            reader, writer = await asyncio.wait_for(
+                asyncio.open_connection(self.ip, self.port),
+                timeout=self.timeout,
+            )
+
+            cmd = json.dumps(payload) + "\n"
+            writer.write(cmd.encode("utf-8"))
+            await writer.drain()
+
+            response_data = b""
+            start_time = time.time()
+
+            while True:
+                chunk = await asyncio.wait_for(reader.read(4096), timeout=3.0)
+                if not chunk:
+                    break
+                response_data += chunk
+                if time.time() - start_time > self.timeout:
+                    break
+
+            writer.close()
+            try:
+                await writer.wait_closed()
+            except Exception:
+                pass
+
+            if not response_data:
+                return None
+
+            text = response_data.decode("utf-8", errors="ignore").strip()
+            json_start = text.find("{")
+            json_end = text.rfind("}") + 1
+            if json_start < 0 or json_end <= json_start:
+                return None
+
+            data = json.loads(text[json_start:json_end])
+            return data
+        except Exception as e:
+            print(f"[ERROR] JSON-RPC send_raw 失败 {self.ip} - {e}")
+            return None
     
     def _parse_hashrate_from_summary(self, summary: dict) -> float:
         """
@@ -245,3 +292,60 @@ class AntminerAPIJsonRPC:
         
         print(f"[DEBUG] 完整数据: hashrate={result.get('hashrate')}, temp={result.get('temperature')}, pool={result.get('pool')}")
         return result
+
+
+async def set_miner_pool_via_jsonrpc(
+    api: AntminerAPIJsonRPC,
+    pool_url: str,
+    worker: str,
+    password: str = "x",
+) -> bool:
+    """
+    使用 bmminer 兼容的 JSON-RPC API 设置矿池:
+    - 通过 addpool 命令添加矿池，参数格式: "url,worker,password"
+    - 需要矿机端开启 API 写权限 (--api-allow W:...)
+    返回 True/False 表示该台矿机是否设置成功。
+    """
+    # 先尝试添加矿池
+    param = f"{pool_url},{worker},{password}"
+    payload = {"command": "addpool", "parameter": param}
+    print(f"[DEBUG] 对 {api.ip} 发送 addpool: {param}")
+    data = await api.send_raw(payload)
+    if not data or "STATUS" not in data or not data["STATUS"]:
+        print(f"[ERROR] {api.ip} addpool 无有效返回: {data}")
+        return False
+
+    status = data["STATUS"][0]
+    code = str(status.get("STATUS", "")).upper()
+    msg = status.get("Msg") or status.get("Description") or ""
+    print(f"[DEBUG] {api.ip} addpool STATUS={code}, Msg={msg}")
+
+    if code == "S":
+        return True
+
+    # 某些情况下返回 E/access denied，需要在上层记录失败原因
+    return False
+
+
+async def remove_miner_pool_via_jsonrpc(
+    api: AntminerAPIJsonRPC,
+    pool_index: int,
+) -> bool:
+    """
+    使用 bmminer 兼容的 JSON-RPC API 删除指定索引的矿池:
+    - 通过 removepool 命令，parameter 为矿池索引（整数）
+    """
+    param = str(pool_index)
+    payload = {"command": "removepool", "parameter": param}
+    print(f"[DEBUG] 对 {api.ip} 发送 removepool: {param}")
+    data = await api.send_raw(payload)
+    if not data or "STATUS" not in data or not data["STATUS"]:
+        print(f"[ERROR] {api.ip} removepool 无有效返回: {data}")
+        return False
+
+    status = data["STATUS"][0]
+    code = str(status.get("STATUS", "")).upper()
+    msg = status.get("Msg") or status.get("Description") or ""
+    print(f"[DEBUG] {api.ip} removepool STATUS={code}, Msg={msg}")
+
+    return code == "S"

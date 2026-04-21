@@ -125,6 +125,7 @@
             <div class="nav-menu">
                 <a href="/"><i class="fas fa-tachometer-alt"></i> 仪表板</a>
                 <a href="/statistics" class="active"><i class="fas fa-chart-line"></i> 统计报表</a>
+                <a href="/log-ai-report"><i class="fas fa-file-medical-alt"></i> 日志 AI 诊断</a>
             </div>
             <div class="nav-actions">
                 <button class="btn btn-primary" onclick="generateReport()">
@@ -224,13 +225,18 @@
             </div>
         </div>
 
-        <!-- 故障矿机日志（逐个下载） -->
+        <!-- 故障矿机日志（逐个下载 / 批量下载） -->
         <div class="report-section">
             <div class="section-header">
-                <h3><i class="fas fa-file-alt"></i> 故障矿机日志（逐个下载）</h3>
-                <button class="btn-sm btn-secondary" onclick="loadFaultMiners()">
-                    <i class="fas fa-sync-alt"></i> 刷新列表
-                </button>
+                <h3><i class="fas fa-file-alt"></i> 故障矿机日志</h3>
+                <div style="display:flex; gap:8px;">
+                    <button class="btn-sm btn-secondary" onclick="loadFaultMiners()">
+                        <i class="fas fa-sync-alt"></i> 刷新列表
+                    </button>
+                    <button class="btn-sm btn-primary" onclick="exportAllMinerLogs()">
+                        <i class="fas fa-download"></i> 批量下载所有矿机日志
+                    </button>
+                </div>
             </div>
             <p style="color:#7f8c8d; font-size:0.9rem; margin-bottom:15px;">仅显示当前零算力或低算力（&lt;50 TH/s）的矿机，可逐台下载运行日志便于分析。若无日志请先到矿机详情页点击「刷新日志」。</p>
             <div id="faultMinersContainer">
@@ -337,6 +343,32 @@
             
             const loss = (data.theoretical_hashrate - data.actual_hashrate).toFixed(2);
             document.getElementById('hashrateLoss').textContent = loss + ' TH/s';
+        }
+
+        // 批量下载所有矿机日志（zip）
+        async function exportAllMinerLogs() {
+            try {
+                const resp = await fetch('/api/statistics/export-all-miner-logs');
+                if (!resp.ok) {
+                    let msg = 'HTTP ' + resp.status;
+                    try {
+                        const data = await resp.json();
+                        if (data && data.message) msg = data.message;
+                    } catch (e) {}
+                    alert('导出失败: ' + msg);
+                    return;
+                }
+                const blob = await resp.blob();
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                const ts = new Date().toISOString().slice(0,16).replace(/[-:T]/g,'');
+                a.href = url;
+                a.download = `all_miner_logs_${ts}.zip`;
+                a.click();
+                URL.revokeObjectURL(url);
+            } catch (e) {
+                alert('请求失败: ' + e.message);
+            }
         }
         
         // 初始化图表
