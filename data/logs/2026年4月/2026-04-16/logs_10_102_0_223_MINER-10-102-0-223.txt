@@ -1,0 +1,2237 @@
+============================================================
+矿机运行日志 - 10.102.0.223
+导出时间: 2026-04-16 00:58:37
+IP: 10.102.0.223  序列号: MINER-10-102-0-223  型号: Antminer S19 XP
+============================================================
+
+[2026-04-16 00:58:37] [SYSTEM_LOG] 矿机后台系统日志（与 Web 界面一致）
+2018-03-09T12:36:11.358762Z [INFO] Detected CPU model AMLOGIC
+2018-03-09T12:36:11.364217Z [INFO] Detected existing root bind mount
+2018-03-09T12:36:11.364374Z [INFO] Detected existing base overlay mount
+2018-03-09T12:36:11.364466Z [INFO] Detected existing etc mount via overlay
+2018-03-09T12:36:11.364567Z [INFO] Note: could not mount an external partition
+2018-03-09T12:36:11.364667Z [INFO] Linked current log directory on: /mnt/ramdisk/logs/current
+2018-03-09T12:36:11.394590Z [INFO] Raw i2detect CB bus output:
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- 48 49 4a -- 4c 4d 4e -- 
+50: -- 51 52 -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --                         
+
+2018-03-09T12:36:18.228394Z [INFO] Raw i2detect PSU bus output:
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: 10 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --                         
+
+
+2018-03-09T12:36:18.236651Z [INFO] Error mapping chip at address 0x48: IoError(Os { code: 22, kind: InvalidInput, message: "Invalid argument" })
+2018-03-09T12:36:18.239874Z [INFO] Error mapping chip at address 0x49: IoError(Os { code: 22, kind: InvalidInput, message: "Invalid argument" })
+2018-03-09T12:36:18.499218Z [INFO] Expected board info CRC: 0x1C, got 0x1C
+2018-03-09T12:36:18.499356Z [INFO] Expected param info CRC: 0x4, got 0x4
+2018-03-09T12:36:18.500204Z [INFO] Expected extra info CRC: 0xB, got 0xB
+2018-03-09T12:36:18.501849Z [INFO] Board info version: 0x5
+2018-03-09T12:36:18.501956Z [INFO] Encryption algo and key version: 0x11
+2018-03-09T12:36:18.502522Z [INFO] Board serial number: SMTTYPDBCJDJC0M1P
+2018-03-09T12:36:18.504379Z [INFO] Default board voltage: 1270cV
+2018-03-09T12:36:18.504498Z [INFO] Default board frequency: 485MHz
+2018-03-09T12:36:18.505974Z [INFO] Connector: 1
+2018-03-09T12:36:18.546320Z [INFO] Expected board info CRC: 0x9, got 0x9
+2018-03-09T12:36:18.546487Z [INFO] Expected param info CRC: 0x4, got 0x4
+2018-03-09T12:36:18.546593Z [INFO] Expected extra info CRC: 0xB, got 0xB
+2018-03-09T12:36:18.546702Z [INFO] Board info version: 0x5
+2018-03-09T12:36:18.546778Z [INFO] Encryption algo and key version: 0x11
+2018-03-09T12:36:18.546857Z [INFO] Board serial number: SMTTYPDBCJDJC0N6M
+2018-03-09T12:36:18.546956Z [INFO] Default board voltage: 1270cV
+2018-03-09T12:36:18.547035Z [INFO] Default board frequency: 485MHz
+2018-03-09T12:36:18.547118Z [INFO] Connector: 2
+2018-03-09T12:36:19.113576Z [INFO] Attempt 1 - Sending message to return PSU power type: [11, 55, AA, 4, 2, 6, 0] :
+2018-03-09T12:36:19.213444Z [INFO] Attempt 1 - Reading PSU power type. command: [11, 55, AA, 4, 2, 6, 0] :
+2018-03-09T12:36:19.826729Z [INFO] Attempt 1 - power type message return: [55, AA, 6, 2, 76, 0, 7E, 0].
+
+2018-03-09T12:36:19.927236Z [INFO] Attempt 1 - Sending message to return PSU firmware version: [11, 55, AA, 4, 1, 5, 0]
+2018-03-09T12:36:20.027476Z [INFO] Attempt 1 - Reading PSU firmware version. command: [11, 55, AA, 4, 1, 5, 0] :
+2018-03-09T12:36:20.314501Z [INFO] Attempt 1 - firmware version message return: [55, AA, 6, 1, 19, 0, 20, 0].
+
+2018-03-09T12:36:20.315258Z [INFO] Setting PSU hw/fw to: 0x76/0x19
+2018-03-09T12:36:20.324600Z [WARN] Detected a previous unexpected shutdown (crash, power loss, etc.)
+2018-03-09T12:36:20.329013Z [INFO] 
+*** System information summary ***
+- SW: ................. luxminer v2025.12.12.164659 (e88514b22)
+- Package: ............ 2025.12.12-u0
+- Miner model: ........ Antminer S19 XP (s19xp)
+- External storage: ... No
+- RAM storage: ........ Yes, /mnt/ramdisk (rw)
+- Config storage: ..... Yes, /config (rw)
+- Persistent NAND Logs:  /persistent/miner
+- Logs dir: ........... (empty)
+- Logs link: .......... (empty)
+- Profiles dir: ....... /config/profiles
+- Backup dir: ......... /backup/luxminer.conf.d
+- Config dir: ......... /config/luxminer.conf.d
+
+2018-03-09T12:36:20.329981Z [INFO] Checking profiles...
+2018-03-09T12:36:20.335951Z [WARN] Skipped dynamic profile step: frequency out of bounds
+2018-03-09T12:36:20.346742Z [INFO] Applying configuration...
+2018-03-09T12:36:20.394063Z [INFO] No need to watch partitions; no external partition is being used
+2018-03-09T12:36:20.398702Z [INFO] Starting system audit task
+2018-03-09T12:36:20.398972Z [INFO] Starting periodic disk check
+2018-03-09T12:36:20.409926Z [INFO] Checking available disk space
+2018-03-09T12:36:24.770667Z [INFO] Current power status: ON
+2018-03-09T12:36:24.788488Z [INFO] Pools configuration:
+Group default, quota: 1:
+  Pools:
+  - url: sha256.poolbinance.com:443, user: NCATX.019
+  - url: btc.poolbinance.com:1800, user: NCATX.019
+  - url: bs.poolbinance.com:3333, user: NCATX.019
+
+2018-03-09T12:36:24.799980Z [INFO] Waiting for board initialization before starting chip healthchecker.
+2018-03-09T12:36:25.465358Z [INFO] 2 boards, 2 identified and 0 disabled
+2018-03-09T12:36:25.486409Z [INFO] Partner ID loaded: foreman
+2018-03-09T12:36:25.501109Z [INFO] Advanced Thermal Management (ATM) process started (off)
+2018-03-09T12:36:25.500311Z [INFO] Autotuner enabled
+2018-03-09T12:36:25.537385Z [INFO] Power targeting is now enabled
+2018-03-09T12:36:25.540072Z [INFO] Connecting to pool
+2018-03-09T12:36:25.541067Z [INFO] Pool status changed
+2018-03-09T12:36:25.559204Z [INFO] Opening TCP connection
+2018-03-09T12:36:25.564800Z [INFO] Power target set
+2018-03-09T12:36:25.569577Z [INFO] Miner is configured for power targeting; skipping the pre-init step
+2018-03-09T12:36:25.576792Z [INFO] Current power status: ON
+2018-03-09T12:36:25.579952Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:25.580183Z [INFO] Connecting to pool
+2018-03-09T12:36:25.580473Z [INFO] Pool status changed
+2018-03-09T12:36:25.580634Z [INFO] Pool status changed
+2018-03-09T12:36:25.582353Z [INFO] Starting API server
+2018-03-09T12:36:25.591152Z [INFO] Starting HTTP API
+2018-03-09T12:36:25.610927Z [INFO] Power Target mode is now active; Legacy ATM will be disabled
+2018-03-09T12:36:25.777526Z [INFO] Starting PIC controller
+2018-03-09T12:36:25.778179Z [INFO] Starting PIC controller
+2018-03-09T12:36:26.309529Z [INFO] Cycle board reset
+2018-03-09T12:36:26.345175Z [INFO] Board reset complete
+2018-03-09T12:36:26.581494Z [INFO] Opening TCP connection
+2018-03-09T12:36:26.583124Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:26.583315Z [INFO] Connecting to pool
+2018-03-09T12:36:26.584342Z [INFO] Pool status changed
+2018-03-09T12:36:26.584469Z [INFO] Pool status changed
+2018-03-09T12:36:26.810135Z [INFO] Cycle board reset
+2018-03-09T12:36:26.845988Z [INFO] Board reset complete
+2018-03-09T12:36:27.622465Z [INFO] ASIC Enumeration, Chip count (initialization)
+2018-03-09T12:36:27.988746Z [INFO] ASIC Enumeration, Chip count (initialization)
+2018-03-09T12:36:28.584511Z [INFO] Opening TCP connection
+2018-03-09T12:36:28.586120Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:28.586325Z [INFO] Connecting to pool
+2018-03-09T12:36:28.586889Z [INFO] Pool status changed
+2018-03-09T12:36:28.587001Z [INFO] Pool status changed
+2018-03-09T12:36:30.839417Z [INFO] Current temperatures:
+-   1: TopLeft: 28.00, TopRight: 28.00, BottomRight: 28.00, BottomLeft: 28.00
+-   2: TopLeft: 28.00, TopRight: 27.00, BottomRight: 27.00, BottomLeft: 28.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2018-03-09T12:36:31.587294Z [INFO] Opening TCP connection
+2018-03-09T12:36:31.589096Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:31.589268Z [INFO] Connecting to pool
+2018-03-09T12:36:31.589312Z [INFO] Pool status changed
+2018-03-09T12:36:31.589417Z [INFO] Pool status changed
+2018-03-09T12:36:35.590611Z [INFO] Opening TCP connection
+2018-03-09T12:36:35.592414Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:35.592627Z [WARN] Too many consecutive errors, skipping to the next pool
+2018-03-09T12:36:35.593273Z [INFO] Connecting to pool
+2018-03-09T12:36:35.593485Z [INFO] Opening TCP connection
+2018-03-09T12:36:35.594067Z [INFO] Pool status changed
+2018-03-09T12:36:35.594193Z [INFO] Pool status changed
+2018-03-09T12:36:35.594290Z [INFO] Pool status changed
+2018-03-09T12:36:35.594706Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:35.595044Z [INFO] Connecting to pool
+2018-03-09T12:36:35.595274Z [INFO] Pool status changed
+2018-03-09T12:36:35.595385Z [INFO] Pool status changed
+2018-03-09T12:36:36.596686Z [INFO] Opening TCP connection
+2018-03-09T12:36:36.598215Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:36.598386Z [INFO] Connecting to pool
+2018-03-09T12:36:36.599393Z [INFO] Pool status changed
+2018-03-09T12:36:36.599512Z [INFO] Pool status changed
+2018-03-09T12:36:38.599145Z [INFO] Opening TCP connection
+2018-03-09T12:36:38.600554Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:38.600755Z [INFO] Connecting to pool
+2018-03-09T12:36:38.600783Z [INFO] Pool status changed
+2018-03-09T12:36:38.600909Z [INFO] Pool status changed
+2018-03-09T12:36:39.979986Z [INFO] Current fan status:
+- 0 FAN4:  OK 
+- 1 FAN2:  OK 
+- 2 FAN1:  OK 
+- 3 FAN3: FAIL
+
+2018-03-09T12:36:41.602273Z [INFO] Opening TCP connection
+2018-03-09T12:36:41.603998Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:41.604214Z [INFO] Connecting to pool
+2018-03-09T12:36:41.605058Z [INFO] Pool status changed
+2018-03-09T12:36:41.605230Z [INFO] Pool status changed
+2018-03-09T12:36:44.219638Z [INFO] ASIC board summary:
+-   1:  50MHz, Elapsed: 0s, Hashing: NO , 5m:   0.00, 15m:   0.00, 1h:   0.00, Nominal:   4.91
+2018-03-09T12:36:44.278955Z [INFO] First board started; previous autotuner state will be discarded
+2018-03-09T12:36:45.605312Z [INFO] Opening TCP connection
+2018-03-09T12:36:45.606989Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:45.607160Z [WARN] Too many consecutive errors, skipping to the next pool
+2018-03-09T12:36:45.607267Z [INFO] Connecting to pool
+2018-03-09T12:36:45.607460Z [INFO] Opening TCP connection
+2018-03-09T12:36:45.608805Z [INFO] Pool status changed
+2018-03-09T12:36:45.608920Z [INFO] Pool status changed
+2018-03-09T12:36:45.609015Z [INFO] Pool status changed
+2018-03-09T12:36:45.610754Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:45.610938Z [INFO] Connecting to pool
+2018-03-09T12:36:45.612324Z [INFO] Pool status changed
+2018-03-09T12:36:45.612479Z [INFO] Pool status changed
+2018-03-09T12:36:46.612492Z [INFO] Opening TCP connection
+2018-03-09T12:36:46.614218Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:46.614389Z [INFO] Connecting to pool
+2018-03-09T12:36:46.615351Z [INFO] Pool status changed
+2018-03-09T12:36:46.615459Z [INFO] Pool status changed
+2018-03-09T12:36:46.913777Z [INFO] Ramping board frequency
+2018-03-09T12:36:46.913930Z [INFO] Ramping board frequency
+2018-03-09T12:36:46.914051Z [INFO] Ramping board voltage
+2018-03-09T12:36:46.914179Z [INFO] Ramping board voltage
+2018-03-09T12:36:48.615521Z [INFO] Opening TCP connection
+2018-03-09T12:36:48.617185Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:48.617360Z [INFO] Connecting to pool
+2018-03-09T12:36:48.618420Z [INFO] Pool status changed
+2018-03-09T12:36:48.618536Z [INFO] Pool status changed
+2018-03-09T12:36:51.618011Z [INFO] Opening TCP connection
+2018-03-09T12:36:51.619729Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:51.619906Z [INFO] Connecting to pool
+2018-03-09T12:36:51.620956Z [INFO] Pool status changed
+2018-03-09T12:36:51.621066Z [INFO] Pool status changed
+2018-03-09T12:36:55.621507Z [INFO] Opening TCP connection
+2018-03-09T12:36:55.623288Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:55.623467Z [WARN] Too many consecutive errors, skipping to the next pool
+2018-03-09T12:36:55.623578Z [INFO] Connecting to pool
+2018-03-09T12:36:55.623770Z [INFO] Opening TCP connection
+2018-03-09T12:36:55.624558Z [INFO] Pool status changed
+2018-03-09T12:36:55.624674Z [INFO] Pool status changed
+2018-03-09T12:36:55.624771Z [INFO] Pool status changed
+2018-03-09T12:36:55.627308Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:55.629889Z [INFO] Connecting to pool
+2018-03-09T12:36:55.629889Z [INFO] Pool status changed
+2018-03-09T12:36:55.630967Z [INFO] Pool status changed
+2018-03-09T12:36:56.630918Z [INFO] Opening TCP connection
+2018-03-09T12:36:56.632793Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:56.632966Z [INFO] Connecting to pool
+2018-03-09T12:36:56.633930Z [INFO] Pool status changed
+2018-03-09T12:36:56.634035Z [INFO] Pool status changed
+2018-03-09T12:36:58.634142Z [INFO] Opening TCP connection
+2018-03-09T12:36:58.635905Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:58.636071Z [INFO] Connecting to pool
+2018-03-09T12:36:58.637107Z [INFO] Pool status changed
+2018-03-09T12:36:58.637218Z [INFO] Pool status changed
+2018-03-09T12:37:01.637345Z [INFO] Opening TCP connection
+2018-03-09T12:37:01.638873Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:01.639057Z [INFO] Connecting to pool
+2018-03-09T12:37:01.640018Z [INFO] Pool status changed
+2018-03-09T12:37:01.640130Z [INFO] Pool status changed
+2018-03-09T12:37:05.640203Z [INFO] Opening TCP connection
+2018-03-09T12:37:05.641934Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:05.642748Z [INFO] Pool status changed
+2018-03-09T12:37:05.644067Z [WARN] Too many consecutive errors, skipping to the next pool
+2018-03-09T12:37:05.644749Z [INFO] Pool status changed
+2018-03-09T12:37:05.646113Z [INFO] Connecting to pool
+2018-03-09T12:37:05.646951Z [INFO] Pool status changed
+2018-03-09T12:37:05.648316Z [INFO] Opening TCP connection
+2018-03-09T12:37:05.649949Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:05.652388Z [INFO] Connecting to pool
+2018-03-09T12:37:05.652388Z [INFO] Pool status changed
+2018-03-09T12:37:05.653133Z [INFO] Pool status changed
+2018-03-09T12:37:06.654785Z [INFO] Opening TCP connection
+2018-03-09T12:37:06.656542Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:06.656712Z [INFO] Connecting to pool
+2018-03-09T12:37:06.657708Z [INFO] Pool status changed
+2018-03-09T12:37:06.657814Z [INFO] Pool status changed
+2018-03-09T12:37:08.658109Z [INFO] Opening TCP connection
+2018-03-09T12:37:08.659530Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:08.659716Z [INFO] Connecting to pool
+2018-03-09T12:37:08.660745Z [INFO] Pool status changed
+2018-03-09T12:37:08.660862Z [INFO] Pool status changed
+2018-03-09T12:37:11.661373Z [INFO] Opening TCP connection
+2018-03-09T12:37:11.663142Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:11.663319Z [INFO] Connecting to pool
+2018-03-09T12:37:11.664420Z [INFO] Pool status changed
+2018-03-09T12:37:11.664539Z [INFO] Pool status changed
+2018-03-09T12:37:15.664605Z [INFO] Opening TCP connection
+2018-03-09T12:37:15.666318Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:15.666488Z [WARN] Too many consecutive errors, skipping to the next pool
+2018-03-09T12:37:15.666600Z [INFO] Connecting to pool
+2018-03-09T12:37:15.666792Z [INFO] Opening TCP connection
+2018-03-09T12:37:15.668048Z [INFO] Pool status changed
+2018-03-09T12:37:15.668152Z [INFO] Pool status changed
+2018-03-09T12:37:15.668322Z [INFO] Pool status changed
+2018-03-09T12:37:15.670071Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:15.670239Z [INFO] Connecting to pool
+2018-03-09T12:37:15.671468Z [INFO] Pool status changed
+2018-03-09T12:37:15.671582Z [INFO] Pool status changed
+2018-03-09T12:37:16.670860Z [INFO] Opening TCP connection
+2018-03-09T12:37:16.672641Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:16.672813Z [INFO] Connecting to pool
+2018-03-09T12:37:16.673735Z [INFO] Pool status changed
+2018-03-09T12:37:16.673848Z [INFO] Pool status changed
+2018-03-09T12:37:18.674684Z [INFO] Opening TCP connection
+2018-03-09T12:37:18.677132Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:18.677833Z [INFO] Pool status changed
+2018-03-09T12:37:18.679292Z [INFO] Connecting to pool
+2018-03-09T12:37:18.680362Z [INFO] Pool status changed
+2018-03-09T12:37:20.594466Z [INFO] System entering the HALTED state
+2018-03-09T12:37:20.696933Z [INFO] Board powered off
+2018-03-09T12:37:20.697074Z [INFO] Board powered off
+2018-03-09T12:37:21.681945Z [INFO] Opening TCP connection
+2018-03-09T12:37:21.683435Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:21.683624Z [INFO] Connecting to pool
+2018-03-09T12:37:21.683688Z [INFO] Pool status changed
+2018-03-09T12:37:21.683793Z [INFO] Pool status changed
+2018-03-09T12:37:25.685636Z [INFO] Opening TCP connection
+2018-03-09T12:37:25.687175Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:25.687408Z [WARN] Too many consecutive errors, skipping to the next pool
+2018-03-09T12:37:25.687451Z [INFO] Pool status changed
+2018-03-09T12:37:25.687543Z [INFO] Connecting to pool
+2018-03-09T12:37:25.687557Z [INFO] Pool status changed
+2018-03-09T12:37:25.687657Z [INFO] Pool status changed
+2018-03-09T12:37:25.687753Z [INFO] Opening TCP connection
+2018-03-09T12:37:25.690317Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:25.690542Z [INFO] Connecting to pool
+2018-03-09T12:37:25.690602Z [INFO] Pool status changed
+2018-03-09T12:37:25.690708Z [INFO] Pool status changed
+2018-03-09T12:37:26.692501Z [INFO] Opening TCP connection
+2018-03-09T12:37:26.693891Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:26.694104Z [INFO] Connecting to pool
+2018-03-09T12:37:26.694141Z [INFO] Pool status changed
+2018-03-09T12:37:26.694248Z [INFO] Pool status changed
+2018-03-09T12:37:26.866552Z [INFO] Set power supply pin to OFF
+2018-03-09T12:37:26.942781Z [INFO] Current power status: OFF
+2018-03-09T12:37:28.695318Z [INFO] Opening TCP connection
+2018-03-09T12:37:28.696866Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:28.697050Z [INFO] Connecting to pool
+2018-03-09T12:37:28.697817Z [INFO] Pool status changed
+2018-03-09T12:37:28.697933Z [INFO] Pool status changed
+2018-03-09T12:37:31.698484Z [INFO] Opening TCP connection
+2018-03-09T12:37:31.759102Z [INFO] Connection successful
+2018-03-09T12:37:31.759750Z [INFO] Pool status changed
+2018-03-09T12:37:31.824592Z [INFO] System entering the NORMAL state
+2018-03-09T12:37:31.926844Z [INFO] Set power supply pin to ON
+2018-03-09T12:37:31.947820Z [INFO] Current power status: ON
+2018-03-09T12:37:32.015743Z [INFO] Authorization successful
+2018-03-09T12:37:32.018859Z [INFO] New pool difficulty
+2018-03-09T12:37:32.651494Z [INFO] Connecting to pool
+2018-03-09T12:37:32.651789Z [INFO] Opening TCP connection
+2018-03-09T12:37:32.652656Z [INFO] Pool status changed
+2018-03-09T12:37:32.739650Z [INFO] Connection successful
+2018-03-09T12:37:32.740534Z [INFO] Pool status changed
+2018-03-09T12:37:32.968548Z [INFO] New pool difficulty
+2018-03-09T12:37:33.019302Z [INFO] Authorization successful
+2018-03-09T12:37:34.960750Z [INFO] Starting PIC controller
+2018-03-09T12:37:34.961691Z [INFO] Starting PIC controller
+2018-03-09T12:37:35.532315Z [INFO] Cycle board reset
+2018-03-09T12:37:35.577265Z [INFO] Board reset complete
+2018-03-09T12:37:36.032496Z [INFO] Cycle board reset
+2018-03-09T12:37:36.077782Z [INFO] Board reset complete
+2018-03-09T12:37:36.744760Z [INFO] ASIC Enumeration, Chip count (initialization)
+2018-03-09T12:37:37.344732Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-15T23:42:28.199356Z [INFO] First board started; previous autotuner state will be discarded
+2026-04-15T23:42:28.807674Z [INFO] Ramping board frequency
+2026-04-15T23:42:28.807849Z [INFO] Ramping board frequency
+2026-04-15T23:42:28.807975Z [INFO] Ramping board voltage
+2026-04-15T23:42:28.808148Z [INFO] Ramping board voltage
+2026-04-15T23:42:48.161571Z [INFO] Ramping board frequency
+2026-04-15T23:42:48.161796Z [INFO] Ramping board frequency
+2026-04-15T23:43:29.523387Z [INFO] Ramping board frequency
+2026-04-15T23:43:29.523545Z [INFO] Ramping board frequency
+2026-04-15T23:43:48.695970Z [INFO] Shares counter
+2026-04-15T23:43:50.457847Z [INFO] Ramping board frequency
+2026-04-15T23:43:50.458007Z [INFO] Ramping board frequency
+2026-04-15T23:44:11.403902Z [INFO] Ramping board frequency
+2026-04-15T23:44:11.404060Z [INFO] Ramping board frequency
+2026-04-15T23:44:11.659071Z [INFO] New pool difficulty
+2026-04-15T23:44:32.340904Z [INFO] Ramping board frequency
+2026-04-15T23:44:32.341057Z [INFO] Ramping board frequency
+2026-04-15T23:44:53.265024Z [INFO] Ramping board frequency
+2026-04-15T23:44:53.265177Z [INFO] Ramping board frequency
+2026-04-15T23:45:14.199207Z [INFO] Ramping board frequency
+2026-04-15T23:45:14.199355Z [INFO] Ramping board frequency
+2026-04-15T23:45:35.146533Z [INFO] Ramping board frequency
+2026-04-15T23:45:35.146687Z [INFO] Ramping board frequency
+2026-04-15T23:45:55.351606Z [INFO] Checking available disk space
+2026-04-15T23:45:56.078600Z [INFO] Ramping board frequency
+2026-04-15T23:45:56.078754Z [INFO] Ramping board frequency
+2026-04-15T23:46:07.419164Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 41.00, BottomRight: 41.00, BottomLeft: 54.00
+-   2: TopLeft: 54.00, TopRight: 39.00, BottomRight: 39.00, BottomLeft: 54.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-15T23:46:17.021910Z [INFO] Ramping board frequency
+2026-04-15T23:46:17.022065Z [INFO] Ramping board frequency
+2026-04-15T23:46:20.559495Z [INFO] ASIC board summary, 14V:
+-  *1: 305MHz, Elapsed:    3m 52s, Hashing: YES, 5m:  16.16, 15m:  16.16, 1h:  16.16, Nominal:  29.99
+-  *2: 300MHz, Elapsed:    3m 47s, Hashing: YES, 5m:  15.86, 15m:  15.86, 1h:  15.86, Nominal:  29.50
+2026-04-15T23:46:37.862058Z [INFO] Ramping board frequency
+2026-04-15T23:46:37.862213Z [INFO] Ramping board frequency
+2026-04-15T23:47:03.245437Z [WARN] 2 unexpected data on command bus prior to setting up a command readback. 220 words were purged from the Command FIFO (cumulative total: 220)
+2026-04-15T23:47:13.372238Z [INFO] Starting early optimization phase.
+2026-04-15T23:47:13.374404Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:47:13.374616Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:47:38.874753Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:47:38.874944Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:48:04.465364Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:48:04.465556Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:48:15.190570Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-15T23:48:15.391855Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-15T23:48:25.823444Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:48:25.823659Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:48:36.717056Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-15T23:48:36.917885Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-15T23:48:47.492518Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:48:47.492717Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:48:49.833080Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-15T23:48:52.136497Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-15T23:48:55.090665Z [INFO] Shares counter
+2026-04-15T23:49:02.349624Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-15T23:49:04.653140Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-15T23:49:15.114314Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:49:15.114504Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:49:23.879791Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-15T23:49:24.080583Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-15T23:49:34.545404Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:49:34.545604Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:49:41.101458Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-15T23:49:43.404850Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-15T23:49:58.219026Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:49:58.219225Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:50:01.018024Z [INFO] New pool difficulty
+2026-04-15T23:50:02.627525Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-15T23:50:04.934210Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-15T23:50:19.896508Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:50:19.896707Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:50:30.776751Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-15T23:50:30.977491Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-15T23:50:31.437333Z [WARN] 2 unexpected data on command bus prior to setting up a command readback. 220 words were purged from the Command FIFO (cumulative total: 440)
+2026-04-15T23:50:41.340642Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:50:41.340832Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:50:52.310002Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-15T23:50:55.351454Z [INFO] Checking available disk space
+2026-04-15T23:51:02.687589Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:51:02.687786Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:51:08.719924Z [INFO] Current temperatures:
+-   1: TopLeft: 56.00, TopRight: 41.00, BottomRight: 41.00, BottomLeft: 56.00
+-   2: TopLeft: 57.00, TopRight: 39.00, BottomRight: 39.00, BottomLeft: 57.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-15T23:51:09.242414Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-15T23:51:11.545665Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-15T23:51:23.427911Z [INFO] ASIC board summary, 13.18V:
+-   1: 425MHz, Elapsed:    8m 55s, Hashing: YES, 5m:  37.51, 15m:  28.13, 1h:  28.13, Nominal:  41.79
+-   2: 426MHz, Elapsed:    8m 50s, Hashing: YES, 5m:  37.37, 15m:  28.04, 1h:  28.04, Nominal:  41.89
+2026-04-15T23:51:26.278927Z [INFO] Starting power tune phase.
+2026-04-15T23:52:44.307736Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:52:44.307932Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:52:48.758228Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-15T23:52:51.061285Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-15T23:53:56.733190Z [INFO] Shares counter
+2026-04-15T23:55:55.351314Z [INFO] Checking available disk space
+2026-04-15T23:56:09.916757Z [INFO] Current temperatures:
+-   1: TopLeft: 55.00, TopRight: 41.00, BottomRight: 41.00, BottomLeft: 55.00
+-   2: TopLeft: 56.00, TopRight: 39.00, BottomRight: 39.00, BottomLeft: 56.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-15T23:56:25.219027Z [INFO] ASIC board summary, 13.09V:
+-   1: 430MHz, Elapsed:   13m 52s, Hashing: YES, 5m:  42.03, 15m:  33.08, 1h:  33.08, Nominal:  42.28
+-   2: 431MHz, Elapsed:   13m 57s, Hashing: YES, 5m:  42.23, 15m:  33.21, 1h:  33.21, Nominal:  42.38
+2026-04-15T23:56:55.135081Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:56:55.135277Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:57:06.168755Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-15T23:58:36.419247Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:58:36.419440Z [INFO] Ramping board frequency and voltage
+2026-04-15T23:59:01.109400Z [INFO] Shares counter
+2026-04-16T00:00:17.072626Z [INFO] Ramping board frequency and voltage
+2026-04-16T00:00:17.072836Z [INFO] Ramping board frequency and voltage
+2026-04-16T00:00:21.505029Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T00:00:23.808096Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T00:00:55.352230Z [INFO] Checking available disk space
+2026-04-16T00:01:03.804628Z [WARN] Job ID not found in the jobs queue; share will not be submitted
+2026-04-16T00:01:12.280290Z [INFO] Current temperatures:
+-   1: TopLeft: 55.00, TopRight: 41.00, BottomRight: 41.00, BottomLeft: 55.00
+-   2: TopLeft: 56.00, TopRight: 39.00, BottomRight: 39.00, BottomLeft: 56.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T00:01:27.441462Z [INFO] ASIC board summary, 12.85V:
+-   1: 450MHz, Elapsed:   18m 54s, Hashing: YES, 5m:  43.28, 15m:  40.94, 1h:  35.79, Nominal:  44.25
+-   2: 450MHz, Elapsed:   18m 59s, Hashing: YES, 5m:  43.25, 15m:  41.07, 1h:  35.87, Nominal:  44.25
+2026-04-16T00:03:13.109282Z [INFO] Ramping board frequency and voltage
+2026-04-16T00:03:13.109482Z [INFO] Ramping board frequency and voltage
+2026-04-16T00:03:17.528180Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T00:03:19.831553Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T00:04:03.524872Z [INFO] Shares counter
+2026-04-16T00:04:54.691626Z [INFO] Ramping board frequency and voltage
+2026-04-16T00:04:54.691824Z [INFO] Ramping board frequency and voltage
+2026-04-16T00:05:55.351489Z [INFO] Checking available disk space
+2026-04-16T00:06:13.982390Z [INFO] Current temperatures:
+-   1: TopLeft: 55.00, TopRight: 40.00, BottomRight: 40.00, BottomLeft: 55.00
+-   2: TopLeft: 56.00, TopRight: 38.00, BottomRight: 38.00, BottomLeft: 56.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T00:06:30.438427Z [INFO] ASIC board summary, 12.71V:
+-   1: 465MHz, Elapsed:   23m 57s, Hashing: YES, 5m:  44.88, 15m:  43.41, 1h:  37.69, Nominal:  45.72
+-   2: 465MHz, Elapsed:    24m 2s, Hashing: YES, 5m:  44.75, 15m:  43.41, 1h:  37.72, Nominal:  45.72
+2026-04-16T00:07:50.864921Z [INFO] Ramping board frequency and voltage
+2026-04-16T00:07:50.865117Z [INFO] Ramping board frequency and voltage
+2026-04-16T00:07:55.276572Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T00:07:57.582016Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T00:09:20.306671Z [INFO] Shares counter
+2026-04-16T00:10:55.351790Z [INFO] Checking available disk space
+2026-04-16T00:11:15.120400Z [INFO] Current temperatures:
+-   1: TopLeft: 55.00, TopRight: 40.00, BottomRight: 40.00, BottomLeft: 55.00
+-   2: TopLeft: 56.00, TopRight: 38.00, BottomRight: 38.00, BottomLeft: 56.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T00:11:33.490953Z [INFO] ASIC board summary, 12.62V:
+-   1: 470MHz, Elapsed:    29m 5s, Hashing: YES, 5m:  45.96, 15m:  44.74, 1h:  39.15, Nominal:  46.21
+-   2: 470MHz, Elapsed:       29m, Hashing: YES, 5m:  45.83, 15m:  44.61, 1h:  39.11, Nominal:  46.21
+2026-04-16T00:12:02.918443Z [INFO] Starting domain tune phase
+2026-04-16T00:13:18.091519Z [INFO] Ramping board voltage
+2026-04-16T00:13:18.091793Z [INFO] Ramping board voltage
+2026-04-16T00:14:04.554890Z [INFO] Ramping board voltage
+2026-04-16T00:14:04.555091Z [INFO] Ramping board voltage
+2026-04-16T00:14:22.351217Z [INFO] Shares counter
+2026-04-16T00:15:46.153004Z [INFO] Ramping board voltage
+2026-04-16T00:15:46.153195Z [INFO] Ramping board voltage
+2026-04-16T00:15:55.352230Z [INFO] Checking available disk space
+2026-04-16T00:16:15.622199Z [ERROR] Error reading chip PLL
+2026-04-16T00:16:15.622385Z [ERROR] Error reading chip PLL
+2026-04-16T00:16:16.403065Z [INFO] Current temperatures:
+-   1: TopLeft: 55.00, TopRight: 40.00, BottomRight: 40.00, BottomLeft: 55.00
+-   2: TopLeft: 56.00, TopRight: 38.00, BottomRight: 38.00, BottomLeft: 56.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T00:16:30.063629Z [INFO] Ramping board voltage
+2026-04-16T00:16:30.063814Z [INFO] Ramping board voltage
+2026-04-16T00:16:36.233952Z [INFO] ASIC board summary, 12.71V:
+-  *1: 480MHz, Elapsed:    34m 8s, Hashing: YES, 5m:  46.38, 15m:  45.76, 1h:  40.21, Nominal:  46.89
+-  *2: 480MHz, Elapsed:    34m 3s, Hashing: YES, 5m:  46.30, 15m:  45.63, 1h:  40.17, Nominal:  46.84
+2026-04-16T00:18:12.682543Z [INFO] Ramping board voltage
+2026-04-16T00:18:12.682729Z [INFO] Ramping board voltage
+2026-04-16T00:18:52.227990Z [INFO] Ramping board voltage
+2026-04-16T00:18:52.228188Z [INFO] Ramping board voltage
+2026-04-16T00:19:34.103637Z [INFO] Shares counter
+2026-04-16T00:20:34.033990Z [INFO] Ramping board voltage
+2026-04-16T00:20:34.034175Z [INFO] Ramping board voltage
+2026-04-16T00:20:36.372272Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T00:20:38.675531Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T00:20:55.352058Z [INFO] Checking available disk space
+2026-04-16T00:21:17.734252Z [INFO] Current temperatures:
+-   1: TopLeft: 55.00, TopRight: 40.00, BottomRight: 40.00, BottomLeft: 55.00
+-   2: TopLeft: 56.00, TopRight: 38.00, BottomRight: 38.00, BottomLeft: 56.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T00:21:39.088420Z [INFO] ASIC board summary, 12.57V:
+-   1: 485MHz, Elapsed:   39m 11s, Hashing: YES, 5m:  46.89, 15m:  46.42, 1h:  41.07, Nominal:  47.11
+-   2: 485MHz, Elapsed:    39m 6s, Hashing: YES, 5m:  46.69, 15m:  46.28, 1h:  41.01, Nominal:  47.02
+2026-04-16T00:22:09.896341Z [INFO] Ramping board voltage
+2026-04-16T00:22:09.896529Z [INFO] Ramping board voltage
+2026-04-16T00:22:35.228241Z [ERROR] Error reading chip PLL
+2026-04-16T00:22:35.228426Z [ERROR] Error reading chip PLL
+2026-04-16T00:22:49.651181Z [INFO] Ramping board voltage
+2026-04-16T00:22:49.651393Z [INFO] Ramping board voltage
+2026-04-16T00:24:31.330230Z [INFO] Ramping board voltage
+2026-04-16T00:24:31.330423Z [INFO] Ramping board voltage
+2026-04-16T00:25:08.689589Z [INFO] Ramping board voltage
+2026-04-16T00:25:08.689835Z [INFO] Ramping board voltage
+2026-04-16T00:25:21.520073Z [INFO] Shares counter
+2026-04-16T00:25:55.351285Z [INFO] Checking available disk space
+2026-04-16T00:26:18.861311Z [INFO] Current temperatures:
+-   1: TopLeft: 55.00, TopRight: 40.00, BottomRight: 40.00, BottomLeft: 55.00
+-   2: TopLeft: 56.00, TopRight: 38.00, BottomRight: 38.00, BottomLeft: 56.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T00:26:41.841188Z [INFO] ASIC board summary, 12.57V:
+-   1: 495MHz, Elapsed:   44m 13s, Hashing: YES, 5m:  47.39, 15m:  46.89, 1h:  41.79, Nominal:  47.69
+-   2: 490MHz, Elapsed:    44m 9s, Hashing: YES, 5m:  46.85, 15m:  46.62, 1h:  41.68, Nominal:  47.20
+2026-04-16T00:26:52.395819Z [INFO] Ramping board voltage
+2026-04-16T00:26:52.395996Z [INFO] Ramping board voltage
+2026-04-16T00:28:23.462661Z [INFO] Ramping board voltage
+2026-04-16T00:28:23.462851Z [INFO] Ramping board voltage
+2026-04-16T00:28:48.401954Z [ERROR] Error reading chip PLL
+2026-04-16T00:28:48.402121Z [ERROR] Error reading chip PLL
+2026-04-16T00:28:48.402422Z [ERROR] Error reading chip PLL
+2026-04-16T00:28:48.402631Z [ERROR] Error reading chip PLL
+2026-04-16T00:28:48.402819Z [ERROR] Error reading chip PLL
+2026-04-16T00:28:48.403007Z [ERROR] Error reading chip PLL
+2026-04-16T00:28:58.179379Z [INFO] Ramping board voltage
+2026-04-16T00:28:58.179568Z [INFO] Ramping board voltage
+2026-04-16T00:30:24.971543Z [INFO] Shares counter
+2026-04-16T00:30:39.055496Z [INFO] Ramping board voltage
+2026-04-16T00:30:39.055686Z [INFO] Ramping board voltage
+2026-04-16T00:30:55.352168Z [INFO] Checking available disk space
+2026-04-16T00:30:59.467471Z [ERROR] Error reading chip PLL
+2026-04-16T00:30:59.467679Z [ERROR] Error reading chip PLL
+2026-04-16T00:31:08.332176Z [ERROR] Error reading chip PLL
+2026-04-16T00:31:08.332369Z [ERROR] Error reading chip PLL
+2026-04-16T00:31:20.102025Z [INFO] Current temperatures:
+-   1: TopLeft: 55.00, TopRight: 40.00, BottomRight: 40.00, BottomLeft: 55.00
+-   2: TopLeft: 56.00, TopRight: 38.00, BottomRight: 38.00, BottomLeft: 56.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T00:31:22.740474Z [INFO] Ramping board voltage
+2026-04-16T00:31:22.740657Z [INFO] Ramping board voltage
+2026-04-16T00:31:44.004533Z [INFO] ASIC board summary, 12.52V:
+-   1: 500MHz, Elapsed:   49m 16s, Hashing: YES, 5m:  47.63, 15m:  47.31, 1h:  42.39, Nominal:  48.05
+-   2: 495MHz, Elapsed:   49m 11s, Hashing: YES, 5m:  47.14, 15m:  46.90, 1h:  42.24, Nominal:  47.47
+2026-04-16T00:32:12.499024Z [INFO] Received API command: curtail, params=wVBp2YRP,sleep
+2026-04-16T00:32:12.513796Z [INFO] Skipping group connection due to curtailment
+2026-04-16T00:32:12.514575Z [INFO] Skipping group connection due to curtailment
+2026-04-16T00:32:12.537322Z [INFO] Configuration changed to: 
+[app]
++ curtailment_mode = "sleep"
+
+2026-04-16T00:32:12.537509Z [INFO] Pool status changed
+2026-04-16T00:32:12.537613Z [INFO] Pool status changed
+2026-04-16T00:32:12.571247Z [INFO] Setting curtailment to sleep mode...
+2026-04-16T00:32:12.573285Z [INFO] Powering off the board due to curtailment...
+2026-04-16T00:32:12.573529Z [INFO] Powering off the board due to curtailment...
+2026-04-16T00:32:12.574155Z [INFO] Board powered off
+2026-04-16T00:32:12.574327Z [INFO] Board powered off
+2026-04-16T00:32:12.675002Z [INFO] First board started; previous autotuner state will be discarded
+2026-04-16T00:32:12.675152Z [INFO] First board started; previous autotuner state will be discarded
+2026-04-16T00:32:15.463567Z [INFO] Pools configuration:
+Group default, quota: 1:
+  Pools:
+  - url: sha256.poolbinance.com:443, user: NCATX.019
+  - url: btc.poolbinance.com:1800, user: NCATX.019
+  - url: bs.poolbinance.com:3333, user: NCATX.019
+
+2026-04-16T00:32:15.708241Z [INFO] Set power supply pin to OFF
+2026-04-16T00:32:15.807939Z [INFO] Current power status: OFF
+2026-04-16T00:35:55.352062Z [INFO] Checking available disk space
+2026-04-16T00:36:21.225378Z [INFO] Current temperatures:
+-   1: TopLeft: 28.00, TopRight: 26.00, BottomRight: 26.00, BottomLeft: 28.00
+-   2: TopLeft: 28.00, TopRight: 26.00, BottomRight: 26.00, BottomLeft: 28.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T00:40:55.352683Z [INFO] Checking available disk space
+2026-04-16T00:41:22.344956Z [INFO] Current temperatures:
+-   1: TopLeft: 25.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 25.00
+-   2: TopLeft: 25.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 25.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T00:45:55.351643Z [INFO] Checking available disk space
+2026-04-16T00:46:23.457881Z [INFO] Current temperatures:
+-   1: TopLeft: 25.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 25.00
+-   2: TopLeft: 25.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 25.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T00:50:55.352663Z [INFO] Checking available disk space
+2026-04-16T00:51:24.613854Z [INFO] Current temperatures:
+-   1: TopLeft: 25.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 25.00
+-   2: TopLeft: 25.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 25.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T00:55:55.353835Z [INFO] Checking available disk space
+2026-04-16T00:56:25.707696Z [INFO] Current temperatures:
+-   1: TopLeft: 25.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 25.00
+-   2: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T01:00:55.351775Z [INFO] Checking available disk space
+2026-04-16T01:01:26.833448Z [INFO] Current temperatures:
+-   1: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+-   2: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T01:05:55.351779Z [INFO] Checking available disk space
+2026-04-16T01:06:27.930211Z [INFO] Current temperatures:
+-   1: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+-   2: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T01:10:55.351708Z [INFO] Checking available disk space
+2026-04-16T01:11:29.060442Z [INFO] Current temperatures:
+-   1: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+-   2: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T01:15:55.352722Z [INFO] Checking available disk space
+2026-04-16T01:16:30.166105Z [INFO] Current temperatures:
+-   1: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+-   2: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T01:20:55.351885Z [INFO] Checking available disk space
+2026-04-16T01:21:31.293983Z [INFO] Current temperatures:
+-   1: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+-   2: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T01:25:55.351467Z [INFO] Checking available disk space
+2026-04-16T01:26:32.404764Z [INFO] Current temperatures:
+-   1: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+-   2: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T01:30:55.353856Z [INFO] Checking available disk space
+2026-04-16T01:31:33.542302Z [INFO] Current temperatures:
+-   1: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+-   2: TopLeft: 24.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 24.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T01:35:55.351779Z [INFO] Checking available disk space
+2026-04-16T01:36:34.674916Z [INFO] Current temperatures:
+-   1: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T01:40:55.351556Z [INFO] Checking available disk space
+2026-04-16T01:41:35.802314Z [INFO] Current temperatures:
+-   1: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T01:45:55.352575Z [INFO] Checking available disk space
+2026-04-16T01:46:36.915751Z [INFO] Current temperatures:
+-   1: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T01:50:55.351271Z [INFO] Checking available disk space
+2026-04-16T01:51:38.038968Z [INFO] Current temperatures:
+-   1: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T01:55:55.351517Z [INFO] Checking available disk space
+2026-04-16T01:56:39.175752Z [INFO] Current temperatures:
+-   1: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T02:00:55.353813Z [INFO] Checking available disk space
+2026-04-16T02:01:40.307916Z [INFO] Current temperatures:
+-   1: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T02:05:55.351464Z [INFO] Checking available disk space
+2026-04-16T02:06:41.447667Z [INFO] Current temperatures:
+-   1: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T02:10:55.353101Z [INFO] Checking available disk space
+2026-04-16T02:11:42.594521Z [INFO] Current temperatures:
+-   1: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T02:15:55.351295Z [INFO] Checking available disk space
+2026-04-16T02:16:43.740473Z [INFO] Current temperatures:
+-   1: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T02:20:55.352702Z [INFO] Checking available disk space
+2026-04-16T02:21:44.859862Z [INFO] Current temperatures:
+-   1: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   2: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T02:25:55.351687Z [INFO] Checking available disk space
+2026-04-16T02:26:45.989202Z [INFO] Current temperatures:
+-   1: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   2: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T02:30:55.351408Z [INFO] Checking available disk space
+2026-04-16T02:31:47.131562Z [INFO] Current temperatures:
+-   1: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   2: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T02:35:55.351562Z [INFO] Checking available disk space
+2026-04-16T02:36:48.249496Z [INFO] Current temperatures:
+-   1: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   2: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T02:40:55.353493Z [INFO] Checking available disk space
+2026-04-16T02:41:49.383249Z [INFO] Current temperatures:
+-   1: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   2: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T02:45:55.351533Z [INFO] Checking available disk space
+2026-04-16T02:46:50.516940Z [INFO] Current temperatures:
+-   1: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T02:50:55.351419Z [INFO] Checking available disk space
+2026-04-16T02:51:51.640169Z [INFO] Current temperatures:
+-   1: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T02:55:55.352078Z [INFO] Checking available disk space
+2026-04-16T02:56:52.769081Z [INFO] Current temperatures:
+-   1: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T03:00:55.352222Z [INFO] Checking available disk space
+2026-04-16T03:01:53.898978Z [INFO] Current temperatures:
+-   1: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T03:05:55.351618Z [INFO] Checking available disk space
+2026-04-16T03:06:55.042616Z [INFO] Current temperatures:
+-   1: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T03:10:55.351715Z [INFO] Checking available disk space
+2026-04-16T03:11:56.177550Z [INFO] Current temperatures:
+-   1: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T03:15:55.351622Z [INFO] Checking available disk space
+2026-04-16T03:16:57.301230Z [INFO] Current temperatures:
+-   1: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T03:20:55.353646Z [INFO] Checking available disk space
+2026-04-16T03:21:58.434110Z [INFO] Current temperatures:
+-   1: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T03:22:29.224923Z [INFO] Received API command: curtail, params=tTGEodR7,wakeup
+2026-04-16T03:22:29.230563Z [INFO] Connecting to pool
+2026-04-16T03:22:29.230920Z [INFO] Opening TCP connection
+2026-04-16T03:22:29.231420Z [INFO] Connecting to pool
+2026-04-16T03:22:29.231752Z [INFO] Opening TCP connection
+2026-04-16T03:22:29.232261Z [INFO] Configuration changed to: 
+[app]
+- curtailment_mode = "sleep"
+
+2026-04-16T03:22:29.233677Z [INFO] Pool status changed
+2026-04-16T03:22:29.235292Z [INFO] Pool status changed
+2026-04-16T03:22:29.250301Z [INFO] Setting curtailment to wake up...
+2026-04-16T03:22:29.250773Z [INFO] Set power supply pin to ON
+2026-04-16T03:22:29.296864Z [INFO] Connection successful
+2026-04-16T03:22:29.297574Z [INFO] Pool status changed
+2026-04-16T03:22:29.309870Z [INFO] Current power status: ON
+2026-04-16T03:22:29.312957Z [INFO] Connection successful
+2026-04-16T03:22:29.314016Z [INFO] Pool status changed
+2026-04-16T03:22:29.534231Z [INFO] Authorization successful
+2026-04-16T03:22:29.536371Z [INFO] New pool difficulty
+2026-04-16T03:22:29.641284Z [INFO] New pool difficulty
+2026-04-16T03:22:29.692358Z [INFO] Authorization successful
+2026-04-16T03:22:32.287695Z [INFO] Starting PIC controller
+2026-04-16T03:22:32.288453Z [INFO] Starting PIC controller
+2026-04-16T03:22:32.627848Z [INFO] Cycle board reset
+2026-04-16T03:22:32.650446Z [INFO] Board reset complete
+2026-04-16T03:22:33.127752Z [INFO] Cycle board reset
+2026-04-16T03:22:33.150944Z [INFO] Board reset complete
+2026-04-16T03:22:33.810210Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-16T03:22:34.410306Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-16T03:22:50.286927Z [INFO] ASIC board summary, 12.52V:
+-   1:  50MHz, Elapsed: 0s, Hashing: YES, 5m:   0.01, 15m:   0.01, 1h:   0.01, Nominal:   4.91
+2026-04-16T03:22:50.290911Z [INFO] First board started; previous autotuner state will be discarded
+2026-04-16T03:22:50.424935Z [ERROR] XXXXXXXX reading empty work return fifo!!. Simulating with 0.
+2026-04-16T03:22:50.998826Z [INFO] Ramping board frequency
+2026-04-16T03:22:50.998987Z [INFO] Ramping board frequency
+2026-04-16T03:22:50.999108Z [INFO] Ramping board voltage
+2026-04-16T03:22:50.999238Z [INFO] Ramping board voltage
+2026-04-16T03:22:51.038203Z [ERROR] XXXXXXXX reading empty work return fifo!!. Simulating with 0.
+2026-04-16T03:22:57.568124Z [INFO] Ramping board voltage
+2026-04-16T03:22:57.568314Z [INFO] Ramping board voltage
+2026-04-16T03:23:02.635118Z [INFO] Ramping board voltage
+2026-04-16T03:23:02.635300Z [INFO] Ramping board voltage
+2026-04-16T03:23:07.592370Z [INFO] Ramping board voltage
+2026-04-16T03:23:07.592551Z [INFO] Ramping board voltage
+2026-04-16T03:23:12.652739Z [INFO] Ramping board voltage
+2026-04-16T03:23:12.652917Z [INFO] Ramping board voltage
+2026-04-16T03:23:19.073396Z [INFO] Shares counter
+2026-04-16T03:23:19.731129Z [INFO] Ramping board voltage
+2026-04-16T03:23:19.732307Z [INFO] Ramping board voltage
+2026-04-16T03:23:26.281770Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T03:23:28.584620Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T03:23:28.941119Z [INFO] Ramping board voltage
+2026-04-16T03:23:28.941300Z [INFO] Ramping board voltage
+2026-04-16T03:23:33.894356Z [INFO] Ramping board voltage
+2026-04-16T03:23:33.894581Z [INFO] Ramping board voltage
+2026-04-16T03:23:38.952260Z [INFO] Ramping board voltage
+2026-04-16T03:23:38.952444Z [INFO] Ramping board voltage
+2026-04-16T03:23:46.033404Z [INFO] Ramping board voltage
+2026-04-16T03:23:46.033589Z [INFO] Ramping board voltage
+2026-04-16T03:23:53.214992Z [INFO] Ramping board voltage
+2026-04-16T03:23:53.215181Z [INFO] Ramping board voltage
+2026-04-16T03:23:58.171942Z [INFO] Ramping board voltage
+2026-04-16T03:23:58.172130Z [INFO] Ramping board voltage
+2026-04-16T03:24:02.627647Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T03:24:04.930849Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T03:24:05.253399Z [INFO] Ramping board voltage
+2026-04-16T03:24:05.253582Z [INFO] Ramping board voltage
+2026-04-16T03:24:10.312790Z [INFO] Ramping board voltage
+2026-04-16T03:24:10.312970Z [INFO] Ramping board voltage
+2026-04-16T03:24:17.398413Z [INFO] Ramping board voltage
+2026-04-16T03:24:17.398592Z [INFO] Ramping board voltage
+2026-04-16T03:24:22.355971Z [INFO] Ramping board frequency
+2026-04-16T03:24:22.356123Z [INFO] Ramping board frequency
+2026-04-16T03:24:36.031481Z [INFO] New pool difficulty
+2026-04-16T03:24:36.095613Z [INFO] New pool difficulty
+2026-04-16T03:24:52.008131Z [INFO] New pool difficulty
+2026-04-16T03:25:03.818965Z [INFO] Ramping board frequency
+2026-04-16T03:25:03.819121Z [INFO] Ramping board frequency
+2026-04-16T03:25:24.752732Z [INFO] Ramping board frequency
+2026-04-16T03:25:24.752880Z [INFO] Ramping board frequency
+2026-04-16T03:25:27.533997Z [INFO] New pool difficulty
+2026-04-16T03:25:45.686511Z [INFO] Ramping board frequency
+2026-04-16T03:25:45.686678Z [INFO] Ramping board frequency
+2026-04-16T03:25:55.351634Z [INFO] Checking available disk space
+2026-04-16T03:25:58.985140Z [INFO] New pool difficulty
+2026-04-16T03:26:06.620104Z [INFO] Ramping board frequency
+2026-04-16T03:26:06.620308Z [INFO] Ramping board frequency
+2026-04-16T03:26:27.551982Z [INFO] Ramping board frequency
+2026-04-16T03:26:27.552140Z [INFO] Ramping board frequency
+2026-04-16T03:26:44.338570Z [INFO] Ramping board frequency
+2026-04-16T03:26:44.338742Z [INFO] Ramping board frequency
+2026-04-16T03:26:59.546988Z [INFO] Current temperatures:
+-   1: TopLeft: 41.00, TopRight: 35.00, BottomRight: 35.00, BottomLeft: 41.00
+-   2: TopLeft: 42.00, TopRight: 34.00, BottomRight: 34.00, BottomLeft: 42.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T03:27:05.283248Z [INFO] Ramping board frequency
+2026-04-16T03:27:05.283398Z [INFO] Ramping board frequency
+2026-04-16T03:27:26.217963Z [INFO] Ramping board frequency
+2026-04-16T03:27:26.218118Z [INFO] Ramping board frequency
+2026-04-16T03:27:47.154885Z [INFO] Ramping board frequency
+2026-04-16T03:27:47.155057Z [INFO] Ramping board frequency
+2026-04-16T03:27:53.635614Z [INFO] ASIC board summary, 14V:
+-  *1: 305MHz, Elapsed:     5m 3s, Hashing: YES, 5m:  13.68, 15m:  13.45, 1h:  13.45, Nominal:  29.99
+-  *2: 300MHz, Elapsed:    4m 59s, Hashing: YES, 5m:  13.25, 15m:  13.25, 1h:  13.25, Nominal:  29.50
+2026-04-16T03:28:06.855361Z [INFO] New pool difficulty
+2026-04-16T03:28:08.093178Z [INFO] Ramping board frequency
+2026-04-16T03:28:08.093351Z [INFO] Ramping board frequency
+2026-04-16T03:28:20.134657Z [INFO] Shares counter
+2026-04-16T03:28:33.089945Z [INFO] Ramping board frequency
+2026-04-16T03:28:33.090102Z [INFO] Ramping board frequency
+2026-04-16T03:29:08.489945Z [INFO] Starting early optimization phase.
+2026-04-16T03:29:08.490978Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:29:08.491144Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:29:19.238644Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-16T03:29:19.439416Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-16T03:29:30.038853Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:29:30.039054Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:29:55.442205Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:29:55.442413Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:30:10.302122Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-16T03:30:10.502898Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-16T03:30:21.046614Z [INFO] Ramping board voltage
+2026-04-16T03:30:21.046808Z [INFO] Ramping board voltage
+2026-04-16T03:30:38.243240Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:30:38.243433Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:30:40.638095Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T03:30:42.941385Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T03:30:55.351382Z [INFO] Checking available disk space
+2026-04-16T03:31:05.971119Z [INFO] Ramping board voltage
+2026-04-16T03:31:05.971319Z [INFO] Ramping board voltage
+2026-04-16T03:31:20.945833Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:31:20.946034Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:31:25.398995Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T03:31:27.702270Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T03:31:37.915521Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-16T03:31:40.218958Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-16T03:31:50.790435Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:31:50.790641Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:32:01.443729Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 54.00
+-   2: TopLeft: 54.00, TopRight: 34.00, BottomRight: 34.00, BottomLeft: 54.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T03:32:07.350012Z [INFO] New pool difficulty
+2026-04-16T03:32:12.341805Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:32:12.342073Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:32:18.880066Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T03:32:21.183388Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T03:32:35.906386Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:32:35.906586Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:32:55.523270Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:32:55.523460Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:32:56.347985Z [INFO] ASIC board summary, 13.27V:
+-  *1: 432MHz, Elapsed:    10m 1s, Hashing: YES, 5m:  38.18, 15m:  25.68, 1h:  25.68, Nominal:  42.48
+-  *2: 432MHz, Elapsed:    10m 6s, Hashing: YES, 5m:  38.42, 15m:  25.87, 1h:  25.87, Nominal:  42.48
+2026-04-16T03:32:59.947463Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T03:33:02.251008Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T03:33:08.358828Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-16T03:33:10.662038Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-16T03:33:21.233057Z [INFO] Ramping board voltage
+2026-04-16T03:33:21.233254Z [INFO] Ramping board voltage
+2026-04-16T03:33:33.389514Z [INFO] Shares counter
+2026-04-16T03:33:38.341471Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:33:38.341664Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:33:40.699496Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T03:33:43.002716Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T03:33:53.215417Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-16T03:33:55.518711Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-16T03:34:06.058963Z [INFO] Starting power tune phase.
+2026-04-16T03:35:27.395459Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:35:27.395660Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:35:55.351455Z [INFO] Checking available disk space
+2026-04-16T03:37:02.861935Z [INFO] Current temperatures:
+-   1: TopLeft: 53.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 53.00
+-   2: TopLeft: 54.00, TopRight: 34.00, BottomRight: 34.00, BottomLeft: 54.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T03:37:08.998377Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:37:08.998570Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:37:58.942613Z [INFO] ASIC board summary, 12.94V:
+-   1: 465MHz, Elapsed:    15m 4s, Hashing: YES, 5m:  44.37, 15m:  32.09, 1h:  31.91, Nominal:  45.72
+-   2: 465MHz, Elapsed:    15m 8s, Hashing: YES, 5m:  44.35, 15m:  32.32, 1h:  31.99, Nominal:  45.72
+2026-04-16T03:38:36.619895Z [INFO] Shares counter
+2026-04-16T03:38:50.032772Z [INFO] Ramping board voltage
+2026-04-16T03:38:50.032957Z [INFO] Ramping board voltage
+2026-04-16T03:38:54.484337Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T03:38:56.787549Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T03:40:26.056093Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:40:26.056290Z [INFO] Ramping board frequency and voltage
+2026-04-16T03:40:55.352190Z [INFO] Checking available disk space
+2026-04-16T03:42:04.115365Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 54.00
+-   2: TopLeft: 54.00, TopRight: 35.00, BottomRight: 35.00, BottomLeft: 54.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T03:43:02.238077Z [INFO] ASIC board summary, 12.8V:
+-   1: 475MHz, Elapsed:    20m 7s, Hashing: YES, 5m:  46.18, 15m:  42.99, 1h:  35.48, Nominal:  46.71
+-   2: 475MHz, Elapsed:   20m 12s, Hashing: YES, 5m:  46.17, 15m:  43.05, 1h:  35.52, Nominal:  46.71
+2026-04-16T03:43:27.090086Z [INFO] Ramping board voltage
+2026-04-16T03:43:27.090275Z [INFO] Ramping board voltage
+2026-04-16T03:43:33.661876Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T03:43:35.965068Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T03:44:05.428521Z [INFO] Shares counter
+2026-04-16T03:45:55.351933Z [INFO] Checking available disk space
+2026-04-16T03:47:05.626406Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 54.00
+-   2: TopLeft: 54.00, TopRight: 35.00, BottomRight: 35.00, BottomLeft: 54.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T03:47:34.059046Z [INFO] Starting domain tune phase
+2026-04-16T03:48:05.257590Z [INFO] ASIC board summary, 12.71V:
+-   1: 475MHz, Elapsed:   25m 15s, Hashing: YES, 5m:  46.60, 15m:  45.75, 1h:  37.73, Nominal:  46.71
+-   2: 475MHz, Elapsed:   25m 10s, Hashing: YES, 5m:  46.36, 15m:  45.61, 1h:  37.65, Nominal:  46.71
+2026-04-16T03:48:49.259614Z [INFO] Ramping board voltage
+2026-04-16T03:48:49.259805Z [INFO] Ramping board voltage
+2026-04-16T03:49:13.712225Z [INFO] Shares counter
+2026-04-16T03:49:26.598068Z [INFO] Ramping board voltage
+2026-04-16T03:49:26.598249Z [INFO] Ramping board voltage
+2026-04-16T03:50:55.351691Z [INFO] Checking available disk space
+2026-04-16T03:51:07.767191Z [INFO] Ramping board voltage
+2026-04-16T03:51:07.767408Z [INFO] Ramping board voltage
+2026-04-16T03:51:43.071297Z [INFO] Ramping board voltage
+2026-04-16T03:51:43.071484Z [INFO] Ramping board voltage
+2026-04-16T03:52:07.128212Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 54.00
+-   2: TopLeft: 55.00, TopRight: 35.00, BottomRight: 35.00, BottomLeft: 55.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T03:53:08.104009Z [INFO] ASIC board summary, 12.71V:
+-   1: 485MHz, Elapsed:   30m 18s, Hashing: YES, 5m:  46.93, 15m:  46.58, 1h:  39.26, Nominal:  47.24
+-   2: 485MHz, Elapsed:   30m 13s, Hashing: YES, 5m:  46.78, 15m:  46.43, 1h:  39.17, Nominal:  47.15
+2026-04-16T03:53:23.960901Z [INFO] Ramping board voltage
+2026-04-16T03:53:23.961131Z [INFO] Ramping board voltage
+2026-04-16T03:53:51.451590Z [ERROR] Error reading chip PLL
+2026-04-16T03:53:51.451755Z [ERROR] Error reading chip PLL
+2026-04-16T03:54:05.858543Z [INFO] Ramping board voltage
+2026-04-16T03:54:05.858725Z [INFO] Ramping board voltage
+2026-04-16T03:54:14.463796Z [INFO] Shares counter
+2026-04-16T03:55:50.147123Z [INFO] Ramping board voltage
+2026-04-16T03:55:50.147309Z [INFO] Ramping board voltage
+2026-04-16T03:55:55.352216Z [INFO] Checking available disk space
+2026-04-16T03:56:23.042710Z [INFO] Ramping board voltage
+2026-04-16T03:56:23.042896Z [INFO] Ramping board voltage
+2026-04-16T03:57:08.792308Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 54.00
+-   2: TopLeft: 54.00, TopRight: 35.00, BottomRight: 35.00, BottomLeft: 54.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T03:58:06.255549Z [INFO] Ramping board voltage
+2026-04-16T03:58:06.255730Z [INFO] Ramping board voltage
+2026-04-16T03:58:10.234912Z [INFO] ASIC board summary, 12.66V:
+-   1: 495MHz, Elapsed:   35m 20s, Hashing: YES, 5m:  47.48, 15m:  47.01, 1h:  40.43, Nominal:  47.73
+-   2: 495MHz, Elapsed:   35m 16s, Hashing: YES, 5m:  47.18, 15m:  46.77, 1h:  40.31, Nominal:  47.51
+2026-04-16T03:59:19.160288Z [INFO] Shares counter
+2026-04-16T03:59:37.341509Z [INFO] Ramping board voltage
+2026-04-16T03:59:37.341759Z [INFO] Ramping board voltage
+2026-04-16T03:59:55.658094Z [ERROR] Error reading chip PLL
+2026-04-16T03:59:55.658305Z [ERROR] Error reading chip PLL
+2026-04-16T03:59:55.658425Z [ERROR] Error reading chip PLL
+2026-04-16T03:59:55.658537Z [ERROR] Error reading chip PLL
+2026-04-16T03:59:55.658653Z [ERROR] Error reading chip PLL
+2026-04-16T03:59:55.658765Z [ERROR] Error reading chip PLL
+2026-04-16T03:59:55.658874Z [ERROR] Error reading chip PLL
+2026-04-16T03:59:55.658988Z [ERROR] Error reading chip PLL
+2026-04-16T03:59:55.659099Z [ERROR] Error reading chip PLL
+2026-04-16T03:59:55.659209Z [ERROR] Error reading chip PLL
+2026-04-16T03:59:55.659319Z [ERROR] Error reading chip PLL
+2026-04-16T03:59:55.659431Z [ERROR] Error reading chip PLL
+2026-04-16T03:59:55.659542Z [ERROR] Error reading chip PLL
+2026-04-16T04:00:12.456167Z [INFO] Ramping board voltage
+2026-04-16T04:00:12.456365Z [INFO] Ramping board voltage
+2026-04-16T04:00:55.351582Z [INFO] Checking available disk space
+2026-04-16T04:01:53.444078Z [INFO] Ramping board voltage
+2026-04-16T04:01:53.444345Z [INFO] Ramping board voltage
+2026-04-16T04:01:55.781131Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T04:01:58.084305Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T04:02:10.775911Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 54.00
+-   2: TopLeft: 54.00, TopRight: 35.00, BottomRight: 35.00, BottomLeft: 54.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T04:03:12.743394Z [INFO] ASIC board summary, 12.62V:
+-   1: 500MHz, Elapsed:   40m 22s, Hashing: YES, 5m:  47.76, 15m:  47.39, 1h:  41.34, Nominal:  48.00
+-   2: 495MHz, Elapsed:   40m 18s, Hashing: YES, 5m:  47.44, 15m:  47.14, 1h:  41.21, Nominal:  47.65
+2026-04-16T04:03:28.980901Z [INFO] Ramping board voltage
+2026-04-16T04:03:28.981099Z [INFO] Ramping board voltage
+2026-04-16T04:03:58.413641Z [ERROR] Error reading chip PLL
+2026-04-16T04:03:58.413868Z [ERROR] Error reading chip PLL
+2026-04-16T04:04:12.820091Z [INFO] Ramping board voltage
+2026-04-16T04:04:12.820291Z [INFO] Ramping board voltage
+2026-04-16T04:04:24.884104Z [INFO] Shares counter
+2026-04-16T04:05:55.014221Z [INFO] Ramping board voltage
+2026-04-16T04:05:55.014439Z [INFO] Ramping board voltage
+2026-04-16T04:05:55.351567Z [INFO] Checking available disk space
+2026-04-16T04:06:34.466880Z [INFO] Ramping board voltage
+2026-04-16T04:06:34.467069Z [INFO] Ramping board voltage
+2026-04-16T04:07:12.430895Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 54.00
+-   2: TopLeft: 54.00, TopRight: 35.00, BottomRight: 35.00, BottomLeft: 54.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T04:08:15.066509Z [INFO] ASIC board summary, 12.62V:
+-   1: 510MHz, Elapsed:   45m 25s, Hashing: YES, 5m:  48.22, 15m:  47.82, 1h:  42.11, Nominal:  48.63
+-   2: 495MHz, Elapsed:   45m 20s, Hashing: YES, 5m:  47.56, 15m:  47.40, 1h:  41.91, Nominal:  47.69
+2026-04-16T04:08:16.050184Z [INFO] Ramping board voltage
+2026-04-16T04:08:16.050393Z [INFO] Ramping board voltage
+2026-04-16T04:08:53.298482Z [INFO] Ramping board voltage
+2026-04-16T04:08:53.298668Z [INFO] Ramping board voltage
+2026-04-16T04:09:34.892563Z [INFO] Shares counter
+2026-04-16T04:10:31.932104Z [INFO] Ramping board voltage
+2026-04-16T04:10:31.932293Z [INFO] Ramping board voltage
+2026-04-16T04:10:34.271685Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T04:10:36.574805Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-16T04:10:55.351388Z [INFO] Checking available disk space
+2026-04-16T04:12:07.840445Z [INFO] Ramping board voltage
+2026-04-16T04:12:07.840634Z [INFO] Ramping board voltage
+2026-04-16T04:12:13.745984Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 54.00
+-   2: TopLeft: 54.00, TopRight: 34.00, BottomRight: 34.00, BottomLeft: 54.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T04:12:38.166001Z [INFO] Ramping board voltage
+2026-04-16T04:12:38.166202Z [INFO] Ramping board voltage
+2026-04-16T04:13:17.455469Z [INFO] ASIC board summary, 12.57V:
+-   1: 520MHz, Elapsed:   50m 27s, Hashing: YES, 5m:  48.53, 15m:  48.17, 1h:  42.75, Nominal:  48.81
+-   2: 500MHz, Elapsed:   50m 23s, Hashing: YES, 5m:  47.43, 15m:  47.48, 1h:  42.46, Nominal:  47.82
+2026-04-16T04:14:19.192992Z [INFO] Ramping board voltage
+2026-04-16T04:14:19.193192Z [INFO] Ramping board voltage
+2026-04-16T04:14:39.861331Z [ERROR] Error reading chip PLL
+2026-04-16T04:14:39.861511Z [ERROR] Error reading chip PLL
+2026-04-16T04:14:39.861984Z [ERROR] Error reading chip PLL
+2026-04-16T04:14:39.862101Z [ERROR] Error reading chip PLL
+2026-04-16T04:14:39.862255Z [ERROR] Error reading chip PLL
+2026-04-16T04:14:39.862365Z [ERROR] Error reading chip PLL
+2026-04-16T04:14:42.233781Z [INFO] Shares counter
+2026-04-16T04:14:51.983040Z [INFO] Ramping board voltage
+2026-04-16T04:14:51.983225Z [INFO] Ramping board voltage
+2026-04-16T04:15:55.351350Z [INFO] Checking available disk space
+2026-04-16T04:16:34.074520Z [INFO] Ramping board voltage
+2026-04-16T04:16:34.074720Z [INFO] Ramping board voltage
+2026-04-16T04:17:09.173077Z [INFO] Ramping board voltage
+2026-04-16T04:17:09.173254Z [INFO] Ramping board voltage
+2026-04-16T04:17:15.097061Z [INFO] Current temperatures:
+-   1: TopLeft: 55.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 55.00
+-   2: TopLeft: 55.00, TopRight: 35.00, BottomRight: 35.00, BottomLeft: 55.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T04:18:19.828848Z [INFO] ASIC board summary, 12.57V:
+-   1: 515MHz, Elapsed:   55m 29s, Hashing: YES, 5m:  48.71, 15m:  48.49, 1h:  43.29, Nominal:  49.12
+-   2: 505MHz, Elapsed:   55m 26s, Hashing: YES, 5m:  47.79, 15m:  47.60, 1h:  42.95, Nominal:  48.00
+2026-04-16T04:18:56.427398Z [INFO] Ramping board voltage
+2026-04-16T04:18:56.427592Z [INFO] Ramping board voltage
+2026-04-16T04:19:26.589446Z [INFO] Ramping board voltage
+2026-04-16T04:19:26.589632Z [INFO] Ramping board voltage
+2026-04-16T04:19:42.820245Z [INFO] Shares counter
+2026-04-16T04:20:55.352076Z [INFO] Checking available disk space
+2026-04-16T04:21:11.130449Z [INFO] Ramping board voltage
+2026-04-16T04:21:11.130638Z [INFO] Ramping board voltage
+2026-04-16T04:21:27.079479Z [ERROR] Error reading chip PLL
+2026-04-16T04:21:27.079670Z [ERROR] Error reading chip PLL
+2026-04-16T04:21:27.079847Z [ERROR] Error reading chip PLL
+2026-04-16T04:21:27.079961Z [ERROR] Error reading chip PLL
+2026-04-16T04:21:45.629367Z [INFO] Ramping board voltage
+2026-04-16T04:21:45.629553Z [INFO] Ramping board voltage
+2026-04-16T04:22:16.464991Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 54.00
+-   2: TopLeft: 54.00, TopRight: 34.00, BottomRight: 34.00, BottomLeft: 54.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T04:23:22.102535Z [INFO] ASIC board summary, 12.57V:
+-   1: 515MHz, Elapsed:    1h 32s, Hashing: YES, 5m:  48.98, 15m:  48.74, 1h:  44.15, Nominal:  49.25
+-   2: 510MHz, Elapsed:    1h 28s, Hashing: YES, 5m:  47.94, 15m:  47.73, 1h:  43.69, Nominal:  48.23
+2026-04-16T04:23:39.284553Z [INFO] Ramping board voltage
+2026-04-16T04:23:39.284750Z [INFO] Ramping board voltage
+2026-04-16T04:23:52.999670Z [ERROR] Error reading chip PLL
+2026-04-16T04:23:52.999857Z [ERROR] Error reading chip PLL
+2026-04-16T04:24:07.408435Z [INFO] Ramping board voltage
+2026-04-16T04:24:07.408632Z [INFO] Ramping board voltage
+2026-04-16T04:24:50.059891Z [INFO] Shares counter
+2026-04-16T04:25:55.352011Z [INFO] Checking available disk space
+2026-04-16T04:26:00.548738Z [INFO] Ramping board voltage
+2026-04-16T04:26:00.548934Z [INFO] Ramping board voltage
+2026-04-16T04:26:14.242295Z [ERROR] Error reading chip PLL
+2026-04-16T04:26:14.242479Z [ERROR] Error reading chip PLL
+2026-04-16T04:26:28.679102Z [INFO] Ramping board voltage
+2026-04-16T04:26:28.679291Z [INFO] Ramping board voltage
+2026-04-16T04:27:17.692717Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 54.00
+-   2: TopLeft: 54.00, TopRight: 34.00, BottomRight: 34.00, BottomLeft: 54.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T04:28:14.920348Z [INFO] Ramping board voltage
+2026-04-16T04:28:14.920537Z [INFO] Ramping board voltage
+2026-04-16T04:28:24.842395Z [INFO] ASIC board summary, 12.52V:
+-   1: 515MHz, Elapsed:    ~1h 5m, Hashing: YES, 5m:  49.15, 15m:  48.94, 1h:  46.89, Nominal:  49.34
+-   2: 515MHz, Elapsed:    ~1h 5m, Hashing: YES, 5m:  48.01, 15m:  47.93, 1h:  46.39, Nominal:  48.32
+2026-04-16T04:29:52.248729Z [INFO] Shares counter
+2026-04-16T04:30:00.473479Z [INFO] Ramping board voltage
+2026-04-16T04:30:00.473666Z [INFO] Ramping board voltage
+2026-04-16T04:30:18.313956Z [ERROR] Error reading chip PLL
+2026-04-16T04:30:18.314117Z [ERROR] Error reading chip PLL
+2026-04-16T04:30:18.574399Z [ERROR] Error reading chip PLL
+2026-04-16T04:30:18.574704Z [ERROR] Error reading chip PLL
+2026-04-16T04:30:18.574904Z [ERROR] Error reading chip PLL
+2026-04-16T04:30:37.210169Z [INFO] Ramping board voltage
+2026-04-16T04:30:37.210358Z [INFO] Ramping board voltage
+2026-04-16T04:30:55.351531Z [INFO] Checking available disk space
+2026-04-16T04:32:18.294942Z [INFO] Ramping board voltage
+2026-04-16T04:32:18.295120Z [INFO] Ramping board voltage
+2026-04-16T04:32:18.876789Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 54.00
+-   2: TopLeft: 54.00, TopRight: 34.00, BottomRight: 34.00, BottomLeft: 54.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T04:32:43.994861Z [INFO] Ramping board voltage
+2026-04-16T04:32:43.995058Z [INFO] Ramping board voltage
+2026-04-16T04:33:27.275115Z [INFO] ASIC board summary, 12.52V:
+-   1: 515MHz, Elapsed:   ~1h 10m, Hashing: YES, 5m:  48.96, 15m:  49.03, 1h:  47.70, Nominal:  49.30
+-   2: 520MHz, Elapsed:   ~1h 10m, Hashing: YES, 5m:  48.07, 15m:  48.01, 1h:  47.12, Nominal:  48.27
+2026-04-16T04:34:42.993865Z [INFO] Ramping board voltage
+2026-04-16T04:34:42.994065Z [INFO] Ramping board voltage
+2026-04-16T04:34:52.327475Z [INFO] Shares counter
+2026-04-16T04:35:08.903758Z [INFO] Ramping board voltage
+2026-04-16T04:35:08.903960Z [INFO] Ramping board voltage
+2026-04-16T04:35:55.351664Z [INFO] Checking available disk space
+2026-04-16T04:36:50.315489Z [INFO] Ramping board voltage
+2026-04-16T04:36:50.315692Z [INFO] Ramping board voltage
+2026-04-16T04:37:16.216531Z [INFO] Ramping board voltage
+2026-04-16T04:37:16.216732Z [INFO] Ramping board voltage
+2026-04-16T04:37:20.048718Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 54.00
+-   2: TopLeft: 54.00, TopRight: 34.00, BottomRight: 34.00, BottomLeft: 54.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T04:38:29.506943Z [INFO] ASIC board summary, 12.52V:
+-   1: 520MHz, Elapsed:   ~1h 15m, Hashing: YES, 5m:  49.14, 15m:  49.08, 1h:  48.07, Nominal:  49.39
+-   2: 515MHz, Elapsed:   ~1h 15m, Hashing: YES, 5m:  47.95, 15m:  48.01, 1h:  47.40, Nominal:  48.18
+2026-04-16T04:38:59.939888Z [INFO] Ramping board voltage
+2026-04-16T04:39:25.732055Z [INFO] Ramping board voltage
+2026-04-16T04:39:25.732236Z [INFO] Ramping board voltage
+2026-04-16T04:39:58.024302Z [INFO] Shares counter
+2026-04-16T04:40:55.351783Z [INFO] Checking available disk space
+2026-04-16T04:42:21.503004Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 54.00
+-   2: TopLeft: 53.00, TopRight: 34.00, BottomRight: 34.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T04:42:26.202251Z [INFO] Starting tuner maintenance phase
+2026-04-16T04:43:32.193344Z [INFO] ASIC board summary, 12.52V:
+-   1: 515MHz, Elapsed:   ~1h 20m, Hashing: YES, 5m:  49.14, 15m:  49.08, 1h:  48.31, Nominal:  49.34
+-   2: 515MHz, Elapsed:   ~1h 20m, Hashing: YES, 5m:  47.89, 15m:  47.98, 1h:  47.54, Nominal:  48.18
+2026-04-16T04:45:07.850725Z [INFO] Shares counter
+2026-04-16T04:45:55.352116Z [INFO] Checking available disk space
+2026-04-16T04:47:23.274792Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 54.00
+-   2: TopLeft: 53.00, TopRight: 34.00, BottomRight: 34.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T04:48:34.658593Z [INFO] ASIC board summary, 12.52V:
+-   1: 515MHz, Elapsed:   ~1h 25m, Hashing: YES, 5m:  49.15, 15m:  49.15, 1h:  48.52, Nominal:  49.34
+-   2: 515MHz, Elapsed:   ~1h 25m, Hashing: YES, 5m:  47.92, 15m:  47.92, 1h:  47.67, Nominal:  48.18
+2026-04-16T04:50:13.528082Z [INFO] Shares counter
+2026-04-16T04:50:55.351838Z [INFO] Checking available disk space
+2026-04-16T04:52:24.548619Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 54.00
+-   2: TopLeft: 53.00, TopRight: 34.00, BottomRight: 34.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T04:53:37.243770Z [INFO] ASIC board summary, 12.52V:
+-   1: 515MHz, Elapsed:   ~1h 30m, Hashing: YES, 5m:  49.09, 15m:  49.12, 1h:  48.70, Nominal:  49.34
+-   2: 515MHz, Elapsed:   ~1h 30m, Hashing: YES, 5m:  47.82, 15m:  47.88, 1h:  47.76, Nominal:  48.18
+2026-04-16T04:55:19.719217Z [INFO] Shares counter
+2026-04-16T04:55:55.351651Z [INFO] Checking available disk space
+2026-04-16T04:57:25.819138Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 54.00
+-   2: TopLeft: 53.00, TopRight: 34.00, BottomRight: 34.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T04:58:40.109806Z [INFO] ASIC board summary, 12.52V:
+-   1: 515MHz, Elapsed:   ~1h 35m, Hashing: YES, 5m:  49.05, 15m:  49.10, 1h:  48.83, Nominal:  49.34
+-   2: 515MHz, Elapsed:   ~1h 35m, Hashing: YES, 5m:  47.83, 15m:  47.85, 1h:  47.81, Nominal:  48.18
+2026-04-16T05:00:29.852515Z [INFO] Shares counter
+2026-04-16T05:00:55.351464Z [INFO] Checking available disk space
+2026-04-16T05:02:27.335645Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 54.00
+-   2: TopLeft: 53.00, TopRight: 34.00, BottomRight: 34.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T05:03:42.922384Z [INFO] ASIC board summary, 12.52V:
+-   1: 515MHz, Elapsed:   ~1h 40m, Hashing: YES, 5m:  49.17, 15m:  49.10, 1h:  48.95, Nominal:  49.34
+-   2: 515MHz, Elapsed:   ~1h 40m, Hashing: YES, 5m:  47.87, 15m:  47.84, 1h:  47.84, Nominal:  48.18
+2026-04-16T05:05:39.256381Z [INFO] Shares counter
+2026-04-16T05:05:55.351496Z [INFO] Checking available disk space
+2026-04-16T05:07:29.448186Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 54.00
+-   2: TopLeft: 53.00, TopRight: 33.00, BottomRight: 33.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T05:08:45.608348Z [INFO] ASIC board summary, 12.52V:
+-   1: 515MHz, Elapsed:   ~1h 45m, Hashing: YES, 5m:  49.11, 15m:  49.11, 1h:  49.01, Nominal:  49.34
+-   2: 515MHz, Elapsed:   ~1h 45m, Hashing: YES, 5m:  47.92, 15m:  47.87, 1h:  47.87, Nominal:  48.18
+2026-04-16T05:10:41.740745Z [INFO] Shares counter
+2026-04-16T05:10:55.351682Z [INFO] Checking available disk space
+2026-04-16T05:12:31.655666Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 54.00
+-   2: TopLeft: 53.00, TopRight: 33.00, BottomRight: 33.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T05:13:47.916832Z [INFO] ASIC board summary, 12.52V:
+-   1: 515MHz, Elapsed:   ~1h 50m, Hashing: YES, 5m:  49.13, 15m:  49.13, 1h:  49.07, Nominal:  49.34
+-   2: 515MHz, Elapsed:   ~1h 50m, Hashing: YES, 5m:  48.00, 15m:  47.92, 1h:  47.92, Nominal:  48.18
+2026-04-16T05:15:55.351729Z [INFO] Checking available disk space
+2026-04-16T05:16:02.490019Z [INFO] Shares counter
+2026-04-16T05:17:33.525508Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 54.00
+-   2: TopLeft: 53.00, TopRight: 33.00, BottomRight: 33.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T05:18:49.936410Z [INFO] ASIC board summary, 12.52V:
+-   1: 515MHz, Elapsed:   ~1h 55m, Hashing: YES, 5m:  48.98, 15m:  49.07, 1h:  49.09, Nominal:  49.34
+-   2: 515MHz, Elapsed:   ~1h 55m, Hashing: YES, 5m:  47.95, 15m:  47.96, 1h:  47.93, Nominal:  48.18
+2026-04-16T05:20:07.720634Z [WARN] Job ID not found in the jobs queue; share will not be submitted
+2026-04-16T05:20:55.351615Z [INFO] Checking available disk space
+2026-04-16T05:21:23.875847Z [INFO] Shares counter
+2026-04-16T05:22:35.251325Z [INFO] Current temperatures:
+-   1: TopLeft: 53.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 53.00
+-   2: TopLeft: 53.00, TopRight: 33.00, BottomRight: 33.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T05:23:52.208430Z [INFO] ASIC board summary, 12.52V:
+-   1: 515MHz, Elapsed:    2h 58s, Hashing: YES, 5m:  49.07, 15m:  49.06, 1h:  49.09, Nominal:  49.34
+-   2: 515MHz, Elapsed:    ~2h 1m, Hashing: YES, 5m:  47.87, 15m:  47.94, 1h:  47.93, Nominal:  48.18
+2026-04-16T05:25:55.352412Z [INFO] Checking available disk space
+2026-04-16T05:26:34.101549Z [INFO] Shares counter
+2026-04-16T05:27:37.356356Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 54.00
+-   2: TopLeft: 53.00, TopRight: 33.00, BottomRight: 33.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T05:28:54.808200Z [INFO] ASIC board summary, 12.52V:
+-   1: 515MHz, Elapsed:     2h 6m, Hashing: YES, 5m:  49.02, 15m:  49.03, 1h:  49.09, Nominal:  49.34
+-   2: 515MHz, Elapsed:    ~2h 6m, Hashing: YES, 5m:  47.80, 15m:  47.87, 1h:  47.91, Nominal:  48.18
+2026-04-16T05:30:55.352155Z [INFO] Checking available disk space
+2026-04-16T05:31:40.158007Z [INFO] Shares counter
+2026-04-16T05:32:39.042018Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 54.00
+-   2: TopLeft: 53.00, TopRight: 34.00, BottomRight: 34.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T05:33:56.757068Z [INFO] ASIC board summary, 12.52V:
+-   1: 515MHz, Elapsed:   ~2h 11m, Hashing: YES, 5m:  49.02, 15m:  49.04, 1h:  49.09, Nominal:  49.34
+-   2: 515MHz, Elapsed:   ~2h 11m, Hashing: YES, 5m:  47.94, 15m:  47.87, 1h:  47.89, Nominal:  48.18
+2026-04-16T05:35:55.351693Z [INFO] Checking available disk space
+2026-04-16T05:37:00.262029Z [INFO] Shares counter
+2026-04-16T05:37:40.866115Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 54.00
+-   2: TopLeft: 53.00, TopRight: 34.00, BottomRight: 34.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T05:38:59.400704Z [INFO] ASIC board summary, 12.52V:
+-   1: 515MHz, Elapsed:   ~2h 16m, Hashing: YES, 5m:  49.08, 15m:  49.05, 1h:  49.08, Nominal:  49.34
+-   2: 515MHz, Elapsed:   ~2h 16m, Hashing: YES, 5m:  47.90, 15m:  47.88, 1h:  47.89, Nominal:  48.18
+2026-04-16T05:40:55.351775Z [INFO] Checking available disk space
+2026-04-16T05:42:02.099367Z [INFO] Shares counter
+2026-04-16T05:42:42.689362Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 54.00
+-   2: TopLeft: 53.00, TopRight: 33.00, BottomRight: 33.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T05:44:01.094560Z [INFO] ASIC board summary, 12.52V:
+-   1: 515MHz, Elapsed:   ~2h 21m, Hashing: YES, 5m:  48.98, 15m:  49.03, 1h:  49.07, Nominal:  49.34
+-   2: 515MHz, Elapsed:   ~2h 21m, Hashing: YES, 5m:  47.85, 15m:  47.90, 1h:  47.89, Nominal:  48.18
+2026-04-16T05:45:55.351357Z [INFO] Checking available disk space
+2026-04-16T05:47:16.014690Z [INFO] Shares counter
+2026-04-16T05:47:44.133191Z [INFO] Current temperatures:
+-   1: TopLeft: 53.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 53.00
+-   2: TopLeft: 53.00, TopRight: 33.00, BottomRight: 33.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T05:49:01.127680Z [INFO] ASIC board summary, 12.52V:
+-   1: 515MHz, Elapsed:   ~2h 26m, Hashing: YES, 5m:  49.19, 15m:  49.08, 1h:  49.07, Nominal:  49.34
+-   2: 515MHz, Elapsed:   ~2h 26m, Hashing: YES, 5m:  47.90, 15m:  47.88, 1h:  47.89, Nominal:  48.18
+2026-04-16T05:50:55.352149Z [INFO] Checking available disk space
+2026-04-16T05:52:32.088257Z [INFO] Shares counter
+2026-04-16T05:52:46.423606Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 54.00
+-   2: TopLeft: 53.00, TopRight: 33.00, BottomRight: 33.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+2026-04-16T05:54:01.238058Z [INFO] ASIC board summary, 12.52V:
+-   1: 515MHz, Elapsed:   ~2h 31m, Hashing: YES, 5m:  49.13, 15m:  49.10, 1h:  49.08, Nominal:  49.34
+-   2: 515MHz, Elapsed:   ~2h 31m, Hashing: YES, 5m:  47.83, 15m:  47.85, 1h:  47.89, Nominal:  48.18
+2026-04-16T05:55:55.352231Z [INFO] Checking available disk space
+2026-04-16T05:57:46.281170Z [INFO] Shares counter
+2026-04-16T05:57:47.896427Z [INFO] Current temperatures:
+-   1: TopLeft: 54.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 54.00
+-   2: TopLeft: 53.00, TopRight: 33.00, BottomRight: 33.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[FAIL] (3): FAN3
+
+
+[2026-04-16 00:58:37] [SUMMARY]
+{
+  "STATUS": [
+    {
+      "Code": 11,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "Summary",
+      "STATUS": "S",
+      "When": 1776319117
+    }
+  ],
+  "SUMMARY": [
+    {
+      "Accepted": 1008,
+      "Best Share": 262144,
+      "Device Hardware%": 0.0,
+      "Device Rejected%": 0.0,
+      "Difficulty Accepted": 247660544,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "Elapsed": 22657,
+      "Found Blocks": 0,
+      "GHS 15m": 96998.27,
+      "GHS 1m": 97247.44,
+      "GHS 24h": 84243.57,
+      "GHS 30m": 96965.77,
+      "GHS 5m": 96921.31,
+      "GHS 5s": 97439.05,
+      "GHS av": 93199.46,
+      "Get Failures": 0,
+      "Getworks": 1164,
+      "Hardware Errors": 0,
+      "Last getwork": 1776319107,
+      "Local Work": 0,
+      "Network Blocks": 0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Total MH": 93199468.66466197,
+      "Utility": 2.67,
+      "Work Utility": 3.08
+    }
+  ],
+  "id": 1
+}
+
+[2026-04-16 00:58:37] [STATS]
+{
+  "STATS": [
+    {
+      "CompileTime": "Fri Dec 12 16:49:20 UTC 2025",
+      "Miner": "2025.12.12.164659",
+      "Type": "Antminer S19 XP"
+    },
+    {
+      "Calls": 0,
+      "Elapsed": 22657,
+      "GHS 5s": 97439.05,
+      "GHS av": 93199.46,
+      "ID": "BTM_SOC0",
+      "Max": 0,
+      "Min": 99999999,
+      "Mode": 2,
+      "STATS": 0,
+      "Wait": 0,
+      "chain_acn1": 0,
+      "chain_acn2": 110,
+      "chain_acn3": 110,
+      "chain_acn4": 0,
+      "chain_acs1": "",
+      "chain_acs2": " oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oo",
+      "chain_acs3": " oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oo",
+      "chain_acs4": "",
+      "chain_hw1": 0,
+      "chain_hw2": 0,
+      "chain_hw3": 0,
+      "chain_hw4": 0,
+      "chain_rate1": "0",
+      "chain_rate2": "47036.44",
+      "chain_rate3": "46163.02",
+      "chain_rate4": "0",
+      "fan1": 4920,
+      "fan2": 5220,
+      "fan3": 4680,
+      "fan4": 0,
+      "fan_num": 4,
+      "freq1": 0.0,
+      "freq2": 501.81,
+      "freq3": 490.0,
+      "freq4": 0.0,
+      "frequency": 515,
+      "miner_count": 2,
+      "miner_id": "02fe5cb5635d",
+      "miner_version": "2025.12.12.164659",
+      "no_matching_work": 0,
+      "rate_30m": 96965.77,
+      "rate_unit": "GH",
+      "temp1": 0.0,
+      "temp2": 54.0,
+      "temp2_1": 0.0,
+      "temp2_2": 54.0,
+      "temp2_3": 53.0,
+      "temp3": 53.0,
+      "temp_chip1": "0-0-0-0",
+      "temp_chip2": "54-36-36-54",
+      "temp_chip3": "53-33-33-53",
+      "temp_chip4": "0-0-0-0",
+      "temp_max": 54.0,
+      "temp_num": 3,
+      "temp_pcb1": "0-0-0-0",
+      "temp_pcb2": "54-36-36-54",
+      "temp_pcb3": "53-33-33-53",
+      "temp_pcb4": "0-0-0-0",
+      "temp_pic1": "0-0-0-0",
+      "temp_pic2": "54-36-36-54",
+      "temp_pic3": "53-33-33-53",
+      "temp_pic4": "0-0-0-0",
+      "total rate": 46599.73,
+      "total_acn": 4,
+      "total_freqavg": 495.9,
+      "total_rateideal": 97535.4
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 70,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "LUXminer stats",
+      "STATUS": "S",
+      "When": 1776319117
+    }
+  ],
+  "id": 1
+}
+
+[2026-04-16 00:58:37] [DEVS]
+{
+  "DEVS": [
+    {
+      "ASC": 1,
+      "Accepted": 497,
+      "Board": "BHB56801",
+      "Connector": "J13",
+      "ControllerIPVersionHex": "0x0A113D",
+      "ControllerIPVersionStr": "0.11.0",
+      "Device Elapsed": 9345,
+      "Device Hardware%": 0,
+      "Device Rejected%": 0,
+      "Diff1 Work": 122257408,
+      "Difficulty Accepted": 122257408,
+      "Difficulty Rejected": 0,
+      "Enabled": "Y",
+      "Hardware Error MHS 15m": 0,
+      "Hardware Errors": 0,
+      "ID": 1,
+      "IsRamping": false,
+      "IsUserShutdown": false,
+      "Last Share Difficulty": 262144,
+      "Last Share Pool": 1,
+      "Last Share Time": 1776319110,
+      "Last Valid Work": 1776319110,
+      "MHS 15m": 49109185.60826183,
+      "MHS 1m": 49162425.77875077,
+      "MHS 30m": 49074049.87329497,
+      "MHS 5m": 49025234.70786963,
+      "MHS 5s": 49704797.5231488,
+      "MHS 60m": 49076153.37281684,
+      "MHS av": 47036446.71448256,
+      "Name": "",
+      "Nominal MHS": 49348800.0,
+      "Profile": "default",
+      "Rejected": 0,
+      "SerialNumber": "SMTTYPDBCJDJC0M1P",
+      "Status": "Alive",
+      "Temperature": 54.0,
+      "Total MH": 47036446.71448256,
+      "Utility": 0
+    },
+    {
+      "ASC": 2,
+      "Accepted": 511,
+      "Board": "BHB56801",
+      "Connector": "J12",
+      "ControllerIPVersionHex": "0x0A113D",
+      "ControllerIPVersionStr": "0.11.0",
+      "Device Elapsed": 9343,
+      "Device Hardware%": 0,
+      "Device Rejected%": 0,
+      "Diff1 Work": 125403136,
+      "Difficulty Accepted": 125403136,
+      "Difficulty Rejected": 0,
+      "Enabled": "Y",
+      "Hardware Error MHS 15m": 0,
+      "Hardware Errors": 0,
+      "ID": 2,
+      "IsRamping": false,
+      "IsUserShutdown": false,
+      "Last Share Difficulty": 262144,
+      "Last Share Pool": 1,
+      "Last Share Time": 1776319100,
+      "Last Valid Work": 1776319100,
+      "MHS 15m": 47889089.7653408,
+      "MHS 1m": 48085022.85565417,
+      "MHS 30m": 47891724.32800614,
+      "MHS 5m": 47896078.41626585,
+      "MHS 5s": 47734261.453949206,
+      "MHS 60m": 47895622.16336745,
+      "MHS av": 46163021.95017942,
+      "Name": "",
+      "Nominal MHS": 48186600.0,
+      "Profile": "default",
+      "Rejected": 0,
+      "SerialNumber": "SMTTYPDBCJDJC0N6M",
+      "Status": "Alive",
+      "Temperature": 53.0,
+      "Total MH": 46163021.95017942,
+      "Utility": 0
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 9,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "2 ASC(s)",
+      "STATUS": "S",
+      "When": 1776319117
+    }
+  ],
+  "id": 1
+}
+
+[2026-04-16 00:58:37] [POOLS]
+{
+  "POOLS": [
+    {
+      "Accepted": 1008,
+      "AsicBoost": true,
+      "Bad Work": 0,
+      "Best Share": 262144,
+      "Current Block Height": 0,
+      "Current Block Version": 536870912,
+      "Diff": "262K",
+      "Diff1 Shares": 247660544,
+      "Difficulty Accepted": 247660544,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "GROUP": 0,
+      "Get Failures": 0,
+      "Getworks": 1164,
+      "Has GBT": false,
+      "Has Stratum": true,
+      "Has Vmask": true,
+      "Last Share Difficulty": 262144,
+      "Last Share Time": "00:00:07",
+      "Long Pool": "N",
+      "POOL": 0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Priority": 0,
+      "Proxy": "",
+      "Proxy Type": "",
+      "Quota": 1.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Status": "Alive",
+      "Stratum Active": true,
+      "Stratum Difficulty": 262144,
+      "Stratum URL": "sha256.poolbinance.com:443",
+      "URL": "stratum+tcp://sha256.poolbinance.com:443",
+      "User": "NCATX.019",
+      "Work Difficulty": 262144,
+      "Works": 0
+    },
+    {
+      "Accepted": 0,
+      "AsicBoost": true,
+      "Bad Work": 0,
+      "Best Share": 0,
+      "Current Block Height": 0,
+      "Current Block Version": 0,
+      "Diff": "0",
+      "Diff1 Shares": 0,
+      "Difficulty Accepted": 0,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "GROUP": 0,
+      "Get Failures": 0,
+      "Getworks": 0,
+      "Has GBT": false,
+      "Has Stratum": true,
+      "Has Vmask": true,
+      "Last Share Difficulty": 0,
+      "Last Share Time": "06:17:37",
+      "Long Pool": "N",
+      "POOL": 1,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Priority": 1,
+      "Proxy": "",
+      "Proxy Type": "",
+      "Quota": 1.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Status": "Dead",
+      "Stratum Active": false,
+      "Stratum Difficulty": 0,
+      "Stratum URL": "btc.poolbinance.com:1800",
+      "URL": "stratum+tcp://btc.poolbinance.com:1800",
+      "User": "NCATX.019",
+      "Work Difficulty": 0,
+      "Works": 0
+    },
+    {
+      "Accepted": 0,
+      "AsicBoost": true,
+      "Bad Work": 0,
+      "Best Share": 0,
+      "Current Block Height": 0,
+      "Current Block Version": 0,
+      "Diff": "0",
+      "Diff1 Shares": 0,
+      "Difficulty Accepted": 0,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "GROUP": 0,
+      "Get Failures": 0,
+      "Getworks": 0,
+      "Has GBT": false,
+      "Has Stratum": true,
+      "Has Vmask": true,
+      "Last Share Difficulty": 0,
+      "Last Share Time": "06:17:37",
+      "Long Pool": "N",
+      "POOL": 2,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Priority": 2,
+      "Proxy": "",
+      "Proxy Type": "",
+      "Quota": 1.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Status": "Dead",
+      "Stratum Active": false,
+      "Stratum Difficulty": 0,
+      "Stratum URL": "bs.poolbinance.com:3333",
+      "URL": "stratum+tcp://bs.poolbinance.com:3333",
+      "User": "NCATX.019",
+      "Work Difficulty": 0,
+      "Works": 0
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 7,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "3 Pool(s)",
+      "STATUS": "S",
+      "When": 1776319117
+    }
+  ],
+  "id": 1
+}
+
+[2026-04-16 00:58:37] [CONFIG]
+{
+  "CONFIG": [
+    {
+      "ASC Count": 2,
+      "ActualPowerTarget": 2029,
+      "BcastAddr": "link",
+      "ControlBoardType": "amlogic",
+      "Cooling": "Air",
+      "CurtailMode": "None",
+      "DHCP": true,
+      "DNS Servers": "",
+      "Device Code": "",
+      "FPGABuildIdHex": "0x000A113D",
+      "FPGABuildIdStr": "2000-0A-11 3D:00",
+      "FeeStatus": "Ok",
+      "Gateway": "unknown",
+      "GreenLed": "auto",
+      "Hostname": "Antminer",
+      "Hotplug": "None",
+      "IPAddr": "fe80::fe:5cff:feb5:635d",
+      "IdealPowerTarget": 3043,
+      "ImmersionMode": false,
+      "IsAtmEnabled": false,
+      "IsPowerSupplyOn": true,
+      "IsPowerTargetEnabled": true,
+      "IsSingleVoltage": true,
+      "IsTuning": true,
+      "Log Interval": 0,
+      "LogFileLevel": "info",
+      "MACAddr": "02:fe:5c:b5:63:5d",
+      "Model": "Antminer S19 XP",
+      "NameplateTHS": 141.0,
+      "Netmask": "255.255.255.255",
+      "OS": "LuxOS",
+      "PGA Count": 0,
+      "PIC": "NoPIC",
+      "PSUHwVersion": "76",
+      "PSULabel": "APW121215f",
+      "Pool Count": 3,
+      "PowerLimit": 3043,
+      "Profile": "default",
+      "ProfileStep": "0",
+      "RedLed": "auto",
+      "SerialNumber": "SMTTEAUBCJDJC052H",
+      "Strategy": "Failover",
+      "SystemStatus": "Normal",
+      "UpdateOnStartup": "off",
+      "UpdateOnTimeout": "off",
+      "UpdateOnUser": "full",
+      "UpdateSource": "https://storage.googleapis.com/luxor-firmware/stable",
+      "UpdateTimeout": 60
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 33,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "LUXminer config",
+      "STATUS": "S",
+      "When": 1776319117
+    }
+  ],
+  "id": 1
+}

@@ -1,0 +1,897 @@
+============================================================
+矿机运行日志 - 10.102.0.221
+导出时间: 2026-04-11 06:39:47
+IP: 10.102.0.221  序列号: MINER-10-102-0-221  型号: Antminer S19 XP
+============================================================
+
+[2026-04-11 06:39:47] [SYSTEM_LOG] 矿机后台系统日志（与 Web 界面一致）
+2026-04-11T10:15:26.342021Z [INFO] Detected CPU model AMLOGIC
+2026-04-11T10:15:26.346727Z [INFO] Detected existing root bind mount
+2026-04-11T10:15:26.346813Z [INFO] Detected existing base overlay mount
+2026-04-11T10:15:26.346889Z [INFO] Detected existing etc mount via overlay
+2026-04-11T10:15:26.346982Z [INFO] Note: could not mount an external partition
+2026-04-11T10:15:26.347088Z [INFO] Linked current log directory on: /mnt/ramdisk/logs/current
+2026-04-11T10:15:26.377507Z [INFO] Raw i2detect CB bus output:
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- 48 49 4a -- 4c 4d 4e -- 
+50: 50 51 52 -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --                         
+
+2026-04-11T10:15:33.720636Z [INFO] Raw i2detect PSU bus output:
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: 10 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --                         
+
+
+2026-04-11T10:15:33.730783Z [INFO] Error mapping chip at address 0x48: IoError(Os { code: 22, kind: InvalidInput, message: "Invalid argument" })
+2026-04-11T10:15:33.734229Z [INFO] Error mapping chip at address 0x49: IoError(Os { code: 22, kind: InvalidInput, message: "Invalid argument" })
+2026-04-11T10:15:33.967677Z [INFO] Expected board info CRC: 0x19, got 0x19
+2026-04-11T10:15:33.967818Z [INFO] Expected param info CRC: 0xF, got 0xF
+2026-04-11T10:15:33.968651Z [INFO] Expected extra info CRC: 0xB, got 0xB
+2026-04-11T10:15:33.970062Z [INFO] Board info version: 0x5
+2026-04-11T10:15:33.970182Z [INFO] Encryption algo and key version: 0x11
+2026-04-11T10:15:33.970876Z [INFO] Board serial number: SMTTYPDBCJDJF001Y
+2026-04-11T10:15:33.972753Z [INFO] Default board voltage: 1290cV
+2026-04-11T10:15:33.972893Z [INFO] Default board frequency: 485MHz
+2026-04-11T10:15:33.974558Z [INFO] Connector: 0
+2026-04-11T10:15:34.015228Z [INFO] Expected board info CRC: 0x2, got 0x2
+2026-04-11T10:15:34.015359Z [INFO] Expected param info CRC: 0xF, got 0xF
+2026-04-11T10:15:34.015463Z [INFO] Expected extra info CRC: 0xB, got 0xB
+2026-04-11T10:15:34.015572Z [INFO] Board info version: 0x5
+2026-04-11T10:15:34.015649Z [INFO] Encryption algo and key version: 0x11
+2026-04-11T10:15:34.015728Z [INFO] Board serial number: SMTTYPDBCJDJF0025
+2026-04-11T10:15:34.015843Z [INFO] Default board voltage: 1290cV
+2026-04-11T10:15:34.015926Z [INFO] Default board frequency: 485MHz
+2026-04-11T10:15:34.016010Z [INFO] Connector: 1
+2026-04-11T10:15:34.055333Z [INFO] Expected board info CRC: 0xB, got 0xB
+2026-04-11T10:15:34.055461Z [INFO] Expected param info CRC: 0xF, got 0xF
+2026-04-11T10:15:34.055564Z [INFO] Expected extra info CRC: 0xB, got 0xB
+2026-04-11T10:15:34.055675Z [INFO] Board info version: 0x5
+2026-04-11T10:15:34.055754Z [INFO] Encryption algo and key version: 0x11
+2026-04-11T10:15:34.055833Z [INFO] Board serial number: JYZZYPDBCJEBB2ATY
+2026-04-11T10:15:34.055930Z [INFO] Default board voltage: 1290cV
+2026-04-11T10:15:34.056010Z [INFO] Default board frequency: 485MHz
+2026-04-11T10:15:34.056095Z [INFO] Connector: 2
+2026-04-11T10:15:34.621556Z [INFO] Attempt 1 - Sending message to return PSU power type: [11, 55, AA, 4, 2, 6, 0] :
+2026-04-11T10:15:34.721447Z [INFO] Attempt 1 - Reading PSU power type. command: [11, 55, AA, 4, 2, 6, 0] :
+2026-04-11T10:15:35.334686Z [INFO] Attempt 1 - power type message return: [55, AA, 6, 2, 76, 0, 7E, 0].
+
+2026-04-11T10:15:35.435095Z [INFO] Attempt 1 - Sending message to return PSU firmware version: [11, 55, AA, 4, 1, 5, 0]
+2026-04-11T10:15:35.535471Z [INFO] Attempt 1 - Reading PSU firmware version. command: [11, 55, AA, 4, 1, 5, 0] :
+2026-04-11T10:15:35.822622Z [INFO] Attempt 1 - firmware version message return: [55, AA, 6, 1, 19, 0, 20, 0].
+
+2026-04-11T10:15:35.823340Z [INFO] Setting PSU hw/fw to: 0x76/0x19
+2026-04-11T10:15:35.824385Z [WARN] Failed to retrieve miner serial number
+2026-04-11T10:15:35.840727Z [INFO] 
+*** System information summary ***
+- SW: ................. luxminer v2025.12.12.164659 (e88514b22)
+- Package: ............ 2025.12.12-u0
+- Miner model: ........ Antminer S19 XP (s19xp)
+- External storage: ... No
+- RAM storage: ........ Yes, /mnt/ramdisk (rw)
+- Config storage: ..... Yes, /config (rw)
+- Persistent NAND Logs:  /persistent/miner
+- Logs dir: ........... (empty)
+- Logs link: .......... (empty)
+- Profiles dir: ....... /config/profiles
+- Backup dir: ......... /backup/luxminer.conf.d
+- Config dir: ......... /config/luxminer.conf.d
+
+2026-04-11T10:15:35.841608Z [INFO] Checking profiles...
+2026-04-11T10:15:35.847473Z [WARN] Skipped dynamic profile step: frequency out of bounds
+2026-04-11T10:15:35.858219Z [INFO] Applying configuration...
+2026-04-11T10:15:35.900063Z [INFO] Starting system audit task
+2026-04-11T10:15:35.906572Z [INFO] No need to watch partitions; no external partition is being used
+2026-04-11T10:15:35.911425Z [INFO] Starting periodic disk check
+2026-04-11T10:15:35.916306Z [INFO] Checking available disk space
+2026-04-11T10:15:40.277079Z [INFO] Current power status: ON
+2026-04-11T10:15:40.294805Z [INFO] Pools configuration:
+Group foreman, quota: 1:
+  Pools:
+  - url: sha256.poolbinance.com:443, user: NCATX.082
+
+2026-04-11T10:15:40.310810Z [INFO] Waiting for board initialization before starting chip healthchecker.
+2026-04-11T10:15:40.322272Z [INFO] 3 boards, 3 identified and 0 disabled
+2026-04-11T10:15:40.351436Z [INFO] Partner ID loaded: foreman
+2026-04-11T10:15:40.385210Z [INFO] Current power status: ON
+2026-04-11T10:15:40.411392Z [INFO] Advanced Thermal Management (ATM) process started (off)
+2026-04-11T10:15:40.437594Z [INFO] Connecting to pool
+2026-04-11T10:15:40.439629Z [INFO] Pool status changed
+2026-04-11T10:15:40.459901Z [INFO] Opening TCP connection
+2026-04-11T10:15:40.470552Z [INFO] Starting API server
+2026-04-11T10:15:40.479821Z [INFO] Starting HTTP API
+2026-04-11T10:15:40.536168Z [INFO] Connection successful
+2026-04-11T10:15:40.536555Z [INFO] Pool status changed
+2026-04-11T10:15:40.640303Z [INFO] Starting PIC controller
+2026-04-11T10:15:40.640449Z [INFO] Starting PIC controller
+2026-04-11T10:15:40.640538Z [INFO] Starting PIC controller
+2026-04-11T10:15:40.758884Z [INFO] Authorization successful
+2026-04-11T10:15:40.760723Z [INFO] New pool difficulty
+2026-04-11T10:15:40.816603Z [INFO] Cycle board reset
+2026-04-11T10:15:40.868414Z [INFO] Board reset complete
+2026-04-11T10:15:41.325115Z [INFO] Cycle board reset
+2026-04-11T10:15:41.368919Z [INFO] Board reset complete
+2026-04-11T10:15:41.455724Z [INFO] Connecting to pool
+2026-04-11T10:15:41.455993Z [INFO] Pool status changed
+2026-04-11T10:15:41.456019Z [INFO] Opening TCP connection
+2026-04-11T10:15:41.518456Z [INFO] Connection successful
+2026-04-11T10:15:41.518954Z [INFO] Pool status changed
+2026-04-11T10:15:41.798807Z [INFO] New pool difficulty
+2026-04-11T10:15:41.825280Z [INFO] Cycle board reset
+2026-04-11T10:15:41.851546Z [INFO] Authorization successful
+2026-04-11T10:15:41.869456Z [INFO] Board reset complete
+2026-04-11T10:15:42.104780Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-11T10:15:42.710892Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-11T10:15:42.711680Z [ERROR] Initialization of hashboard failed
+2026-04-11T10:15:42.766663Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 1/5 - asic enumeration failure]
+2026-04-11T10:15:42.767212Z [INFO] Board powered off
+2026-04-11T10:15:43.086965Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-11T10:15:43.087114Z [ERROR] Initialization of hashboard failed
+2026-04-11T10:15:43.173031Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 1/5 - asic enumeration failure]
+2026-04-11T10:15:43.173491Z [INFO] Board powered off
+2026-04-11T10:15:46.312775Z [INFO] Current temperatures:
+-   0: TopLeft: 41.00, TopRight: 27.00, BottomRight: 27.00, BottomLeft: 41.00
+-   1: TopLeft: 20.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-11T10:15:47.822252Z [INFO] Starting PIC controller
+2026-04-11T10:15:48.226485Z [INFO] Starting PIC controller
+2026-04-11T10:15:48.361056Z [INFO] Cycle board reset
+2026-04-11T10:15:48.413297Z [INFO] Board reset complete
+2026-04-11T10:15:48.861235Z [INFO] Cycle board reset
+2026-04-11T10:15:48.914093Z [INFO] Board reset complete
+2026-04-11T10:15:49.614927Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-11T10:15:49.615083Z [ERROR] Initialization of hashboard failed
+2026-04-11T10:15:49.641318Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 2/5 - asic enumeration failure]
+2026-04-11T10:15:49.641542Z [INFO] Board powered off
+2026-04-11T10:15:50.086889Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-11T10:15:50.087055Z [ERROR] Initialization of hashboard failed
+2026-04-11T10:15:50.147478Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 2/5 - asic enumeration failure]
+2026-04-11T10:15:50.147879Z [INFO] Board powered off
+2026-04-11T10:15:54.704560Z [INFO] Starting PIC controller
+2026-04-11T10:15:54.889507Z [INFO] Cycle board reset
+2026-04-11T10:15:54.937286Z [INFO] Board reset complete
+2026-04-11T10:15:55.209375Z [INFO] Starting PIC controller
+2026-04-11T10:15:55.389687Z [INFO] Cycle board reset
+2026-04-11T10:15:55.456235Z [INFO] Board reset complete
+2026-04-11T10:15:56.114850Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-11T10:15:56.115006Z [ERROR] Initialization of hashboard failed
+2026-04-11T10:15:56.117930Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 3/5 - asic enumeration failure]
+2026-04-11T10:15:56.118255Z [INFO] Board powered off
+2026-04-11T10:15:56.450397Z [INFO] Current fan status:
+- 0 FAN4:  OK 
+- 1 FAN2:  OK 
+- 2 FAN1:  OK 
+- 3 FAN3:  OK 
+
+2026-04-11T10:15:56.686917Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-11T10:15:56.687068Z [ERROR] Initialization of hashboard failed
+2026-04-11T10:15:56.724503Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 3/5 - asic enumeration failure]
+2026-04-11T10:15:56.724784Z [INFO] Board powered off
+2026-04-11T10:15:58.944506Z [INFO] ASIC board summary:
+-   0:  50MHz, Elapsed: 0s, Hashing: NO , 5m:   0.00, 15m:   0.00, 1h:   0.00, Nominal:   4.91
+2026-04-11T10:16:01.179480Z [INFO] Starting PIC controller
+2026-04-11T10:16:01.418243Z [INFO] Cycle board reset
+2026-04-11T10:16:01.481340Z [INFO] Board reset complete
+2026-04-11T10:16:01.786959Z [INFO] Starting PIC controller
+2026-04-11T10:16:01.928101Z [INFO] Cycle board reset
+2026-04-11T10:16:02.000060Z [INFO] Board reset complete
+2026-04-11T10:16:02.714874Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-11T10:16:02.715031Z [ERROR] Initialization of hashboard failed
+2026-04-11T10:16:02.798641Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 4/5 - asic enumeration failure]
+2026-04-11T10:16:02.799258Z [INFO] Board powered off
+2026-04-11T10:16:03.186923Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-11T10:16:03.187073Z [ERROR] Initialization of hashboard failed
+2026-04-11T10:16:03.202946Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 4/5 - asic enumeration failure]
+2026-04-11T10:16:03.203401Z [INFO] Board powered off
+2026-04-11T10:16:07.861816Z [INFO] Starting PIC controller
+2026-04-11T10:16:07.956638Z [INFO] Cycle board reset
+2026-04-11T10:16:08.023582Z [INFO] Board reset complete
+2026-04-11T10:16:08.267551Z [INFO] Starting PIC controller
+2026-04-11T10:16:08.457027Z [INFO] Cycle board reset
+2026-04-11T10:16:08.542077Z [INFO] Board reset complete
+2026-04-11T10:16:09.214868Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-11T10:16:09.215041Z [ERROR] Initialization of hashboard failed
+2026-04-11T10:16:09.280939Z [WARN] Switching off the board; no automatic start scheduled, this board will remain offline [enumeration_reboot, 5/5 - asic enumeration failure]
+2026-04-11T10:16:09.281249Z [INFO] Board powered off
+2026-04-11T10:16:09.686957Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-11T10:16:09.687112Z [ERROR] Initialization of hashboard failed
+2026-04-11T10:16:09.787869Z [WARN] Switching off the board; no automatic start scheduled, this board will remain offline [enumeration_reboot, 5/5 - asic enumeration failure]
+2026-04-11T10:16:09.788604Z [INFO] Board powered off
+2026-04-11T10:16:45.397564Z [INFO] New pool difficulty
+2026-04-11T10:16:52.676357Z [INFO] Environment temperature is 22C; Adjusting profiles for cold environment
+2026-04-11T10:16:52.676649Z [INFO] Current profile voltage updated
+2026-04-11T10:16:52.779151Z [INFO] Ramping board voltage
+2026-04-11T10:17:01.875344Z [INFO] Ramping board frequency and voltage
+2026-04-11T10:17:15.396223Z [INFO] New pool difficulty
+2026-04-11T10:17:19.180191Z [INFO] Shares counter
+2026-04-11T10:18:15.493789Z [INFO] New pool difficulty
+2026-04-11T10:19:48.218771Z [INFO] New pool difficulty
+2026-04-11T10:20:35.912514Z [INFO] Checking available disk space
+2026-04-11T10:20:47.360592Z [INFO] Current temperatures:
+-   0: TopLeft: 33.00, TopRight: 29.00, BottomRight: 29.00, BottomLeft: 33.00
+-   1: TopLeft: 23.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-11T10:21:02.092573Z [INFO] ASIC board summary, 12.9V:
+-  *0: 235MHz, Elapsed:     5m 4s, Hashing: YES, 5m:   9.37, 15m:   9.22, 1h:   9.22, Nominal:  23.10
+2026-04-11T10:22:20.990805Z [INFO] Shares counter
+2026-04-11T10:22:36.069799Z [INFO] New pool difficulty
+2026-04-11T10:25:04.290471Z [INFO] Health summary:
+-   0: Avg. Score:   98.15, Good: 110, Bad:   0
+2026-04-11T10:25:35.912071Z [INFO] Checking available disk space
+2026-04-11T10:25:48.940974Z [INFO] Current temperatures:
+-   0: TopLeft: 54.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 54.00
+-   1: TopLeft: 22.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 22.00
+-   2: TopLeft: 21.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-11T10:26:04.735657Z [INFO] ASIC board summary, 12.9V:
+-   0: 485MHz, Elapsed:    10m 6s, Hashing: YES, 5m:  38.56, 15m:  23.77, 1h:  23.77, Nominal:  47.69
+2026-04-11T10:27:26.786402Z [INFO] Shares counter
+2026-04-11T10:30:07.125068Z [INFO] Health summary:
+-   0: Avg. Score:   99.06, Good: 110, Bad:   0
+2026-04-11T10:30:35.912659Z [INFO] Checking available disk space
+2026-04-11T10:30:51.097802Z [INFO] Current temperatures:
+-   0: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+-   1: TopLeft: 22.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 22.00
+-   2: TopLeft: 21.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-11T10:31:07.679087Z [INFO] ASIC board summary, 12.9V:
+-   0: 485MHz, Elapsed:    15m 9s, Hashing: YES, 5m:  47.02, 15m:  31.80, 1h:  31.48, Nominal:  47.69
+2026-04-11T10:32:28.302066Z [INFO] Shares counter
+2026-04-11T10:35:10.666459Z [INFO] Health summary:
+-   0: Avg. Score:  100.21, Good: 110, Bad:   0
+2026-04-11T10:35:35.911861Z [INFO] Checking available disk space
+2026-04-11T10:35:53.394419Z [INFO] Current temperatures:
+-   0: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+-   1: TopLeft: 22.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 22.00
+-   2: TopLeft: 21.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-11T10:36:11.129438Z [INFO] ASIC board summary, 12.9V:
+-   0: 485MHz, Elapsed:   20m 13s, Hashing: YES, 5m:  47.22, 15m:  44.38, 1h:  35.40, Nominal:  47.69
+2026-04-11T10:37:02.999388Z [INFO] New pool difficulty
+2026-04-11T10:37:36.510740Z [INFO] Shares counter
+2026-04-11T10:40:13.507765Z [INFO] Health summary:
+-   0: Avg. Score:  100.53, Good: 110, Bad:   0
+2026-04-11T10:40:35.912389Z [INFO] Checking available disk space
+2026-04-11T10:40:55.781992Z [INFO] Current temperatures:
+-   0: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+-   1: TopLeft: 22.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 22.00
+-   2: TopLeft: 21.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-11T10:41:14.436994Z [INFO] ASIC board summary, 12.9V:
+-   0: 485MHz, Elapsed:   25m 16s, Hashing: YES, 5m:  47.27, 15m:  47.17, 1h:  37.76, Nominal:  47.69
+2026-04-11T10:42:39.249381Z [INFO] Shares counter
+2026-04-11T10:45:17.242325Z [INFO] Health summary:
+-   0: Avg. Score:   99.17, Good: 110, Bad:   0
+2026-04-11T10:45:35.912439Z [INFO] Checking available disk space
+2026-04-11T10:45:58.423643Z [INFO] Current temperatures:
+-   0: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+-   1: TopLeft: 22.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 22.00
+-   2: TopLeft: 21.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-11T10:46:17.878083Z [INFO] ASIC board summary, 12.9V:
+-   0: 485MHz, Elapsed:   30m 19s, Hashing: YES, 5m:  47.15, 15m:  47.21, 1h:  39.32, Nominal:  47.69
+2026-04-11T10:48:16.846706Z [INFO] Shares counter
+2026-04-11T10:50:20.182214Z [INFO] Health summary:
+-   0: Avg. Score:   98.92, Good: 110, Bad:   0
+2026-04-11T10:50:35.912163Z [INFO] Checking available disk space
+2026-04-11T10:51:01.249527Z [INFO] Current temperatures:
+-   0: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+-   1: TopLeft: 22.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 22.00
+-   2: TopLeft: 21.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-11T10:51:20.921888Z [INFO] ASIC board summary, 12.9V:
+-   0: 485MHz, Elapsed:   35m 22s, Hashing: YES, 5m:  47.13, 15m:  47.18, 1h:  40.43, Nominal:  47.69
+2026-04-11T10:53:47.437602Z [INFO] Shares counter
+2026-04-11T10:55:23.126441Z [INFO] Health summary:
+-   0: Avg. Score:  101.01, Good: 110, Bad:   0
+2026-04-11T10:55:35.912436Z [INFO] Checking available disk space
+2026-04-11T10:56:04.292900Z [INFO] Current temperatures:
+-   0: TopLeft: 54.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 54.00
+-   1: TopLeft: 22.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 22.00
+-   2: TopLeft: 21.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-11T10:56:23.748460Z [INFO] ASIC board summary, 12.9V:
+-   0: 485MHz, Elapsed:   40m 25s, Hashing: YES, 5m:  47.19, 15m:  47.16, 1h:  41.28, Nominal:  47.69
+2026-04-11T10:59:14.275338Z [INFO] Shares counter
+2026-04-11T11:00:25.962913Z [INFO] Health summary:
+-   0: Avg. Score:  101.45, Good: 110, Bad:   0
+2026-04-11T11:00:35.911903Z [INFO] Checking available disk space
+2026-04-11T11:01:07.044515Z [INFO] Current temperatures:
+-   0: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+-   1: TopLeft: 22.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 22.00
+-   2: TopLeft: 21.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-11T11:01:26.177704Z [INFO] ASIC board summary, 12.9V:
+-   0: 485MHz, Elapsed:   45m 28s, Hashing: YES, 5m:  47.26, 15m:  47.19, 1h:  41.94, Nominal:  47.69
+2026-04-11T11:04:21.366648Z [INFO] Shares counter
+2026-04-11T11:05:28.307007Z [INFO] Health summary:
+-   0: Avg. Score:   99.26, Good: 110, Bad:   0
+2026-04-11T11:05:35.912771Z [INFO] Checking available disk space
+2026-04-11T11:06:09.759142Z [INFO] Current temperatures:
+-   0: TopLeft: 54.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 54.00
+-   1: TopLeft: 22.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 22.00
+-   2: TopLeft: 21.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-11T11:06:29.024601Z [INFO] ASIC board summary, 12.9V:
+-   0: 485MHz, Elapsed:   50m 31s, Hashing: YES, 5m:  47.19, 15m:  47.23, 1h:  42.46, Nominal:  47.69
+2026-04-11T11:09:27.697881Z [INFO] Shares counter
+2026-04-11T11:10:31.352342Z [INFO] Health summary:
+-   0: Avg. Score:   99.58, Good: 110, Bad:   0
+2026-04-11T11:10:35.911938Z [INFO] Checking available disk space
+2026-04-11T11:11:12.677747Z [INFO] Current temperatures:
+-   0: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+-   1: TopLeft: 22.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 22.00
+-   2: TopLeft: 21.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-11T11:11:31.980139Z [INFO] ASIC board summary, 12.9V:
+-   0: 485MHz, Elapsed:   55m 33s, Hashing: YES, 5m:  47.27, 15m:  47.24, 1h:  42.90, Nominal:  47.69
+2026-04-11T11:14:45.138232Z [INFO] Shares counter
+2026-04-11T11:15:34.497209Z [INFO] Health summary:
+-   0: Avg. Score:  100.13, Good: 110, Bad:   0
+2026-04-11T11:15:35.912785Z [INFO] Checking available disk space
+2026-04-11T11:16:15.566591Z [INFO] Current temperatures:
+-   0: TopLeft: 54.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 54.00
+-   1: TopLeft: 22.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 22.00
+-   2: TopLeft: 21.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-11T11:16:34.969941Z [INFO] ASIC board summary, 12.9V:
+-   0: 485MHz, Elapsed:    1h 36s, Hashing: YES, 5m:  47.21, 15m:  47.22, 1h:  43.64, Nominal:  47.69
+2026-04-11T11:18:25.908608Z [INFO] New pool difficulty
+2026-04-11T11:20:03.656923Z [INFO] Shares counter
+2026-04-11T11:20:35.912582Z [INFO] Checking available disk space
+2026-04-11T11:20:37.038814Z [INFO] Health summary:
+-   0: Avg. Score:   99.99, Good: 110, Bad:   0
+2026-04-11T11:21:18.521649Z [INFO] Current temperatures:
+-   0: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+-   1: TopLeft: 22.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 22.00
+-   2: TopLeft: 21.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-11T11:21:37.588933Z [INFO] ASIC board summary, 12.9V:
+-   0: 485MHz, Elapsed:    ~1h 5m, Hashing: YES, 5m:  47.15, 15m:  47.22, 1h:  46.65, Nominal:  47.69
+2026-04-11T11:25:22.912716Z [INFO] Shares counter
+2026-04-11T11:25:35.912248Z [INFO] Checking available disk space
+2026-04-11T11:25:40.269119Z [INFO] Health summary:
+-   0: Avg. Score:  100.77, Good: 110, Bad:   0
+2026-04-11T11:26:21.720470Z [INFO] Current temperatures:
+-   0: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+-   1: TopLeft: 22.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 22.00
+-   2: TopLeft: 21.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-11T11:26:40.948602Z [INFO] ASIC board summary, 12.9V:
+-   0: 485MHz, Elapsed:   ~1h 10m, Hashing: YES, 5m:  47.11, 15m:  47.15, 1h:  47.19, Nominal:  47.69
+2026-04-11T11:28:05.937616Z [WARN] Job ID not found in the jobs queue; share will not be submitted
+2026-04-11T11:28:36.385787Z [INFO] New pool difficulty
+2026-04-11T11:30:23.380642Z [INFO] Shares counter
+2026-04-11T11:30:35.911921Z [INFO] Checking available disk space
+2026-04-11T11:30:42.810721Z [INFO] Health summary:
+-   0: Avg. Score:  100.01, Good: 110, Bad:   0
+2026-04-11T11:31:24.722139Z [INFO] Current temperatures:
+-   0: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+-   1: TopLeft: 22.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 22.00
+-   2: TopLeft: 21.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-11T11:31:43.480461Z [INFO] ASIC board summary, 12.9V:
+-   0: 485MHz, Elapsed:   ~1h 15m, Hashing: YES, 5m:  47.28, 15m:  47.17, 1h:  47.20, Nominal:  47.69
+2026-04-11T11:35:23.993207Z [INFO] Shares counter
+2026-04-11T11:35:35.912073Z [INFO] Checking available disk space
+2026-04-11T11:35:46.067773Z [INFO] Health summary:
+-   0: Avg. Score:   94.97, Good: 110, Bad:   0
+2026-04-11T11:36:27.674373Z [INFO] Current temperatures:
+-   0: TopLeft: 54.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 54.00
+-   1: TopLeft: 22.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 22.00
+-   2: TopLeft: 21.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-11T11:36:46.944142Z [INFO] ASIC board summary, 12.9V:
+-   0: 485MHz, Elapsed:   ~1h 20m, Hashing: YES, 5m:  46.97, 15m:  47.11, 1h:  47.18, Nominal:  47.69
+
+[2026-04-11 06:39:46] [SUMMARY]
+{
+  "STATUS": [
+    {
+      "Code": 11,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "Summary",
+      "STATUS": "S",
+      "When": 1775907587
+    }
+  ],
+  "SUMMARY": [
+    {
+      "Accepted": 349,
+      "Best Share": 262144,
+      "Device Hardware%": 0.0,
+      "Device Rejected%": 0.0,
+      "Difficulty Accepted": 48300032,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "Elapsed": 5046,
+      "Found Blocks": 0,
+      "GHS 15m": 47191.21,
+      "GHS 1m": 47020.87,
+      "GHS 24h": 43973.09,
+      "GHS 30m": 47157.2,
+      "GHS 5m": 46960.6,
+      "GHS 5s": 47851.38,
+      "GHS av": 44415.17,
+      "Get Failures": 0,
+      "Getworks": 508,
+      "Hardware Errors": 0,
+      "Last getwork": 1775907584,
+      "Local Work": 0,
+      "Network Blocks": 0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Total MH": 44415171.59575019,
+      "Utility": 4.15,
+      "Work Utility": 6.04
+    }
+  ],
+  "id": 1
+}
+
+[2026-04-11 06:39:46] [STATS]
+{
+  "STATS": [
+    {
+      "CompileTime": "Fri Dec 12 16:49:20 UTC 2025",
+      "Miner": "2025.12.12.164659",
+      "Type": "Antminer S19 XP"
+    },
+    {
+      "Calls": 0,
+      "Elapsed": 5046,
+      "GHS 5s": 47851.38,
+      "GHS av": 44415.17,
+      "ID": "BTM_SOC0",
+      "Max": 0,
+      "Min": 99999999,
+      "Mode": 2,
+      "STATS": 0,
+      "Wait": 0,
+      "chain_acn1": 110,
+      "chain_acn2": 0,
+      "chain_acn3": 0,
+      "chain_acn4": 0,
+      "chain_acs1": " oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oo",
+      "chain_acs2": "",
+      "chain_acs3": "",
+      "chain_acs4": "",
+      "chain_hw1": 0,
+      "chain_hw2": 0,
+      "chain_hw3": 0,
+      "chain_hw4": 0,
+      "chain_rate1": "44415.17",
+      "chain_rate2": "0",
+      "chain_rate3": "0",
+      "chain_rate4": "0",
+      "fan1": 4560,
+      "fan2": 4800,
+      "fan3": 4920,
+      "fan4": 3960,
+      "fan_num": 4,
+      "freq1": 485.0,
+      "freq2": 0.0,
+      "freq3": 0.0,
+      "freq4": 0.0,
+      "frequency": 485,
+      "miner_count": 1,
+      "miner_id": "02d6dc832f60",
+      "miner_version": "2025.12.12.164659",
+      "no_matching_work": 0,
+      "rate_30m": 47157.2,
+      "rate_unit": "GH",
+      "temp1": 53.0,
+      "temp2": 0.0,
+      "temp2_1": 53.0,
+      "temp2_2": 0.0,
+      "temp2_3": 0.0,
+      "temp3": 0.0,
+      "temp_chip1": "53-37-37-53",
+      "temp_chip2": "0-0-0-0",
+      "temp_chip3": "0-0-0-0",
+      "temp_chip4": "0-0-0-0",
+      "temp_max": 53.0,
+      "temp_num": 3,
+      "temp_pcb1": "53-37-37-53",
+      "temp_pcb2": "0-0-0-0",
+      "temp_pcb3": "0-0-0-0",
+      "temp_pcb4": "0-0-0-0",
+      "temp_pic1": "53-37-37-53",
+      "temp_pic2": "0-0-0-0",
+      "temp_pic3": "0-0-0-0",
+      "temp_pic4": "0-0-0-0",
+      "total rate": 44415.17,
+      "total_acn": 4,
+      "total_freqavg": 485.0,
+      "total_rateideal": 47694.9
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 70,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "LUXminer stats",
+      "STATUS": "S",
+      "When": 1775907587
+    }
+  ],
+  "id": 1
+}
+
+[2026-04-11 06:39:46] [DEVS]
+{
+  "DEVS": [
+    {
+      "ASC": 1,
+      "Accepted": 0,
+      "Board": "BHB56801",
+      "Connector": "J13",
+      "ControllerIPVersionHex": "0x0A113D",
+      "ControllerIPVersionStr": "0.11.0",
+      "Device Elapsed": 0,
+      "Device Hardware%": 0,
+      "Device Rejected%": 0,
+      "Diff1 Work": 0,
+      "Difficulty Accepted": 0,
+      "Difficulty Rejected": 0,
+      "Enabled": "Y",
+      "Hardware Error MHS 15m": 0,
+      "Hardware Errors": 0,
+      "ID": 1,
+      "IsRamping": false,
+      "IsUserShutdown": false,
+      "Last Share Difficulty": 0,
+      "Last Share Pool": 0,
+      "Last Share Time": 0,
+      "Last Valid Work": 0,
+      "MHS 15m": 0.0,
+      "MHS 1m": 0.0,
+      "MHS 30m": 0.0,
+      "MHS 5m": 0.0,
+      "MHS 5s": 0.0,
+      "MHS 60m": 0.0,
+      "MHS av": 0.0,
+      "Name": "",
+      "Nominal MHS": 0.0,
+      "Profile": "default",
+      "Rejected": 0,
+      "SerialNumber": "SMTTYPDBCJDJF0025",
+      "Status": "Dead",
+      "Temperature": 22.0,
+      "Total MH": 0.0,
+      "Utility": 0
+    },
+    {
+      "ASC": 2,
+      "Accepted": 0,
+      "Board": "BHB56801",
+      "Connector": "J12",
+      "ControllerIPVersionHex": "0x0A113D",
+      "ControllerIPVersionStr": "0.11.0",
+      "Device Elapsed": 0,
+      "Device Hardware%": 0,
+      "Device Rejected%": 0,
+      "Diff1 Work": 0,
+      "Difficulty Accepted": 0,
+      "Difficulty Rejected": 0,
+      "Enabled": "Y",
+      "Hardware Error MHS 15m": 0,
+      "Hardware Errors": 0,
+      "ID": 2,
+      "IsRamping": false,
+      "IsUserShutdown": false,
+      "Last Share Difficulty": 0,
+      "Last Share Pool": 0,
+      "Last Share Time": 0,
+      "Last Valid Work": 0,
+      "MHS 15m": 0.0,
+      "MHS 1m": 0.0,
+      "MHS 30m": 0.0,
+      "MHS 5m": 0.0,
+      "MHS 5s": 0.0,
+      "MHS 60m": 0.0,
+      "MHS av": 0.0,
+      "Name": "",
+      "Nominal MHS": 0.0,
+      "Profile": "default",
+      "Rejected": 0,
+      "SerialNumber": "JYZZYPDBCJEBB2ATY",
+      "Status": "Dead",
+      "Temperature": 21.0,
+      "Total MH": 0.0,
+      "Utility": 0
+    },
+    {
+      "ASC": 0,
+      "Accepted": 349,
+      "Board": "BHB56801",
+      "Connector": "J11",
+      "ControllerIPVersionHex": "0x0A113D",
+      "ControllerIPVersionStr": "0.11.0",
+      "Device Elapsed": 5025,
+      "Device Hardware%": 0,
+      "Device Rejected%": 0,
+      "Diff1 Work": 48300032,
+      "Difficulty Accepted": 48300032,
+      "Difficulty Rejected": 0,
+      "Enabled": "Y",
+      "Hardware Error MHS 15m": 0,
+      "Hardware Errors": 0,
+      "ID": 0,
+      "IsRamping": false,
+      "IsUserShutdown": false,
+      "Last Share Difficulty": 262144,
+      "Last Share Pool": 1,
+      "Last Share Time": 1775907513,
+      "Last Valid Work": 1775907513,
+      "MHS 15m": 47191219.888888314,
+      "MHS 1m": 47020874.927152604,
+      "MHS 30m": 47157200.58026052,
+      "MHS 5m": 46960604.82781822,
+      "MHS 5s": 47851389.60416508,
+      "MHS 60m": 47185329.078856535,
+      "MHS av": 44415171.59575019,
+      "Name": "",
+      "Nominal MHS": 47694900.0,
+      "Profile": "default",
+      "Rejected": 0,
+      "SerialNumber": "SMTTYPDBCJDJF001Y",
+      "Status": "Alive",
+      "Temperature": 53.0,
+      "Total MH": 44415171.59575019,
+      "Utility": 0
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 9,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "3 ASC(s)",
+      "STATUS": "S",
+      "When": 1775907587
+    }
+  ],
+  "id": 1
+}
+
+[2026-04-11 06:39:46] [POOLS]
+{
+  "POOLS": [
+    {
+      "Accepted": 349,
+      "AsicBoost": true,
+      "Bad Work": 0,
+      "Best Share": 262144,
+      "Current Block Height": 0,
+      "Current Block Version": 536870912,
+      "Diff": "262K",
+      "Diff1 Shares": 48300032,
+      "Difficulty Accepted": 48300032,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "GROUP": 0,
+      "Get Failures": 0,
+      "Getworks": 508,
+      "Has GBT": false,
+      "Has Stratum": true,
+      "Has Vmask": true,
+      "Last Share Difficulty": 262144,
+      "Last Share Time": "00:01:14",
+      "Long Pool": "N",
+      "POOL": 0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Priority": 0,
+      "Proxy": "",
+      "Proxy Type": "",
+      "Quota": 1.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Status": "Alive",
+      "Stratum Active": true,
+      "Stratum Difficulty": 262144,
+      "Stratum URL": "sha256.poolbinance.com:443",
+      "URL": "stratum+tcp://sha256.poolbinance.com:443",
+      "User": "NCATX.082",
+      "Work Difficulty": 262144,
+      "Works": 0
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 7,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "1 Pool(s)",
+      "STATUS": "S",
+      "When": 1775907587
+    }
+  ],
+  "id": 1
+}
+
+[2026-04-11 06:39:46] [CONFIG]
+{
+  "CONFIG": [
+    {
+      "ASC Count": 3,
+      "ActualPowerTarget": 0,
+      "BcastAddr": "10.102.1.255",
+      "ControlBoardType": "amlogic",
+      "Cooling": "Air",
+      "CurtailMode": "None",
+      "DHCP": true,
+      "DNS Servers": "",
+      "Device Code": "",
+      "FPGABuildIdHex": "0x000A113D",
+      "FPGABuildIdStr": "2000-0A-11 3D:00",
+      "FeeStatus": "Ok",
+      "Gateway": "10.102.0.1",
+      "GreenLed": "auto",
+      "Hostname": "Antminer",
+      "Hotplug": "None",
+      "IPAddr": "10.102.0.221",
+      "IdealPowerTarget": 0,
+      "ImmersionMode": false,
+      "IsAtmEnabled": false,
+      "IsPowerSupplyOn": true,
+      "IsPowerTargetEnabled": false,
+      "IsSingleVoltage": true,
+      "IsTuning": false,
+      "Log Interval": 0,
+      "LogFileLevel": "info",
+      "MACAddr": "02:d6:dc:83:2f:60",
+      "Model": "Antminer S19 XP",
+      "NameplateTHS": 141.0,
+      "Netmask": "255.255.254.0",
+      "OS": "LuxOS",
+      "PGA Count": 0,
+      "PIC": "NoPIC",
+      "PSUHwVersion": "76",
+      "PSULabel": "APW121215f",
+      "Pool Count": 1,
+      "PowerLimit": 0,
+      "Profile": "default",
+      "ProfileStep": "0",
+      "RedLed": "auto",
+      "SerialNumber": "",
+      "Strategy": "Failover",
+      "SystemStatus": "Normal",
+      "UpdateOnStartup": "off",
+      "UpdateOnTimeout": "off",
+      "UpdateOnUser": "full",
+      "UpdateSource": "https://storage.googleapis.com/luxor-firmware/stable",
+      "UpdateTimeout": 60
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 33,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "LUXminer config",
+      "STATUS": "S",
+      "When": 1775907587
+    }
+  ],
+  "id": 1
+}

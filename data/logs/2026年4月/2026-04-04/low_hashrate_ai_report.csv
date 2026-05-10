@@ -1,0 +1,553 @@
+﻿ip,status,ths_15m,primary_cause,confidence,alternate_causes,secondary_causes,solutions,evidence,file
+10.102.0.130,0算力,0.000000,算力板全板失效（芯片未检出/初始化失败）,高,总线/通信异常；算力板/芯片异常；网络/矿池连接异常；矿机服务异常/接口超时；疑似供电/排线/控制板链路问题,疑似供电/排线/控制板链路问题；总线/通信异常,"断电后重新插拔控制板到三块算力板的数据排线与电源接口；重点检查 HB1/HB2/HB3 是否都出现 no chips detected 或 NoChipsDetected；交叉测试控制板与算力板，确认是控制板链路问题还是算力板损坏；检查 PSU 对算力板供电电压与负载稳定性（是否触发过流保护）；若仍失败，优先更换故障算力板或控制板；当前日志涉及 HB:1,2,3","2026-04-02T20:21:03.916737Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T20:22:42.793158Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:23:44.000486Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:25:22.896159Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:54:42.609691Z [ERROR] Tuner error: Stage Some(13): restart: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:57:16.565294Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T00:08:16.454531Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T00:10:42.929600Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T01:11:43.799054Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T01:13:17.482110Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T07:14:16.769010Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T07:15:24.176334Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain",logs_10_102_0_130_MINER-10-102-0-130.txt
+10.102.0.131,低算力(<50TH/s),45.243865,算力板严重异常（芯片识别/通信错误，NoPIC 可能无法单禁板）,高,总线/通信异常；算力板/芯片异常；电源异常；矿机服务异常/接口超时；网络/矿池连接异常；若混有较早的 Failed to resolve，通常与当前 tuner 禁板无直接关系，以 HB 报错为主,若混有较早的 Failed to resolve，通常与当前 tuner 禁板无直接关系，以 HB 报错为主；总线/通信异常,"关注 Tuner 报错：如 detected … chips 远超 110、unexpected revision、ERR:I1/I2，多为该板通信或硬件损坏；断电后重插故障 HB 对应算力板排线与供电；与正常板互换槽位判断是板还是接口；NoPIC 机型可能无法单独禁用故障板，整机可能无法继续挖矿，需先修复或更换该板；若混有历史 Failed to resolve，以导出时间附近 tuner/hashboard 报错为准；矿池 Alive 不等于当前无板级故障；当前日志涉及 HB:2,3","2026-04-01T16:31:23.410759Z [ERROR] Tuner error: {ERR:H2} Stage 9: Zero MCR on hashboards [Address(1), Address(2), Address(3)]
+2026-04-01T23:34:03.135709Z [ERROR] Tuner error: {ERR:H2} Stage 9: Zero MCR on hashboards [Address(1), Address(2), Address(3)]
+2026-04-01T23:37:21.773024Z [ERROR] Tuner error: {ERR:H2} Stage 9: Zero MCR on hashboards [Address(1), Address(2), Address(3)]
+2026-04-01T23:40:36.899446Z [ERROR] Tuner error: {ERR:H2} Stage 9: Zero MCR on hashboards [Address(1), Address(2), Address(3)]
+2026-04-01T23:44:52.231013Z [ERROR] Tuner error: {ERR:H2} Stage 9: Zero MCR on hashboards [Address(1), Address(2), Address(3)]
+2026-04-01T23:57:54.032833Z [ERROR] Tuner error: {ERR:H2} Stage 9: Zero MCR on hashboards [Address(1), Address(2), Address(3)]
+2026-04-02T06:32:20.887577Z [ERROR] Tuner error: Stage Some(8): restart: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T09:58:27.825179Z [ERROR] Tuner error: {ERR:H2} Stage 9: Zero MCR on hashboards [Address(2)]
+2026-04-02T10:00:37.499025Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T15:49:52.058934Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I1} unexpected revision of chip 9 (expected: 0x1366 received: 0x0)
+2026-04-02T15:51:00.485454Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T16:24:31.136652Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain",logs_10_102_0_131_MINER-10-102-0-131.txt
+10.102.0.155,0算力,0.000000,单链算力板故障致 SOC 停机（芯片数异常/CRC/通信）,高,总线/通信异常；日志中「power off hashboard」为关断算力板动作，勿与 PSU 模块故障混淆,日志中「power off hashboard」为关断算力板动作，勿与 PSU 模块故障混淆,根据日志定位异常 Chain（如 find 0 asic、仅 find 部分数量、reg crc error）；断电后重插该链算力板排线与供电，做与正常链互换槽位测试以区分板卡与接口；若故障随板迁移则更换算力板；若固定在槽位则检查控制板与该槽位连线；若固件支持可尝试暂时禁用故障链仅跑健康链（注意功耗与收益）,"2026-04-03 22:50:51 load chain 0 eeprom data
+2026-04-03 22:50:52 load chain 1 eeprom data
+2026-04-03 22:50:53 load chain 2 eeprom data
+2026-04-03 22:50:53 eeprom load ret:0
+2026-04-03 22:50:53 eeprom load levels
+2026-04-03 22:57:40 Chain 2 only find 0 asic, will power off hash board 2
+2026-04-03 22:57:40 ERROR_SOC_INIT: soc init failed!
+2026-04-03 22:57:40 stop_mining: soc init failed!
+2026-04-03 22:57:40 ****power off hashboard****
+""Status"": ""Alive"",
+""Status"": ""Alive"",
+2026-04-03 22:50:45 get test_loop_securely_find_asic_num failed",logs_10_102_0_155_MINER-10-102-0-155.txt
+10.102.0.156,0算力,0.000000,风扇异常（丢失/数量不足触发保护停机）,高,风扇异常；总线/通信异常；若同一时间段后出现 ERROR_SOC_INIT，多为风扇保护后的连带失败，主因仍为风扇检测,若同一时间段后出现 ERROR_SOC_INIT，多为风扇保护后的连带失败，主因仍为风扇检测；风扇异常,根据日志确认要求风扇数量与实际检测数量（如 only find 3 < 4）；断电后检查四个风扇插头是否插紧、线序是否与控制板丝印一致，必要时对调插头判断是风扇还是接口；确认风扇转速是否异常或为 0；更换不转或信号异常的风扇；若硬件正常仍误报，检查控制板风扇检测电路；ERROR_SOC_INIT 若紧跟 fan lost，多为保护停机连带而非算力板主因,"2026-04-03 22:50:50 load chain 0 eeprom data
+2026-04-03 22:50:51 load chain 1 eeprom data
+2026-04-03 22:50:52 load chain 2 eeprom data
+2026-04-03 22:50:52 eeprom load ret:0
+2026-04-03 22:50:52 eeprom load levels
+2026-04-03 22:51:12 Error, fan lost, only find 3 (< 4)
+2026-04-03 22:51:12 ERROR_FAN_LOST: fan lost
+2026-04-03 22:51:12 stop_mining: fan lost
+2026-04-03 22:51:12 ****power off hashboard****
+2026-04-03 22:51:13 ERROR_SOC_INIT: soc init failed!
+2026-04-03 22:51:13 stop_mining: soc init failed!
+2026-04-03 22:51:13 ****power off hashboard****",logs_10_102_0_156_MINER-10-102-0-156.txt
+10.102.0.157,0算力,0.000000,单链算力板故障致 SOC 停机（芯片数异常/CRC/通信）,高,总线/通信异常；日志中「power off hashboard」为关断算力板动作，勿与 PSU 模块故障混淆,日志中「power off hashboard」为关断算力板动作，勿与 PSU 模块故障混淆,根据日志定位异常 Chain（如 find 0 asic、仅 find 部分数量、reg crc error）；断电后重插该链算力板排线与供电，做与正常链互换槽位测试以区分板卡与接口；若故障随板迁移则更换算力板；若固定在槽位则检查控制板与该槽位连线；若固件支持可尝试暂时禁用故障链仅跑健康链（注意功耗与收益）,"2026-04-03 22:50:50 load chain 0 eeprom data
+2026-04-03 22:50:52 load chain 1 eeprom data
+2026-04-03 22:50:53 load chain 2 eeprom data
+2026-04-03 22:50:53 eeprom load ret:0
+2026-04-03 22:50:53 eeprom load levels
+2026-04-03 22:54:59 Chain 0 only find 30 asic, will power off hash board 0
+2026-04-03 22:55:03 ERROR_SOC_INIT: soc init failed!
+2026-04-03 22:55:03 stop_mining: soc init failed!
+2026-04-03 22:55:03 ****power off hashboard****
+""Status"": ""Alive"",
+""Status"": ""Alive"",
+2026-04-03 22:50:44 get test_loop_securely_find_asic_num failed",logs_10_102_0_157_MINER-10-102-0-157.txt
+10.102.0.158,低算力(<50TH/s),49.226370,算力板部分失效（多块链 Dead，仅部分链工作）,高,总线/通信异常；末段 [DEVS]：Dead=2，Alive=1；多为板卡/排线/槽位问题，建议交叉换槽位与检查供电接口,末段 [DEVS]：Dead=2，Alive=1；多为板卡/排线/槽位问题，建议交叉换槽位与检查供电接口；总线/通信异常,根据末段 [DEVS] 确认 Dead / Alive 链编号；断电后检查 Dead 链对应算力板数据排线与电源接头；将故障链与正常链互换槽位或交叉到同型号矿机，判断故障随板还是随槽位/控制板；仅单链或部分链工作时总算力约为额定三分之一属常见现象；矿池 Alive 不能排除板级失效；若链长期保持 Dead，更换算力板或送修；必要时导出含启动阶段的完整日志查初始化错误,"2026-04-03T13:59:35.342818Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:59:35.377305Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 1/5 - asic enumeration failure]
+2026-04-03T13:59:35.832328Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:59:35.886531Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 1/5 - asic enumeration failure]
+2026-04-03T13:59:41.844379Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:59:41.861375Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 2/5 - asic enumeration failure]
+2026-04-03T13:59:42.332318Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:59:42.367289Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 2/5 - asic enumeration failure]
+2026-04-03T13:59:48.348366Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:59:48.438416Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 3/5 - asic enumeration failure]
+2026-04-03T13:59:48.932314Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:59:48.945487Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 3/5 - asic enumeration failure]",logs_10_102_0_158_MINER-10-102-0-158.txt
+10.102.0.159,低算力(<50TH/s),36.436736,算力板芯片枚举不足（Hashchip 与 110 不符，已被禁用）,高,总线/通信异常；网络/矿池连接异常；算力板/芯片异常；多链芯片响应不足或无法通信，Tuner 已禁用对应算力板；优先重插排线/换槽位，仍失败则更换板卡；PSU I²C 校验失败可为次要因素，多在板卡与链路确认后再复测电源通信,多链芯片响应不足或无法通信，Tuner 已禁用对应算力板；优先重插排线/换槽位，仍失败则更换板卡；PSU I²C 校验失败可为次要因素，多在板卡与链路确认后再复测电源通信；算力板/芯片异常,"根据 Tuner error / CHAIN 日志确认 {HB:n} 与「number of responses … doesn't match chip count 110」对应链；断电后重插故障板数据排线与电源接口；与正常链互换槽位判断是板卡还是槽位/控制板；仅一链正常时总算力约为额定三分之一属常见现象；PSU I²C checksum 异常多为次要，板卡稳定后再复测电源；若某链长期 0 响应或响应数远低于 110，按算力板硬件损坏或通信链路故障处理，更换板卡或送修；当前日志涉及 HB:2,3","2026-03-29T19:43:50.469907Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-03-30T03:22:33.181202Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-03-31T18:07:16.144838Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-03-31T18:18:41.776610Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T05:33:24.183273Z [ERROR] Tuner error: miner resume: waiting for start: InitError on hashchain 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T05:34:33.408224Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T16:24:43.433314Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T16:54:29.884466Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T17:17:21.178485Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T18:41:31.390484Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T19:44:31.798110Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T07:02:00.401209Z [ERROR] Tuner error: Stage Some(8): restart: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain",logs_10_102_0_159_MINER-10-102-0-159.txt
+10.102.0.167,低算力(<50TH/s),49.004750,算力板全板失效（芯片未检出/初始化失败）,高,总线/通信异常；网络/矿池连接异常；算力板/芯片异常；疑似供电/排线/控制板链路问题,疑似供电/排线/控制板链路问题；总线/通信异常,"断电后重新插拔控制板到三块算力板的数据排线与电源接口；重点检查 HB1/HB2/HB3 是否都出现 no chips detected 或 NoChipsDetected；交叉测试控制板与算力板，确认是控制板链路问题还是算力板损坏；检查 PSU 对算力板供电电压与负载稳定性（是否触发过流保护）；若仍失败，优先更换故障算力板或控制板；当前日志涉及 HB:1,2","2026-04-02T06:13:45.207899Z [ERROR] Tuner error: {ERR:H2} Stage 9: Zero MCR on hashboards [Address(3)]
+2026-04-02T06:25:32.517138Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T06:26:40.714440Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T07:27:39.203351Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T07:28:46.621897Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T13:29:46.416984Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T13:30:55.964239Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T14:52:39.633230Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T14:53:51.275745Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T16:24:37.250104Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T16:26:05.096200Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T19:44:50.399291Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain",logs_10_102_0_167_MINER-10-102-0-167.txt
+10.102.0.170,0算力,0.000000,算力板芯片枚举不足（Hashchip 与 110 不符，已被禁用）,高,总线/通信异常；算力板/芯片异常；网络/矿池连接异常；多链芯片响应不足或无法通信，Tuner 已禁用对应算力板；优先重插排线/换槽位，仍失败则更换板卡；PSU I²C 校验失败可为次要因素，多在板卡与链路确认后再复测电源通信,多链芯片响应不足或无法通信，Tuner 已禁用对应算力板；优先重插排线/换槽位，仍失败则更换板卡；PSU I²C 校验失败可为次要因素，多在板卡与链路确认后再复测电源通信；算力板/芯片异常,"根据 Tuner error / CHAIN 日志确认 {HB:n} 与「number of responses … doesn't match chip count 110」对应链；断电后重插故障板数据排线与电源接口；与正常链互换槽位判断是板卡还是槽位/控制板；仅一链正常时总算力约为额定三分之一属常见现象；PSU I²C checksum 异常多为次要，板卡稳定后再复测电源；若某链长期 0 响应或响应数远低于 110，按算力板硬件损坏或通信链路故障处理，更换板卡或送修；当前日志涉及 HB:1,2,3","2026-04-02T09:07:08.936584Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T09:08:18.501741Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T14:52:44.692430Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T14:53:56.212636Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T14:55:05.260586Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T14:56:16.772123Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T15:07:15.336226Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T15:08:24.896181Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T16:09:27.754638Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T16:10:38.571168Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T16:22:38.205016Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T16:23:49.877934Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain",logs_10_102_0_170_MINER-10-102-0-170.txt
+10.102.0.175,低算力(<50TH/s),49.622234,算力板全板失效（芯片未检出/初始化失败）,高,总线/通信异常；网络/矿池连接异常；算力板/芯片异常；疑似供电/排线/控制板链路问题,疑似供电/排线/控制板链路问题；总线/通信异常,"断电后重新插拔控制板到三块算力板的数据排线与电源接口；重点检查 HB1/HB2/HB3 是否都出现 no chips detected 或 NoChipsDetected；交叉测试控制板与算力板，确认是控制板链路问题还是算力板损坏；检查 PSU 对算力板供电电压与负载稳定性（是否触发过流保护）；若仍失败，优先更换故障算力板或控制板；当前日志涉及 HB:1,3","2026-03-31T05:03:09.566253Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-03-31T05:04:20.426710Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-03-31T18:07:14.766442Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-03-31T18:08:46.412915Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T14:54:02.015133Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T14:55:10.179191Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T16:24:27.294454Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T16:25:59.524075Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T16:56:17.084755Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T16:57:49.735204Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-03T13:56:00.659383Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T13:57:12.322987Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain",logs_10_102_0_175_MINER-10-102-0-175.txt
+10.102.0.178,0算力,0.000000,算力板全板失效（芯片未检出/初始化失败）,高,总线/通信异常；算力板/芯片异常；网络/矿池连接异常；矿机服务异常/接口超时；疑似供电/排线/控制板链路问题,疑似供电/排线/控制板链路问题；总线/通信异常,"断电后重新插拔控制板到三块算力板的数据排线与电源接口；重点检查 HB1/HB2/HB3 是否都出现 no chips detected 或 NoChipsDetected；交叉测试控制板与算力板，确认是控制板链路问题还是算力板损坏；检查 PSU 对算力板供电电压与负载稳定性（是否触发过流保护）；若仍失败，优先更换故障算力板或控制板；当前日志涉及 HB:1,2,3","2026-04-02T23:28:07.077780Z [ERROR] Tuner error: {ERR:H2} Stage 9: Zero MCR on hashboards [Address(1)]
+2026-04-02T23:44:20.402890Z [ERROR] Tuner error: {ERR:H2} Stage 8: Zero MCR on hashboards [Address(1)]
+2026-04-02T23:55:51.572871Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:57:12.775376Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-03T00:58:15.301750Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T00:59:51.235032Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-03T07:44:28.522507Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T07:45:36.453564Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-03T13:46:35.658754Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T13:47:48.456255Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-03T13:57:14.407037Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T13:58:25.967013Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain",logs_10_102_0_178_MINER-10-102-0-178.txt
+10.102.0.182,0算力,0.000000,算力板全板失效（芯片未检出/初始化失败）,高,总线/通信异常；算力板/芯片异常；网络/矿池连接异常；矿机服务异常/接口超时；疑似供电/排线/控制板链路问题,疑似供电/排线/控制板链路问题；总线/通信异常,"断电后重新插拔控制板到三块算力板的数据排线与电源接口；重点检查 HB1/HB2/HB3 是否都出现 no chips detected 或 NoChipsDetected；交叉测试控制板与算力板，确认是控制板链路问题还是算力板损坏；检查 PSU 对算力板供电电压与负载稳定性（是否触发过流保护）；若仍失败，优先更换故障算力板或控制板；当前日志涉及 HB:1,2,3","2026-04-02T19:21:38.027917Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T20:22:35.450371Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T20:23:54.675727Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:23:42.758358Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:25:09.877165Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:26:29.463030Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:28:13.180532Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:39:12.246718Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:40:32.952168Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T00:41:35.299501Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T00:42:42.984280Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T07:40:34.925135Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain",logs_10_102_0_182_MINER-10-102-0-182.txt
+10.102.0.186,0算力,0.000000,单链算力板故障致 SOC 停机（芯片数异常/CRC/通信）,高,总线/通信异常；日志中「power off hashboard」为关断算力板动作，勿与 PSU 模块故障混淆,日志中「power off hashboard」为关断算力板动作，勿与 PSU 模块故障混淆,根据日志定位异常 Chain（如 find 0 asic、仅 find 部分数量、reg crc error）；断电后重插该链算力板排线与供电，做与正常链互换槽位测试以区分板卡与接口；若故障随板迁移则更换算力板；若固定在槽位则检查控制板与该槽位连线；若固件支持可尝试暂时禁用故障链仅跑健康链（注意功耗与收益）,"2026-04-03 22:50:52 load chain 0 eeprom data
+2026-04-03 22:50:53 load chain 1 eeprom data
+2026-04-03 22:50:53 load chain 2 eeprom data
+2026-04-03 22:50:53 eeprom load ret:0
+2026-04-03 22:50:53 eeprom load levels
+2026-04-03 22:54:02 Chain 0 only find 84 asic, will power off hash board 0
+2026-04-03 22:54:06 ERROR_SOC_INIT: soc init failed!
+2026-04-03 22:54:06 stop_mining: soc init failed!
+2026-04-03 22:54:06 ****power off hashboard****
+""Status"": ""Alive"",
+""Status"": ""Alive"",
+2026-04-03 22:50:45 get test_loop_securely_find_asic_num failed",logs_10_102_0_186_MINER-10-102-0-186.txt
+10.102.0.188,0算力,0.000000,算力板严重异常（芯片识别/通信错误，NoPIC 可能无法单禁板）,高,总线/通信异常；算力板/芯片异常；网络/矿池连接异常；矿机服务异常/接口超时；若混有较早的 Failed to resolve，通常与当前 tuner 禁板无直接关系，以 HB 报错为主,若混有较早的 Failed to resolve，通常与当前 tuner 禁板无直接关系，以 HB 报错为主；总线/通信异常,"关注 Tuner 报错：如 detected … chips 远超 110、unexpected revision、ERR:I1/I2，多为该板通信或硬件损坏；断电后重插故障 HB 对应算力板排线与供电；与正常板互换槽位判断是板还是接口；NoPIC 机型可能无法单独禁用故障板，整机可能无法继续挖矿，需先修复或更换该板；若混有历史 Failed to resolve，以导出时间附近 tuner/hashboard 报错为准；矿池 Alive 不等于当前无板级故障；当前日志涉及 HB:2,3","2026-04-02T23:26:15.676852Z [ERROR] Tuner error: {ERR:H2} Stage 1: Zero MCR on hashboards [Address(1)]
+2026-04-02T23:27:33.850819Z [ERROR] Tuner error: {ERR:H2} Stage 1: Zero MCR on hashboards [Address(1)]
+2026-04-02T23:38:45.077720Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:40:08.485342Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-03T00:41:08.559959Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T00:42:35.140775Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-03T06:43:42.641501Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T07:51:06.152192Z [ERROR] Tuner error: {ERR:H2} Stage 1: Zero MCR on hashboards [Address(3)]
+2026-04-03T13:52:28.487499Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T13:53:25.770702Z [ERROR] Tuner error: {ERR:H2} Stage 1: Zero MCR on hashboards [Address(3)]
+2026-04-03T14:00:41.829037Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T14:01:52.646408Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain",logs_10_102_0_188_MINER-10-102-0-188.txt
+10.102.0.195,0算力,0.000000,算力板芯片枚举不足（Hashchip 与 110 不符，已被禁用）,高,总线/通信异常；算力板/芯片异常；网络/矿池连接异常；矿机服务异常/接口超时；多链芯片响应不足或无法通信，Tuner 已禁用对应算力板；优先重插排线/换槽位，仍失败则更换板卡,多链芯片响应不足或无法通信，Tuner 已禁用对应算力板；优先重插排线/换槽位，仍失败则更换板卡；算力板/芯片异常,"根据 Tuner error / CHAIN 日志确认 {HB:n} 与「number of responses … doesn't match chip count 110」对应链；断电后重插故障板数据排线与电源接口；与正常链互换槽位判断是板卡还是槽位/控制板；仅一链正常时总算力约为额定三分之一属常见现象；PSU I²C checksum 异常多为次要，板卡稳定后再复测电源；若某链长期 0 响应或响应数远低于 110，按算力板硬件损坏或通信链路故障处理，更换板卡或送修；当前日志涉及 HB:1,2,3","2026-04-02T21:19:56.425559Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T21:21:24.051881Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T22:22:21.982208Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T22:25:34.671601Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:24:16.038617Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:25:49.608320Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-03T00:48:36.401577Z [ERROR] Tuner error: {ERR:H2} Stage 8: Zero MCR on hashboards [Address(1)]
+2026-04-03T02:40:35.753200Z [ERROR] Tuner error: miner resume: waiting for start: InitError on hashchain 1 {HB:1}: {ERR:I2} detected 1253 chips, expected maximum 110 chips on one chain
+2026-04-03T02:51:44.859588Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T03:16:56.030427Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-03T04:17:55.931862Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T04:21:01.683968Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I2} detected 1751 chips, expected maximum 110 chips on one chain",logs_10_102_0_195_MINER-10-102-0-195.txt
+10.102.0.212,0算力,0.000000,算力板芯片枚举不足（Hashchip 与 110 不符，已被禁用）,高,总线/通信异常；算力板/芯片异常；网络/矿池连接异常；矿机服务异常/接口超时；多链芯片响应不足或无法通信，Tuner 已禁用对应算力板；优先重插排线/换槽位，仍失败则更换板卡；PSU I²C 校验失败可为次要因素，多在板卡与链路确认后再复测电源通信,多链芯片响应不足或无法通信，Tuner 已禁用对应算力板；优先重插排线/换槽位，仍失败则更换板卡；PSU I²C 校验失败可为次要因素，多在板卡与链路确认后再复测电源通信；算力板/芯片异常,"根据 Tuner error / CHAIN 日志确认 {HB:n} 与「number of responses … doesn't match chip count 110」对应链；断电后重插故障板数据排线与电源接口；与正常链互换槽位判断是板卡还是槽位/控制板；仅一链正常时总算力约为额定三分之一属常见现象；PSU I²C checksum 异常多为次要，板卡稳定后再复测电源；若某链长期 0 响应或响应数远低于 110，按算力板硬件损坏或通信链路故障处理，更换板卡或送修；当前日志涉及 HB:1,2,3","2026-04-03T23:09:12.467790Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T23:10:23.656723Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-04T00:11:31.217999Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-04T00:13:10.204193Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T15:10:38.568048Z [ERROR] Tuner error: {ERR:H2} Stage 1: Zero MCR on hashboards [Address(3)]
+2026-04-02T15:21:53.079950Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T15:23:33.559185Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T16:23:09.407858Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T16:25:02.291808Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T16:30:05.190040Z [ERROR] Tuner error: {ERR:H2} Stage 1: Zero MCR on hashboards [Address(3)]
+2026-04-02T16:51:24.336540Z [ERROR] Tuner error: {ERR:H2} Stage 13: Zero MCR on hashboards [Address(3)]
+2026-04-02T17:03:23.319288Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain",logs_10_102_0_212_MINER-10-102-0-212.txt
+10.102.0.215,0算力,0.000000,算力板芯片枚举不足（Hashchip 与 110 不符，已被禁用）,高,算力板/芯片异常；网络/矿池连接异常；多链芯片响应不足或无法通信，Tuner 已禁用对应算力板；优先重插排线/换槽位，仍失败则更换板卡；PSU I²C 校验失败可为次要因素，多在板卡与链路确认后再复测电源通信,多链芯片响应不足或无法通信，Tuner 已禁用对应算力板；优先重插排线/换槽位，仍失败则更换板卡；PSU I²C 校验失败可为次要因素，多在板卡与链路确认后再复测电源通信；算力板/芯片异常,"根据 Tuner error / CHAIN 日志确认 {HB:n} 与「number of responses … doesn't match chip count 110」对应链；断电后重插故障板数据排线与电源接口；与正常链互换槽位判断是板卡还是槽位/控制板；仅一链正常时总算力约为额定三分之一属常见现象；PSU I²C checksum 异常多为次要，板卡稳定后再复测电源；若某链长期 0 响应或响应数远低于 110，按算力板硬件损坏或通信链路故障处理，更换板卡或送修；当前日志涉及 HB:1,2","2026-04-02T18:11:06.597189Z [ERROR] Tuner error: {ERR:H2} Stage 1: Zero MCR on hashboards [Address(3)]
+2026-04-02T18:12:34.245930Z [ERROR] Tuner error: {ERR:H2} Stage 1: Zero MCR on hashboards [Address(3)]
+2026-04-02T18:24:20.055249Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T18:26:07.959342Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T19:04:52.382594Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T19:06:15.934166Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T19:08:55.734818Z [ERROR] Tuner error: {ERR:H2} Stage 13: Zero MCR on hashboards [Address(3)]
+2026-04-02T19:12:19.458162Z [ERROR] Tuner error: {ERR:H2} Stage 13: Zero MCR on hashboards [Address(3)]
+2026-04-02T19:24:09.145674Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T19:25:55.959412Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T19:42:31.898977Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T19:44:44.846874Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain",logs_10_102_0_215_MINER-10-102-0-215.txt
+10.102.0.217,0算力,0.000000,算力板全板失效（芯片未检出/初始化失败）,高,总线/通信异常；算力板/芯片异常；网络/矿池连接异常；矿机服务异常/接口超时；疑似供电/排线/控制板链路问题,疑似供电/排线/控制板链路问题；总线/通信异常,"断电后重新插拔控制板到三块算力板的数据排线与电源接口；重点检查 HB1/HB2/HB3 是否都出现 no chips detected 或 NoChipsDetected；交叉测试控制板与算力板，确认是控制板链路问题还是算力板损坏；检查 PSU 对算力板供电电压与负载稳定性（是否触发过流保护）；若仍失败，优先更换故障算力板或控制板；当前日志涉及 HB:1,2,3","2026-04-02T19:21:09.318329Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T19:22:33.031733Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T20:23:34.710768Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T20:25:47.705055Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:23:42.320956Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:25:07.922114Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:27:44.734860Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:29:05.280394Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:40:04.336176Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:41:31.022900Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T00:42:28.449388Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T00:43:54.139433Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain",logs_10_102_0_217_MINER-10-102-0-217.txt
+10.102.0.219,0算力,0.000000,算力板严重异常（芯片识别/通信错误，NoPIC 可能无法单禁板）,高,总线/通信异常；算力板/芯片异常；网络/矿池连接异常；矿机服务异常/接口超时；若混有较早的 Failed to resolve，通常与当前 tuner 禁板无直接关系，以 HB 报错为主,若混有较早的 Failed to resolve，通常与当前 tuner 禁板无直接关系，以 HB 报错为主；总线/通信异常,"关注 Tuner 报错：如 detected … chips 远超 110、unexpected revision、ERR:I1/I2，多为该板通信或硬件损坏；断电后重插故障 HB 对应算力板排线与供电；与正常板互换槽位判断是板还是接口；NoPIC 机型可能无法单独禁用故障板，整机可能无法继续挖矿，需先修复或更换该板；若混有历史 Failed to resolve，以导出时间附近 tuner/hashboard 报错为准；矿池 Alive 不等于当前无板级故障；当前日志涉及 HB:1,2","2026-04-03T22:14:35.175532Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T22:51:19.765364Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T22:52:31.275099Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T22:54:18.394398Z [ERROR] Tuner error: {ERR:H2} Stage 1: Zero MCR on hashboards [Address(3)]
+2026-04-03T22:55:42.719635Z [ERROR] Tuner error: {ERR:H2} Stage 1: Zero MCR on hashboards [Address(3)]
+2026-04-03T23:06:57.087811Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T23:08:06.626970Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-04T00:09:06.190172Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-04T00:10:17.696610Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-01T13:09:54.434286Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-01T19:11:03.159665Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-01T19:13:38.755653Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain",logs_10_102_0_219_MINER-10-102-0-219.txt
+10.102.0.221,低算力(<50TH/s),47.640670,算力板部分失效（多块链 Dead，仅部分链工作）,高,总线/通信异常；末段 [DEVS]：Dead=2，Alive=1；多为板卡/排线/槽位问题，建议交叉换槽位与检查供电接口,末段 [DEVS]：Dead=2，Alive=1；多为板卡/排线/槽位问题，建议交叉换槽位与检查供电接口；总线/通信异常,根据末段 [DEVS] 确认 Dead / Alive 链编号；断电后检查 Dead 链对应算力板数据排线与电源接头；将故障链与正常链互换槽位或交叉到同型号矿机，判断故障随板还是随槽位/控制板；仅单链或部分链工作时总算力约为额定三分之一属常见现象；矿池 Alive 不能排除板级失效；若链长期保持 Dead，更换算力板或送修；必要时导出含启动阶段的完整日志查初始化错误,"2026-04-03T13:56:32.588230Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:56:32.667260Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 1/5 - asic enumeration failure]
+2026-04-03T13:56:33.493266Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:56:33.578814Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 1/5 - asic enumeration failure]
+2026-04-03T13:56:39.489307Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:56:39.541885Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 2/5 - asic enumeration failure]
+2026-04-03T13:56:39.993277Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:56:40.046856Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 2/5 - asic enumeration failure]
+2026-04-03T13:56:46.005277Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:56:46.013176Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 3/5 - asic enumeration failure]
+2026-04-03T13:56:46.593255Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:56:46.621267Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 3/5 - asic enumeration failure]",logs_10_102_0_221_MINER-10-102-0-221.txt
+10.102.0.222,低算力(<50TH/s),40.575410,算力板部分失效（多块链 Dead，仅部分链工作）,高,总线/通信异常；末段 [DEVS]：Dead=2，Alive=1；多为板卡/排线/槽位问题，建议交叉换槽位与检查供电接口,末段 [DEVS]：Dead=2，Alive=1；多为板卡/排线/槽位问题，建议交叉换槽位与检查供电接口；总线/通信异常,根据末段 [DEVS] 确认 Dead / Alive 链编号；断电后检查 Dead 链对应算力板数据排线与电源接头；将故障链与正常链互换槽位或交叉到同型号矿机，判断故障随板还是随槽位/控制板；仅单链或部分链工作时总算力约为额定三分之一属常见现象；矿池 Alive 不能排除板级失效；若链长期保持 Dead，更换算力板或送修；必要时导出含启动阶段的完整日志查初始化错误,"2026-04-03T13:57:02.652861Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:57:02.724019Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 1/5 - asic enumeration failure]
+2026-04-03T13:57:03.156279Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:57:03.231232Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 1/5 - asic enumeration failure]
+2026-04-03T13:57:09.152284Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:57:09.195273Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 2/5 - asic enumeration failure]
+2026-04-03T13:57:09.656255Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:57:09.700499Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 2/5 - asic enumeration failure]
+2026-04-03T13:57:15.652395Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:57:15.664448Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 3/5 - asic enumeration failure]
+2026-04-03T13:57:16.256259Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:57:16.270218Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 3/5 - asic enumeration failure]",logs_10_102_0_222_MINER-10-102-0-222.txt
+10.102.0.224,低算力(<50TH/s),49.543689,算力板全板失效（芯片未检出/初始化失败）,高,总线/通信异常；网络/矿池连接异常；算力板/芯片异常；疑似供电/排线/控制板链路问题,疑似供电/排线/控制板链路问题；总线/通信异常,"断电后重新插拔控制板到三块算力板的数据排线与电源接口；重点检查 HB1/HB2/HB3 是否都出现 no chips detected 或 NoChipsDetected；交叉测试控制板与算力板，确认是控制板链路问题还是算力板损坏；检查 PSU 对算力板供电电压与负载稳定性（是否触发过流保护）；若仍失败，优先更换故障算力板或控制板；当前日志涉及 HB:1,2,3","2026-04-02T15:00:49.951185Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T15:02:01.575195Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T15:13:14.743629Z [ERROR] Tuner error: {ERR:H2} Stage 13: Zero MCR on hashboards [Address(3)]
+2026-04-02T16:23:09.324929Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T16:24:49.496094Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T17:31:10.888684Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T17:32:31.761286Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T19:44:52.135993Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T19:46:21.190175Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T14:00:51.321306Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T14:02:04.616000Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-03-30T03:22:34.532964Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain",logs_10_102_0_224_MINER-10-102-0-224.txt
+10.102.0.226,低算力(<50TH/s),46.798976,算力板芯片枚举不足（Hashchip 与 110 不符，已被禁用）,高,总线/通信异常；算力板/芯片异常；网络/矿池连接异常；多链芯片响应不足或无法通信，Tuner 已禁用对应算力板；优先重插排线/换槽位，仍失败则更换板卡；PSU I²C 校验失败可为次要因素，多在板卡与链路确认后再复测电源通信,多链芯片响应不足或无法通信，Tuner 已禁用对应算力板；优先重插排线/换槽位，仍失败则更换板卡；PSU I²C 校验失败可为次要因素，多在板卡与链路确认后再复测电源通信；算力板/芯片异常,"根据 Tuner error / CHAIN 日志确认 {HB:n} 与「number of responses … doesn't match chip count 110」对应链；断电后重插故障板数据排线与电源接口；与正常链互换槽位判断是板卡还是槽位/控制板；仅一链正常时总算力约为额定三分之一属常见现象；PSU I²C checksum 异常多为次要，板卡稳定后再复测电源；若某链长期 0 响应或响应数远低于 110，按算力板硬件损坏或通信链路故障处理，更换板卡或送修；当前日志涉及 HB:1,2,3","2026-04-02T14:52:53.148388Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: Hashchip: number of responses 44 of read_register(reg=0x0) doesn't match chip count 110: reply 0x58 missing
+2026-04-02T14:54:03.983796Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: Hashchip: number of responses 0 of read_register(reg=0x0) doesn't match chip count 110: reply 0x0 missing
+2026-04-02T16:24:59.873606Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: Hashchip: number of responses 44 of read_register(reg=0x0) doesn't match chip count 110: reply 0x58 missing
+2026-04-02T16:26:19.847530Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: Hashchip: number of responses 0 of read_register(reg=0x0) doesn't match chip count 110: reply 0x0 missing
+2026-04-02T16:56:46.079211Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: Hashchip: number of responses 44 of read_register(reg=0x0) doesn't match chip count 110: reply 0x58 missing
+2026-04-02T16:58:06.662207Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: Hashchip: number of responses 0 of read_register(reg=0x0) doesn't match chip count 110: reply 0x0 missing
+2026-04-02T19:45:08.731764Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: Hashchip: number of responses 44 of read_register(reg=0x0) doesn't match chip count 110: reply 0x58 missing
+2026-04-02T19:46:29.250321Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: Hashchip: number of responses 0 of read_register(reg=0x0) doesn't match chip count 110: reply 0x0 missing
+2026-04-03T13:58:50.691352Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: Hashchip: number of responses 31 of read_register(reg=0x0) doesn't match chip count 110: reply 0x3e missing
+2026-04-03T13:59:58.598500Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: Hashchip: number of responses 0 of read_register(reg=0x0) doesn't match chip count 110: reply 0x0 missing
+2026-03-29T19:44:06.371990Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: Hashchip: number of responses 44 of read_register(reg=0x0) doesn't match chip count 110: reply 0x58 missing
+2026-03-29T19:45:17.225222Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: Hashchip: number of responses 0 of read_register(reg=0x0) doesn't match chip count 110: reply 0x0 missing",logs_10_102_0_226_MINER-10-102-0-226.txt
+10.102.0.227,低算力(<50TH/s),48.557161,算力板全板失效（芯片未检出/初始化失败）,高,总线/通信异常；网络/矿池连接异常；算力板/芯片异常；疑似供电/排线/控制板链路问题,疑似供电/排线/控制板链路问题；总线/通信异常,"断电后重新插拔控制板到三块算力板的数据排线与电源接口；重点检查 HB1/HB2/HB3 是否都出现 no chips detected 或 NoChipsDetected；交叉测试控制板与算力板，确认是控制板链路问题还是算力板损坏；检查 PSU 对算力板供电电压与负载稳定性（是否触发过流保护）；若仍失败，优先更换故障算力板或控制板；当前日志涉及 HB:2,3","2026-03-29T19:42:04.983462Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-03-29T19:44:25.517501Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-03-29T20:37:26.168682Z [ERROR] Tuner error: Stage Some(13): restart: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-03-30T03:22:31.230732Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-03-30T03:23:40.448816Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-03-30T21:51:30.124499Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-03-30T21:53:01.801057Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-03-30T23:54:04.399985Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-03-30T23:55:30.694311Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-03-31T04:45:09.460624Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-03-31T04:46:22.122798Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-03-31T05:03:09.766277Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain",logs_10_102_0_227_MINER-10-102-0-227.txt
+10.102.0.228,低算力(<50TH/s),43.393190,温度传感器通信失败（误报超温/温差保护停机）,高,,,根据日志确认 fail to read tsensor / pic temp 的 chain 号，检查该链算力板排线、PIC 传感器侧连接是否松动或氧化；与正常链交叉换槽位：故障随板走则更换算力板；固定在槽位则查控制板接口与线缆；若日志中 PCB/芯片温度读数明显低于上限仍报 ERROR_TEMP，多为传感器数据异常而非真实过热；确认对应链供电稳定；固件层面勿轻易关闭温度保护，优先硬件修复或更换故障板,"2026-04-03T16:27:32.614285Z [INFO] Fan status changes:
+2026-04-03T16:27:40.832972Z [INFO] Fan status changes:
+2026-04-03T16:27:41.884050Z [INFO] Fan status changes:
+2026-04-03T16:27:45.959608Z [INFO] Fan status changes:
+2026-04-03T16:27:46.994102Z [INFO] Fan status changes:
+2026-04-03T16:27:49.050276Z [INFO] Fan status changes:
+2026-04-03T16:27:50.084483Z [INFO] Fan status changes:
+2026-04-03T16:27:51.088136Z [INFO] Fan status changes:
+2026-04-03T16:27:54.164558Z [INFO] Fan status changes:
+2026-04-03T16:27:56.265621Z [INFO] Fan status changes:
+2026-04-03T16:35:52.971763Z [INFO] Fan status changes:
+2026-04-03T16:35:56.985985Z [INFO] Fan status changes:",logs_10_102_0_228_MINER-10-102-0-228.txt
+10.102.0.229,低算力(<50TH/s),47.563260,算力板部分失效（多块链 Dead，仅部分链工作）,高,总线/通信异常；末段 [DEVS]：Dead=2，Alive=1；多为板卡/排线/槽位问题，建议交叉换槽位与检查供电接口,末段 [DEVS]：Dead=2，Alive=1；多为板卡/排线/槽位问题，建议交叉换槽位与检查供电接口；总线/通信异常,根据末段 [DEVS] 确认 Dead / Alive 链编号；断电后检查 Dead 链对应算力板数据排线与电源接头；将故障链与正常链互换槽位或交叉到同型号矿机，判断故障随板还是随槽位/控制板；仅单链或部分链工作时总算力约为额定三分之一属常见现象；矿池 Alive 不能排除板级失效；若链长期保持 Dead，更换算力板或送修；必要时导出含启动阶段的完整日志查初始化错误,"2026-04-03T13:58:03.775207Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:58:03.834186Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 1/5 - asic enumeration failure]
+2026-04-03T13:58:04.254492Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:58:04.341469Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 1/5 - asic enumeration failure]
+2026-04-03T13:58:10.302514Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:58:10.309382Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 2/5 - asic enumeration failure]
+2026-04-03T13:58:10.754405Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:58:10.814645Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 2/5 - asic enumeration failure]
+2026-04-03T13:58:16.802513Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:58:16.882014Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 3/5 - asic enumeration failure]
+2026-04-03T13:58:17.358442Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:58:17.387355Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 3/5 - asic enumeration failure]",logs_10_102_0_229_MINER-10-102-0-229.txt
+10.102.0.236,低算力(<50TH/s),44.036460,算力板部分失效（多块链 Dead，仅部分链工作）,高,总线/通信异常；末段 [DEVS]：Dead=2，Alive=1；多为板卡/排线/槽位问题，建议交叉换槽位与检查供电接口,末段 [DEVS]：Dead=2，Alive=1；多为板卡/排线/槽位问题，建议交叉换槽位与检查供电接口；总线/通信异常,根据末段 [DEVS] 确认 Dead / Alive 链编号；断电后检查 Dead 链对应算力板数据排线与电源接头；将故障链与正常链互换槽位或交叉到同型号矿机，判断故障随板还是随槽位/控制板；仅单链或部分链工作时总算力约为额定三分之一属常见现象；矿池 Alive 不能排除板级失效；若链长期保持 Dead，更换算力板或送修；必要时导出含启动阶段的完整日志查初始化错误,"2026-04-03T13:58:34.894607Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:58:34.976758Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 1/5 - asic enumeration failure]
+2026-04-03T13:58:35.353981Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:58:35.383855Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 1/5 - asic enumeration failure]
+2026-04-03T13:58:41.397982Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:58:41.449772Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 2/5 - asic enumeration failure]
+2026-04-03T13:58:41.853929Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:58:41.854350Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 2/5 - asic enumeration failure]
+2026-04-03T13:58:47.901954Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:58:47.926869Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 3/5 - asic enumeration failure]
+2026-04-03T13:58:48.453943Z [ERROR] Initialization of hashboard failed
+2026-04-03T13:58:48.534894Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 3/5 - asic enumeration failure]",logs_10_102_0_236_MINER-10-102-0-236.txt
+10.102.0.237,低算力(<50TH/s),0.015087,算力板芯片枚举不足（Hashchip 与 110 不符，已被禁用）,高,总线/通信异常；算力板/芯片异常；网络/矿池连接异常；多链芯片响应不足或无法通信，Tuner 已禁用对应算力板；优先重插排线/换槽位，仍失败则更换板卡；PSU I²C 校验失败可为次要因素，多在板卡与链路确认后再复测电源通信,多链芯片响应不足或无法通信，Tuner 已禁用对应算力板；优先重插排线/换槽位，仍失败则更换板卡；PSU I²C 校验失败可为次要因素，多在板卡与链路确认后再复测电源通信；算力板/芯片异常,"根据 Tuner error / CHAIN 日志确认 {HB:n} 与「number of responses … doesn't match chip count 110」对应链；断电后重插故障板数据排线与电源接口；与正常链互换槽位判断是板卡还是槽位/控制板；仅一链正常时总算力约为额定三分之一属常见现象；PSU I²C checksum 异常多为次要，板卡稳定后再复测电源；若某链长期 0 响应或响应数远低于 110，按算力板硬件损坏或通信链路故障处理，更换板卡或送修；当前日志涉及 HB:1,3","2026-04-02T22:54:16.214241Z [ERROR] Tuner error: {ERR:H2} Stage 13: Zero MCR on hashboards [Address(2)]
+2026-04-02T23:07:52.134770Z [ERROR] Tuner error: {ERR:H2} Stage 9: Zero MCR on hashboards [Address(2)]
+2026-04-02T23:25:00.239831Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T14:00:10.074971Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-03-31T18:27:01.243200Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I2} detected 190 chips, expected maximum 110 chips on one chain
+2026-03-31T18:40:40.267142Z [ERROR] Tuner error: {ERR:H2} Stage 9: Zero MCR on hashboards [Address(2)]
+2026-03-31T18:54:11.030396Z [ERROR] Tuner error: {ERR:H2} Stage 9: Zero MCR on hashboards [Address(2)]
+2026-03-31T19:06:07.564254Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-03-31T19:09:00.885852Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I2} detected 244 chips, expected maximum 110 chips on one chain
+2026-03-31T20:01:17.142346Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-03-31T21:02:01.885928Z [ERROR] Tuner error: Stage Some(8): restart: Disabled hashboard 3 {HB:3}: {ERR:I2} detected 148 chips, expected maximum 110 chips on one chain
+2026-03-31T21:13:43.790298Z [ERROR] Tuner error: {ERR:H2} Stage 9: Zero MCR on hashboards [Address(2)]",logs_10_102_0_237_MINER-10-102-0-237.txt
+10.102.0.241,0算力,0.000000,算力板全板失效（芯片未检出/初始化失败）,高,总线/通信异常；算力板/芯片异常；网络/矿池连接异常；矿机服务异常/接口超时；疑似供电/排线/控制板链路问题,疑似供电/排线/控制板链路问题；总线/通信异常,"断电后重新插拔控制板到三块算力板的数据排线与电源接口；重点检查 HB1/HB2/HB3 是否都出现 no chips detected 或 NoChipsDetected；交叉测试控制板与算力板，确认是控制板链路问题还是算力板损坏；检查 PSU 对算力板供电电压与负载稳定性（是否触发过流保护）；若仍失败，优先更换故障算力板或控制板；当前日志涉及 HB:1,2,3","2026-04-03T10:18:45.886546Z [ERROR] {ERR:E3} Reading hashboard EEPROM at address 2: No such device or address (os error 6)
+2026-04-03T10:18:51.132055Z [ERROR] {ERR:E3} Reading hashboard EEPROM at address 2: No such device or address (os error 6)
+2026-04-03T10:18:56.379936Z [ERROR] {ERR:E3} Reading hashboard EEPROM at address 2: No such device or address (os error 6)
+2026-04-03T10:19:01.624701Z [ERROR] {ERR:E3} Reading hashboard EEPROM at address 2: No such device or address (os error 6)
+2026-04-03T10:19:06.868696Z [ERROR] {ERR:E3} Reading hashboard EEPROM at address 2: No such device or address (os error 6)
+2026-04-03T10:19:12.111790Z [ERROR] {ERR:E3} Reading hashboard EEPROM at address 2: No such device or address (os error 6)
+2026-04-03T10:19:17.357380Z [ERROR] {ERR:E3} Reading hashboard EEPROM at address 2: No such device or address (os error 6)
+2026-04-03T10:19:22.603605Z [ERROR] {ERR:E3} Reading hashboard EEPROM at address 2: No such device or address (os error 6)
+2026-04-03T10:19:27.851770Z [ERROR] {ERR:E3} Reading hashboard EEPROM at address 2: No such device or address (os error 6)
+2026-04-03T10:19:33.098945Z [ERROR] {ERR:E3} Reading hashboard EEPROM at address 2: No such device or address (os error 6)
+2026-04-03T10:19:38.344804Z [ERROR] {ERR:E3} Reading hashboard EEPROM at address 2: No such device or address (os error 6)
+2026-04-03T10:19:43.589074Z [ERROR] {ERR:E3} Reading hashboard EEPROM at address 2: No such device or address (os error 6)",logs_10_102_0_241_MINER-10-102-0-241.txt
+10.102.0.244,0算力,0.000000,算力板全板失效（芯片未检出/初始化失败）,高,总线/通信异常；算力板/芯片异常；网络/矿池连接异常；矿机服务异常/接口超时；疑似供电/排线/控制板链路问题,疑似供电/排线/控制板链路问题；总线/通信异常,"断电后重新插拔控制板到三块算力板的数据排线与电源接口；重点检查 HB1/HB2/HB3 是否都出现 no chips detected 或 NoChipsDetected；交叉测试控制板与算力板，确认是控制板链路问题还是算力板损坏；检查 PSU 对算力板供电电压与负载稳定性（是否触发过流保护）；若仍失败，优先更换故障算力板或控制板；当前日志涉及 HB:1,2,3","2026-04-03T00:44:07.606387Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T00:45:47.558573Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T07:40:34.230507Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T07:41:41.656024Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T13:42:40.984996Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T13:43:48.408107Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T20:33:01.624249Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T20:34:10.673019Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T22:51:17.698629Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T22:52:26.755152Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T22:53:45.565427Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-03T22:55:11.856269Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain",logs_10_102_0_244_MINER-10-102-0-244.txt
+10.102.1.13,0算力,0.000000,算力板芯片枚举不足（Hashchip 与 110 不符，已被禁用）,高,总线/通信异常；算力板/芯片异常；网络/矿池连接异常；矿机服务异常/接口超时；多链芯片响应不足或无法通信，Tuner 已禁用对应算力板；优先重插排线/换槽位，仍失败则更换板卡；PSU I²C 校验失败可为次要因素，多在板卡与链路确认后再复测电源通信,多链芯片响应不足或无法通信，Tuner 已禁用对应算力板；优先重插排线/换槽位，仍失败则更换板卡；PSU I²C 校验失败可为次要因素，多在板卡与链路确认后再复测电源通信；算力板/芯片异常,"根据 Tuner error / CHAIN 日志确认 {HB:n} 与「number of responses … doesn't match chip count 110」对应链；断电后重插故障板数据排线与电源接口；与正常链互换槽位判断是板卡还是槽位/控制板；仅一链正常时总算力约为额定三分之一属常见现象；PSU I²C checksum 异常多为次要，板卡稳定后再复测电源；若某链长期 0 响应或响应数远低于 110，按算力板硬件损坏或通信链路故障处理，更换板卡或送修；当前日志涉及 HB:1,2,3","2026-04-02T19:27:47.259022Z [ERROR] Tuner error: {ERR:H2} Stage 9: Zero MCR on hashboards [Address(2)]
+2026-04-02T19:39:34.657507Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T19:40:56.407393Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T20:41:55.203009Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T20:43:14.684977Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:23:45.139564Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:25:08.602719Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I1} unexpected revision of chip 7 (expected: 0x1366 received: 0x7f1)
+2026-04-02T23:27:20.519441Z [ERROR] Tuner error: {ERR:H2} Stage 9: Zero MCR on hashboards [Address(2)]
+2026-04-02T23:30:23.656474Z [ERROR] Tuner error: {ERR:H2} Stage 9: Zero MCR on hashboards [Address(2)]
+2026-04-02T23:43:53.173643Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:46:59.319354Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-03T00:48:01.912988Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain",logs_10_102_1_13_MINER-10-102-1-13.txt
+10.102.1.14,0算力,0.000000,算力板全板失效（芯片未检出/初始化失败）,高,总线/通信异常；算力板/芯片异常；网络/矿池连接异常；矿机服务异常/接口超时；疑似供电/排线/控制板链路问题,疑似供电/排线/控制板链路问题；总线/通信异常,"断电后重新插拔控制板到三块算力板的数据排线与电源接口；重点检查 HB1/HB2/HB3 是否都出现 no chips detected 或 NoChipsDetected；交叉测试控制板与算力板，确认是控制板链路问题还是算力板损坏；检查 PSU 对算力板供电电压与负载稳定性（是否触发过流保护）；若仍失败，优先更换故障算力板或控制板；当前日志涉及 HB:1,2,3","2026-04-04T00:08:16.864273Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-04T00:09:25.902196Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T03:34:13.955708Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T03:35:21.372392Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T10:14:00.581951Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T10:15:08.005315Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T14:52:36.984940Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T14:53:46.037438Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T14:54:54.328792Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T14:56:05.877265Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T14:58:03.573860Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T14:59:12.636999Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain",logs_10_102_1_14_MINER-10-102-1-14.txt
+10.102.1.17,0算力,0.000000,算力板芯片枚举不足（Hashchip 与 110 不符，已被禁用）,高,总线/通信异常；算力板/芯片异常；网络/矿池连接异常；矿机服务异常/接口超时；多链芯片响应不足或无法通信，Tuner 已禁用对应算力板；优先重插排线/换槽位，仍失败则更换板卡；PSU I²C 校验失败可为次要因素，多在板卡与链路确认后再复测电源通信,多链芯片响应不足或无法通信，Tuner 已禁用对应算力板；优先重插排线/换槽位，仍失败则更换板卡；PSU I²C 校验失败可为次要因素，多在板卡与链路确认后再复测电源通信；算力板/芯片异常,"根据 Tuner error / CHAIN 日志确认 {HB:n} 与「number of responses … doesn't match chip count 110」对应链；断电后重插故障板数据排线与电源接口；与正常链互换槽位判断是板卡还是槽位/控制板；仅一链正常时总算力约为额定三分之一属常见现象；PSU I²C checksum 异常多为次要，板卡稳定后再复测电源；若某链长期 0 响应或响应数远低于 110，按算力板硬件损坏或通信链路故障处理，更换板卡或送修；当前日志涉及 HB:1,2,3","2026-04-02T11:34:32.329586Z [ERROR] Tuner error: {ERR:H2} Stage 13: Zero MCR on hashboards [Address(3)]
+2026-04-02T15:06:12.050493Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I1} unexpected revision of chip 8 (expected: 0x1366 received: 0xf)
+2026-04-02T15:08:03.804965Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T18:09:17.427050Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T19:05:22.566503Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T21:53:41.348703Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T22:01:38.200506Z [ERROR] Tuner error: {ERR:H2} Stage 1: Zero MCR on hashboards [Address(3)]
+2026-04-02T23:06:27.080310Z [ERROR] Tuner error: {ERR:H2} Stage 9: Zero MCR on hashboards [Address(3)]
+2026-04-02T23:24:07.292944Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:25:39.065510Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T00:38:49.493644Z [ERROR] Tuner error: {ERR:H2} Stage 9: Zero MCR on hashboards [Address(3)]
+2026-04-03T01:26:14.036090Z [ERROR] Tuner error: {ERR:H2} Stage 9: Zero MCR on hashboards [Address(3)]",logs_10_102_1_17_MINER-10-102-1-17.txt
+10.102.1.19,低算力(<50TH/s),0.038665,算力板全板失效（芯片未检出/初始化失败）,高,总线/通信异常；网络/矿池连接异常；算力板/芯片异常；疑似供电/排线/控制板链路问题,疑似供电/排线/控制板链路问题；总线/通信异常,"断电后重新插拔控制板到三块算力板的数据排线与电源接口；重点检查 HB1/HB2/HB3 是否都出现 no chips detected 或 NoChipsDetected；交叉测试控制板与算力板，确认是控制板链路问题还是算力板损坏；检查 PSU 对算力板供电电压与负载稳定性（是否触发过流保护）；若仍失败，优先更换故障算力板或控制板；当前日志涉及 HB:1,2","========== errors（错误） ==========
+2026-03-29T18:09:11.386839Z [ERROR] Failed to resolve (""btc.poolbinance.com"", 1800)
+2026-03-29T18:09:34.410795Z [ERROR] Failed to resolve (""bs.poolbinance.com"", 3333)
+2026-03-29T18:27:58.846367Z [ERROR] Failed to resolve (""sha256.poolbinance.com"", 443)
+2026-03-29T19:07:35.962205Z [ERROR] Failed to resolve (""a830bcc3.bos.braiins.com"", 3336)
+2026-03-29T19:09:12.098122Z [ERROR] Failed to resolve (""btc.poolbinance.com"", 1800)
+2026-03-29T19:09:35.132638Z [ERROR] Failed to resolve (""bs.poolbinance.com"", 3333)
+2026-03-29T19:27:59.576990Z [ERROR] Failed to resolve (""sha256.poolbinance.com"", 443)
+2015-01-01T00:00:39.457924Z [ERROR] Failed to resolve (""sha256.poolbinance.com"", 443)
+2015-01-01T00:00:39.459396Z [ERROR] Failed to resolve (""bs.poolbinance.com"", 3333)
+2015-01-01T00:00:39.471513Z [ERROR] Failed to resolve (""btc.poolbinance.com"", 1800)
+2015-01-01T00:00:59.477518Z [ERROR] Failed to resolve (""a830bcc3.bos.braiins.com"", 3336)",logs_10_102_1_19_MINER-10-102-1-19.txt
+10.102.1.1,低算力(<50TH/s),41.122078,总线/通信异常,高,网络/矿池连接异常；算力板/芯片异常,网络/矿池连接异常；算力板/芯片异常,检查控制板与算力板通信线缆是否松动或损坏；排查干扰与接触不良；升级固件后复测链路稳定性,"2026-03-27T23:50:43.329439Z [ERROR] Tuner error: {ERR:H2} Stage 8: Zero MCR on hashboards [Address(1), Address(2), Address(3)]
+========== errors（错误） ==========
+2026-03-29T16:26:45.803098Z [ERROR] Failed to resolve (""bs.poolbinance.com"", 3333)
+2026-03-29T17:07:35.052885Z [ERROR] Failed to resolve (""a830bcc3.bos.braiins.com"", 3336)
+2026-03-29T17:09:28.205494Z [ERROR] Failed to resolve (""sha256.poolbinance.com"", 443)
+2026-03-29T17:09:49.249550Z [ERROR] Failed to resolve (""btc.poolbinance.com"", 1800)
+2026-03-29T17:09:50.252213Z [ERROR] Failed to resolve (""bs.poolbinance.com"", 3333)
+2026-03-29T18:07:35.937542Z [ERROR] Failed to resolve (""a830bcc3.bos.braiins.com"", 3336)
+2026-03-29T18:09:29.096184Z [ERROR] Failed to resolve (""sha256.poolbinance.com"", 443)
+2026-03-29T18:09:50.129153Z [ERROR] Failed to resolve (""btc.poolbinance.com"", 1800)
+2026-03-29T18:09:51.134119Z [ERROR] Failed to resolve (""bs.poolbinance.com"", 3333)
+2026-03-29T19:07:36.787318Z [ERROR] Failed to resolve (""a830bcc3.bos.braiins.com"", 3336)",logs_10_102_1_1_MINER-10-102-1-1.txt
+10.102.1.21,0算力,0.000000,算力板严重异常（芯片识别/通信错误，NoPIC 可能无法单禁板）,高,总线/通信异常；网络/矿池连接异常；算力板/芯片异常；电源异常；若混有较早的 Failed to resolve，通常与当前 tuner 禁板无直接关系，以 HB 报错为主,若混有较早的 Failed to resolve，通常与当前 tuner 禁板无直接关系，以 HB 报错为主；总线/通信异常,"关注 Tuner 报错：如 detected … chips 远超 110、unexpected revision、ERR:I1/I2，多为该板通信或硬件损坏；断电后重插故障 HB 对应算力板排线与供电；与正常板互换槽位判断是板还是接口；NoPIC 机型可能无法单独禁用故障板，整机可能无法继续挖矿，需先修复或更换该板；若混有历史 Failed to resolve，以导出时间附近 tuner/hashboard 报错为准；矿池 Alive 不等于当前无板级故障；当前日志涉及 HB:1,2,3","2026-03-29T19:44:22.924085Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-03-29T21:36:48.619021Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-03-29T22:01:31.647051Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-03-29T23:49:33.148751Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-03-30T03:22:05.814957Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-03-30T21:51:54.154275Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-03-31T04:44:54.822279Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-03-31T05:01:18.893956Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-03-31T18:07:19.026614Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-03-31T20:01:48.929183Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-01T04:44:56.529082Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T14:54:11.696594Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain",logs_10_102_1_21_MINER-10-102-1-21.txt
+10.102.1.29,低算力(<50TH/s),1.673065,算力板全板失效（芯片未检出/初始化失败）,高,总线/通信异常；网络/矿池连接异常；算力板/芯片异常,总线/通信异常；网络/矿池连接异常,断电后重新插拔控制板到三块算力板的数据排线与电源接口；重点检查 HB1/HB2/HB3 是否都出现 no chips detected 或 NoChipsDetected；交叉测试控制板与算力板，确认是控制板链路问题还是算力板损坏；检查 PSU 对算力板供电电压与负载稳定性（是否触发过流保护）；若仍失败，优先更换故障算力板或控制板；当前日志涉及 HB:1,"2026-04-02T18:11:47.018009Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T18:41:50.728670Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T19:44:43.037859Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T19:59:33.557759Z [ERROR] Tuner error: {ERR:H2} Stage 8: Zero MCR on hashboards [Address(3)]
+2026-04-02T21:13:02.194157Z [ERROR] Tuner error: {ERR:H2} Stage 8: Zero MCR on hashboards [Address(2), Address(3)]
+2026-04-02T23:26:17.020772Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T01:08:19.752242Z [ERROR] Tuner error: {ERR:H2} Stage 8: Zero MCR on hashboards [Address(3)]
+2026-04-03T04:10:49.687212Z [ERROR] Tuner error: {ERR:H2} Stage 8: Zero MCR on hashboards [Address(3)]
+2026-04-03T08:52:01.037408Z [ERROR] Tuner error: {ERR:H2} Stage 8: Zero MCR on hashboards [Address(3)]
+2026-04-03T13:57:00.142616Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T16:57:03.824734Z [ERROR] Tuner error: {ERR:H2} Stage 8: Zero MCR on hashboards [Address(2)]
+========== errors（错误） ==========",logs_10_102_1_29_MINER-10-102-1-29.txt
+10.102.1.2,0算力,0.000000,算力板全板失效（芯片未检出/初始化失败）,高,总线/通信异常；算力板/芯片异常；网络/矿池连接异常；矿机服务异常/接口超时；疑似供电/排线/控制板链路问题,疑似供电/排线/控制板链路问题；总线/通信异常,"断电后重新插拔控制板到三块算力板的数据排线与电源接口；重点检查 HB1/HB2/HB3 是否都出现 no chips detected 或 NoChipsDetected；交叉测试控制板与算力板，确认是控制板链路问题还是算力板损坏；检查 PSU 对算力板供电电压与负载稳定性（是否触发过流保护）；若仍失败，优先更换故障算力板或控制板；当前日志涉及 HB:1,3","2026-04-02T19:45:11.207520Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T20:44:36.072717Z [ERROR] Tuner error: {ERR:H2} Stage 8: Zero MCR on hashboards [Address(2)]
+2026-04-02T21:18:13.042574Z [ERROR] Tuner error: {ERR:H2} Stage 8: Zero MCR on hashboards [Address(2)]
+2026-04-02T21:29:26.170006Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T21:30:53.036370Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T22:31:54.572471Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T22:33:14.396907Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:23:44.145235Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:25:07.584970Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:26:26.428237Z [ERROR] Tuner error: {ERR:H2} Stage 9: Zero MCR on hashboards [Address(2)]
+2026-04-03T01:23:20.029867Z [ERROR] Tuner error: {ERR:H2} Stage 8: Zero MCR on hashboards [Address(2)]
+2026-04-03T01:34:35.154573Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain",logs_10_102_1_2_MINER-10-102-1-2.txt
+10.102.1.41,0算力,0.000000,算力板全板失效（芯片未检出/初始化失败）,高,总线/通信异常；算力板/芯片异常；网络/矿池连接异常；矿机服务异常/接口超时；疑似供电/排线/控制板链路问题,疑似供电/排线/控制板链路问题；总线/通信异常,"断电后重新插拔控制板到三块算力板的数据排线与电源接口；重点检查 HB1/HB2/HB3 是否都出现 no chips detected 或 NoChipsDetected；交叉测试控制板与算力板，确认是控制板链路问题还是算力板损坏；检查 PSU 对算力板供电电压与负载稳定性（是否触发过流保护）；若仍失败，优先更换故障算力板或控制板；当前日志涉及 HB:1,2,3","2026-04-02T14:54:59.791984Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T14:56:11.299615Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T15:07:08.828122Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T15:08:17.877751Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T16:09:21.869446Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T16:10:30.901009Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T18:08:42.148451Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T18:10:04.257565Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T18:11:31.691483Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T18:12:50.535444Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T18:23:48.198782Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T18:25:07.745367Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain",logs_10_102_1_41_MINER-10-102-1-41.txt
+10.102.1.44,低算力(<50TH/s),38.879240,算力板全板失效（芯片未检出/初始化失败）,高,算力板/芯片异常；总线/通信异常；电源异常；网络/矿池连接异常；疑似供电/排线/控制板链路问题,疑似供电/排线/控制板链路问题；算力板/芯片异常,"断电后重新插拔控制板到三块算力板的数据排线与电源接口；重点检查 HB1/HB2/HB3 是否都出现 no chips detected 或 NoChipsDetected；交叉测试控制板与算力板，确认是控制板链路问题还是算力板损坏；检查 PSU 对算力板供电电压与负载稳定性（是否触发过流保护）；若仍失败，优先更换故障算力板或控制板；当前日志涉及 HB:1,2,3","2026-04-02T16:56:26.013308Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T16:58:21.055994Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T18:41:41.185982Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T18:44:02.250815Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T19:44:51.794145Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T19:46:20.873699Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:23:46.755737Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:26:16.257450Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-03T13:56:30.832886Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T13:57:41.419120Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-03-31T01:02:02.473222Z [ERROR] {ERR:E3} Reading hashboard EEPROM at address 1: Operation timed out (os error 110)
+2026-03-31T01:02:06.129776Z [ERROR] {ERR:E3} Reading hashboard EEPROM at address 1: Operation timed out (os error 110)",logs_10_102_1_44_MINER-10-102-1-44.txt
+10.102.1.46,低算力(<50TH/s),47.199987,算力板全板失效（芯片未检出/初始化失败）,高,总线/通信异常；算力板/芯片异常；电源异常；网络/矿池连接异常；疑似供电/排线/控制板链路问题,疑似供电/排线/控制板链路问题；总线/通信异常,"断电后重新插拔控制板到三块算力板的数据排线与电源接口；重点检查 HB1/HB2/HB3 是否都出现 no chips detected 或 NoChipsDetected；交叉测试控制板与算力板，确认是控制板链路问题还是算力板损坏；检查 PSU 对算力板供电电压与负载稳定性（是否触发过流保护）；若仍失败，优先更换故障算力板或控制板；当前日志涉及 HB:2,3","2026-04-01T04:44:06.441764Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-01T04:57:23.651271Z [ERROR] Tuner error: {ERR:H2} Stage 4: Zero MCR on hashboards [Address(1)]
+2026-04-01T05:12:15.244011Z [ERROR] Tuner error: {ERR:H2} Stage 4: Zero MCR on hashboards [Address(1)]
+2026-04-01T05:24:02.678944Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-01T05:25:15.891426Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-01T06:26:15.464615Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-01T06:27:27.048758Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-01T13:08:38.046208Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-01T13:09:48.878953Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-01T19:10:54.740687Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-01T19:12:22.676567Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T01:53:51.800242Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain",logs_10_102_1_46_MINER-10-102-1-46.txt
+10.102.1.50,0算力,0.000000,算力板 EEPROM 解析失败（ERR:E4，无法启动挖矿）,高,总线/通信异常；网络/矿池连接异常；矿机服务异常/接口超时；电源异常；多为指定算力板 EEPROM 数据损坏或硬件故障；优先重插该板排线/换槽位，仍失败则更换算力板；日志同时有 PSU 协议检测失败：常在解决 EEPROM/板卡后复测；若仍存在再单独排查 PSU 与供电线,多为指定算力板 EEPROM 数据损坏或硬件故障；优先重插该板排线/换槽位，仍失败则更换算力板；日志同时有 PSU 协议检测失败：常在解决 EEPROM/板卡后复测；若仍存在再单独排查 PSU 与供电线；矿机服务异常/接口超时,根据日志定位无法解码的算力板编号（如 hashboard #2）；断电后重插该板数据排线与电源线，换槽位交叉测试判断是否随板损坏；EEPROM 数据异常（如全 0）多为板载存储或硬件故障，重复失败需更换算力板或送修；若同时出现 Failed to set up PSU / dummy backend，先在板卡与排线确认后再单独测 PSU 协议与供电稳定性；paused by dead pools / missing license 多为未成功启动挖矿的连带现象，优先解决 ERR:E4 与硬件后再看矿池与授权,"2026-04-03T23:17:48.768702Z [ERROR] Mining backend: {ERR:E4} Cannot start miner when some hashboard EEPROMs could not be decoded
+2026-04-03T23:17:58.379694Z [ERROR] Mining backend: {ERR:E4} Cannot start miner when some hashboard EEPROMs could not be decoded
+2026-04-03T23:18:07.996975Z [ERROR] Mining backend: {ERR:E4} Cannot start miner when some hashboard EEPROMs could not be decoded
+2026-04-03T23:18:17.614734Z [ERROR] Mining backend: {ERR:E4} Cannot start miner when some hashboard EEPROMs could not be decoded
+2026-04-03T23:18:27.232214Z [ERROR] Mining backend: {ERR:E4} Cannot start miner when some hashboard EEPROMs could not be decoded
+2026-04-03T23:18:36.845728Z [ERROR] Mining backend: {ERR:E4} Cannot start miner when some hashboard EEPROMs could not be decoded
+2026-04-03T23:18:46.461515Z [ERROR] Mining backend: {ERR:E4} Cannot start miner when some hashboard EEPROMs could not be decoded
+2026-04-03T23:18:56.074876Z [ERROR] Mining backend: {ERR:E4} Cannot start miner when some hashboard EEPROMs could not be decoded
+2026-04-03T23:19:05.691993Z [ERROR] Mining backend: {ERR:E4} Cannot start miner when some hashboard EEPROMs could not be decoded
+2026-04-03T23:19:15.307310Z [ERROR] Mining backend: {ERR:E4} Cannot start miner when some hashboard EEPROMs could not be decoded
+2026-04-03T23:19:24.921062Z [ERROR] Mining backend: {ERR:E4} Cannot start miner when some hashboard EEPROMs could not be decoded
+2026-04-03T23:19:34.538969Z [ERROR] Mining backend: {ERR:E4} Cannot start miner when some hashboard EEPROMs could not be decoded",logs_10_102_1_50_MINER-10-102-1-50.txt
+10.102.1.59,低算力(<50TH/s),3.656593,算力板严重异常（芯片识别/通信错误，NoPIC 可能无法单禁板）,高,总线/通信异常；网络/矿池连接异常；算力板/芯片异常；若混有较早的 Failed to resolve，通常与当前 tuner 禁板无直接关系，以 HB 报错为主,若混有较早的 Failed to resolve，通常与当前 tuner 禁板无直接关系，以 HB 报错为主；总线/通信异常,"关注 Tuner 报错：如 detected … chips 远超 110、unexpected revision、ERR:I1/I2，多为该板通信或硬件损坏；断电后重插故障 HB 对应算力板排线与供电；与正常板互换槽位判断是板还是接口；NoPIC 机型可能无法单独禁用故障板，整机可能无法继续挖矿，需先修复或更换该板；若混有历史 Failed to resolve，以导出时间附近 tuner/hashboard 报错为准；矿池 Alive 不等于当前无板级故障；当前日志涉及 HB:1,3","2026-03-29T19:43:55.037413Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-03-30T03:22:26.626668Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-03-30T21:51:29.449037Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-03-31T04:45:11.403241Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-03-31T05:03:18.319054Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-03-31T17:09:50.776786Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-03-31T18:06:57.284904Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-03-31T20:03:39.400686Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-01T04:43:27.767761Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T07:08:49.790829Z [ERROR] Tuner error: Stage Some(8): restart: Disabled hashboard 1 {HB:1}: {ERR:I2} detected 1725 chips, expected maximum 110 chips on one chain
+2026-04-02T14:54:16.132515Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T16:24:40.303973Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain",logs_10_102_1_59_MINER-10-102-1-59.txt
+10.102.1.60,0算力,0.000000,算力板全板失效（芯片未检出/初始化失败）,高,总线/通信异常；算力板/芯片异常；网络/矿池连接异常；矿机服务异常/接口超时；疑似供电/排线/控制板链路问题,疑似供电/排线/控制板链路问题；总线/通信异常,"断电后重新插拔控制板到三块算力板的数据排线与电源接口；重点检查 HB1/HB2/HB3 是否都出现 no chips detected 或 NoChipsDetected；交叉测试控制板与算力板，确认是控制板链路问题还是算力板损坏；检查 PSU 对算力板供电电压与负载稳定性（是否触发过流保护）；若仍失败，优先更换故障算力板或控制板；当前日志涉及 HB:1,2,3","2026-04-02T19:07:31.554497Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T19:10:17.051216Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T19:21:14.694805Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T19:22:34.650069Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T20:23:34.679320Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T20:24:54.631960Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:23:42.978518Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:25:05.042407Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:26:25.521204Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:27:46.958441Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:38:48.596729Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-02T23:40:08.568481Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain",logs_10_102_1_60_MINER-10-102-1-60.txt
+10.102.1.64,0算力,0.000000,算力板严重异常（芯片识别/通信错误，NoPIC 可能无法单禁板）,高,总线/通信异常；算力板/芯片异常；网络/矿池连接异常；矿机服务异常/接口超时；若混有较早的 Failed to resolve，通常与当前 tuner 禁板无直接关系，以 HB 报错为主,若混有较早的 Failed to resolve，通常与当前 tuner 禁板无直接关系，以 HB 报错为主；总线/通信异常,"关注 Tuner 报错：如 detected … chips 远超 110、unexpected revision、ERR:I1/I2，多为该板通信或硬件损坏；断电后重插故障 HB 对应算力板排线与供电；与正常板互换槽位判断是板还是接口；NoPIC 机型可能无法单独禁用故障板，整机可能无法继续挖矿，需先修复或更换该板；若混有历史 Failed to resolve，以导出时间附近 tuner/hashboard 报错为准；矿池 Alive 不等于当前无板级故障；当前日志涉及 HB:1,2,3","2026-04-03T08:50:42.196270Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T08:51:49.609516Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T13:54:09.944875Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T13:55:19.001210Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T13:56:27.274107Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: {ERR:I3} no chips detected on the current chain
+2026-04-03T13:57:45.259765Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T14:08:45.330131Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T14:09:55.528526Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T15:10:55.565698Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I3} no chips detected on the current chain
+2026-04-03T15:12:02.981938Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T21:13:15.447550Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I3} no chips detected on the current chain
+2026-04-03T22:10:37.722621Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I2} detected 332 chips, expected maximum 110 chips on one chain",logs_10_102_1_64_MINER-10-102-1-64.txt
+10.102.1.65,0算力,0.000000,算力板芯片枚举不足（Hashchip 与 110 不符，已被禁用）,高,总线/通信异常；算力板/芯片异常；网络/矿池连接异常；矿机服务异常/接口超时；多链芯片响应不足或无法通信，Tuner 已禁用对应算力板；优先重插排线/换槽位，仍失败则更换板卡；PSU I²C 校验失败可为次要因素，多在板卡与链路确认后再复测电源通信,多链芯片响应不足或无法通信，Tuner 已禁用对应算力板；优先重插排线/换槽位，仍失败则更换板卡；PSU I²C 校验失败可为次要因素，多在板卡与链路确认后再复测电源通信；算力板/芯片异常,"根据 Tuner error / CHAIN 日志确认 {HB:n} 与「number of responses … doesn't match chip count 110」对应链；断电后重插故障板数据排线与电源接口；与正常链互换槽位判断是板卡还是槽位/控制板；仅一链正常时总算力约为额定三分之一属常见现象；PSU I²C checksum 异常多为次要，板卡稳定后再复测电源；若某链长期 0 响应或响应数远低于 110，按算力板硬件损坏或通信链路故障处理，更换板卡或送修；当前日志涉及 HB:1,2,3","2026-04-03T13:43:51.672836Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I1} unexpected revision of chip 9 (expected: 0x1366 received: 0x17ae)
+2026-04-03T20:33:01.951096Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: Hashchip: number of responses 0 of read_register(reg=0x0) doesn't match chip count 110: reply 0x0 missing
+2026-04-03T20:34:09.650768Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I1} unexpected revision of chip 9 (expected: 0x1366 received: 0x17fc)
+2026-04-03T22:51:19.506356Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: Hashchip: number of responses 0 of read_register(reg=0x0) doesn't match chip count 110: reply 0x0 missing
+2026-04-03T22:52:31.044460Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I1} unexpected revision of chip 9 (expected: 0x1366 received: 0x1777)
+2026-04-03T22:53:40.100899Z [ERROR] Tuner error: Disabled hashboard 3 {HB:3}: Hashchip: number of responses 0 of read_register(reg=0x0) doesn't match chip count 110: reply 0x0 missing
+2026-04-03T22:55:07.102273Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: Hashchip: number of responses 0 of read_register(reg=0x0) doesn't match chip count 110: reply 0x0 missing
+2026-04-03T23:06:06.453255Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: Hashchip: number of responses 0 of read_register(reg=0x0) doesn't match chip count 110: reply 0x0 missing
+2026-04-03T23:07:19.597280Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I1} unexpected revision of chip 9 (expected: 0x1366 received: 0xd7c)
+2026-04-04T00:08:17.323991Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: Hashchip: number of responses 0 of read_register(reg=0x0) doesn't match chip count 110: reply 0x0 missing
+2026-04-04T00:09:26.663319Z [ERROR] Tuner error: Disabled hashboard 2 {HB:2}: {ERR:I1} unexpected revision of chip 9 (expected: 0x1366 received: 0x12ee)
+2026-04-01T03:57:17.903848Z [ERROR] Tuner error: Disabled hashboard 1 {HB:1}: {ERR:I1} unexpected revision of chip 23 (expected: 0x1366 received: 0x1fff)",logs_10_102_1_65_MINER-10-102-1-65.txt

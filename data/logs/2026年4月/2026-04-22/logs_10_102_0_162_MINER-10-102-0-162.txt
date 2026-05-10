@@ -1,0 +1,1106 @@
+============================================================
+矿机运行日志 - 10.102.0.162
+导出时间: 2026-04-22 06:22:24
+IP: 10.102.0.162  序列号: MINER-10-102-0-162  型号: Antminer S19 XP
+============================================================
+
+[2026-04-22 06:22:24] [SYSTEM_LOG] 矿机后台系统日志（与 Web 界面一致）
+2026-04-22T11:04:18.397156Z [INFO] Detected CPU model AMLOGIC
+2026-04-22T11:04:18.402091Z [INFO] Detected existing root bind mount
+2026-04-22T11:04:18.402182Z [INFO] Detected existing base overlay mount
+2026-04-22T11:04:18.402256Z [INFO] Detected existing etc mount via overlay
+2026-04-22T11:04:18.402348Z [INFO] Note: could not mount an external partition
+2026-04-22T11:04:18.402447Z [INFO] Linked current log directory on: /mnt/ramdisk/logs/current
+2026-04-22T11:04:18.432540Z [INFO] Raw i2detect CB bus output:
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- 4a -- 4c 4d 4e -- 
+50: 50 51 52 -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --                         
+
+2026-04-22T11:04:26.476639Z [INFO] Raw i2detect PSU bus output:
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: 10 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --                         
+
+
+2026-04-22T11:04:26.694321Z [INFO] Expected board info CRC: 0x0, got 0x0
+2026-04-22T11:04:26.694459Z [INFO] Expected param info CRC: 0x4, got 0x4
+2026-04-22T11:04:26.695385Z [INFO] Expected extra info CRC: 0xB, got 0xB
+2026-04-22T11:04:26.697162Z [INFO] Board info version: 0x5
+2026-04-22T11:04:26.697273Z [INFO] Encryption algo and key version: 0x11
+2026-04-22T11:04:26.697814Z [INFO] Board serial number: YNAHYPDBCJFBJ2BJM
+2026-04-22T11:04:26.699712Z [INFO] Default board voltage: 1270cV
+2026-04-22T11:04:26.699830Z [INFO] Default board frequency: 485MHz
+2026-04-22T11:04:26.701304Z [INFO] Connector: 0
+2026-04-22T11:04:26.742616Z [INFO] Expected board info CRC: 0x1D, got 0x1D
+2026-04-22T11:04:26.742800Z [INFO] Expected param info CRC: 0xF, got 0xF
+2026-04-22T11:04:26.742911Z [INFO] Expected extra info CRC: 0xB, got 0xB
+2026-04-22T11:04:26.743027Z [INFO] Board info version: 0x5
+2026-04-22T11:04:26.743103Z [INFO] Encryption algo and key version: 0x11
+2026-04-22T11:04:26.743181Z [INFO] Board serial number: SMTTYPDBCJDJC0NM6
+2026-04-22T11:04:26.743287Z [INFO] Default board voltage: 1290cV
+2026-04-22T11:04:26.743384Z [INFO] Default board frequency: 485MHz
+2026-04-22T11:04:26.743467Z [INFO] Connector: 1
+2026-04-22T11:04:26.783108Z [INFO] Expected board info CRC: 0x15, got 0x15
+2026-04-22T11:04:26.783237Z [INFO] Expected param info CRC: 0x4, got 0x4
+2026-04-22T11:04:26.783355Z [INFO] Expected extra info CRC: 0xB, got 0xB
+2026-04-22T11:04:26.783467Z [INFO] Board info version: 0x5
+2026-04-22T11:04:26.783541Z [INFO] Encryption algo and key version: 0x11
+2026-04-22T11:04:26.783620Z [INFO] Board serial number: YNAHYPDBCJFBJ2P9C
+2026-04-22T11:04:26.783723Z [INFO] Default board voltage: 1270cV
+2026-04-22T11:04:26.783800Z [INFO] Default board frequency: 485MHz
+2026-04-22T11:04:26.783883Z [INFO] Connector: 2
+2026-04-22T11:04:27.349100Z [INFO] Attempt 1 - Sending message to return PSU power type: [11, 55, AA, 4, 2, 6, 0] :
+2026-04-22T11:04:27.448952Z [INFO] Attempt 1 - Reading PSU power type. command: [11, 55, AA, 4, 2, 6, 0] :
+2026-04-22T11:04:28.062325Z [INFO] Attempt 1 - power type message return: [55, AA, 6, 2, 75, 0, 7D, 0].
+
+2026-04-22T11:04:28.162795Z [INFO] Attempt 1 - Sending message to return PSU firmware version: [11, 55, AA, 4, 1, 5, 0]
+2026-04-22T11:04:28.263091Z [INFO] Attempt 1 - Reading PSU firmware version. command: [11, 55, AA, 4, 1, 5, 0] :
+2026-04-22T11:04:28.550172Z [INFO] Attempt 1 - firmware version message return: [55, AA, 6, 1, 19, 0, 20, 0].
+
+2026-04-22T11:04:28.550996Z [INFO] Setting PSU hw/fw to: 0x75/0x19
+2026-04-22T11:04:28.568684Z [INFO] 
+*** System information summary ***
+- SW: ................. luxminer v2025.12.12.164659 (e88514b22)
+- Package: ............ 2025.12.12-u0
+- Miner model: ........ Antminer S19 XP (s19xp)
+- External storage: ... No
+- RAM storage: ........ Yes, /mnt/ramdisk (rw)
+- Config storage: ..... Yes, /config (rw)
+- Persistent NAND Logs:  /persistent/miner
+- Logs dir: ........... (empty)
+- Logs link: .......... (empty)
+- Profiles dir: ....... /config/profiles
+- Backup dir: ......... /backup/luxminer.conf.d
+- Config dir: ......... /config/luxminer.conf.d
+
+2026-04-22T11:04:28.569567Z [INFO] Checking profiles...
+2026-04-22T11:04:28.575652Z [WARN] Skipped dynamic profile step: frequency out of bounds
+2026-04-22T11:04:28.586299Z [INFO] Applying configuration...
+2026-04-22T11:04:28.641075Z [INFO] Starting system audit task
+2026-04-22T11:04:28.641075Z [INFO] No need to watch partitions; no external partition is being used
+2026-04-22T11:04:28.644109Z [INFO] Starting periodic disk check
+2026-04-22T11:04:28.652761Z [INFO] Checking available disk space
+2026-04-22T11:04:33.011179Z [INFO] Current power status: ON
+2026-04-22T11:04:33.024649Z [INFO] Pools configuration:
+Group default, quota: 1:
+  Pools:
+  - url: sha256.poolbinance.com:443, user: NCATX.012
+  - url: stratum+tcp://sha256.poolbinance.com:443, user: NCATX.082
+  - url: stratum+tcp://btc.poolbinance.com:1800, user: NCATX.082
+  - url: stratum+tcp://bs.poolbinance.com:3333, user: NCATX.082
+
+2026-04-22T11:04:33.044422Z [INFO] Waiting for board initialization before starting chip healthchecker.
+2026-04-22T11:04:33.065873Z [INFO] 3 boards, 3 identified and 0 disabled
+2026-04-22T11:04:33.085213Z [INFO] Partner ID loaded: foreman
+2026-04-22T11:04:33.107457Z [INFO] Autotuner enabled
+2026-04-22T11:04:33.122052Z [INFO] Current power status: ON
+2026-04-22T11:04:33.154295Z [INFO] Power targeting is now enabled
+2026-04-22T11:04:33.160723Z [INFO] Advanced Thermal Management (ATM) process started (off)
+2026-04-22T11:04:33.164235Z [INFO] Power Target mode is now active; Legacy ATM will be disabled
+2026-04-22T11:04:33.170947Z [INFO] Connecting to pool
+2026-04-22T11:04:33.172598Z [INFO] Pool status changed
+2026-04-22T11:04:33.188699Z [INFO] Power target set
+2026-04-22T11:04:33.192543Z [INFO] Miner is configured for power targeting; skipping the pre-init step
+2026-04-22T11:04:33.198904Z [INFO] Opening TCP connection
+2026-04-22T11:04:33.205780Z [INFO] Starting API server
+2026-04-22T11:04:33.227154Z [INFO] Starting HTTP API
+2026-04-22T11:04:33.258050Z [INFO] Connection successful
+2026-04-22T11:04:33.258328Z [INFO] Pool status changed
+2026-04-22T11:04:33.401759Z [INFO] Starting PIC controller
+2026-04-22T11:04:33.401934Z [INFO] Starting PIC controller
+2026-04-22T11:04:33.402030Z [INFO] Starting PIC controller
+2026-04-22T11:04:33.530093Z [INFO] Authorization successful
+2026-04-22T11:04:33.533526Z [INFO] New pool difficulty
+2026-04-22T11:04:33.550000Z [INFO] Cycle board reset
+2026-04-22T11:04:33.601346Z [INFO] Board reset complete
+2026-04-22T11:04:34.150234Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:04:34.150806Z [INFO] Cycle board reset
+2026-04-22T11:04:34.200552Z [INFO] Connecting to pool
+2026-04-22T11:04:34.200832Z [INFO] Opening TCP connection
+2026-04-22T11:04:34.200826Z [INFO] Pool status changed
+2026-04-22T11:04:34.202629Z [INFO] Board reset complete
+2026-04-22T11:04:34.248059Z [INFO] Connection successful
+2026-04-22T11:04:34.248888Z [INFO] Pool status changed
+2026-04-22T11:04:34.585741Z [INFO] New pool difficulty
+2026-04-22T11:04:34.632296Z [INFO] Authorization successful
+2026-04-22T11:04:34.650775Z [INFO] Cycle board reset
+2026-04-22T11:04:34.702985Z [INFO] Board reset complete
+2026-04-22T11:04:34.828966Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-22T11:04:35.415126Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-22T11:04:35.415844Z [ERROR] Initialization of hashboard failed
+2026-04-22T11:04:35.429771Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 1/5 - asic enumeration failure]
+2026-04-22T11:04:35.430017Z [INFO] Board powered off
+2026-04-22T11:04:35.939236Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-22T11:04:35.939386Z [ERROR] Initialization of hashboard failed
+2026-04-22T11:04:36.038170Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 1/5 - asic enumeration failure]
+2026-04-22T11:04:36.039002Z [INFO] Board powered off
+2026-04-22T11:04:39.036262Z [INFO] Current temperatures:
+-   0: TopLeft: 19.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 19.00
+-   1: TopLeft: 39.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 39.00
+-   2: TopLeft: 20.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-22T11:04:40.491088Z [INFO] Starting PIC controller
+2026-04-22T11:04:40.741116Z [INFO] Cycle board reset
+2026-04-22T11:04:40.828499Z [INFO] Board reset complete
+2026-04-22T11:04:41.097586Z [INFO] Starting PIC controller
+2026-04-22T11:04:41.247705Z [INFO] Cycle board reset
+2026-04-22T11:04:41.347472Z [INFO] Board reset complete
+2026-04-22T11:04:42.015102Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-22T11:04:42.015256Z [ERROR] Initialization of hashboard failed
+2026-04-22T11:04:42.107858Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 2/5 - asic enumeration failure]
+2026-04-22T11:04:42.108709Z [INFO] Board powered off
+2026-04-22T11:04:42.539147Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-22T11:04:42.539305Z [ERROR] Initialization of hashboard failed
+2026-04-22T11:04:42.613499Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 2/5 - asic enumeration failure]
+2026-04-22T11:04:42.614264Z [INFO] Board powered off
+2026-04-22T11:04:47.168171Z [INFO] Starting PIC controller
+2026-04-22T11:04:47.276511Z [INFO] Cycle board reset
+2026-04-22T11:04:47.371821Z [INFO] Board reset complete
+2026-04-22T11:04:47.674414Z [INFO] Starting PIC controller
+2026-04-22T11:04:48.276801Z [INFO] Cycle board reset
+2026-04-22T11:04:48.291003Z [INFO] Board reset complete
+2026-04-22T11:04:48.515117Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-22T11:04:48.515289Z [ERROR] Initialization of hashboard failed
+2026-04-22T11:04:48.585693Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 3/5 - asic enumeration failure]
+2026-04-22T11:04:48.585983Z [INFO] Board powered off
+2026-04-22T11:04:49.172966Z [INFO] Current fan status:
+- 0 FAN4:  OK 
+- 1 FAN2:  OK 
+- 2 FAN1:  OK 
+- 3 FAN3:  OK 
+
+2026-04-22T11:04:49.539148Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-22T11:04:49.539301Z [ERROR] Initialization of hashboard failed
+2026-04-22T11:04:49.596454Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 3/5 - asic enumeration failure]
+2026-04-22T11:04:49.597015Z [INFO] Board powered off
+2026-04-22T11:04:51.364197Z [INFO] ASIC board summary:
+-   1:  50MHz, Elapsed: 0s, Hashing: NO , 5m:   0.00, 15m:   0.00, 1h:   0.00, Nominal:   4.91
+2026-04-22T11:04:51.420473Z [INFO] First board started; previous autotuner state will be discarded
+2026-04-22T11:04:53.651323Z [INFO] Starting PIC controller
+2026-04-22T11:04:53.805242Z [INFO] Cycle board reset
+2026-04-22T11:04:53.814356Z [INFO] Board reset complete
+2026-04-22T11:04:54.664017Z [INFO] Starting PIC controller
+2026-04-22T11:04:54.812316Z [INFO] Cycle board reset
+2026-04-22T11:04:54.833650Z [INFO] Board reset complete
+2026-04-22T11:04:55.015105Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-22T11:04:55.015262Z [ERROR] Initialization of hashboard failed
+2026-04-22T11:04:55.068235Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 4/5 - asic enumeration failure]
+2026-04-22T11:04:55.068481Z [INFO] Board powered off
+2026-04-22T11:04:56.039157Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-22T11:04:56.039308Z [ERROR] Initialization of hashboard failed
+2026-04-22T11:04:56.082347Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 4/5 - asic enumeration failure]
+2026-04-22T11:04:56.082995Z [INFO] Board powered off
+2026-04-22T11:05:00.129318Z [INFO] Starting PIC controller
+2026-04-22T11:05:00.334838Z [INFO] Cycle board reset
+2026-04-22T11:05:00.356605Z [INFO] Board reset complete
+2026-04-22T11:05:00.926933Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:05:01.142431Z [INFO] Starting PIC controller
+2026-04-22T11:05:01.432218Z [INFO] Cycle board reset
+2026-04-22T11:05:01.475879Z [INFO] Board reset complete
+2026-04-22T11:05:01.515091Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-22T11:05:01.515249Z [ERROR] Initialization of hashboard failed
+2026-04-22T11:05:01.546409Z [WARN] Switching off the board; no automatic start scheduled, this board will remain offline [enumeration_reboot, 5/5 - asic enumeration failure]
+2026-04-22T11:05:01.547067Z [INFO] Board powered off
+2026-04-22T11:05:02.639148Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-22T11:05:02.639299Z [ERROR] Initialization of hashboard failed
+2026-04-22T11:05:02.659470Z [WARN] Switching off the board; no automatic start scheduled, this board will remain offline [enumeration_reboot, 5/5 - asic enumeration failure]
+2026-04-22T11:05:02.660144Z [INFO] Board powered off
+2026-04-22T11:05:02.660283Z [INFO] Ramping board frequency
+2026-04-22T11:05:02.661282Z [INFO] Ramping board voltage
+2026-04-22T11:05:37.374848Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:05:43.582127Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:05:53.741234Z [INFO] Ramping board frequency
+2026-04-22T11:06:00.344108Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:08.152054Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:21.834477Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:23.434229Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:25.033856Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:26.626548Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:29.763662Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:31.361286Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:32.961028Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:34.553875Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:35.206073Z [INFO] Ramping board frequency
+2026-04-22T11:06:36.151343Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:37.751087Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:39.186442Z [INFO] Shares counter
+2026-04-22T11:06:39.346546Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:40.948726Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:42.541313Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:44.141128Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:45.740749Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:47.338174Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:48.933190Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:50.528375Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:52.128125Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:53.725526Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:54.379728Z [INFO] New pool difficulty
+2026-04-22T11:06:55.323224Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:56.147246Z [INFO] Ramping board frequency
+2026-04-22T11:06:56.922944Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:06:58.520306Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:07:00.117431Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:07:01.710063Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:07:03.307435Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:07:04.905012Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:07:06.507150Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:07:08.104463Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:07:12.058804Z [INFO] New pool difficulty
+2026-04-22T11:07:15.786824Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:07:17.087349Z [INFO] Ramping board frequency
+2026-04-22T11:07:18.893439Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:07:28.024851Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:07:33.875355Z [INFO] Ramping board frequency
+2026-04-22T11:07:38.697126Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:07:40.299103Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:07:41.896181Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:07:43.493341Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:07:45.086043Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:07:46.685697Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:07:48.285630Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:07:49.882878Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:07:51.475537Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:07:53.072856Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:07:54.670353Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:07:54.806863Z [INFO] Ramping board frequency
+2026-04-22T11:07:56.267819Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:07:57.869638Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:07:59.464601Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:08:01.059749Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:08:02.657234Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:08:04.257066Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:08:05.856616Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:08:07.449452Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:08:09.051502Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:08:10.646407Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:08:12.241494Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:08:13.841486Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:08:15.441275Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:08:15.734425Z [INFO] Ramping board frequency
+2026-04-22T11:08:24.572120Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:08:26.171999Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:08:27.769304Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:08:29.366489Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:08:30.963836Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:08:32.560991Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:08:34.156114Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:08:36.670881Z [INFO] Ramping board frequency
+2026-04-22T11:08:38.800892Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:08:57.604817Z [INFO] Ramping board frequency
+2026-04-22T11:09:10.633232Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:09:15.242834Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:09:16.842563Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:09:18.437846Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:09:18.545265Z [INFO] Ramping board frequency
+2026-04-22T11:09:21.540130Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:09:23.141969Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:09:24.739224Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:09:26.331899Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:09:28.654476Z [INFO] Checking available disk space
+2026-04-22T11:09:35.333107Z [INFO] Ramping board frequency
+2026-04-22T11:09:40.085377Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 24.00
+-   1: TopLeft: 44.00, TopRight: 34.00, BottomRight: 34.00, BottomLeft: 44.00
+-   2: TopLeft: 24.00, TopRight: 18.00, BottomRight: 18.00, BottomLeft: 24.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-22T11:09:54.569623Z [INFO] ASIC board summary, 14V:
+-  *1: 338MHz, Elapsed:     5m 3s, Hashing: YES, 5m:  16.20, 15m:  15.94, 1h:  15.94, Nominal:  33.23
+2026-04-22T11:10:00.422580Z [INFO] Ramping board frequency
+2026-04-22T11:10:08.690506Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:10:25.269535Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-22T11:10:35.728259Z [INFO] Starting early optimization phase.
+2026-04-22T11:10:35.731401Z [INFO] Ramping board frequency and voltage
+2026-04-22T11:10:50.601056Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-22T11:10:55.591965Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:11:01.018685Z [INFO] Ramping board frequency and voltage
+2026-04-22T11:11:06.264355Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:11:07.866343Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:11:11.825061Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-22T11:11:22.355996Z [INFO] Ramping board frequency and voltage
+2026-04-22T11:11:33.150950Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-22T11:11:41.245203Z [INFO] Shares counter
+2026-04-22T11:11:43.594202Z [INFO] Ramping board frequency and voltage
+2026-04-22T11:11:45.664841Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:12:09.188823Z [INFO] Ramping board frequency and voltage
+2026-04-22T11:12:11.493350Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-22T11:12:15.900641Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:12:19.904086Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-22T11:12:30.943104Z [INFO] Ramping board frequency and voltage
+2026-04-22T11:12:35.420290Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-22T11:12:50.362647Z [INFO] Ramping board frequency and voltage
+2026-04-22T11:12:56.944704Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-22T11:13:11.698008Z [INFO] Ramping board frequency and voltage
+2026-04-22T11:13:31.513368Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:13:32.863106Z [INFO] New pool difficulty
+2026-04-22T11:13:32.951577Z [INFO] Ramping board frequency and voltage
+2026-04-22T11:13:37.391407Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-22T11:13:41.716366Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:13:52.171284Z [INFO] Ramping board frequency and voltage
+2026-04-22T11:13:56.938113Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:14:13.619380Z [INFO] Ramping board frequency and voltage
+2026-04-22T11:14:20.138365Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-22T11:14:28.654649Z [INFO] Checking available disk space
+2026-04-22T11:14:31.322310Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:14:35.169089Z [INFO] Starting power tune phase.
+2026-04-22T11:14:41.611785Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 21.00
+-   1: TopLeft: 51.00, TopRight: 34.00, BottomRight: 34.00, BottomLeft: 51.00
+-   2: TopLeft: 22.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 22.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-22T11:14:57.781399Z [INFO] ASIC board summary, 13.23V:
+-   1: 445MHz, Elapsed:    10m 6s, Hashing: YES, 5m:  39.51, 15m:  27.62, 1h:  27.62, Nominal:  43.76
+2026-04-22T11:15:46.841004Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:15:48.436121Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:15:53.370078Z [INFO] Ramping board frequency and voltage
+2026-04-22T11:16:45.346946Z [INFO] Shares counter
+2026-04-22T11:16:50.449358Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:16:56.568835Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:16:58.168537Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:16:59.763537Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:17:01.361081Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:17:02.958583Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:17:04.558484Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:17:06.153630Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:17:10.793803Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:17:33.526944Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:17:34.412675Z [INFO] Ramping board frequency and voltage
+2026-04-22T11:17:35.124264Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:17:36.721798Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:17:36.734921Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-22T11:17:38.317001Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:17:39.919225Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:17:41.514332Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:17:43.109517Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:17:44.709653Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:17:46.309427Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:17:47.907128Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:17:49.500537Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:17:51.098136Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:17:52.700294Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:17:54.297765Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:17:55.895182Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:17:57.492497Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:00.592561Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:05.207703Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:15.937982Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:17.540147Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:19.132824Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:20.734964Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:22.332330Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:23.927439Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:25.522624Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:27.122422Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:28.719812Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:30.317186Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:31.917155Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:33.514590Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:35.111811Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:36.706823Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:38.306838Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:39.901937Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:41.497254Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:43.095309Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:44.692689Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:46.290227Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:47.890163Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:49.487657Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:51.085298Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:52.685730Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:54.278606Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:55.878369Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:57.476186Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:18:59.073656Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:00.671413Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:02.268769Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:03.866406Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:05.466477Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:07.061446Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:08.661430Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:10.254199Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:11.854052Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:13.451557Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:15.049249Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:15.122446Z [INFO] Ramping board frequency and voltage
+2026-04-22T11:19:16.644537Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:18.242215Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:19.844338Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:21.439545Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:23.037060Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:24.632181Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:26.232437Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:27.829916Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:28.654043Z [INFO] Checking available disk space
+2026-04-22T11:19:29.427354Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:31.024663Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:32.619936Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:34.217439Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:35.814954Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:37.412787Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:39.012725Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:40.610213Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:42.210107Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:42.841244Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 21.00
+-   1: TopLeft: 51.00, TopRight: 34.00, BottomRight: 34.00, BottomLeft: 51.00
+-   2: TopLeft: 21.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-22T11:19:43.807502Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:45.404712Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:46.999856Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:48.599886Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:50.194912Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:51.790095Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:53.389741Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:54.987089Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:56.586832Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:58.181972Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:19:59.779598Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:00.460379Z [INFO] ASIC board summary, 12.99V:
+-   1: 465MHz, Elapsed:    15m 9s, Hashing: YES, 5m:  44.15, 15m:  33.45, 1h:  33.10, Nominal:  45.72
+2026-04-22T11:20:01.377039Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:02.976800Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:04.569497Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:06.169292Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:07.766979Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:09.366682Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:10.959433Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:12.559404Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:14.156914Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:15.754434Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:17.354335Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:18.947226Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:20.547062Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:22.146977Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:23.742210Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:25.342944Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:26.940364Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:28.533283Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:30.133243Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:31.728377Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:33.328470Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:34.928261Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:36.525492Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:38.122980Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:39.718004Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:41.315432Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:42.915220Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:44.512545Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:46.105250Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:47.707518Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:49.302984Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:50.900389Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:52.499044Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:54.099092Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:55.691833Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:57.291824Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:20:58.889266Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:00.484573Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:02.084660Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:03.684252Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:05.281636Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:06.879164Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:08.471919Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:10.072160Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:11.667247Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:13.265606Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:14.867967Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:16.465439Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:18.063091Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:19.658430Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:21.255998Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:22.855830Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:24.448641Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:26.046157Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:27.648231Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:29.245584Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:30.840943Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:32.440611Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:34.034101Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:35.636429Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:37.229155Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:38.831398Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:40.428735Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:42.026175Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:43.623768Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:45.216486Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:46.818975Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:48.416500Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:50.011793Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:51.609348Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:53.204487Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:54.804460Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:56.404304Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:57.997072Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:21:59.594421Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:22:01.192266Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:22:02.792254Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:22:03.092115Z [INFO] Shares counter
+2026-04-22T11:22:04.387778Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:22:05.987779Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:22:07.583070Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:22:09.183143Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:22:10.778366Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:22:12.376070Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:22:13.973635Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:22:15.576200Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:22:17.173354Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:22:18.770583Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:22:20.365907Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:22:21.961102Z [WARN] Temperature Sensor Read Failed
+2026-04-22T11:22:23.563425Z [WARN] Temperature Sensor Read Failed
+
+[2026-04-22 06:22:24] [SUMMARY]
+{
+  "STATUS": [
+    {
+      "Code": 11,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "Summary",
+      "STATUS": "S",
+      "When": 1776856943
+    }
+  ],
+  "SUMMARY": [
+    {
+      "Accepted": 77,
+      "Best Share": 131072,
+      "Device Hardware%": 0.0,
+      "Device Rejected%": 0.0,
+      "Difficulty Accepted": 7274496,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "Elapsed": 1070,
+      "Found Blocks": 0,
+      "GHS 15m": 39271.52,
+      "GHS 1m": 45093.4,
+      "GHS 24h": 32777.65,
+      "GHS 30m": 34723.75,
+      "GHS 5m": 44889.22,
+      "GHS 5s": 45137.99,
+      "GHS av": 35031.95,
+      "Get Failures": 0,
+      "Getworks": 95,
+      "Hardware Errors": 0,
+      "Last getwork": 1776856919,
+      "Local Work": 0,
+      "Network Blocks": 0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Total MH": 35031956.235047445,
+      "Utility": 4.52,
+      "Work Utility": 5.58
+    }
+  ],
+  "id": 1
+}
+
+[2026-04-22 06:22:24] [STATS]
+{
+  "STATS": [
+    {
+      "CompileTime": "Fri Dec 12 16:49:20 UTC 2025",
+      "Miner": "2025.12.12.164659",
+      "Type": "Antminer S19 XP"
+    },
+    {
+      "Calls": 0,
+      "Elapsed": 1070,
+      "GHS 5s": 45137.99,
+      "GHS av": 35031.95,
+      "ID": "BTM_SOC0",
+      "Max": 0,
+      "Min": 99999999,
+      "Mode": 2,
+      "STATS": 0,
+      "Wait": 0,
+      "chain_acn1": 0,
+      "chain_acn2": 110,
+      "chain_acn3": 0,
+      "chain_acn4": 0,
+      "chain_acs1": "",
+      "chain_acs2": " oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oXoo oooo oooo oooo oooo oooo oo",
+      "chain_acs3": "",
+      "chain_acs4": "",
+      "chain_hw1": 0,
+      "chain_hw2": 0,
+      "chain_hw3": 0,
+      "chain_hw4": 0,
+      "chain_rate1": "0",
+      "chain_rate2": "35031.95",
+      "chain_rate3": "0",
+      "chain_rate4": "0",
+      "fan1": 3960,
+      "fan2": 3960,
+      "fan3": 3960,
+      "fan4": 4020,
+      "fan_num": 4,
+      "freq1": 0.0,
+      "freq2": 465.0,
+      "freq3": 0.0,
+      "freq4": 0.0,
+      "frequency": 465,
+      "miner_count": 1,
+      "miner_id": "027634aef2ff",
+      "miner_version": "2025.12.12.164659",
+      "no_matching_work": 0,
+      "rate_30m": 34723.75,
+      "rate_unit": "GH",
+      "temp1": 0.0,
+      "temp2": 51.0,
+      "temp2_1": 0.0,
+      "temp2_2": 51.0,
+      "temp2_3": 0.0,
+      "temp3": 0.0,
+      "temp_chip1": "0-0-0-0",
+      "temp_chip2": "51-34-34-51",
+      "temp_chip3": "0-0-0-0",
+      "temp_chip4": "0-0-0-0",
+      "temp_max": 51.0,
+      "temp_num": 3,
+      "temp_pcb1": "0-0-0-0",
+      "temp_pcb2": "51-34-34-51",
+      "temp_pcb3": "0-0-0-0",
+      "temp_pcb4": "0-0-0-0",
+      "temp_pic1": "0-0-0-0",
+      "temp_pic2": "51-34-34-51",
+      "temp_pic3": "0-0-0-0",
+      "temp_pic4": "0-0-0-0",
+      "total rate": 35031.94,
+      "total_acn": 4,
+      "total_freqavg": 465.0,
+      "total_rateideal": 45728.1
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 70,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "LUXminer stats",
+      "STATUS": "S",
+      "When": 1776856943
+    }
+  ],
+  "id": 1
+}
+
+[2026-04-22 06:22:24] [DEVS]
+{
+  "DEVS": [
+    {
+      "ASC": 2,
+      "Accepted": 0,
+      "Board": "BHB56801",
+      "Connector": "J12",
+      "ControllerIPVersionHex": "0x0A113D",
+      "ControllerIPVersionStr": "0.11.0",
+      "Device Elapsed": 0,
+      "Device Hardware%": 0,
+      "Device Rejected%": 0,
+      "Diff1 Work": 0,
+      "Difficulty Accepted": 0,
+      "Difficulty Rejected": 0,
+      "Enabled": "Y",
+      "Hardware Error MHS 15m": 0,
+      "Hardware Errors": 0,
+      "ID": 2,
+      "IsRamping": false,
+      "IsUserShutdown": false,
+      "Last Share Difficulty": 0,
+      "Last Share Pool": 0,
+      "Last Share Time": 0,
+      "Last Valid Work": 0,
+      "MHS 15m": 0.0,
+      "MHS 1m": 0.0,
+      "MHS 30m": 0.0,
+      "MHS 5m": 0.0,
+      "MHS 5s": 0.0,
+      "MHS 60m": 0.0,
+      "MHS av": 0.0,
+      "Name": "",
+      "Nominal MHS": 0.0,
+      "Profile": "default",
+      "Rejected": 0,
+      "SerialNumber": "YNAHYPDBCJFBJ2P9C",
+      "Status": "Dead",
+      "Temperature": 21.0,
+      "Total MH": 0.0,
+      "Utility": 0
+    },
+    {
+      "ASC": 1,
+      "Accepted": 77,
+      "Board": "BHB56801",
+      "Connector": "J13",
+      "ControllerIPVersionHex": "0x0A113D",
+      "ControllerIPVersionStr": "0.11.0",
+      "Device Elapsed": 1050,
+      "Device Hardware%": 0,
+      "Device Rejected%": 0,
+      "Diff1 Work": 7274496,
+      "Difficulty Accepted": 7274496,
+      "Difficulty Rejected": 0,
+      "Enabled": "Y",
+      "Hardware Error MHS 15m": 0,
+      "Hardware Errors": 0,
+      "ID": 1,
+      "IsRamping": false,
+      "IsUserShutdown": false,
+      "Last Share Difficulty": 131072,
+      "Last Share Pool": 1,
+      "Last Share Time": 1776856934,
+      "Last Valid Work": 1776856934,
+      "MHS 15m": 39271524.44351622,
+      "MHS 1m": 45093407.353789136,
+      "MHS 30m": 34723759.318161495,
+      "MHS 5m": 44889223.71484418,
+      "MHS 5s": 45137996.2336355,
+      "MHS 60m": 34723759.318161495,
+      "MHS av": 35031956.235047445,
+      "Name": "",
+      "Nominal MHS": 45728100.0,
+      "Profile": "default",
+      "Rejected": 0,
+      "SerialNumber": "SMTTYPDBCJDJC0NM6",
+      "Status": "Alive",
+      "Temperature": 51.0,
+      "Total MH": 35031956.235047445,
+      "Utility": 0
+    },
+    {
+      "ASC": 0,
+      "Accepted": 0,
+      "Board": "BHB56801",
+      "Connector": "J11",
+      "ControllerIPVersionHex": "0x0A113D",
+      "ControllerIPVersionStr": "0.11.0",
+      "Device Elapsed": 0,
+      "Device Hardware%": 0,
+      "Device Rejected%": 0,
+      "Diff1 Work": 0,
+      "Difficulty Accepted": 0,
+      "Difficulty Rejected": 0,
+      "Enabled": "Y",
+      "Hardware Error MHS 15m": 0,
+      "Hardware Errors": 0,
+      "ID": 0,
+      "IsRamping": false,
+      "IsUserShutdown": false,
+      "Last Share Difficulty": 0,
+      "Last Share Pool": 0,
+      "Last Share Time": 0,
+      "Last Valid Work": 0,
+      "MHS 15m": 0.0,
+      "MHS 1m": 0.0,
+      "MHS 30m": 0.0,
+      "MHS 5m": 0.0,
+      "MHS 5s": 0.0,
+      "MHS 60m": 0.0,
+      "MHS av": 0.0,
+      "Name": "",
+      "Nominal MHS": 0.0,
+      "Profile": "default",
+      "Rejected": 0,
+      "SerialNumber": "YNAHYPDBCJFBJ2BJM",
+      "Status": "Dead",
+      "Temperature": 21.0,
+      "Total MH": 0.0,
+      "Utility": 0
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 9,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "3 ASC(s)",
+      "STATUS": "S",
+      "When": 1776856943
+    }
+  ],
+  "id": 1
+}
+
+[2026-04-22 06:22:24] [POOLS]
+{
+  "POOLS": [
+    {
+      "Accepted": 77,
+      "AsicBoost": true,
+      "Bad Work": 0,
+      "Best Share": 131072,
+      "Current Block Height": 0,
+      "Current Block Version": 536870912,
+      "Diff": "131K",
+      "Diff1 Shares": 7274496,
+      "Difficulty Accepted": 7274496,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "GROUP": 0,
+      "Get Failures": 0,
+      "Getworks": 95,
+      "Has GBT": false,
+      "Has Stratum": true,
+      "Has Vmask": true,
+      "Last Share Difficulty": 131072,
+      "Last Share Time": "00:00:09",
+      "Long Pool": "N",
+      "POOL": 0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Priority": 0,
+      "Proxy": "",
+      "Proxy Type": "",
+      "Quota": 1.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Status": "Alive",
+      "Stratum Active": true,
+      "Stratum Difficulty": 131072,
+      "Stratum URL": "sha256.poolbinance.com:443",
+      "URL": "stratum+tcp://sha256.poolbinance.com:443",
+      "User": "NCATX.012",
+      "Work Difficulty": 131072,
+      "Works": 0
+    },
+    {
+      "Accepted": 0,
+      "AsicBoost": true,
+      "Bad Work": 0,
+      "Best Share": 0,
+      "Current Block Height": 0,
+      "Current Block Version": 0,
+      "Diff": "0",
+      "Diff1 Shares": 0,
+      "Difficulty Accepted": 0,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "GROUP": 0,
+      "Get Failures": 0,
+      "Getworks": 0,
+      "Has GBT": false,
+      "Has Stratum": true,
+      "Has Vmask": true,
+      "Last Share Difficulty": 0,
+      "Last Share Time": "00:17:50",
+      "Long Pool": "N",
+      "POOL": 1,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Priority": 1,
+      "Proxy": "",
+      "Proxy Type": "",
+      "Quota": 1.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Status": "Dead",
+      "Stratum Active": false,
+      "Stratum Difficulty": 0,
+      "Stratum URL": "sha256.poolbinance.com:443",
+      "URL": "stratum+tcp://sha256.poolbinance.com:443",
+      "User": "NCATX.082",
+      "Work Difficulty": 0,
+      "Works": 0
+    },
+    {
+      "Accepted": 0,
+      "AsicBoost": true,
+      "Bad Work": 0,
+      "Best Share": 0,
+      "Current Block Height": 0,
+      "Current Block Version": 0,
+      "Diff": "0",
+      "Diff1 Shares": 0,
+      "Difficulty Accepted": 0,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "GROUP": 0,
+      "Get Failures": 0,
+      "Getworks": 0,
+      "Has GBT": false,
+      "Has Stratum": true,
+      "Has Vmask": true,
+      "Last Share Difficulty": 0,
+      "Last Share Time": "00:17:50",
+      "Long Pool": "N",
+      "POOL": 2,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Priority": 2,
+      "Proxy": "",
+      "Proxy Type": "",
+      "Quota": 1.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Status": "Dead",
+      "Stratum Active": false,
+      "Stratum Difficulty": 0,
+      "Stratum URL": "btc.poolbinance.com:1800",
+      "URL": "stratum+tcp://btc.poolbinance.com:1800",
+      "User": "NCATX.082",
+      "Work Difficulty": 0,
+      "Works": 0
+    },
+    {
+      "Accepted": 0,
+      "AsicBoost": true,
+      "Bad Work": 0,
+      "Best Share": 0,
+      "Current Block Height": 0,
+      "Current Block Version": 0,
+      "Diff": "0",
+      "Diff1 Shares": 0,
+      "Difficulty Accepted": 0,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "GROUP": 0,
+      "Get Failures": 0,
+      "Getworks": 0,
+      "Has GBT": false,
+      "Has Stratum": true,
+      "Has Vmask": true,
+      "Last Share Difficulty": 0,
+      "Last Share Time": "00:17:50",
+      "Long Pool": "N",
+      "POOL": 3,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Priority": 3,
+      "Proxy": "",
+      "Proxy Type": "",
+      "Quota": 1.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Status": "Dead",
+      "Stratum Active": false,
+      "Stratum Difficulty": 0,
+      "Stratum URL": "bs.poolbinance.com:3333",
+      "URL": "stratum+tcp://bs.poolbinance.com:3333",
+      "User": "NCATX.082",
+      "Work Difficulty": 0,
+      "Works": 0
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 7,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "4 Pool(s)",
+      "STATUS": "S",
+      "When": 1776856943
+    }
+  ],
+  "id": 1
+}
+
+[2026-04-22 06:22:24] [CONFIG]
+{
+  "CONFIG": [
+    {
+      "ASC Count": 3,
+      "ActualPowerTarget": 1014,
+      "BcastAddr": "10.102.1.255",
+      "ControlBoardType": "amlogic",
+      "Cooling": "Air",
+      "CurtailMode": "None",
+      "DHCP": true,
+      "DNS Servers": "",
+      "Device Code": "",
+      "FPGABuildIdHex": "0x000A113D",
+      "FPGABuildIdStr": "2000-0A-11 3D:00",
+      "FeeStatus": "Ok",
+      "Gateway": "10.102.0.1",
+      "GreenLed": "auto",
+      "Hostname": "Antminer",
+      "Hotplug": "None",
+      "IPAddr": "10.102.0.162",
+      "IdealPowerTarget": 3043,
+      "ImmersionMode": false,
+      "IsAtmEnabled": false,
+      "IsPowerSupplyOn": true,
+      "IsPowerTargetEnabled": true,
+      "IsSingleVoltage": true,
+      "IsTuning": true,
+      "Log Interval": 0,
+      "LogFileLevel": "info",
+      "MACAddr": "02:76:34:ae:f2:ff",
+      "Model": "Antminer S19 XP",
+      "NameplateTHS": 141.0,
+      "Netmask": "255.255.254.0",
+      "OS": "LuxOS",
+      "PGA Count": 0,
+      "PIC": "NoPIC",
+      "PSUHwVersion": "75",
+      "PSULabel": "APW121215e",
+      "Pool Count": 4,
+      "PowerLimit": 3043,
+      "Profile": "default",
+      "ProfileStep": "0",
+      "RedLed": "auto",
+      "SerialNumber": "YNAHEAUBCJFBJ0HYY",
+      "Strategy": "Failover",
+      "SystemStatus": "Normal",
+      "UpdateOnStartup": "off",
+      "UpdateOnTimeout": "off",
+      "UpdateOnUser": "full",
+      "UpdateSource": "https://storage.googleapis.com/luxor-firmware/stable",
+      "UpdateTimeout": 60
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 33,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "LUXminer config",
+      "STATUS": "S",
+      "When": 1776856943
+    }
+  ],
+  "id": 1
+}

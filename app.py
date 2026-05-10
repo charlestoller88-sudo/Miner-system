@@ -6,7 +6,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
-from typing import List
+from typing import Any, Dict, List
 from sqlalchemy import func
 from datetime import datetime, timedelta
 import asyncio
@@ -69,6 +69,203 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # 模板引擎
 templates = Jinja2Templates(directory="templates")
+
+
+def _split_text_items(raw: str) -> List[str]:
+    """将分号/换行分隔的文本清洗为列表项。"""
+    if not raw:
+        return []
+    tmp = str(raw).replace("；", ";").replace("\r\n", "\n").replace("\r", "\n")
+    pieces: List[str] = []
+    for line in tmp.split("\n"):
+        for p in line.split(";"):
+            s = p.strip(" -\t")
+            if s:
+                pieces.append(s)
+    # 去重并保持顺序
+    return list(dict.fromkeys(pieces))
+
+
+def _keyword_hits(lines: List[str], keywords: List[str]) -> int:
+    n = 0
+    for ln in lines:
+        low = ln.lower()
+        if any(k in low for k in keywords):
+            n += 1
+    return n
+
+
+def _build_fault_detail_text(
+    primary: str,
+    secondary: List[str],
+    evidence: List[str],
+    ai_status: str,
+    hashrate_ths: Any,
+) -> str:
+    sec = "；".join([x for x in secondary if x][:2]) if secondary else "无明显次因"
+    ev_total = len(evidence)
+    fan_hits = _keyword_hits(evidence, ["fan", "error_fan_lost", "tachometer"])
+    temp_hits = _keyword_hits(evidence, ["temp", "overtemp", "tsensor", "pic temp"])
+    pool_hits = _keyword_hits(evidence, ["stratum", "pool", "dns", "socket", "resolve"])
+    board_hits = _keyword_hits(evidence, ["hashboard", "asic", "chip", "eeprom", "chain", "dead"])
+    ths_text = "-" if hashrate_ths is None else f"{float(hashrate_ths):.3f} TH/s"
+    return (
+        f"主因判断：{primary}。"
+        f"当前状态：{ai_status}，识别算力：{ths_text}。"
+        f"日志证据条目：{ev_total}，其中板级/芯片类 {board_hits} 条、网络矿池类 {pool_hits} 条、"
+        f"温度类 {temp_hits} 条、风扇类 {fan_hits} 条。"
+        f"次因提示：{sec}。"
+    )
+
+
+def _build_action_plan(primary: str, suggestions: List[str], evidence: List[str]) -> List[str]:
+    plan: List[str] = []
+    ev_join = "\n".join(evidence).lower()
+
+    # 先给固定的优先级步骤，避免建议过于泛化。
+    plan.append("P1-立即止损：保留当前日志并避免反复重启，先确认矿机是否持续掉算力或已停机。")
+    if any(k in ev_join for k in ["curtail", "sleep", "ispowersupplyon", "power off"]):
+        plan.append("P1-策略/供电检查：核对是否存在限电策略、休眠策略或电源未上电（含外部管理平台下发）。")
+    if any(k in ev_join for k in ["stratum", "pool", "dns", "resolve", "socket"]):
+        plan.append("P2-网络矿池排查：先做 DNS/网关/丢包检查，再切换备用矿池对比重连次数与 accepted 恢复情况。")
+    if any(k in ev_join for k in ["hashboard", "asic", "chip", "eeprom", "chain", "dead"]):
+        plan.append("P2-板卡链路排查：断电后重插排线与供电，执行故障板与正常板换槽位交叉测试，区分板卡与槽位故障。")
+    if any(k in ev_join for k in ["fan", "tachometer", "error_fan_lost"]):
+        plan.append("P2-风扇保护排查：检查风扇数量/转速/线序，优先处理报错风扇位，恢复后再观察是否解除保护停机。")
+    if any(k in ev_join for k in ["temp", "overtemp", "tsensor", "pic temp", "temp diff"]):
+        plan.append("P2-温度链路排查：确认进风温度与风道，处理高温链散热接触问题，勿直接放宽温控阈值。")
+
+    # 合并规则引擎建议，作为可执行动作库。
+    for i, s in enumerate(suggestions[:6], 1):
+        plan.append(f"P3-执行项{i}：{s}")
+
+    plan.append(f"P4-复验标准：处理后观察 15~30 分钟，若仍出现“{primary}”相关报错，再升级到板卡/控制板级维修。")
+    return list(dict.fromkeys([x for x in plan if x]))
+
+
+def _is_fault_stat(stat: MinerStat, low_threshold: float) -> bool:
+    if stat is None:
+        return True
+    if stat.hashrate is None:
+        return True
+    try:
+        return float(stat.hashrate) < low_threshold
+    except Exception:
+        return True
+
+
+def _fault_action_by_hours(hours: float) -> str:
+    if hours >= 72:
+        return "建议下架维修"
+    if hours >= 24:
+        return "建议优先安排现场检修"
+    if hours >= 8:
+        return "建议持续观察并尽快处理"
+    return "建议继续观察"
+
+
+async def _build_log_ai_analysis(miner: Miner, db: Session, fallback: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    用「AI诊断矿机运行日志报告」同源规则分析单台矿机详细日志，
+    并映射为矿机详情页 analysis 结构。
+    """
+    if not miner.ip_address:
+        return fallback
+
+    try:
+        fetcher = MinerLogFetcher(db)
+        detailed = await fetcher.fetch_detailed_logs(miner)
+        chunks: List[str] = []
+        for rl in detailed.get("raw_logs") or []:
+            cat = rl.get("category", "")
+            body = rl.get("content", "")
+            if cat and body:
+                chunks.append(f"[{cat}]\n{body}")
+        if not chunks:
+            return fallback
+
+        text = "\n".join(chunks)
+        from services.local_ai_miner_diagnoser import (
+            build_narrative_report,
+            classify_hashrate_status,
+            collect_evidence,
+            extract_nameplate_ths,
+            extract_total_hashrate_ths,
+            rule_diagnose,
+            try_ollama_narrative_report,
+        )
+
+        ths = extract_total_hashrate_ths(text)
+        nameplate = extract_nameplate_ths(text)
+        rb = rule_diagnose(text, parsed_hashrate_ths=ths)
+
+        causes: List[str] = []
+        primary = (rb.get("primary_cause") or "").strip()
+        if primary:
+            causes.append(primary)
+        causes.extend(_split_text_items(rb.get("secondary_causes", "")))
+        alt = rb.get("alternate_causes", "")
+        if alt:
+            causes.extend([f"候选主因：{x}" for x in _split_text_items(alt)])
+        causes = list(dict.fromkeys([c for c in causes if c]))
+
+        secondary_causes = _split_text_items(rb.get("secondary_causes", ""))
+        suggestions = _split_text_items(rb.get("solutions", ""))
+        if not suggestions:
+            suggestions = fallback.get("suggestions") or ["建议先查看原始日志并人工复核"]
+
+        out = dict(fallback)
+        out["possible_causes"] = causes if causes else (fallback.get("possible_causes") or ["未识别明确故障关键词"])
+        out["ai_confidence"] = rb.get("confidence", "中")
+        out["ai_status"] = classify_hashrate_status(ths, nameplate_ths=nameplate) if ths is not None else "算力未知"
+        out["ai_hashrate_ths"] = round(float(ths), 3) if ths is not None else None
+        evidence_raw = collect_evidence(text, limit=8)
+        if isinstance(evidence_raw, list):
+            out["ai_evidence"] = [str(x).strip() for x in evidence_raw if str(x).strip()]
+        else:
+            out["ai_evidence"] = _split_text_items(str(evidence_raw or ""))
+        out["ai_fault_detail"] = _build_fault_detail_text(
+            primary=primary or (causes[0] if causes else "未识别明确故障关键词"),
+            secondary=secondary_causes,
+            evidence=out.get("ai_evidence") or [],
+            ai_status=out.get("ai_status") or "算力未知",
+            hashrate_ths=out.get("ai_hashrate_ths"),
+        )
+        out["suggestions"] = _build_action_plan(
+            primary=primary or (causes[0] if causes else "未识别明确故障关键词"),
+            suggestions=suggestions,
+            evidence=out.get("ai_evidence") or [],
+        )
+        narrative = build_narrative_report(
+            text,
+            rb,
+            ip=str(miner.ip_address or "").strip(),
+            model=str(miner.model or "").strip() or "未知型号",
+            nameplate_ths=nameplate,
+            parsed_ths=ths,
+            suggestions=suggestions,
+        )
+        out["ai_narrative_report"] = narrative
+        out["ai_narrative_source"] = "rules+quotes"
+        if os.environ.get("MINER_AI_NARRATIVE", "").strip() in ("1", "true", "True"):
+            llm_nar = try_ollama_narrative_report(
+                ip=str(miner.ip_address or "").strip(),
+                model=str(miner.model or "").strip() or "未知型号",
+                primary=primary or (causes[0] if causes else "未识别明确故障关键词"),
+                secondary=str(rb.get("secondary_causes") or ""),
+                alternate=str(rb.get("alternate_causes") or ""),
+                confidence=str(out.get("ai_confidence") or "中"),
+                parsed_ths=ths,
+                nameplate_ths=nameplate,
+                evidence_text=text[:14000],
+            )
+            if llm_nar:
+                out["ai_narrative_report"] = llm_nar
+                out["ai_narrative_source"] = "ollama"
+        return out
+    except Exception as ex:
+        print(f"[DETAIL-AI] 日志规则诊断失败: {ex}")
+        return fallback
 
 @app.get("/", response_class=HTMLResponse)
 async def dashboard(request: Request, db: Session = Depends(get_db)):
@@ -211,9 +408,12 @@ async def miner_detail(request: Request, miner_id: int, db: Session = Depends(ge
             Alert.resolved == False
         ).order_by(Alert.created_at.desc()).all()
         
-        # 分析矿机性能
+        # 先用历史统计得到性能指标，再用日志规则覆盖「故障分析与建议」
         analyzer = MinerAnalyzer(db)
         analysis = analyzer.analyze_low_hashrate(miner_id)
+        if not isinstance(analysis, dict):
+            analysis = {}
+        analysis = await _build_log_ai_analysis(miner, db, analysis)
         
         # 获取趋势数据
         try:
@@ -974,6 +1174,93 @@ async def get_fault_miners_list(db: Session = Depends(get_db)):
         return {"success": True, "fault_miners": fault_list}
     except Exception as e:
         return {"success": False, "fault_miners": [], "message": str(e)}
+
+
+@app.get("/api/statistics/long-fault-miners")
+async def get_long_fault_miners(
+    min_hours: int = 8,
+    max_rows: int = 100,
+    db: Session = Depends(get_db),
+):
+    """获取连续故障时长较长的矿机清单（当前仍处于故障状态）。"""
+    try:
+        min_hours = max(1, int(min_hours))
+        max_rows = max(1, min(500, int(max_rows)))
+        low_threshold = float(config.THRESHOLDS.get("low_hashrate", 50))
+        now = datetime.now()
+
+        miners = db.query(Miner).filter(Miner.ip_address.isnot(None)).all()
+        rows: List[Dict[str, Any]] = []
+
+        for m in miners:
+            latest = (
+                db.query(MinerStat)
+                .filter(MinerStat.miner_id == m.id)
+                .order_by(MinerStat.timestamp.desc())
+                .first()
+            )
+            # 当前不是故障态则跳过
+            if latest is not None and not _is_fault_stat(latest, low_threshold):
+                continue
+
+            # 取近期统计，从最新往前找“连续故障段”的起点
+            recent_stats = (
+                db.query(MinerStat)
+                .filter(MinerStat.miner_id == m.id)
+                .order_by(MinerStat.timestamp.desc())
+                .limit(800)
+                .all()
+            )
+
+            streak_start: Optional[datetime] = None
+            for st in recent_stats:
+                if _is_fault_stat(st, low_threshold):
+                    streak_start = st.timestamp
+                else:
+                    break
+
+            # 没有统计数据时，尽量用 last_seen 估算（可能偏保守）
+            if streak_start is None:
+                if latest is None:
+                    streak_start = m.last_seen or now
+                else:
+                    streak_start = latest.timestamp or now
+
+            duration_hours = max(0.0, (now - streak_start).total_seconds() / 3600.0)
+            if duration_hours < float(min_hours):
+                continue
+
+            hashrate_val = None
+            if latest and latest.hashrate is not None:
+                try:
+                    hashrate_val = round(float(latest.hashrate), 2)
+                except Exception:
+                    hashrate_val = None
+
+            rows.append(
+                {
+                    "id": m.id,
+                    "ip_address": m.ip_address,
+                    "serial_number": m.serial_number or "-",
+                    "model": m.model or "-",
+                    "status": m.status or "unknown",
+                    "hashrate": hashrate_val,
+                    "fault_start_time": streak_start.isoformat() if streak_start else None,
+                    "fault_duration_hours": round(duration_hours, 1),
+                    "action": _fault_action_by_hours(duration_hours),
+                }
+            )
+
+        rows.sort(key=lambda x: x.get("fault_duration_hours", 0), reverse=True)
+        rows = rows[:max_rows]
+        return {
+            "success": True,
+            "min_hours": min_hours,
+            "count": len(rows),
+            "long_fault_miners": rows,
+        }
+    except Exception as e:
+        return {"success": False, "long_fault_miners": [], "message": str(e)}
 
 
 @app.get("/api/statistics/export-fault-miner-logs", response_class=Response)

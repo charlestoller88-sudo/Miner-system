@@ -1,0 +1,56 @@
+{
+  "说明": "把你「人工诊断经验」固化成可执行逻辑：编辑本文件后保存即可生效（无需改 Python）。建议用 Git 管理版本，便于回滚。",
+  "学习机制简介": {
+    "unknown_only": "当内置规则仍判为「未识别明确故障关键词」时，用 extra_rules 里 when=unknown_only（或省略 when 且 only_after_primary_unknown=true）的规则补判。",
+    "refine": "当内置规则已给出主因，但你认为在特定日志特征下应改判时，使用 when=refine。可要求 patterns_all（多条证据同时成立）、only_if_primary_in（仅当当前主因含某关键词时才覆盖）等，避免乱匹配。",
+    "优先级": "refine 规则按 priority 数字从大到小尝试，同优先级按 id 字典序；**首条命中即停止**，请把更具体、更严格的规则放在前面。",
+    "sop_overrides": "覆盖内置 PRIMARY_CAUSE_SOP 里某个主因对应的处理步骤列表（主因名称须与内置或你自定义的 primary_cause 完全一致）。",
+    "diagnostic_few_shot": "可选。若干条「日志摘录 + 你的结论」范例，在开启 MINER_AI_NARRATIVE=1 时注入 Ollama 提示词，让叙事风格贴近你的写法（结论仍须以当前日志为准）。"
+  },
+  "sop_overrides": {},
+  "diagnostic_few_shot": [],
+  "extra_rules": [
+    {
+      "id": "example_unknown_only",
+      "enabled": false,
+      "when": "unknown_only",
+      "only_after_primary_unknown": true,
+      "primary_cause": "示例：自定义主因名称",
+      "solutions": [
+        "示例步骤1",
+        "示例步骤2"
+      ],
+      "match": {
+        "patterns_any": ["your_keyword_or_regex"],
+        "min_total_hits": 5
+      },
+      "skip_if_curtailment_sleep": true,
+      "skip_if_log_matches": ["curtailment_mode"]
+    },
+    {
+      "id": "example_refine_board_over_net",
+      "enabled": false,
+      "when": "refine",
+      "priority": 100,
+      "comment": "示例：当默认主因偏「网络」，但多块板 ERR:I3 且 HB 明确时，改判为你定义的主因（请按真实案例改 patterns 与文案）",
+      "only_if_primary_in": ["网络", "矿池", "Stratum", "连接"],
+      "not_if_primary_in": ["限电", "休眠", "Curtailment"],
+      "primary_cause": "示例：多块算力板硬件失效（人工复核命名）",
+      "secondary_hints": [
+        "原判定偏网络侧；在 ERR:I3 与多块 HB 同时成立时，以板卡硬件为主矛盾"
+      ],
+      "solutions": [
+        "按你现场 SOP：先对 HB 逐板交叉换槽位再判控制板",
+        "网络侧仅做次要排查（DNS/矿池线路）"
+      ],
+      "match": {
+        "patterns_any": ["\\{err:i3\\}", "no chips detected", "disabled hashboard"],
+        "patterns_all": ["\\{hb:1\\}", "\\{hb:3\\}"],
+        "min_total_hits": 6,
+        "min_each_hits": 1
+      },
+      "skip_if_curtailment_sleep": true,
+      "skip_if_log_matches": []
+    }
+  ]
+}

@@ -1,22 +1,360 @@
 {
-  "说明": "在此追加「主因 + 匹配条件 + 处理步骤」，保存后重新运行 local_ai_miner_diagnoser.py 即生效，无需改 Python。",
-  "sop_overrides": {},
+  "说明": "把你「人工诊断经验」固化成可执行逻辑：编辑本文件后保存即可生效（无需改 Python）。建议用 Git 管理版本，便于回滚。",
+  "学习机制简介": {
+    "unknown_only": "当内置规则仍判为「未识别明确故障关键词」时，用 extra_rules 里 when=unknown_only（或省略 when 且 only_after_primary_unknown=true）的规则补判。",
+    "refine": "当内置规则已给出主因，但你认为在特定日志特征下应改判时，使用 when=refine。可要求 patterns_all（多条证据同时成立）、only_if_primary_in（仅当当前主因含某关键词时才覆盖）等，避免乱匹配。",
+    "优先级": "refine 规则按 priority 数字从大到小尝试，同优先级按 id 字典序；**首条命中即停止**，请把更具体、更严格的规则放在前面。",
+    "sop_overrides": "覆盖内置 PRIMARY_CAUSE_SOP 里某个主因对应的处理步骤列表（主因名称须与内置或你自定义的 primary_cause 完全一致）。",
+    "diagnostic_few_shot": "可选。若干条「日志摘录 + 你的结论」范例，在开启 MINER_AI_NARRATIVE=1 时注入 Ollama 提示词，让叙事风格贴近你的写法（结论仍须以当前日志为准）。"
+  },
+  "sop_overrides": {
+    "总线/通信异常": [
+      "找到算力板2 (日志中对应 Chain/Chain 2) 连接到控制板的3条数据排线。",
+      "小心地拔下它们，检查两端的金属触点是否有氧化或污迹。如有，用橡皮擦或无水酒精清洁。",
+      "重新牢固地插回原位，确保卡扣扣紧。有时仅仅是接触不良。",
+      "重新上电后，观察新的启动日志。如果不再高频出现 get pll config err 错误，并且在运行数据（STATS）中三块板的频率都能跑到 485 MHz，算力也均衡，则问题解决。",
+      "断电检查：首先，务必切断矿机的总电源，确保安全。",
+      "打开矿机外壳，确认是否确实安装了4块哈希板。有可能在运输或维护过程中丢失了一块。",
+      "重新牢固地插回所有线缆。这是最简单且最常见的解决方法。",
+      "交换哈希板位置（进阶排查）：",
+      "重启矿机，观察日志。",
+      "物理检查与清洁:",
+      "断电后，打开矿机外壳。",
+      "重新插拔与紧固:",
+      "专业维修或更换:",
+      "断电并进行物理检查:",
+      "打开机箱，仔细检查 链路1和链路2对应的哈希板。",
+      "检查连接哈希板的所有 排线和电源线 是否插紧，有无破损。",
+      "清洁与重新插拔:",
+      "专业维修（推荐）:",
+      "评估维修成本与矿机当前价值，决定是维修还是更换。",
+      "物理检查与重新插拔：",
+      "断电并冷却: 首先，务必完全关闭矿机电源，并等待至少10-15分钟让设备充分冷却。",
+      "检查并重新插拔排线:",
+      "打开矿机外壳，找到连接控制板和三块哈希板之间的排线（通常是扁平的带状电缆）。",
+      "更换排线（如步骤2无效）:",
+      "送修哈希板（终极方案）:",
+      "尝试微调工作参数（可选）：",
+      "物理检查（预防性维护）：",
+      "暂无需立即维修："
+    ],
+    "单链算力板故障致 SOC 停机（芯片数异常/CRC/通信）": [
+      "找到 算力板2 (Chain 2) 连接到 控制板 的三条数据排线。",
+      "重新上电观察。如果问题依旧，进行下一步。",
+      "断电检查：首先，务必切断矿机的总电源，确保安全。",
+      "找到连接0号哈希板的数据排线和电源线。",
+      "重新牢固地插回所有线缆。这是最简单且最常见的解决方法。",
+      "交换哈希板位置（进阶排查）：",
+      "重启矿机，观察日志。",
+      "找到连接1号哈希板的数据排线和电源线。",
+      "物理检查与重新插拔：",
+      "重新牢固地插回所有线缆。",
+      "断电并物理检查（首要步骤）:",
+      "打开矿机外壳，重点检查所有哈希板（尤其是哈希板2）。重新拔插这些排线，确保其牢固地插入卡槽中。可以用无水酒精棉签轻轻擦拭排线金手指以清除氧化层。",
+      "重新上电启动矿机，等待一段时间后再次导出日志。",
+      "检查哈希板2是否能够被正常识别，并且三块板的算力是否均衡。",
+      "交叉测试（如果条件允许）:",
+      "寻求专业维修或更换:"
+    ],
+    "多块算力板故障致 SOC 停机（芯片数严重不足/CRC）": [
+      "断电检查：首先，务必切断矿机的总电源，确保安全。",
+      "找到连接0号和2号哈希板的数据排线和电源线。",
+      "重新牢固地插回所有线缆。这是最简单且最常见的解决方法。",
+      "交换哈希板位置（进阶排查）：",
+      "重启矿机，观察日志。",
+      "断电并彻底检查：",
+      "全面检查所有物理连接：",
+      "重点检查故障哈希板的连接：",
+      "交换测试（如果条件允许）：",
+      "断电并物理检查（首要步骤）:",
+      "打开矿机外壳，重点检查并重新插拔连接哈希板0和哈希板2的排线。确保它们方向正确、牢固地插入卡槽中。",
+      "重启并获取完整日志:",
+      "重新上电启动矿机，务必等待至少10-15分钟，让矿机完成完整的启动和初始化过程。",
+      "寻求专业维修或更换:"
+    ],
+    "算力板间温差过大（温度保护停机）": [
+      "断电检查：首先，务必切断矿机的总电源，确保安全。",
+      "找到连接所有哈希板（特别是与温度读数为0相关的板子）的数据排线和电源线。",
+      "重新牢固地插回所有线缆。这是最简单且最常见的解决方法。",
+      "观察各哈希板上是否有明显的烧毁、鼓包电容或其他物理损伤痕迹。",
+      "交换哈希板位置（进阶排查）：",
+      "重启矿机，观察日志中的温度读数。"
+    ],
+    "算力板芯片枚举不足（Hashchip 与 110 不符，已被禁用）": [
+      "断电检查：首先，务必切断矿机的总电源，确保安全。",
+      "找到连接1号哈希板的数据排线和电源线。",
+      "重新牢固地插回所有线缆。这是最简单且最常见的解决方法。",
+      "交换哈希板位置（进阶排查）：",
+      "重启矿机，观察日志。",
+      "物理检查与重新插拔：",
+      "断电并彻底检查：",
+      "全面检查所有物理连接：",
+      "重点检查1号和2号哈希板的连接：",
+      "更换排线或送修：",
+      "重点检查1号哈希板的连接：",
+      "观察日志，看是否还会出现 Init failed 的报错。如果错误消失，则问题解决。",
+      "需要分别处理硬件和网络两方面的问题：",
+      "断电并冷却：首先切断矿机总电源，等待设备冷却。",
+      "检查并重新插拔线缆：打开机箱，重点重新插拔1号和3号哈希板的所有数据排线和电源线，排除因接触不良导致的通信问题。",
+      "送修：如果重新插拔后问题依旧，基本可以确定是哈希板本身的硬件损坏。鉴于1号和3号板均有问题，且出现了“Zero MCR”的严重警告，强烈建议联系专业维修服务对这两块板进行检修或更换。",
+      "检查上游网络设备：确认矿机所在网络的路由器或交换机工作正常，没有丢包或DNS转发故障。",
+      "断电并冷却：首先切断矿机总电源，等待设备完全冷却。",
+      "检查并重新插拔3号板线缆：打开机箱，重点检查并重新牢固插拔3号哈希板的所有数据排线和电源线。接触不良是导致此类通信问题的常见原因。",
+      "重新上电后，密切观察矿机Web界面的实时状态，看3号板是否仍然报错。",
+      "送修：如果经过重新插拔线缆后问题依旧，或者通过移除3号板确认了其故障，那么就需要对3号哈希板进行专业维修或更换。",
+      "存在的故障/警告",
+      "电源（PSU）通信异常:",
+      "断电后，打开矿机机箱。",
+      "重新上电后，登录矿机的Web管理界面。",
+      "重点检查故障哈希板的连接：",
+      "交换测试（如果条件允许）：",
+      "断电并进行全面物理检查："
+    ],
+    "算力板部分失效（芯片数量严重不足）": [
+      "物理检查与重新插拔：",
+      "交换哈希板位置（进阶排查）：",
+      "重启矿机，观察日志以确定是板子坏了还是主板接口坏了。",
+      "断电并彻底检查：",
+      "全面检查所有物理连接：",
+      "重点检查1号哈希板：",
+      "打开矿机外壳，重点检查1号哈希板（通常位于中间位置）。",
+      "重新插拔这块板子的数据排线和电源连接线，确保接触良好。",
+      "交叉测试（如果条件允许）：",
+      "进行排查和修复：",
+      "断电并检查物理连接：",
+      "打开机箱，仔细检查所有哈希板（特别是ID 0和1）与控制板之间的数据排线和电源线。确保它们都已牢固插入，没有松动、歪斜或物理损伤。可以尝试重新拔插这些排线。",
+      "清洁与散热检查：",
+      "检查风扇是否全部正常运转（日志显示风扇状态为OK，但仍需目视确认）。",
+      "重新接通电源，观察矿机启动过程。注意听是否有异常声音，并通过管理界面或日志观察故障板是否能被识别。",
+      "（可选）固件重刷：",
+      "断电并物理检查:",
+      "打开矿机外壳，仔细检查连接哈希板1和哈希板2的排线。查看是否有松动、歪斜、烧焦或物理损伤。重新拔插这些排线，确保其牢固地插入卡槽中。",
+      "重新接通电源，启动矿机，并再次导出新的运行日志。",
+      "检查故障是否消失。有时仅仅是接触不良，重新插拔即可解决。",
+      "交叉测试（如果条件允许）:",
+      "寻求专业维修或更换:",
+      "打开矿机外壳，重点检查所有哈希板（尤其是哈希板0和2）。重新拔插这些排线，确保其牢固地插入卡槽中。",
+      "重新上电启动矿机，等待一段时间后再次导出日志。",
+      "检查是否有多于一块的哈希板开始报告算力。",
+      "检查电源模块是否正常工作（风扇是否转动，有无烧焦味）。",
+      "优先解决网络问题:",
+      "检查矿机的网线是否插紧。"
+    ],
+    "算力板全板失效（芯片未检出/初始化失败）": [
+      "断电并彻底检查：",
+      "全面检查所有物理连接：",
+      "重点检查1号和2号哈希板的连接：",
+      "观察日志，看是否还会出现 no chips detected 的报错。如果错误消失，则问题解决。",
+      "更换排线或送修：",
+      "更换电源（仅在问题恶化时）：",
+      "检查并更换电源：",
+      "检查并清理散热系统:",
+      "检查所有四个风扇是否都能正常转动。如有风扇停转，需立即更换。",
+      "改善矿机运行环境:",
+      "检查矿机进风口和出风口是否有遮挡物，保证空气流通顺畅。",
+      "优先解决网络问题:",
+      "检查矿机的网线是否插紧。",
+      "断电并物理检查硬件（在网络问题解决后）:",
+      "打开矿机外壳，仔细检查并重新插拔所有连接主控板到三块哈希板的排线。",
+      "重启并获取完整日志:",
+      "重新上电启动矿机，在确保网络正常的情况下，等待至少10-15分钟，让矿机完成完整的启动和初始化过程。",
+      "断电并物理检查（首要步骤）:",
+      "打开矿机外壳，仔细检查并重新插拔所有连接主控板到三块哈希板的排线。确保它们方向正确、牢固地插入卡槽中。",
+      "重新上电启动矿机，务必等待至少10-15分钟，让矿机完成完整的启动和初始化过程。",
+      "优先处理哈希板故障:",
+      "打开矿机外壳，重点检查并重新插拔连接哈希板1和哈希板3的排线。确保它们方向正确、牢固地插入卡槽中。",
+      "检查并修复网络问题:",
+      "检查矿机的网线是否插紧，尝试更换一根新的网线。",
+      "等待至少15-20分钟，让矿机完成完整的启动、初始化和调优过程。",
+      "评估维修必要性:",
+      "送修: 将矿机送往专业维修点更换损坏的哈希板。",
+      "重新上电启动矿机，等待一段时间后再次导出完整的日志。"
+    ],
+    "未识别明确故障关键词": [
+      "断电并彻底检查：",
+      "全面检查所有物理连接：",
+      "检查并更换电源：",
+      "重点检查1号哈希板：",
+      "打开矿机外壳，重点检查1号哈希板（通常位于中间位置）。",
+      "重新插拔这块板子的数据排线和电源连接线，确保接触良好。",
+      "交叉测试（如果条件允许）：",
+      "检查电源模块是否正常工作（风扇是否转动，有无烧焦味）。"
+    ],
+    "算力板 EEPROM 解析失败（ERR:E4，无法启动挖矿）": [
+      "断电并彻底检查：",
+      "全面检查所有物理连接："
+    ],
+    "温度传感器通信失败（误报超温/温差保护停机）": [
+      "断电并彻底检查：",
+      "全面检查所有物理连接："
+    ],
+    "网络/矿池连接异常": [
+      "检查自动化脚本（如果适用）："
+    ],
+    "风扇异常（丢失/数量不足触发保护停机）": [
+      "断电并物理检查（首要步骤）:",
+      "打开矿机外壳，重点检查编号为0的风扇（通常是前面板的第一个风扇）。",
+      "观察该风扇是否开始转动。",
+      "更换风扇（如必要）:",
+      "临时降级使用（应急方案）:"
+    ],
+    "算力板严重异常（芯片识别/通信错误，NoPIC 可能无法单禁板）": [
+      "断电并检查排线:",
+      "打开矿机外壳，重点检查并重新插拔连接哈希板3的排线。确保它方向正确、牢固地插入卡槽中。这是最常见也最容易修复的问题。",
+      "重启并获取新日志:",
+      "等待至少15-20分钟，让矿机完成完整的启动、初始化和调优过程。",
+      "评估维修必要性:",
+      "送修: 将矿机送往专业维修点更换损坏的哈希板3。"
+    ]
+  },
+  "diagnostic_few_shot": [
+    {
+      "title": "logs_10_102_0_137_MINER-10-102-0-137",
+      "your_conclusion": "[2026-03-17 22:21:54] [STATS]\n{\n  \"STATUS\": [\n    {\n      \"STATUS\": \"S\",\n      \"When\": 1773804113,\n      \"Code\": 70,\n      \"Msg\": \"CGMiner stats\",\n      \"Description\": \"cgminer 1.0.0\"\n    }\n  ],\n  \"STATS\": [\n    {\n      \"BMMiner\": \"1.0.0\",\n      \"Miner\": \"uart_trans.1.3\",\n      \"CompileTime\": \"Fri Feb  7 17:55:40 CST 2025\",\n      \"Type\": \"Antminer S19 XP\"\n    },\n    {\n      \"STATS\": 0,\n      \"ID\": \"BTM_SOC0\",\n      \"",
+      "log_excerpt": "2026-03-16 19:08:21 load chain 0 eeprom data\n2026-03-16 19:08:21 load chain 1 eeprom data\n2026-03-16 19:08:22 load chain 2 eeprom data\n2026-03-16 19:08:22 eeprom load ret:0\n2026-03-16 19:08:22 eeprom load levels\n2026-03-16 19:08:26 Wait for hashboard cool, please wait, this may take up to 2 minutes...\n2026-03-16 21:43:05 load chain 0 eeprom data\n2026-03-16 21:43:06 load chain 1 eeprom data\n2026-03-16 21:43:06 load chain 2 eeprom data\n2026-03-16 21:43:06 eeprom load ret:0",
+      "note": "规则主因快照: 总线/通信异常"
+    },
+    {
+      "title": "logs_10_102_0_141_MINER-10-102-0-141",
+      "your_conclusion": "[2026-03-17 22:22:09] [STATS]\n{\n  \"STATUS\": [\n    {\n      \"STATUS\": \"S\",\n      \"When\": 1773804129,\n      \"Code\": 70,\n      \"Msg\": \"CGMiner stats\",\n      \"Description\": \"cgminer 1.0.0\"\n    }\n  ],\n  \"STATS\": [\n    {\n      \"BMMiner\": \"1.0.0\",\n      \"Miner\": \"uart_trans.1.3\",\n      \"CompileTime\": \"Fri Feb  7 17:55:40 CST 2025\",\n      \"Type\": \"Antminer S19 XP\"\n    },\n    {\n      \"STATS\": 0,\n      \"ID\": \"BTM_SOC0\",\n      \"",
+      "log_excerpt": "2026-03-17 22:37:56 load chain 0 eeprom data\n2026-03-17 22:37:57 load chain 1 eeprom data\n2026-03-17 22:37:57 load chain 2 eeprom data\n2026-03-17 22:37:57 eeprom load ret:0\n2026-03-17 22:37:57 eeprom load levels\n2026-03-17 22:38:01 Wait for hashboard cool, please wait, this may take up to 2 minutes...\n2026-03-17 22:43:55 Chain 2 only find 0 asic, will power off hash board 2\n2026-03-17 22:43:55 ERROR_SOC_INIT: soc init failed!\n2026-03-17 22:43:55 stop_mining: soc init failed!\n2026-03-17 22:43:55 ****power off hashboard****",
+      "note": "规则主因快照: 单链算力板故障致 SOC 停机（芯片数异常/CRC/通信）"
+    },
+    {
+      "title": "logs_10_102_0_142_MINER-10-102-0-142",
+      "your_conclusion": "[2026-03-17 22:22:25] [STATS]\n{\n  \"STATUS\": [\n    {\n      \"STATUS\": \"S\",\n      \"When\": 1773804144,\n      \"Code\": 70,\n      \"Msg\": \"CGMiner stats\",\n      \"Description\": \"cgminer 1.0.0\"\n    }\n  ],\n  \"STATS\": [\n    {\n      \"BMMiner\": \"1.0.0\",\n      \"Miner\": \"uart_trans.1.3\",\n      \"CompileTime\": \"Fri Feb  7 17:55:40 CST 2025\",\n      \"Type\": \"Antminer S19 XP\"\n    },\n    {\n      \"STATS\": 0,\n      \"ID\": \"BTM_SOC0\",\n      \"",
+      "log_excerpt": "2026-03-17 22:37:56 load chain 0 eeprom data\n2026-03-17 22:37:56 load chain 1 eeprom data\n2026-03-17 22:37:57 load chain 2 eeprom data\n2026-03-17 22:37:57 eeprom load ret:0\n2026-03-17 22:37:57 eeprom load levels\n2026-03-17 22:38:01 Wait for hashboard cool, please wait, this may take up to 2 minutes...\n2026-03-17 22:42:22 Chain 0 only find 0 asic, will power off hash board 0\n2026-03-17 22:42:29 Chain 2 only find 0 asic, will power off hash board 2\n2026-03-17 22:42:29 ERROR_SOC_INIT: soc init failed!\n2026-03-17 22:42:29 stop_mining: soc init failed!",
+      "note": "规则主因快照: 多块算力板故障致 SOC 停机（芯片数严重不足/CRC）"
+    },
+    {
+      "title": "logs_10_102_0_146_MINER-10-102-0-146",
+      "your_conclusion": "[2026-03-17 22:22:40] [STATS]\n{\n  \"STATUS\": [\n    {\n      \"STATUS\": \"S\",\n      \"When\": 1773804160,\n      \"Code\": 70,\n      \"Msg\": \"CGMiner stats\",\n      \"Description\": \"cgminer 1.0.0\"\n    }\n  ],\n  \"STATS\": [\n    {\n      \"BMMiner\": \"1.0.0\",\n      \"Miner\": \"uart_trans.1.3\",\n      \"CompileTime\": \"Fri Feb  7 17:55:40 CST 2025\",\n      \"Type\": \"Antminer S19 XP\"\n    },\n    {\n      \"STATS\": 0,\n      \"ID\": \"BTM_SOC0\",\n      \"",
+      "log_excerpt": "2026-03-17 22:37:18 load chain 0 eeprom data\n2026-03-17 22:37:18 EEPROM error: CRC 3RD REGION\n2026-03-17 22:37:19 load chain 1 eeprom data\n2026-03-17 22:37:20 load chain 2 eeprom data\n2026-03-17 22:37:20 eeprom load ret:0\n2026-03-17 22:37:20 eeprom load levels\n2026-03-17 22:37:23 Wait for hashboard cool, please wait, this may take up to 2 minutes...\n2026-03-17 22:40:29 Chain 0 only find 0 asic, will power off hash board 0\n2026-03-17 22:40:33 ERROR_SOC_INIT: soc init failed!\n2026-03-17 22:40:33 stop_mining: soc init failed!",
+      "note": "规则主因快照: 单链算力板故障致 SOC 停机（芯片数异常/CRC/通信）"
+    },
+    {
+      "title": "logs_10_102_0_147_MINER-10-102-0-147",
+      "your_conclusion": "[2026-03-17 22:22:56] [STATS]\n{\n  \"STATUS\": [\n    {\n      \"STATUS\": \"S\",\n      \"When\": 1773804175,\n      \"Code\": 70,\n      \"Msg\": \"CGMiner stats\",\n      \"Description\": \"cgminer 1.0.0\"\n    }\n  ],\n  \"STATS\": [\n    {\n      \"BMMiner\": \"1.0.0\",\n      \"Miner\": \"uart_trans.1.3\",\n      \"CompileTime\": \"Fri Feb  7 17:55:40 CST 2025\",\n      \"Type\": \"Antminer S19 XP\"\n    },\n    {\n      \"STATS\": 0,\n      \"ID\": \"BTM_SOC0\",\n      \"",
+      "log_excerpt": "2026-03-17 22:37:18 load chain 0 eeprom data\n2026-03-17 22:37:19 load chain 1 eeprom data\n2026-03-17 22:37:20 load chain 2 eeprom data\n2026-03-17 22:37:20 eeprom load ret:0\n2026-03-17 22:37:20 eeprom load levels\n2026-03-17 22:37:23 Wait for hashboard cool, please wait, this may take up to 2 minutes...\n2026-03-17 22:44:45 Chain 1 only find 0 asic, will power off hash board 1\n2026-03-17 22:44:47 ERROR_SOC_INIT: soc init failed!\n2026-03-17 22:44:47 stop_mining: soc init failed!\n2026-03-17 22:44:47 ****power off hashboard****",
+      "note": "规则主因快照: 单链算力板故障致 SOC 停机（芯片数异常/CRC/通信）"
+    },
+    {
+      "title": "logs_10_102_0_149_MINER-10-102-0-149",
+      "your_conclusion": "[2026-03-17 22:23:11] [STATS]\n{\n  \"STATUS\": [\n    {\n      \"STATUS\": \"S\",\n      \"When\": 1773804191,\n      \"Code\": 70,\n      \"Msg\": \"CGMiner stats\",\n      \"Description\": \"cgminer 1.0.0\"\n    }\n  ],\n  \"STATS\": [\n    {\n      \"BMMiner\": \"1.0.0\",\n      \"Miner\": \"uart_trans.1.3\",\n      \"CompileTime\": \"Fri Feb  7 17:55:40 CST 2025\",\n      \"Type\": \"Antminer S19 XP\"\n    },\n    {\n      \"STATS\": 0,\n      \"ID\": \"BTM_SOC0\",\n      \"",
+      "log_excerpt": "2026-03-17 22:37:18 load chain 0 eeprom data\n2026-03-17 22:37:19 load chain 1 eeprom data\n2026-03-17 22:37:19 load chain 2 eeprom data\n2026-03-17 22:37:19 EEPROM error: CRC 3RD REGION\n2026-03-17 22:37:19 eeprom load ret:0\n2026-03-17 22:37:19 eeprom load levels\n2026-03-17 22:37:23 Wait for hashboard cool, please wait, this may take up to 2 minutes...\n2026-03-17 22:43:53 Chain 0 only find 100 asic, will power off hash board 0\n2026-03-17 22:43:57 ERROR_SOC_INIT: soc init failed!\n2026-03-17 22:43:57 stop_mining: soc init failed!",
+      "note": "规则主因快照: 单链算力板故障致 SOC 停机（芯片数异常/CRC/通信）"
+    },
+    {
+      "title": "logs_10_102_0_150_MINER-10-102-0-150",
+      "your_conclusion": "[2026-03-17 22:23:26] [STATS]\n{\n  \"STATUS\": [\n    {\n      \"STATUS\": \"S\",\n      \"When\": 1773804206,\n      \"Code\": 70,\n      \"Msg\": \"CGMiner stats\",\n      \"Description\": \"cgminer 1.0.0\"\n    }\n  ],\n  \"STATS\": [\n    {\n      \"BMMiner\": \"1.0.0\",\n      \"Miner\": \"uart_trans.1.3\",\n      \"CompileTime\": \"Fri Feb  7 17:55:40 CST 2025\",\n      \"Type\": \"Antminer S19 XP\"\n    },\n    {\n      \"STATS\": 0,\n      \"ID\": \"BTM_SOC0\",\n      \"",
+      "log_excerpt": "2026-03-17 22:37:18 load chain 0 eeprom data\n2026-03-17 22:37:18 load chain 1 eeprom data\n2026-03-17 22:37:19 load chain 2 eeprom data\n2026-03-17 22:37:19 eeprom load ret:0\n2026-03-17 22:37:19 eeprom load levels\n2026-03-17 22:37:22 Wait for hashboard cool, please wait, this may take up to 2 minutes...\n2026-03-17 22:41:22 ERROR_TEMP_TOO_LOW: temp diff too high!\n2026-03-17 22:41:22 stop_mining: temp diff too high!\n2026-03-17 22:41:22 ****power off hashboard****\n2026-03-17 22:37:08 Open miner sn file /config/sn error",
+      "note": "规则主因快照: 算力板间温差过大（温度保护停机）"
+    },
+    {
+      "title": "logs_10_102_0_151_MINER-10-102-0-151",
+      "your_conclusion": "[2026-03-17 22:23:42] [STATS]\n{\n  \"STATUS\": [\n    {\n      \"STATUS\": \"S\",\n      \"When\": 1773804222,\n      \"Code\": 70,\n      \"Msg\": \"BOSer stats\",\n      \"Description\": \"BOSer boser-buildroot 0.1.0-db69f9bc\"\n    }\n  ],\n  \"STATS\": [\n    {\n      \"Calls\": 0,\n      \"Elapsed\": 0,\n      \"ID\": \"\",\n      \"Max\": 0.0,\n      \"Min\": 0.0,\n      \"STATS\": 0,\n      \"Wait\": 0.0\n    },\n    {\n      \"Calls\": 0,\n      \"Elapsed\": 0,\n      \"I",
+      "log_excerpt": "========== errors（错误） ==========\n2015-01-01T00:02:44.994892Z [ERROR] Failed to resolve (\"sha256.poolbinance.com\", 443)\n2015-01-01T00:02:44.998828Z [ERROR] Failed to resolve (\"btc.poolbinance.com\", 1800)\n2015-01-01T00:02:45.001101Z [ERROR] Failed to resolve (\"a830bcc3.bos.braiins.com\", 3336)\n2026-03-10T17:41:25.953821Z [ERROR] Disabling hashchains in miners without power controller (no PIC) is not allowed {ERR:H1}; leaving hashchain 2 enabled\n2026-03-10T17:41:25.963932Z [ERROR] Disabling hashchains in miners without power controller (no PIC) is not allowed {ERR:H1}; leaving hashchain 3 enabled\n2026-03-14T22:08:46.881706Z [ERROR] Disabling hashchains in miners without power controller (no PIC) is not allowed {ERR:H1}; leaving hashchain 2 enabled\n2026-03-14T22:08:46.891739Z [ERROR] Disabling hashchains in miners without power controller (no PIC) is not allowed {ERR:H1}; leaving hashchain 3 enabled\n2026-03-14T22:31:21.509736Z [ERROR] Failed to resolve (\"a830bcc3.bos.braiins.com\", 3336)\n2026-03-14T22:31:52.554149Z [ERROR] Failed to resolve (\"a830bcc3.bos.braiins.com\", 3336)",
+      "note": "规则主因快照: 算力板芯片枚举不足（Hashchip 与 110 不符，已被禁用）"
+    },
+    {
+      "title": "logs_10_102_0_152_MINER-10-102-0-152",
+      "your_conclusion": "[2026-03-17 22:23:43] [STATS]\n{\n  \"STATUS\": [\n    {\n      \"STATUS\": \"S\",\n      \"When\": 1773804222,\n      \"Code\": 70,\n      \"Msg\": \"CGMiner stats\",\n      \"Description\": \"cgminer 1.0.0\"\n    }\n  ],\n  \"STATS\": [\n    {\n      \"BMMiner\": \"1.0.0\",\n      \"Miner\": \"uart_trans.1.3\",\n      \"CompileTime\": \"Fri Feb  7 17:55:40 CST 2025\",\n      \"Type\": \"Antminer S19 XP\"\n    },\n    {\n      \"STATS\": 0,\n      \"ID\": \"BTM_SOC0\",\n      \"",
+      "log_excerpt": "2015-01-01 00:00:23 load chain 0 eeprom data\n2015-01-01 00:00:24 load chain 1 eeprom data\n2015-01-01 00:00:25 load chain 2 eeprom data\n2015-01-01 00:00:25 eeprom load ret:0\n2015-01-01 00:00:25 eeprom load levels\n2026-03-10 16:09:39 Wait for hashboard cool, please wait, this may take up to 2 minutes...\n2026-03-11 10:01:21 !!! reg crc error\n2026-03-11 10:01:21 !!! reg crc error\n2026-03-13 05:23:34 !!! reg crc error\n2026-03-13 05:23:34 !!! reg crc error",
+      "note": "规则主因快照: 总线/通信异常"
+    },
+    {
+      "title": "logs_10_102_0_153_MINER-10-102-0-153",
+      "your_conclusion": "[2026-03-17 22:23:43] [STATS]\n{\n  \"STATUS\": [\n    {\n      \"STATUS\": \"S\",\n      \"When\": 1773804222,\n      \"Code\": 70,\n      \"Msg\": \"CGMiner stats\",\n      \"Description\": \"cgminer 1.0.0\"\n    }\n  ],\n  \"STATS\": [\n    {\n      \"BMMiner\": \"1.0.0\",\n      \"Miner\": \"uart_trans.1.3\",\n      \"CompileTime\": \"Fri Feb  7 17:55:40 CST 2025\",\n      \"Type\": \"Antminer S19 XP\"\n    },\n    {\n      \"STATS\": 0,\n      \"ID\": \"BTM_SOC0\",\n      \"",
+      "log_excerpt": "2026-03-17 22:37:18 load chain 0 eeprom data\n2026-03-17 22:37:18 load chain 1 eeprom data\n2026-03-17 22:37:19 load chain 2 eeprom data\n2026-03-17 22:37:19 eeprom load ret:0\n2026-03-17 22:37:19 eeprom load levels\n2026-03-17 22:37:23 Wait for hashboard cool, please wait, this may take up to 2 minutes...\n2026-03-17 22:41:22 Chain 1 only find 0 asic, will power off hash board 1\n2026-03-17 22:41:24 ERROR_SOC_INIT: soc init failed!\n2026-03-17 22:41:24 stop_mining: soc init failed!\n2026-03-17 22:41:24 ****power off hashboard****",
+      "note": "规则主因快照: 单链算力板故障致 SOC 停机（芯片数异常/CRC/通信）"
+    },
+    {
+      "title": "logs_10_102_0_155_MINER-10-102-0-155",
+      "your_conclusion": "[2026-03-17 22:23:58] [STATS]\n{\n  \"STATUS\": [\n    {\n      \"STATUS\": \"S\",\n      \"When\": 1773804238,\n      \"Code\": 70,\n      \"Msg\": \"CGMiner stats\",\n      \"Description\": \"cgminer 1.0.0\"\n    }\n  ],\n  \"STATS\": [\n    {\n      \"BMMiner\": \"1.0.0\",\n      \"Miner\": \"uart_trans.1.3\",\n      \"CompileTime\": \"Fri Feb  7 17:55:40 CST 2025\",\n      \"Type\": \"Antminer S19 XP\"\n    },\n    {\n      \"STATS\": 0,\n      \"ID\": \"BTM_SOC0\",\n      \"",
+      "log_excerpt": "2015-01-01 00:00:23 load chain 0 eeprom data\n2015-01-01 00:00:24 load chain 1 eeprom data\n2015-01-01 00:00:25 load chain 2 eeprom data\n2015-01-01 00:00:25 eeprom load ret:0\n2015-01-01 00:00:25 eeprom load levels\n2026-03-10 16:11:51 Wait for hashboard cool, please wait, this may take up to 2 minutes...\n2026-03-12 23:11:04 !!! reg crc error\n2026-03-12 23:11:04 !!! reg crc error\n2026-03-13 23:57:33 ****power off hashboard****\n2026-03-13 23:57:52 load chain 0 eeprom data",
+      "note": "规则主因快照: 总线/通信异常"
+    },
+    {
+      "title": "logs_10_102_0_156_MINER-10-102-0-156",
+      "your_conclusion": "[2026-03-17 22:23:58] [STATS]\n{\n  \"STATUS\": [\n    {\n      \"STATUS\": \"S\",\n      \"When\": 1773804238,\n      \"Code\": 70,\n      \"Msg\": \"CGMiner stats\",\n      \"Description\": \"cgminer 1.0.0\"\n    }\n  ],\n  \"STATS\": [\n    {\n      \"BMMiner\": \"1.0.0\",\n      \"Miner\": \"uart_trans.1.3\",\n      \"CompileTime\": \"Fri Feb  7 17:55:40 CST 2025\",\n      \"Type\": \"Antminer S19 XP\"\n    },\n    {\n      \"STATS\": 0,\n      \"ID\": \"BTM_SOC0\",\n      \"",
+      "log_excerpt": "2015-01-01 00:00:23 load chain 0 eeprom data\n2015-01-01 00:00:24 load chain 1 eeprom data\n2015-01-01 00:00:25 load chain 2 eeprom data\n2015-01-01 00:00:25 eeprom load ret:0\n2015-01-01 00:00:25 eeprom load levels\n2026-03-10 16:09:53 Wait for hashboard cool, please wait, this may take up to 2 minutes...\n2026-03-11 01:15:22 !!! reg crc error\n2026-03-12 14:46:34 !!! reg crc error\n2026-03-13 23:57:47 load chain 0 eeprom data\n2026-03-13 23:57:48 load chain 1 eeprom data",
+      "note": "规则主因快照: 总线/通信异常"
+    },
+    {
+      "title": "logs_10_102_0_157_MINER-10-102-0-157",
+      "your_conclusion": "[2026-03-17 22:23:58] [STATS]\n{\n  \"STATUS\": [\n    {\n      \"STATUS\": \"S\",\n      \"When\": 1773804238,\n      \"Code\": 70,\n      \"Msg\": \"CGMiner stats\",\n      \"Description\": \"cgminer 1.0.0\"\n    }\n  ],\n  \"STATS\": [\n    {\n      \"BMMiner\": \"1.0.0\",\n      \"Miner\": \"uart_trans.1.3\",\n      \"CompileTime\": \"Fri Feb  7 17:55:40 CST 2025\",\n      \"Type\": \"Antminer S19 XP\"\n    },\n    {\n      \"STATS\": 0,\n      \"ID\": \"BTM_SOC0\",\n      \"",
+      "log_excerpt": "2026-03-16 19:34:23 load chain 0 eeprom data\n2026-03-16 19:34:24 load chain 1 eeprom data\n2026-03-16 19:34:25 load chain 2 eeprom data\n2026-03-16 19:34:25 eeprom load ret:0\n2026-03-16 19:34:25 eeprom load levels\n2026-03-16 19:34:29 Wait for hashboard cool, please wait, this may take up to 2 minutes...\n2026-03-16 19:37:14 !!! reg crc error\n2026-03-16 19:37:14 !!! reg crc error\n2026-03-16 19:37:14 !!! reg crc error\n2026-03-16 19:37:14 !!! reg crc error",
+      "note": "规则主因快照: 总线/通信异常"
+    },
+    {
+      "title": "logs_10_102_0_158_MINER-10-102-0-158",
+      "your_conclusion": "[2026-03-17 22:24:14] [STATS]\n{\n  \"STATS\": [\n    {\n      \"CompileTime\": \"Fri Dec 12 16:49:20 UTC 2025\",\n      \"Miner\": \"2025.12.12.164659\",\n      \"Type\": \"Antminer S19 XP\"\n    },\n    {\n      \"Calls\": 0,\n      \"Elapsed\": 109735,\n      \"GHS 5s\": 141235.36,\n      \"GHS av\": 140845.05,\n      \"ID\": \"BTM_SOC0\",\n      \"Max\": 0,\n      \"Min\": 99999999,\n      \"Mode\": 2,\n      \"STATS\": 0,\n      \"Wait\": 0,\n      \"chain_acn1\": 110",
+      "log_excerpt": "2026-03-17T17:06:22.088103Z [ERROR] Error reading chip PLL\n2026-03-17T17:06:31.844078Z [ERROR] Error reading chip PLL\n2026-03-17T17:06:31.844251Z [ERROR] Error reading chip PLL\n2026-03-17T17:08:43.334562Z [ERROR] Error reading chip PLL\n2026-03-17T17:12:35.741440Z [ERROR] Error reading chip PLL\n2026-03-17T17:14:50.862003Z [ERROR] Error reading chip PLL\n2026-03-17T17:17:03.687118Z [ERROR] Error reading chip PLL\n2026-03-17T17:17:03.687316Z [ERROR] Error reading chip PLL\n2026-03-17T17:17:08.216472Z [ERROR] Error reading chip PLL\n2026-03-17T17:17:08.216662Z [ERROR] Error reading chip PLL",
+      "note": "规则主因快照: 算力板部分失效（芯片数量严重不足）"
+    }
+  ],
   "extra_rules": [
     {
-      "id": "example_custom_rule",
+      "id": "example_unknown_only",
       "enabled": false,
+      "when": "unknown_only",
+      "only_after_primary_unknown": true,
       "primary_cause": "示例：自定义主因名称",
       "solutions": [
         "示例步骤1",
         "示例步骤2"
       ],
       "match": {
-        "patterns_any": ["your_keyword_or_regex"],
+        "patterns_any": [
+          "your_keyword_or_regex"
+        ],
         "min_total_hits": 5
       },
-      "only_after_primary_unknown": true,
       "skip_if_curtailment_sleep": true,
-      "skip_if_log_matches": ["no chips detected", "{err:i3}"]
+      "skip_if_log_matches": [
+        "curtailment_mode"
+      ]
+    },
+    {
+      "id": "example_refine_board_over_net",
+      "enabled": false,
+      "when": "refine",
+      "priority": 100,
+      "comment": "示例：当默认主因偏「网络」，但多块板 ERR:I3 且 HB 明确时，改判为你定义的主因（请按真实案例改 patterns 与文案）",
+      "only_if_primary_in": [
+        "网络",
+        "矿池",
+        "Stratum",
+        "连接"
+      ],
+      "not_if_primary_in": [
+        "限电",
+        "休眠",
+        "Curtailment"
+      ],
+      "primary_cause": "示例：多块算力板硬件失效（人工复核命名）",
+      "secondary_hints": [
+        "原判定偏网络侧；在 ERR:I3 与多块 HB 同时成立时，以板卡硬件为主矛盾"
+      ],
+      "solutions": [
+        "按你现场 SOP：先对 HB 逐板交叉换槽位再判控制板",
+        "网络侧仅做次要排查（DNS/矿池线路）"
+      ],
+      "match": {
+        "patterns_any": [
+          "\\{err:i3\\}",
+          "no chips detected",
+          "disabled hashboard"
+        ],
+        "patterns_all": [
+          "\\{hb:1\\}",
+          "\\{hb:3\\}"
+        ],
+        "min_total_hits": 6,
+        "min_each_hits": 1
+      },
+      "skip_if_curtailment_sleep": true,
+      "skip_if_log_matches": []
     }
   ]
 }

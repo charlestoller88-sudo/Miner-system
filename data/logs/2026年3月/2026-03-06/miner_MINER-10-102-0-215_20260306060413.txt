@@ -1,0 +1,984 @@
+[    0.000000] [0] Booting Linux on physical CPU 0x0
+[    0.000000] [0] Linux version 4.9.38-tag- (jenkins@nomd-nomd-fwc-bj) (gcc version 6.3.1 20170404 (Linaro GCC 6.3-2017.05) ) #1 SMP PREEMPT Tue Nov 29 12:09:10 CST 2022
+[    0.000000] [0] Boot CPU: AArch64 Processor [410fd034]
+[    0.000000] [0] earlycon: uart0 at MMIO32 0x0000000004140000 (options '')
+[    0.000000] [0] bootconsole [uart0] enabled
+[    0.000000] [0] efi: Getting EFI parameters from FDT:
+[    0.000000] [0] efi: UEFI not found.
+[    0.000000] [0] OF: reserved mem: allocated memory for 'ion' node: base 0x000000010df0f000, size 16 MiB
+[    0.000000] [0] Ion: Ion memory setup at 0x000000010df0f000 size 16 MiB
+[    0.000000] [0] OF: reserved mem: initialized node ion, compatible id ion-region
+[    0.000000] [0] OF: reserved mem: allocated memory for 'vip' node: base 0x000000010fa00000, size 4 MiB
+[    0.000000] [0] OF: reserved mem: allocated memory for 'vcodec' node: base 0x000000010f800000, size 2 MiB
+[    0.000000] [0] OF: reserved mem: allocated memory for 'jpu' node: base 0x000000010f700000, size 1 MiB
+[    0.000000] [0] OF: reserved mem: allocated memory for 'linux,cma' node: base 0x000000010f000000, size 6 MiB
+[    0.000000] [0] Reserved memory: created CMA memory pool at 0x000000010f000000, size 6 MiB
+[    0.000000] [0] OF: reserved mem: initialized node linux,cma, compatible id shared-dma-pool
+[    0.000000] [0] On node 0 totalpages: 63744
+[    0.000000] [0]   DMA zone: 1024 pages used for memmap
+[    0.000000] [0]   DMA zone: 0 pages reserved
+[    0.000000] [0]   DMA zone: 63744 pages, LIFO batch:15
+[    0.000000] [0] psci: probing for conduit method from DT.
+[    0.000000] [0] psci: PSCIv1.0 detected in firmware.
+[    0.000000] [0] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] [0] psci: Trusted OS migration not required
+[    0.000000] [0] percpu: Embedded 22 pages/cpu @ffffffc00f6ad000 s52008 r8192 d29912 u90112
+[    0.000000] [0] pcpu-alloc: s52008 r8192 d29912 u90112 alloc=22*4096
+[    0.000000] [0] pcpu-alloc: [0] 0 [0] 1 
+[    0.000000] [0] Detected VIPT I-cache on CPU0
+[    0.000000] [0] CPU features: enabling workaround for ARM erratum 845719
+[    0.000000] [0] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 62720
+[    0.000000] [0] Kernel command line: console=ttyS0,115200 earlycon loglevel=8 initrd=0x103080000,32M rdinit=/init STORAGE=EMMC
+[    0.000000] [0] PID hash table entries: 1024 (order: 1, 8192 bytes)
+[    0.000000] [0] Dentry cache hash table entries: 32768 (order: 6, 262144 bytes)
+[    0.000000] [0] Inode-cache hash table entries: 16384 (order: 5, 131072 bytes)
+[    0.000000] [0] Memory: 168956K/254976K available (6908K kernel code, 868K rwdata, 1956K rodata, 768K init, 485K bss, 79876K reserved, 6144K cma-reserved)
+[    0.000000] [0] Virtual kernel memory layout:
+[    0.000000] [0]     modules : 0xffffff8000000000 - 0xffffff8008000000   (   128 MB)
+[    0.000000] [0]     vmalloc : 0xffffff8008000000 - 0xffffffbebfff0000   (   250 GB)
+[    0.000000] [0]       .text : 0xffffff8008080000 - 0xffffff8008740000   (  6912 KB)
+[    0.000000] [0]     .rodata : 0xffffff8008740000 - 0xffffff8008930000   (  1984 KB)
+[    0.000000] [0]       .init : 0xffffff8008930000 - 0xffffff80089f0000   (   768 KB)
+[    0.000000] [0]       .data : 0xffffff80089f0000 - 0xffffff8008ac9200   (   869 KB)
+[    0.000000] [0]        .bss : 0xffffff8008ac9200 - 0xffffff8008b426d8   (   486 KB)
+[    0.000000] [0]     fixed   : 0xffffffbefe7fd000 - 0xffffffbefec00000   (  4108 KB)
+[    0.000000] [0]     PCI I/O : 0xffffffbefee00000 - 0xffffffbeffe00000   (    16 MB)
+[    0.000000] [0]     vmemmap : 0xffffffbf00000000 - 0xffffffc000000000   (     4 GB maximum)
+[    0.000000] [0]               0xffffffbf00000000 - 0xffffffbf00400000   (     4 MB actual)
+[    0.000000] [0]     memory  : 0xffffffc000000000 - 0xffffffc010000000   (   256 MB)
+[    0.000000] [0] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=2, Nodes=1
+[    0.000000] [0] Preemptible hierarchical RCU implementation.
+[    0.000000] [0] 	Build-time adjustment of leaf fanout to 64.
+[    0.000000] [0] 	RCU restricting CPUs from NR_CPUS=64 to nr_cpu_ids=2.
+[    0.000000] [0] RCU: Adjusting geometry for rcu_fanout_leaf=64, nr_cpu_ids=2
+[    0.000000] [0] NR_IRQS:64 nr_irqs:64 0
+[    0.000000] [0] GIC: Using split EOI/Deactivate mode
+[    0.000000] [0] arm_arch_timer: Architected cp15 timer(s) running at 25.00MHz (phys).
+[    0.000000] [0] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x5c40939b5, max_idle_ns: 440795202646 ns
+[    0.000004] [0] sched_clock: 56 bits at 25MHz, resolution 40ns, wraps every 4398046511100ns
+[    0.008843] [0] Console: colour dummy device 80x25
+[    0.013815] [0] Calibrating delay loop (skipped), value calculated using timer frequency.. 50.00 BogoMIPS (lpj=100000)
+[    0.024877] [0] pid_max: default: 32768 minimum: 301
+[    0.030107] [0] Mount-cache hash table entries: 512 (order: 0, 4096 bytes)
+[    0.037216] [0] Mountpoint-cache hash table entries: 512 (order: 0, 4096 bytes)
+[    0.045374] [0] ftrace: allocating 23539 entries in 92 pages
+[    0.095099] [0] ASID allocator initialised with 65536 entries
+[    0.134278] [0] EFI services will not be available.
+[    0.167566] [1] Detected VIPT I-cache on CPU1
+[    0.167620] [1] CPU1: Booted secondary processor [410fd034]
+[    0.167709] [0] Brought up 2 CPUs
+[    0.181403] [0] SMP: Total of 2 processors activated.
+[    0.186630] [0] CPU features: detected feature: 32-bit EL0 Support
+[    0.193024] [0] CPU: All CPU(s) started at EL2
+[    0.197638] [0] alternatives: patching kernel code
+[    0.203194] [0] devtmpfs: initialized
+[    0.213679] [0] DMI not present or invalid.
+[    0.218330] [0] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.228770] [0] futex hash table entries: 512 (order: 4, 65536 bytes)
+[    0.235765] [0] pinctrl core: initialized pinctrl subsystem
+[    0.242081] [0] NET: Registered protocol family 16
+[    0.248114] [0] vdso: 2 pages (1 code @ ffffff8008747000, 1 data @ ffffff80089f4000)
+[    0.256144] [0] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.264871] [0] DMA: preallocated 4096 KiB pool for atomic allocations
+[    0.272242] [0] clk reset: nr_reset=64 resource_size=8
+[    0.319053] [0] pstore: using zlib compression
+[    0.331303] [0] console [pstore-1] enabled
+[    0.335894] [0] pstore: Registered ramoops as persistent store backend
+[    0.342709] [0] ramoops: attached 0xf000@0xe000000, ecc: 16/0
+[    0.367048] [0] dw_dmac 4330000.dma: CVITEK DMA Controller, 8 channels, probe done!
+[    0.375614] [0] SCSI subsystem initialized
+[    0.380252] [0] usbcore: registered new interface driver usbfs
+[    0.386409] [0] usbcore: registered new interface driver hub
+[    0.392455] [0] usbcore: registered new device driver usb
+[    0.400159] [0] pps_core: LinuxPPS API ver. 1 registered
+[    0.405836] [0] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.415764] [0] PTP clock support registered
+[    0.420377] [0] dmi: Firmware registration failed.
+[    0.425741] [0] Ion: ion_parse_dt_heap_common: id 0 type 2 name carveout align 1000
+[    0.433989] [0] Ion: rmem_ion_device_init: heap carveout base 0x000000010df0f000 size 0x0000000001000000 dev ffffffc00c968810
+[    0.445785] [0] platform carveout: assigned reserved memory node ion
+[    0.456211] [0] platform carveout: [ion] add heap id 0, type 2, base 0x10df0f000, size 0x1000000
+[    0.465612] [0] tee_cv_init_clk
+[    0.469060] [0] Advanced Linux Sound Architecture Driver Initialized.
+[    0.476732] [0] clocksource: Switched to clocksource arch_sys_counter
+[    0.562202] [0] NET: Registered protocol family 2
+[    0.567729] [0] TCP established hash table entries: 2048 (order: 2, 16384 bytes)
+[    0.575536] [0] TCP bind hash table entries: 2048 (order: 4, 65536 bytes)
+[    0.582673] [0] TCP: Hash tables configured (established 2048 bind 2048)
+[    0.589762] [0] UDP hash table entries: 256 (order: 2, 24576 bytes)
+[    0.596381] [0] UDP-Lite hash table entries: 256 (order: 2, 24576 bytes)
+[    0.603577] [0] NET: Registered protocol family 1
+[    0.609010] [0] RPC: Registered named UNIX socket transport module.
+[    0.615568] [0] RPC: Registered udp transport module.
+[    0.620902] [0] RPC: Registered tcp transport module.
+[    0.626185] [0] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.633579] [0] Unpacking initramfs...
+[    1.320939] [0] Freeing initrd memory: 32768K (ffffffc003080000 - ffffffc005080000)
+[    1.329394] [0] hw perfevents: enabled with armv8_cortex_a53 PMU driver, 7 counters available
+[    1.340631] [0] workingset: timestamp_bits=62 max_order=16 bucket_order=0
+[    1.360861] [0] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    1.368749] [0] jffs2: version 2.2. (NAND) (SUMMARY)  © 2001-2006 Red Hat, Inc.
+[    1.377706] [1] cryptomgr_test (33) used greatest stack depth: 14800 bytes left
+[    1.388046] [0] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 247)
+[    1.396232] [0] io scheduler noop registered
+[    1.400715] [0] io scheduler deadline registered
+[    1.405622] [0] io scheduler cfq registered (default)
+[    1.412413] [0] cvitek,pinctrl-cv1835 3001000.pinctrl: initialized cvitek pin control driver
+[    1.501610] [0] Serial: 8250/16550 driver, 5 ports, IRQ sharing disabled
+[    1.511534] [0] console [ttyS0] disabled
+[    1.515815] [0] 4140000.serial: ttyS0 at MMIO 0x4140000 (irq = 19, base_baud = 1562500) is a 16550A
+[    1.525293] [0] console [ttyS0] enabled
+[    1.533353] [0] bootconsole [uart0] disabled
+[    1.543686] [0] 4150000.serial: ttyS1 at MMIO 0x4150000 (irq = 20, base_baud = 12500000) is a 16550A
+[    1.554702] [0] 4160000.serial: ttyS2 at MMIO 0x4160000 (irq = 21, base_baud = 12500000) is a 16550A
+[    1.565730] [0] 4170000.serial: ttyS3 at MMIO 0x4170000 (irq = 22, base_baud = 12500000) is a 16550A
+[    1.576695] [0] 41c0000.serial: ttyS4 at MMIO 0x41c0000 (irq = 23, base_baud = 12500000) is a 16550A
+[    1.595238] [0] loop: module loaded
+[    1.600251] [0] libphy: Fixed MDIO Bus: probed
+[    1.607599] [0] Hash table entries set to unexpected value 0
+[    1.613572] [0] bm-dwmac 4510000.ethernet: no reset control found
+[    1.620198] [0] stmmac - user ID: 0x0, Synopsys ID: 0x50
+[    1.625770] [0] bm-dwmac 4510000.ethernet: DMA HW capability register supported
+[    1.633443] [0] bm-dwmac 4510000.ethernet: RX Checksum Offload Engine supported
+[    1.641115] [0] bm-dwmac 4510000.ethernet: TX Checksum insertion supported
+[    1.648286] [0] bm-dwmac 4510000.ethernet: TSO supported
+[    1.653895] [0] bm-dwmac 4510000.ethernet: TSO feature enabled
+[    1.659991] [0] bm-dwmac 4510000.ethernet: Enable RX Mitigation via HW Watchdog Timer
+[    1.672289] [1] modprobe (65) used greatest stack depth: 13376 bytes left
+[    1.888178] [0] libphy: stmmac: probed
+[    1.892173] [0] CVITEK CVI18XX stmmac-0:00: attached PHY driver [CVITEK CVI18XX] (mii_bus:phy_addr=stmmac-0:00, irq=-1)
+[    1.903438] [0] CVITEK CVI18XX stmmac-0:01: attached PHY driver [CVITEK CVI18XX] (mii_bus:phy_addr=stmmac-0:01, irq=-1)
+[    1.916526] [1] mousedev: PS/2 mouse device common for all mice
+[    1.923054] [1] i2c /dev entries driver
+[    1.928840] [1] sdhci: Secure Digital Host Controller Interface driver
+[    1.935682] [1] sdhci: Copyright(c) Pierre Ossman
+[    1.940688] [1] sdhci-pltfm: SDHCI platform and OF driver helper
+[    1.947179] [1] cvi:sdhci_cvi_probe
+[    1.953077] [1] mmc0: Host Controller version 3
+[    2.000761] [1] mmc0: SDHCI controller on 4300000.cv-emmc [4300000.cv-emmc] using ADMA 64-bit
+[    2.012859] [1] cvi:sdhci_cvi_probe
+[    2.019867] [1] mmc1: Host Controller version 3
+[    2.068757] [1] mmc1: SDHCI controller on 4310000.cv-sd [4310000.cv-sd] using ADMA 64-bit
+[    2.110304] [0] usbcore: registered new interface driver usbhid
+[    2.116573] [0] usbhid: USB HID core driver
+[    2.121262] [0] optee: probing for conduit method from DT.
+[    2.127600] [1] optee: initialized driver
+[    2.131965] [1] Netfilter messages via NETLINK v0.30.
+[    2.137915] [1] nf_conntrack version 0.5.0 (2048 buckets, 8192 max)
+[    2.144835] [0] nf_tables: (c) 2007-2009 Patrick McHardy <kaber@trash.net>
+[    2.152094] [0] nf_tables_compat: (c) 2012 Pablo Neira Ayuso <pablo@netfilter.org>
+[    2.160326] [0] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    2.167633] [0] NET: Registered protocol family 10
+[    2.173909] [0] random: fast init done
+[    2.178605] [0] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[    2.184960] [0] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    2.192826] [0] NET: Registered protocol family 17
+[    2.197948] [0] 8021q: 802.1Q VLAN Support v1.8
+[    2.204096] [0] registered taskstats version 1
+[    2.217512] [1] modprobe (133) used greatest stack depth: 13296 bytes left
+[    2.241014] [0] Key type encrypted registered
+[    2.278440] [0] hctosys: unable to open rtc device (rtc0)
+[    2.284741] [0] ALSA device list:
+[    2.288246] [0]   No soundcards found.
+[    2.293080] [0] Freeing unused kernel memory: 768K (ffffffc000930000 - ffffffc0009f0000)
+[    2.458974] [1] mmc0: new HS200 MMC card at address 0001
+[    2.469336] [1] mmcblk0: mmc0:0001 SPeMMC 3.64 GiB 
+[    2.474738] [1] mmcblk0boot0: mmc0:0001 SPeMMC partition 1 4.00 MiB
+[    2.485646] [1] mmcblk0boot1: mmc0:0001 SPeMMC partition 2 4.00 MiB
+[    2.492492] [1] mmcblk0rpmb: mmc0:0001 SPeMMC partition 3 4.00 MiB
+[    2.501388] [1] Alternate GPT is invalid, using primary GPT.
+[    2.507420] [1]  mmcblk0: p1 p2 p3 p4 p5 p6 p7
+[    5.911838] [1] e2fsck (181) used greatest stack depth: 13040 bytes left
+[    5.925749] [0] e2fsck (183) used greatest stack depth: 12896 bytes left
+[    5.958287] [1] EXT4-fs (mmcblk0p5): mounted filesystem without journal. Opts: (null)
+[    5.969456] [1] mount (188) used greatest stack depth: 12672 bytes left
+[    5.979099] [0] EXT4-fs (mmcblk0p6): mounted filesystem without journal. Opts: (null)
+[    6.003451] [1] EXT4-fs (mmcblk0p7): mounted filesystem without journal. Opts: (null)
+[    6.075941] [0] cv183x_pwm: bad vermagic: kernel tainted.
+[    6.081702] [0] Disabling lock debugging due to kernel taint
+[    6.087682] [0] cv183x_pwm: loading out-of-tree module taints kernel.
+[    6.102481] [1] CVITEK CHIP ID = 2
+[    6.340797] [0] do_smccc_smc: a=0x3000006 0x0 0x1000
+[    6.346151] [0] do_smccc_smc: r=0x100 0x0
+[    6.354935] [0] bm-dwmac 4510000.ethernet eth0: device MAC address be:5a:c5:89:f3:ac
+[    6.433217] [0] CVITEK CVI18XX stmmac-0:00: attached PHY driver [CVITEK CVI18XX] (mii_bus:phy_addr=stmmac-0:00, irq=-1)
+[    6.456416] [0] dwmac4: Master AXI performs any burst length
+[    6.462390] [0] bm-dwmac 4510000.ethernet eth0: IEEE 1588-2008 Advanced Timestamp supported
+[    6.471616] [0] bm-dwmac 4510000.ethernet eth0: registered PTP clock
+[    6.478578] [0] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+[    6.486519] [0] Enable CVITEK ethernet phy ultra auto power saving mode
+[    6.625222] [0] CVITEK CVI18XX stmmac-0:00: attached PHY driver [CVITEK CVI18XX] (mii_bus:phy_addr=stmmac-0:00, irq=-1)
+[    6.648427] [0] dwmac4: Master AXI performs any burst length
+[    6.654449] [0] bm-dwmac 4510000.ethernet eth0: IEEE 1588-2008 Advanced Timestamp supported
+[    6.663654] [0] bm-dwmac 4510000.ethernet eth0: registered PTP clock
+[    6.670546] [0] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+[    6.678493] [0] Enable CVITEK ethernet phy ultra auto power saving mode
+[    7.109263] [0] dmesg (451) used greatest stack depth: 11872 bytes left
+[    8.741356] [0] bm-dwmac 4510000.ethernet eth0: Link is Up - 100Mbps/Full - flow control rx/tx
+[    8.750427] [0] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[   11.854158] [1] register uart_trans chrdev success.
+[   11.860566] [1] ttyS1, serial8250_request_dma
+[   11.865384] [1] ttyS1, get NULL TX chan
+[   11.870333] [1] ttyS1, serial8250_do_set_termios, ispeed=9600, o_speed=9600
+[   11.878311] [1] Set baud rate to 115200, quot=108
+[   11.883294] [1] ttyS1 default_serial_dl_write, baudrate=115200, value=108
+[   11.890424] [1] tty port open success [/dev/ttyS1]!
+[   11.895662] [1] ttyS1, serial8250_do_set_termios, ispeed=115200, o_speed=115200
+[   11.903286] [1] Set baud rate to 115200, quot=108
+[   11.908253] [1] ttyS1 default_serial_dl_write, baudrate=115200, value=108
+[   11.915349] [1] init sucess for tty struct (4:65)  [/dev/ttyS1]
+[   11.922413] [1] ttyS2, serial8250_request_dma
+[   11.927041] [1] ttyS2, get NULL TX chan
+[   11.931793] [1] ttyS2, serial8250_do_set_termios, ispeed=9600, o_speed=9600
+[   11.939114] [1] Set baud rate to 115200, quot=108
+[   11.944031] [1] ttyS2 default_serial_dl_write, baudrate=115200, value=108
+[   11.951132] [1] tty port open success [/dev/ttyS2]!
+[   11.956365] [1] ttyS2, serial8250_do_set_termios, ispeed=115200, o_speed=115200
+[   11.963992] [1] Set baud rate to 115200, quot=108
+[   11.968958] [1] ttyS2 default_serial_dl_write, baudrate=115200, value=108
+[   11.976086] [1] init sucess for tty struct (4:66)  [/dev/ttyS2]
+[   11.983118] [1] ttyS3, serial8250_request_dma
+[   11.987743] [1] ttyS3, get NULL TX chan
+[   11.992517] [1] ttyS3, serial8250_do_set_termios, ispeed=9600, o_speed=9600
+[   11.999842] [1] Set baud rate to 115200, quot=108
+[   12.004759] [1] ttyS3 default_serial_dl_write, baudrate=115200, value=108
+[   12.011924] [1] tty port open success [/dev/ttyS3]!
+[   12.017130] [1] ttyS3, serial8250_do_set_termios, ispeed=115200, o_speed=115200
+[   12.024771] [1] Set baud rate to 115200, quot=108
+[   12.029739] [1] ttyS3 default_serial_dl_write, baudrate=115200, value=108
+[   12.036841] [1] init sucess for tty struct (4:67)  [/dev/ttyS3]
+[   12.043893] [1] ttyS4, serial8250_request_dma
+[   12.048522] [1] ttyS4, get NULL TX chan
+[   12.053322] [1] ttyS4, serial8250_do_set_termios, ispeed=9600, o_speed=9600
+[   12.060658] [1] Set baud rate to 115200, quot=108
+[   12.065577] [1] ttyS4 default_serial_dl_write, baudrate=115200, value=108
+[   12.072777] [1] tty port open success [/dev/ttyS4]!
+[   12.077913] [1] ttyS4, serial8250_do_set_termios, ispeed=115200, o_speed=115200
+[   12.085613] [1] Set baud rate to 115200, quot=108
+[   12.090580] [1] ttyS4 default_serial_dl_write, baudrate=115200, value=108
+[   12.097683] [1] init sucess for tty struct (4:68)  [/dev/ttyS4]
+[   12.104085] [1] create workqueue success!
+[   13.356440] [0] random: crng init done
+[   26.044894] [0] uart trans dev open.
+[   26.049712] [0] uart_buf virt addr = 0xffffffc003c00000
+[   26.055206] [0] uart_buf phys addr = 0x103c00000
+[   26.060146] [0] uart_buf pfn       = 0x00103c00
+[   26.064960] [0] uart trans stop send work timer.
+[   26.069912] [0] uart trans set chain exist bits:0x7.
+[   26.075178] [0] uart trans set work queue count 768.
+[   81.888114] [0] uart set baud to: 4098
+[   81.892361] [0] uart set baud to: 4098
+[   81.897156] [0] uart set baud to: 4098
+[   87.404019] [0] uart trans stop send work timer.
+[   98.710263] [0] uart trans start send work timer.
+[  191.712999] [1] ntpd (337) used greatest stack depth: 11440 bytes left
+[91418.608721] [0] uart trans stop send work timer.
+[94741.966266] [1] uart trans dev open.
+[94741.970204] [1] uart_buf virt addr = 0xffffffc003c00000
+[94741.975752] [1] uart_buf phys addr = 0x103c00000
+[94741.980636] [1] uart_buf pfn       = 0x00103c00
+[94741.985473] [1] uart trans stop send work timer.
+[94741.990461] [1] uart trans set chain exist bits:0x7.
+[94741.995693] [1] uart trans set work queue count 768.
+[94797.824785] [0] uart set baud to: 4098
+[94797.828879] [0] uart set baud to: 4098
+[94797.833683] [0] uart set baud to: 4098
+[94803.336400] [0] uart trans stop send work timer.
+[94806.023822] [1] uart trans start send work timer.
+[99246.478892] [0] uart trans stop send work timer.
+[100459.913319] [1] uart trans dev open.
+[100459.917287] [1] uart_buf virt addr = 0xffffffc003c00000
+[100459.922979] [1] uart_buf phys addr = 0x103c00000
+[100459.927970] [1] uart_buf pfn       = 0x00103c00
+[100459.932914] [1] uart trans stop send work timer.
+[100459.938011] [1] uart trans set chain exist bits:0x7.
+[100459.943387] [1] uart trans set work queue count 768.
+[100515.836440] [1] uart set baud to: 4098
+[100515.840766] [1] uart set baud to: 4098
+[100515.845661] [1] uart set baud to: 4098
+[100521.359874] [1] uart trans stop send work timer.
+[100536.453560] [1] uart trans start send work timer.
+[176620.237598] [0] uart trans stop send work timer.
+[176621.265541] [0] cg@API (12867) used greatest stack depth: 10992 bytes left
+[178446.148402] [1] uart trans dev open.
+[178446.152347] [1] uart_buf virt addr = 0xffffffc003c00000
+[178446.157977] [1] uart_buf phys addr = 0x103c00000
+[178446.162914] [1] uart_buf pfn       = 0x00103c00
+[178446.167826] [1] uart trans stop send work timer.
+[178446.172928] [1] uart trans set chain exist bits:0x7.
+[178446.178228] [1] uart trans set work queue count 768.
+[178501.035550] [0] uart set baud to: 4098
+[178501.039710] [0] uart set baud to: 4098
+[178501.043786] [0] uart set baud to: 4098
+[178506.570820] [0] uart trans stop send work timer.
+[178514.751864] [0] uart trans start send work timer.
+[179346.311311] [0] uart trans stop send work timer.
+[181454.386415] [0] uart trans dev open.
+[181454.390386] [0] uart_buf virt addr = 0xffffffc003c00000
+[181454.396079] [0] uart_buf phys addr = 0x103c00000
+[181454.401025] [0] uart_buf pfn       = 0x00103c00
+[181454.405965] [0] uart trans stop send work timer.
+[181454.411068] [0] uart trans set chain exist bits:0x7.
+[181454.416371] [0] uart trans set work queue count 768.
+[181510.351663] [0] uart set baud to: 4098
+[181510.356415] [0] uart set baud to: 4098
+[181510.360737] [0] uart set baud to: 4098
+[181515.874516] [0] uart trans stop send work timer.
+[181531.412637] [1] uart trans start send work timer.
+
+
+===========================================Miner log===========================================
+1970-01-01 00:00:12 Miner compile time: Tue Nov 29 11:43:22 CST 2022 type: Antminer S19 XP sn :YNAHEAUBCJFBJ0X56
+1970-01-01 00:00:13 This is fix-freq version
+1970-01-01 00:00:13 Miner compile time: Tue Nov 29 11:43:22 CST 2022 type: Antminer S19 XP
+1970-01-01 00:00:13 Miner sn: YNAHEAUBCJFBJ0X56
+1970-01-01 00:00:13 commit version: dd076742 2022-10-27 22:42:25, build by: jenkins 2022-11-29 12:04:46
+1970-01-01 00:00:13 opt_multi_version     = 1
+1970-01-01 00:00:13 opt_bitmain_ab        = 1
+1970-01-01 00:00:13 mid_auto_gen          = 1
+1970-01-01 00:00:13 opt_bitmain_work_mode = 0
+1970-01-01 00:00:13 port 427 already exported
+1970-01-01 00:00:13 port 429 already exported
+1970-01-01 00:00:13 port 431 already exported
+1970-01-01 00:00:13 port 433 already exported
+1970-01-01 00:00:13 no board pluged in socket 432
+1970-01-01 00:00:13 port 434 already exported
+1970-01-01 00:00:13 port 435 already exported
+1970-01-01 00:00:13 port 447 already exported
+1970-01-01 00:00:13 port 406 already exported
+1970-01-01 00:00:13 Note: front fan is power on!
+1970-01-01 00:00:13 Note: rear fan is power on!
+1970-01-01 00:00:13 start the http log.
+1970-01-01 00:00:13 httpListenThread start ret=0
+1970-01-01 00:00:13 start listen on 6060 ...
+1970-01-01 00:00:13 load machine BHB56801 conf
+1970-01-01 00:00:13 machine : BHB56801 
+1970-01-01 00:00:13 get test_loop_securely_find_asic_num failed
+1970-01-01 00:00:13 get mix boardname[0][BHB56801], name:BHB56801
+1970-01-01 00:00:13 get mix boardname[1][BHB56802], name:BHB56802
+1970-01-01 00:00:18 power off
+2026-03-02 22:39:05 ==========================capability start==========================
+2026-03-02 22:39:05 board num = 3
+2026-03-02 22:39:05 board id = 0, chain num = 1
+2026-03-02 22:39:05 	chain id = 0
+2026-03-02 22:39:05 board id = 1, chain num = 1
+2026-03-02 22:39:05 	chain id = 1
+2026-03-02 22:39:05 board id = 2, chain num = 1
+2026-03-02 22:39:05 	chain id = 2
+2026-03-02 22:39:05 ==========================capability end============================
+2026-03-02 22:39:05 chain num = 3
+2026-03-02 22:39:06 load chain 0 eeprom data
+2026-03-02 22:39:08 load chain 1 eeprom data
+2026-03-02 22:39:09 load chain 2 eeprom data
+2026-03-02 22:39:09 eeprom load ret:0
+2026-03-02 22:39:09 miner:BHB56801,board_name:BHB56801
+2026-03-02 22:39:09 create thread get_nonce_and_register_thread
+2026-03-02 22:39:09 fixed working voltage = 1290
+2026-03-02 22:39:09 Chain [0] PCB Version: 0x0220
+2026-03-02 22:39:09 Chain [0] BOM Version: 0x0000
+2026-03-02 22:39:09 Chain [1] PCB Version: 0x0220
+2026-03-02 22:39:09 Chain [1] BOM Version: 0x0000
+2026-03-02 22:39:09 Chain [2] PCB Version: 0x0220
+2026-03-02 22:39:09 Chain [2] BOM Version: 0x0000
+2026-03-02 22:39:11 Fan check passed.
+2026-03-02 22:39:11 init fan pid target=50
+2026-03-02 22:39:11 max sensor num = 4
+2026-03-02 22:39:11 STATUS_INITED: soc init done!
+2026-03-02 22:39:11 temperature_monitor_thread start...
+2026-03-02 22:39:13 start to init...
+2026-03-02 22:39:13 i2c_sim_init start
+2026-03-02 22:39:13 power i2c device:sim_dev addr:0x10 fd:255
+2026-03-02 22:39:14 i2c_sim_init end
+2026-03-02 22:39:15 power open power_version = 0x75
+2026-03-02 22:39:18 power is Calibrated
+2026-03-02 22:39:18 power sn:OLTT323BCJGAJ1009
+2026-03-02 22:39:18 enable_power_calibration,calibration date:211208.
+2026-03-02 22:39:19 power type version: 0x0075
+2026-03-02 22:39:20 disable power watchdog: 0x0000
+2026-03-02 22:39:21 Initializing the power, please wait, this may take up to 2 minutes...
+2026-03-02 22:39:51 Slept 30 seconds, diff = 1.
+2026-03-02 22:40:01 set_voltage_by_steps to 1500.
+2026-03-02 22:40:07 start up min temp by 75a = 27
+2026-03-02 22:40:09 Chain[0]: find 0 asic, times 0
+2026-03-02 22:40:11 Chain[0]: find 0 asic, times 1
+2026-03-02 22:40:13 Chain[0]: find 0 asic, times 2
+2026-03-02 22:40:13 Chain 0 only find 0 asic, will power off hash board 0
+2026-03-02 22:40:13 ERROR_SOC_INIT: soc init failed!
+2026-03-02 22:40:13 stop_mining: soc init failed!
+2026-03-02 22:40:13 uninit_temp_info
+2026-03-02 22:40:13 do not read temp anymore...
+2026-03-02 22:40:13 cancel thread
+2026-03-02 22:40:13 ****power off hashboard****
+2026-03-02 22:40:13 power off
+2026-03-02 22:40:13 temp monitor thread exit
+2026-03-02 22:40:24 Version num 65536
+2026-03-02 22:40:24 Mask num 0x1fffe000
+2026-03-02 22:40:24 Note: addrInterval or corenum is not initialized.
+2026-03-04 00:02:23 ****power off hashboard****
+2026-03-04 00:02:23 power off
+2026-03-04 00:02:28 Miner compile time: Tue Nov 29 11:43:22 CST 2022 type: Antminer S19 XP sn :YNAHEAUBCJFBJ0X56
+2026-03-04 00:02:30 This is fix-freq version
+2026-03-04 00:02:30 Miner compile time: Tue Nov 29 11:43:22 CST 2022 type: Antminer S19 XP
+2026-03-04 00:02:30 Miner sn: YNAHEAUBCJFBJ0X56
+2026-03-04 00:02:30 commit version: dd076742 2022-10-27 22:42:25, build by: jenkins 2022-11-29 12:04:46
+2026-03-04 00:02:30 opt_multi_version     = 1
+2026-03-04 00:02:30 opt_bitmain_ab        = 1
+2026-03-04 00:02:30 mid_auto_gen          = 1
+2026-03-04 00:02:30 opt_bitmain_work_mode = 1
+2026-03-04 00:02:30 port 426 already exported
+2026-03-04 00:02:30 port 427 already exported
+2026-03-04 00:02:30 port 428 already exported
+2026-03-04 00:02:30 port 429 already exported
+2026-03-04 00:02:30 port 430 already exported
+2026-03-04 00:02:30 port 431 already exported
+2026-03-04 00:02:30 port 432 already exported
+2026-03-04 00:02:30 port 433 already exported
+2026-03-04 00:02:30 no board pluged in socket 432
+2026-03-04 00:02:30 port 434 already exported
+2026-03-04 00:02:30 port 435 already exported
+2026-03-04 00:02:30 port 447 already exported
+2026-03-04 00:02:30 port 406 already exported
+2026-03-04 00:02:30 Note: front fan is power on!
+2026-03-04 00:02:30 Note: rear fan is power on!
+2026-03-04 00:02:30 start the http log.
+2026-03-04 00:02:30 start listen on 6060 ...
+2026-03-04 00:02:30 httpListenThread start ret=0
+2026-03-04 00:02:30 load machine BHB56801 conf
+2026-03-04 00:02:30 machine : BHB56801 
+2026-03-04 00:02:30 get test_loop_securely_find_asic_num failed
+2026-03-04 00:02:30 get mix boardname[0][BHB56801], name:BHB56801
+2026-03-04 00:02:30 get mix boardname[1][BHB56802], name:BHB56802
+2026-03-04 00:02:35 power off
+2026-03-04 00:02:36 ==========================capability start==========================
+2026-03-04 00:02:36 board num = 3
+2026-03-04 00:02:36 board id = 0, chain num = 1
+2026-03-04 00:02:36 	chain id = 0
+2026-03-04 00:02:36 board id = 1, chain num = 1
+2026-03-04 00:02:36 	chain id = 1
+2026-03-04 00:02:36 board id = 2, chain num = 1
+2026-03-04 00:02:36 	chain id = 2
+2026-03-04 00:02:36 ==========================capability end============================
+2026-03-04 00:02:36 chain num = 3
+2026-03-04 00:02:37 load chain 0 eeprom data
+2026-03-04 00:02:39 load chain 1 eeprom data
+2026-03-04 00:02:40 load chain 2 eeprom data
+2026-03-04 00:02:40 eeprom load ret:0
+2026-03-04 00:02:40 miner:BHB56801,board_name:BHB56801
+2026-03-04 00:02:40 enter sleep mode.
+2026-03-04 00:02:40 power off
+2026-03-04 00:57:35 Miner compile time: Tue Nov 29 11:43:22 CST 2022 type: Antminer S19 XP sn :YNAHEAUBCJFBJ0X56
+2026-03-04 00:57:36 This is fix-freq version
+2026-03-04 00:57:36 Miner compile time: Tue Nov 29 11:43:22 CST 2022 type: Antminer S19 XP
+2026-03-04 00:57:36 Miner sn: YNAHEAUBCJFBJ0X56
+2026-03-04 00:57:36 commit version: dd076742 2022-10-27 22:42:25, build by: jenkins 2022-11-29 12:04:46
+2026-03-04 00:57:36 opt_multi_version     = 1
+2026-03-04 00:57:36 opt_bitmain_ab        = 1
+2026-03-04 00:57:36 mid_auto_gen          = 1
+2026-03-04 00:57:36 opt_bitmain_work_mode = 0
+2026-03-04 00:57:36 port 426 already exported
+2026-03-04 00:57:36 port 427 already exported
+2026-03-04 00:57:36 port 428 already exported
+2026-03-04 00:57:36 port 429 already exported
+2026-03-04 00:57:36 port 430 already exported
+2026-03-04 00:57:36 port 431 already exported
+2026-03-04 00:57:36 port 432 already exported
+2026-03-04 00:57:36 port 433 already exported
+2026-03-04 00:57:36 no board pluged in socket 432
+2026-03-04 00:57:36 port 434 already exported
+2026-03-04 00:57:36 port 435 already exported
+2026-03-04 00:57:36 port 447 already exported
+2026-03-04 00:57:36 port 406 already exported
+2026-03-04 00:57:36 Note: front fan is power on!
+2026-03-04 00:57:36 Note: rear fan is power on!
+2026-03-04 00:57:36 start the http log.
+2026-03-04 00:57:36 httpListenThread start ret=0
+2026-03-04 00:57:36 start listen on 6060 ...
+2026-03-04 00:57:36 load machine BHB56801 conf
+2026-03-04 00:57:36 machine : BHB56801 
+2026-03-04 00:57:36 get test_loop_securely_find_asic_num failed
+2026-03-04 00:57:36 get mix boardname[0][BHB56801], name:BHB56801
+2026-03-04 00:57:36 get mix boardname[1][BHB56802], name:BHB56802
+2026-03-04 00:57:41 power off
+2026-03-04 00:57:42 ==========================capability start==========================
+2026-03-04 00:57:42 board num = 3
+2026-03-04 00:57:42 board id = 0, chain num = 1
+2026-03-04 00:57:42 	chain id = 0
+2026-03-04 00:57:42 board id = 1, chain num = 1
+2026-03-04 00:57:42 	chain id = 1
+2026-03-04 00:57:42 board id = 2, chain num = 1
+2026-03-04 00:57:42 	chain id = 2
+2026-03-04 00:57:42 ==========================capability end============================
+2026-03-04 00:57:42 chain num = 3
+2026-03-04 00:57:44 load chain 0 eeprom data
+2026-03-04 00:57:45 load chain 1 eeprom data
+2026-03-04 00:57:47 load chain 2 eeprom data
+2026-03-04 00:57:47 eeprom load ret:0
+2026-03-04 00:57:47 miner:BHB56801,board_name:BHB56801
+2026-03-04 00:57:47 create thread get_nonce_and_register_thread
+2026-03-04 00:57:47 fixed working voltage = 1290
+2026-03-04 00:57:47 Chain [0] PCB Version: 0x0220
+2026-03-04 00:57:47 Chain [0] BOM Version: 0x0000
+2026-03-04 00:57:47 Chain [1] PCB Version: 0x0220
+2026-03-04 00:57:47 Chain [1] BOM Version: 0x0000
+2026-03-04 00:57:47 Chain [2] PCB Version: 0x0220
+2026-03-04 00:57:47 Chain [2] BOM Version: 0x0000
+2026-03-04 00:57:47 Fan check passed.
+2026-03-04 00:57:47 init fan pid target=50
+2026-03-04 00:57:47 max sensor num = 4
+2026-03-04 00:57:47 STATUS_INITED: soc init done!
+2026-03-04 00:57:47 temperature_monitor_thread start...
+2026-03-04 00:57:49 start to init...
+2026-03-04 00:57:49 i2c_sim_init start
+2026-03-04 00:57:49 power i2c device:sim_dev addr:0x10 fd:255
+2026-03-04 00:57:49 i2c_sim_init end
+2026-03-04 00:57:50 power open power_version = 0x75
+2026-03-04 00:57:53 power is Calibrated
+2026-03-04 00:57:53 power sn:OLTT323BCJGAJ1009
+2026-03-04 00:57:53 enable_power_calibration,calibration date:211208.
+2026-03-04 00:57:54 power type version: 0x0075
+2026-03-04 00:57:56 disable power watchdog: 0x0000
+2026-03-04 00:57:57 Initializing the power, please wait, this may take up to 2 minutes...
+2026-03-04 00:58:27 Slept 30 seconds, diff = 1.
+2026-03-04 00:58:37 set_voltage_by_steps to 1500.
+2026-03-04 00:58:43 start up min temp by 75a = 26
+2026-03-04 00:58:44 Chain[0]: find 0 asic, times 0
+2026-03-04 00:58:46 Chain[0]: find 0 asic, times 1
+2026-03-04 00:58:48 Chain[0]: find 0 asic, times 2
+2026-03-04 00:58:48 Chain 0 only find 0 asic, will power off hash board 0
+2026-03-04 00:58:48 ERROR_SOC_INIT: soc init failed!
+2026-03-04 00:58:48 stop_mining: soc init failed!
+2026-03-04 00:58:48 uninit_temp_info
+2026-03-04 00:58:48 do not read temp anymore...
+2026-03-04 00:58:48 cancel thread
+2026-03-04 00:58:48 ****power off hashboard****
+2026-03-04 00:58:48 power off
+2026-03-04 00:58:48 temp monitor thread exit
+2026-03-04 00:58:51 Version num 65536
+2026-03-04 00:58:51 Mask num 0x1fffe000
+2026-03-04 00:58:51 Note: addrInterval or corenum is not initialized.
+2026-03-04 02:12:51 ****power off hashboard****
+2026-03-04 02:12:51 power off
+2026-03-04 02:12:56 Miner compile time: Tue Nov 29 11:43:22 CST 2022 type: Antminer S19 XP sn :YNAHEAUBCJFBJ0X56
+2026-03-04 02:12:57 This is fix-freq version
+2026-03-04 02:12:57 Miner compile time: Tue Nov 29 11:43:22 CST 2022 type: Antminer S19 XP
+2026-03-04 02:12:57 Miner sn: YNAHEAUBCJFBJ0X56
+2026-03-04 02:12:57 commit version: dd076742 2022-10-27 22:42:25, build by: jenkins 2022-11-29 12:04:46
+2026-03-04 02:12:57 opt_multi_version     = 1
+2026-03-04 02:12:57 opt_bitmain_ab        = 1
+2026-03-04 02:12:57 mid_auto_gen          = 1
+2026-03-04 02:12:57 opt_bitmain_work_mode = 1
+2026-03-04 02:12:57 port 426 already exported
+2026-03-04 02:12:57 port 427 already exported
+2026-03-04 02:12:57 port 428 already exported
+2026-03-04 02:12:57 port 429 already exported
+2026-03-04 02:12:57 port 430 already exported
+2026-03-04 02:12:57 port 431 already exported
+2026-03-04 02:12:57 port 432 already exported
+2026-03-04 02:12:57 port 433 already exported
+2026-03-04 02:12:57 no board pluged in socket 432
+2026-03-04 02:12:57 port 434 already exported
+2026-03-04 02:12:57 port 435 already exported
+2026-03-04 02:12:57 port 447 already exported
+2026-03-04 02:12:57 port 406 already exported
+2026-03-04 02:12:57 Note: front fan is power on!
+2026-03-04 02:12:57 Note: rear fan is power on!
+2026-03-04 02:12:57 start the http log.
+2026-03-04 02:12:57 httpListenThread start ret=0
+2026-03-04 02:12:57 start listen on 6060 ...
+2026-03-04 02:12:57 load machine BHB56801 conf
+2026-03-04 02:12:57 machine : BHB56801 
+2026-03-04 02:12:57 get test_loop_securely_find_asic_num failed
+2026-03-04 02:12:57 get mix boardname[0][BHB56801], name:BHB56801
+2026-03-04 02:12:57 get mix boardname[1][BHB56802], name:BHB56802
+2026-03-04 02:13:02 power off
+2026-03-04 02:13:03 ==========================capability start==========================
+2026-03-04 02:13:04 board num = 3
+2026-03-04 02:13:04 board id = 0, chain num = 1
+2026-03-04 02:13:04 	chain id = 0
+2026-03-04 02:13:04 board id = 1, chain num = 1
+2026-03-04 02:13:04 	chain id = 1
+2026-03-04 02:13:04 board id = 2, chain num = 1
+2026-03-04 02:13:04 	chain id = 2
+2026-03-04 02:13:04 ==========================capability end============================
+2026-03-04 02:13:04 chain num = 3
+2026-03-04 02:13:05 load chain 0 eeprom data
+2026-03-04 02:13:06 load chain 1 eeprom data
+2026-03-04 02:13:08 load chain 2 eeprom data
+2026-03-04 02:13:08 eeprom load ret:0
+2026-03-04 02:13:08 miner:BHB56801,board_name:BHB56801
+2026-03-04 02:13:08 enter sleep mode.
+2026-03-04 02:13:08 power off
+2026-03-04 02:32:51 Miner compile time: Tue Nov 29 11:43:22 CST 2022 type: Antminer S19 XP sn :YNAHEAUBCJFBJ0X56
+2026-03-04 02:32:52 This is fix-freq version
+2026-03-04 02:32:52 Miner compile time: Tue Nov 29 11:43:22 CST 2022 type: Antminer S19 XP
+2026-03-04 02:32:52 Miner sn: YNAHEAUBCJFBJ0X56
+2026-03-04 02:32:52 commit version: dd076742 2022-10-27 22:42:25, build by: jenkins 2022-11-29 12:04:46
+2026-03-04 02:32:52 opt_multi_version     = 1
+2026-03-04 02:32:52 opt_bitmain_ab        = 1
+2026-03-04 02:32:52 mid_auto_gen          = 1
+2026-03-04 02:32:52 opt_bitmain_work_mode = 0
+2026-03-04 02:32:52 port 426 already exported
+2026-03-04 02:32:52 port 427 already exported
+2026-03-04 02:32:52 port 428 already exported
+2026-03-04 02:32:52 port 429 already exported
+2026-03-04 02:32:52 port 430 already exported
+2026-03-04 02:32:52 port 431 already exported
+2026-03-04 02:32:52 port 432 already exported
+2026-03-04 02:32:52 port 433 already exported
+2026-03-04 02:32:52 no board pluged in socket 432
+2026-03-04 02:32:52 port 434 already exported
+2026-03-04 02:32:52 port 435 already exported
+2026-03-04 02:32:52 port 447 already exported
+2026-03-04 02:32:52 port 406 already exported
+2026-03-04 02:32:52 Note: front fan is power on!
+2026-03-04 02:32:52 Note: rear fan is power on!
+2026-03-04 02:32:52 start the http log.
+2026-03-04 02:32:52 httpListenThread start ret=0
+2026-03-04 02:32:52 start listen on 6060 ...
+2026-03-04 02:32:52 load machine BHB56801 conf
+2026-03-04 02:32:52 machine : BHB56801 
+2026-03-04 02:32:52 get test_loop_securely_find_asic_num failed
+2026-03-04 02:32:52 get mix boardname[0][BHB56801], name:BHB56801
+2026-03-04 02:32:52 get mix boardname[1][BHB56802], name:BHB56802
+2026-03-04 02:32:57 power off
+2026-03-04 02:32:58 ==========================capability start==========================
+2026-03-04 02:32:58 board num = 3
+2026-03-04 02:32:58 board id = 0, chain num = 1
+2026-03-04 02:32:58 	chain id = 0
+2026-03-04 02:32:58 board id = 1, chain num = 1
+2026-03-04 02:32:58 	chain id = 1
+2026-03-04 02:32:58 board id = 2, chain num = 1
+2026-03-04 02:32:58 	chain id = 2
+2026-03-04 02:32:58 ==========================capability end============================
+2026-03-04 02:32:58 chain num = 3
+2026-03-04 02:33:00 load chain 0 eeprom data
+2026-03-04 02:33:01 load chain 1 eeprom data
+2026-03-04 02:33:03 load chain 2 eeprom data
+2026-03-04 02:33:03 eeprom load ret:0
+2026-03-04 02:33:03 miner:BHB56801,board_name:BHB56801
+2026-03-04 02:33:03 create thread get_nonce_and_register_thread
+2026-03-04 02:33:03 fixed working voltage = 1290
+2026-03-04 02:33:03 Chain [0] PCB Version: 0x0220
+2026-03-04 02:33:03 Chain [0] BOM Version: 0x0000
+2026-03-04 02:33:03 Chain [1] PCB Version: 0x0220
+2026-03-04 02:33:03 Chain [1] BOM Version: 0x0000
+2026-03-04 02:33:03 Chain [2] PCB Version: 0x0220
+2026-03-04 02:33:03 Chain [2] BOM Version: 0x0000
+2026-03-04 02:33:05 Fan check passed.
+2026-03-04 02:33:05 init fan pid target=50
+2026-03-04 02:33:05 max sensor num = 4
+2026-03-04 02:33:05 STATUS_INITED: soc init done!
+2026-03-04 02:33:05 temperature_monitor_thread start...
+2026-03-04 02:33:07 start to init...
+2026-03-04 02:33:07 i2c_sim_init start
+2026-03-04 02:33:07 power i2c device:sim_dev addr:0x10 fd:255
+2026-03-04 02:33:07 i2c_sim_init end
+2026-03-04 02:33:08 power open power_version = 0x75
+2026-03-04 02:33:11 power is Calibrated
+2026-03-04 02:33:11 power sn:OLTT323BCJGAJ1009
+2026-03-04 02:33:11 enable_power_calibration,calibration date:211208.
+2026-03-04 02:33:12 power type version: 0x0075
+2026-03-04 02:33:14 disable power watchdog: 0x0000
+2026-03-04 02:33:15 Initializing the power, please wait, this may take up to 2 minutes...
+2026-03-04 02:33:45 Slept 30 seconds, diff = 0.
+2026-03-04 02:33:55 set_voltage_by_steps to 1500.
+2026-03-04 02:34:01 start up min temp by 75a = 24
+2026-03-04 02:34:02 Chain[0]: find 0 asic, times 0
+2026-03-04 02:34:04 Chain[0]: find 0 asic, times 1
+2026-03-04 02:34:06 Chain[0]: find 0 asic, times 2
+2026-03-04 02:34:06 Chain 0 only find 0 asic, will power off hash board 0
+2026-03-04 02:34:06 ERROR_SOC_INIT: soc init failed!
+2026-03-04 02:34:06 stop_mining: soc init failed!
+2026-03-04 02:34:06 uninit_temp_info
+2026-03-04 02:34:06 do not read temp anymore...
+2026-03-04 02:34:06 cancel thread
+2026-03-04 02:34:06 ****power off hashboard****
+2026-03-04 02:34:06 power off
+2026-03-04 02:34:06 temp monitor thread exit
+2026-03-04 02:34:21 Version num 65536
+2026-03-04 02:34:21 Mask num 0x1fffe000
+2026-03-04 02:34:21 Note: addrInterval or corenum is not initialized.
+2026-03-04 23:42:24 ****power off hashboard****
+2026-03-04 23:42:24 power off
+2026-03-04 23:42:30 Miner compile time: Tue Nov 29 11:43:22 CST 2022 type: Antminer S19 XP sn :YNAHEAUBCJFBJ0X56
+2026-03-04 23:42:31 This is fix-freq version
+2026-03-04 23:42:31 Miner compile time: Tue Nov 29 11:43:22 CST 2022 type: Antminer S19 XP
+2026-03-04 23:42:31 Miner sn: YNAHEAUBCJFBJ0X56
+2026-03-04 23:42:31 commit version: dd076742 2022-10-27 22:42:25, build by: jenkins 2022-11-29 12:04:46
+2026-03-04 23:42:31 opt_multi_version     = 1
+2026-03-04 23:42:31 opt_bitmain_ab        = 1
+2026-03-04 23:42:31 mid_auto_gen          = 1
+2026-03-04 23:42:31 opt_bitmain_work_mode = 1
+2026-03-04 23:42:31 port 426 already exported
+2026-03-04 23:42:31 port 427 already exported
+2026-03-04 23:42:31 port 428 already exported
+2026-03-04 23:42:31 port 429 already exported
+2026-03-04 23:42:31 port 430 already exported
+2026-03-04 23:42:31 port 431 already exported
+2026-03-04 23:42:31 port 432 already exported
+2026-03-04 23:42:31 port 433 already exported
+2026-03-04 23:42:31 no board pluged in socket 432
+2026-03-04 23:42:31 port 434 already exported
+2026-03-04 23:42:31 port 435 already exported
+2026-03-04 23:42:31 port 447 already exported
+2026-03-04 23:42:31 port 406 already exported
+2026-03-04 23:42:31 Note: front fan is power on!
+2026-03-04 23:42:31 Note: rear fan is power on!
+2026-03-04 23:42:31 start the http log.
+2026-03-04 23:42:31 httpListenThread start ret=0
+2026-03-04 23:42:31 start listen on 6060 ...
+2026-03-04 23:42:31 load machine BHB56801 conf
+2026-03-04 23:42:31 machine : BHB56801 
+2026-03-04 23:42:31 get test_loop_securely_find_asic_num failed
+2026-03-04 23:42:31 get mix boardname[0][BHB56801], name:BHB56801
+2026-03-04 23:42:31 get mix boardname[1][BHB56802], name:BHB56802
+2026-03-04 23:42:36 power off
+2026-03-04 23:42:37 ==========================capability start==========================
+2026-03-04 23:42:37 board num = 3
+2026-03-04 23:42:37 board id = 0, chain num = 1
+2026-03-04 23:42:37 	chain id = 0
+2026-03-04 23:42:37 board id = 1, chain num = 1
+2026-03-04 23:42:37 	chain id = 1
+2026-03-04 23:42:37 board id = 2, chain num = 1
+2026-03-04 23:42:37 	chain id = 2
+2026-03-04 23:42:37 ==========================capability end============================
+2026-03-04 23:42:37 chain num = 3
+2026-03-04 23:42:38 load chain 0 eeprom data
+2026-03-04 23:42:40 load chain 1 eeprom data
+2026-03-04 23:42:41 load chain 2 eeprom data
+2026-03-04 23:42:41 eeprom load ret:0
+2026-03-04 23:42:41 miner:BHB56801,board_name:BHB56801
+2026-03-04 23:42:41 enter sleep mode.
+2026-03-04 23:42:41 power off
+2026-03-05 00:12:37 Miner compile time: Tue Nov 29 11:43:22 CST 2022 type: Antminer S19 XP sn :YNAHEAUBCJFBJ0X56
+2026-03-05 00:12:38 This is fix-freq version
+2026-03-05 00:12:38 Miner compile time: Tue Nov 29 11:43:22 CST 2022 type: Antminer S19 XP
+2026-03-05 00:12:38 Miner sn: YNAHEAUBCJFBJ0X56
+2026-03-05 00:12:38 commit version: dd076742 2022-10-27 22:42:25, build by: jenkins 2022-11-29 12:04:46
+2026-03-05 00:12:38 opt_multi_version     = 1
+2026-03-05 00:12:38 opt_bitmain_ab        = 1
+2026-03-05 00:12:38 mid_auto_gen          = 1
+2026-03-05 00:12:38 opt_bitmain_work_mode = 0
+2026-03-05 00:12:38 port 426 already exported
+2026-03-05 00:12:38 port 427 already exported
+2026-03-05 00:12:38 port 428 already exported
+2026-03-05 00:12:38 port 429 already exported
+2026-03-05 00:12:38 port 430 already exported
+2026-03-05 00:12:38 port 431 already exported
+2026-03-05 00:12:38 port 432 already exported
+2026-03-05 00:12:38 port 433 already exported
+2026-03-05 00:12:38 no board pluged in socket 432
+2026-03-05 00:12:38 port 434 already exported
+2026-03-05 00:12:38 port 435 already exported
+2026-03-05 00:12:38 port 447 already exported
+2026-03-05 00:12:38 port 406 already exported
+2026-03-05 00:12:38 Note: front fan is power on!
+2026-03-05 00:12:38 Note: rear fan is power on!
+2026-03-05 00:12:38 start the http log.
+2026-03-05 00:12:38 httpListenThread start ret=0
+2026-03-05 00:12:38 start listen on 6060 ...
+2026-03-05 00:12:38 load machine BHB56801 conf
+2026-03-05 00:12:38 machine : BHB56801 
+2026-03-05 00:12:38 get test_loop_securely_find_asic_num failed
+2026-03-05 00:12:38 get mix boardname[0][BHB56801], name:BHB56801
+2026-03-05 00:12:38 get mix boardname[1][BHB56802], name:BHB56802
+2026-03-05 00:12:43 power off
+2026-03-05 00:12:44 ==========================capability start==========================
+2026-03-05 00:12:44 board num = 3
+2026-03-05 00:12:44 board id = 0, chain num = 1
+2026-03-05 00:12:44 	chain id = 0
+2026-03-05 00:12:44 board id = 1, chain num = 1
+2026-03-05 00:12:44 	chain id = 1
+2026-03-05 00:12:44 board id = 2, chain num = 1
+2026-03-05 00:12:44 	chain id = 2
+2026-03-05 00:12:44 ==========================capability end============================
+2026-03-05 00:12:44 chain num = 3
+2026-03-05 00:12:45 load chain 0 eeprom data
+2026-03-05 00:12:47 load chain 1 eeprom data
+2026-03-05 00:12:48 load chain 2 eeprom data
+2026-03-05 00:12:48 eeprom load ret:0
+2026-03-05 00:12:48 miner:BHB56801,board_name:BHB56801
+2026-03-05 00:12:48 create thread get_nonce_and_register_thread
+2026-03-05 00:12:48 fixed working voltage = 1290
+2026-03-05 00:12:48 Chain [0] PCB Version: 0x0220
+2026-03-05 00:12:48 Chain [0] BOM Version: 0x0000
+2026-03-05 00:12:48 Chain [1] PCB Version: 0x0220
+2026-03-05 00:12:48 Chain [1] BOM Version: 0x0000
+2026-03-05 00:12:48 Chain [2] PCB Version: 0x0220
+2026-03-05 00:12:48 Chain [2] BOM Version: 0x0000
+2026-03-05 00:12:50 Fan check passed.
+2026-03-05 00:12:50 init fan pid target=50
+2026-03-05 00:12:50 max sensor num = 4
+2026-03-05 00:12:50 STATUS_INITED: soc init done!
+2026-03-05 00:12:50 temperature_monitor_thread start...
+2026-03-05 00:12:52 start to init...
+2026-03-05 00:12:52 i2c_sim_init start
+2026-03-05 00:12:52 power i2c device:sim_dev addr:0x10 fd:255
+2026-03-05 00:12:52 i2c_sim_init end
+2026-03-05 00:12:53 power open power_version = 0x75
+2026-03-05 00:12:56 power is Calibrated
+2026-03-05 00:12:56 power sn:OLTT323BCJGAJ1009
+2026-03-05 00:12:56 enable_power_calibration,calibration date:211208.
+2026-03-05 00:12:57 power type version: 0x0075
+2026-03-05 00:12:58 disable power watchdog: 0x0000
+2026-03-05 00:13:00 Initializing the power, please wait, this may take up to 2 minutes...
+2026-03-05 00:13:30 Slept 30 seconds, diff = 0.
+2026-03-05 00:13:40 set_voltage_by_steps to 1500.
+2026-03-05 00:13:45 start up min temp by 75a = 19
+2026-03-05 00:13:47 Chain[0]: find 0 asic, times 0
+2026-03-05 00:13:49 Chain[0]: find 0 asic, times 1
+2026-03-05 00:13:51 Chain[0]: find 0 asic, times 2
+2026-03-05 00:13:51 Chain 0 only find 0 asic, will power off hash board 0
+2026-03-05 00:13:51 ERROR_SOC_INIT: soc init failed!
+2026-03-05 00:13:51 stop_mining: soc init failed!
+2026-03-05 00:13:51 uninit_temp_info
+2026-03-05 00:13:51 do not read temp anymore...
+2026-03-05 00:13:51 cancel thread
+2026-03-05 00:13:51 ****power off hashboard****
+2026-03-05 00:13:51 temp monitor thread exit
+2026-03-05 00:13:51 power off
+2026-03-05 00:13:59 Version num 65536
+2026-03-05 00:13:59 Mask num 0x1fffe000
+2026-03-05 00:13:59 Note: addrInterval or corenum is not initialized.
+2026-03-05 00:27:51 ****power off hashboard****
+2026-03-05 00:27:51 power off
+2026-03-05 00:27:56 Miner compile time: Tue Nov 29 11:43:22 CST 2022 type: Antminer S19 XP sn :YNAHEAUBCJFBJ0X56
+2026-03-05 00:27:57 This is fix-freq version
+2026-03-05 00:27:57 Miner compile time: Tue Nov 29 11:43:22 CST 2022 type: Antminer S19 XP
+2026-03-05 00:27:57 Miner sn: YNAHEAUBCJFBJ0X56
+2026-03-05 00:27:57 commit version: dd076742 2022-10-27 22:42:25, build by: jenkins 2022-11-29 12:04:46
+2026-03-05 00:27:57 opt_multi_version     = 1
+2026-03-05 00:27:57 opt_bitmain_ab        = 1
+2026-03-05 00:27:57 mid_auto_gen          = 1
+2026-03-05 00:27:57 opt_bitmain_work_mode = 1
+2026-03-05 00:27:57 port 426 already exported
+2026-03-05 00:27:57 port 427 already exported
+2026-03-05 00:27:57 port 428 already exported
+2026-03-05 00:27:57 port 429 already exported
+2026-03-05 00:27:57 port 430 already exported
+2026-03-05 00:27:57 port 431 already exported
+2026-03-05 00:27:57 port 432 already exported
+2026-03-05 00:27:57 port 433 already exported
+2026-03-05 00:27:57 no board pluged in socket 432
+2026-03-05 00:27:57 port 434 already exported
+2026-03-05 00:27:57 port 435 already exported
+2026-03-05 00:27:57 port 447 already exported
+2026-03-05 00:27:57 port 406 already exported
+2026-03-05 00:27:57 Note: front fan is power on!
+2026-03-05 00:27:57 Note: rear fan is power on!
+2026-03-05 00:27:57 start the http log.
+2026-03-05 00:27:57 httpListenThread start ret=0
+2026-03-05 00:27:57 start listen on 6060 ...
+2026-03-05 00:27:57 load machine BHB56801 conf
+2026-03-05 00:27:57 machine : BHB56801 
+2026-03-05 00:27:57 get test_loop_securely_find_asic_num failed
+2026-03-05 00:27:57 get mix boardname[0][BHB56801], name:BHB56801
+2026-03-05 00:27:57 get mix boardname[1][BHB56802], name:BHB56802
+2026-03-05 00:28:02 power off
+2026-03-05 00:28:03 ==========================capability start==========================
+2026-03-05 00:28:03 board num = 3
+2026-03-05 00:28:03 board id = 0, chain num = 1
+2026-03-05 00:28:03 	chain id = 0
+2026-03-05 00:28:03 board id = 1, chain num = 1
+2026-03-05 00:28:03 	chain id = 1
+2026-03-05 00:28:03 board id = 2, chain num = 1
+2026-03-05 00:28:03 	chain id = 2
+2026-03-05 00:28:03 ==========================capability end============================
+2026-03-05 00:28:03 chain num = 3
+2026-03-05 00:28:04 load chain 0 eeprom data
+2026-03-05 00:28:06 load chain 1 eeprom data
+2026-03-05 00:28:07 load chain 2 eeprom data
+2026-03-05 00:28:07 eeprom load ret:0
+2026-03-05 00:28:07 miner:BHB56801,board_name:BHB56801
+2026-03-05 00:28:07 enter sleep mode.
+2026-03-05 00:28:07 power off
+2026-03-05 01:02:45 Miner compile time: Tue Nov 29 11:43:22 CST 2022 type: Antminer S19 XP sn :YNAHEAUBCJFBJ0X56
+2026-03-05 01:02:46 This is fix-freq version
+2026-03-05 01:02:46 Miner compile time: Tue Nov 29 11:43:22 CST 2022 type: Antminer S19 XP
+2026-03-05 01:02:46 Miner sn: YNAHEAUBCJFBJ0X56
+2026-03-05 01:02:46 commit version: dd076742 2022-10-27 22:42:25, build by: jenkins 2022-11-29 12:04:46
+2026-03-05 01:02:46 opt_multi_version     = 1
+2026-03-05 01:02:46 opt_bitmain_ab        = 1
+2026-03-05 01:02:46 mid_auto_gen          = 1
+2026-03-05 01:02:46 opt_bitmain_work_mode = 0
+2026-03-05 01:02:46 port 426 already exported
+2026-03-05 01:02:46 port 427 already exported
+2026-03-05 01:02:46 port 428 already exported
+2026-03-05 01:02:46 port 429 already exported
+2026-03-05 01:02:46 port 430 already exported
+2026-03-05 01:02:46 port 431 already exported
+2026-03-05 01:02:46 port 432 already exported
+2026-03-05 01:02:46 port 433 already exported
+2026-03-05 01:02:46 no board pluged in socket 432
+2026-03-05 01:02:46 port 434 already exported
+2026-03-05 01:02:46 port 435 already exported
+2026-03-05 01:02:46 port 447 already exported
+2026-03-05 01:02:46 port 406 already exported
+2026-03-05 01:02:46 Note: front fan is power on!
+2026-03-05 01:02:46 Note: rear fan is power on!
+2026-03-05 01:02:46 start the http log.
+2026-03-05 01:02:46 httpListenThread start ret=0
+2026-03-05 01:02:46 start listen on 6060 ...
+2026-03-05 01:02:46 load machine BHB56801 conf
+2026-03-05 01:02:46 machine : BHB56801 
+2026-03-05 01:02:46 get test_loop_securely_find_asic_num failed
+2026-03-05 01:02:46 get mix boardname[0][BHB56801], name:BHB56801
+2026-03-05 01:02:46 get mix boardname[1][BHB56802], name:BHB56802
+2026-03-05 01:02:51 power off
+2026-03-05 01:02:52 ==========================capability start==========================
+2026-03-05 01:02:52 board num = 3
+2026-03-05 01:02:52 board id = 0, chain num = 1
+2026-03-05 01:02:52 	chain id = 0
+2026-03-05 01:02:52 board id = 1, chain num = 1
+2026-03-05 01:02:52 	chain id = 1
+2026-03-05 01:02:52 board id = 2, chain num = 1
+2026-03-05 01:02:52 	chain id = 2
+2026-03-05 01:02:52 ==========================capability end============================
+2026-03-05 01:02:52 chain num = 3
+2026-03-05 01:02:54 load chain 0 eeprom data
+2026-03-05 01:02:55 load chain 1 eeprom data
+2026-03-05 01:02:57 load chain 2 eeprom data
+2026-03-05 01:02:57 eeprom load ret:0
+2026-03-05 01:02:57 miner:BHB56801,board_name:BHB56801
+2026-03-05 01:02:57 create thread get_nonce_and_register_thread
+2026-03-05 01:02:57 fixed working voltage = 1290
+2026-03-05 01:02:57 Chain [0] PCB Version: 0x0220
+2026-03-05 01:02:57 Chain [0] BOM Version: 0x0000
+2026-03-05 01:02:57 Chain [1] PCB Version: 0x0220
+2026-03-05 01:02:57 Chain [1] BOM Version: 0x0000
+2026-03-05 01:02:57 Chain [2] PCB Version: 0x0220
+2026-03-05 01:02:57 Chain [2] BOM Version: 0x0000
+2026-03-05 01:02:59 Fan check passed.
+2026-03-05 01:02:59 init fan pid target=50
+2026-03-05 01:02:59 max sensor num = 4
+2026-03-05 01:02:59 STATUS_INITED: soc init done!
+2026-03-05 01:02:59 temperature_monitor_thread start...
+2026-03-05 01:03:01 start to init...
+2026-03-05 01:03:01 i2c_sim_init start
+2026-03-05 01:03:01 power i2c device:sim_dev addr:0x10 fd:255
+2026-03-05 01:03:01 i2c_sim_init end
+2026-03-05 01:03:02 power open power_version = 0x75
+2026-03-05 01:03:05 power is Calibrated
+2026-03-05 01:03:05 power sn:OLTT323BCJGAJ1009
+2026-03-05 01:03:05 enable_power_calibration,calibration date:211208.
+2026-03-05 01:03:06 power type version: 0x0075
+2026-03-05 01:03:08 disable power watchdog: 0x0000
+2026-03-05 01:03:09 Initializing the power, please wait, this may take up to 2 minutes...
+2026-03-05 01:03:39 Slept 30 seconds, diff = 1.
+2026-03-05 01:03:49 set_voltage_by_steps to 1500.
+2026-03-05 01:03:55 start up min temp by 75a = 16
+2026-03-05 01:03:56 Chain[0]: find 0 asic, times 0
+2026-03-05 01:03:58 Chain[0]: find 0 asic, times 1
+2026-03-05 01:04:00 Chain[0]: find 0 asic, times 2
+2026-03-05 01:04:00 Chain 0 only find 0 asic, will power off hash board 0
+2026-03-05 01:04:00 ERROR_SOC_INIT: soc init failed!
+2026-03-05 01:04:00 stop_mining: soc init failed!
+2026-03-05 01:04:00 uninit_temp_info
+2026-03-05 01:04:00 do not read temp anymore...
+2026-03-05 01:04:00 temp monitor thread exit
+2026-03-05 01:04:00 cancel thread
+2026-03-05 01:04:00 ****power off hashboard****
+2026-03-05 01:04:00 power off
+2026-03-05 01:04:16 Version num 65536
+2026-03-05 01:04:16 Mask num 0x1fffe000
+2026-03-05 01:04:16 Note: addrInterval or corenum is not initialized.

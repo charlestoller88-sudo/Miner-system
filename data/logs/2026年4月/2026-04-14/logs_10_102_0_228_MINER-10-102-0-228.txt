@@ -1,0 +1,1754 @@
+============================================================
+矿机运行日志 - 10.102.0.228
+导出时间: 2026-04-14 05:32:34
+IP: 10.102.0.228  序列号: MINER-10-102-0-228  型号: Antminer S19 XP
+============================================================
+
+[2026-04-14 05:32:34] [SYSTEM_LOG] 矿机后台系统日志（与 Web 界面一致）
+2026-04-14T07:26:20.331070Z [INFO] Detected CPU model AMLOGIC
+2026-04-14T07:26:20.335722Z [INFO] Detected existing root bind mount
+2026-04-14T07:26:20.335809Z [INFO] Detected existing base overlay mount
+2026-04-14T07:26:20.335885Z [INFO] Detected existing etc mount via overlay
+2026-04-14T07:26:20.335960Z [INFO] Note: could not mount an external partition
+2026-04-14T07:26:20.336034Z [INFO] Linked current log directory on: /mnt/ramdisk/logs/current
+2026-04-14T07:26:20.365036Z [INFO] Raw i2detect CB bus output:
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- 48 49 4a -- 4c 4d 4e -- 
+50: 50 51 52 -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --                         
+
+2026-04-14T07:26:27.201673Z [INFO] Raw i2detect PSU bus output:
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: 10 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --                         
+
+
+2026-04-14T07:26:27.209694Z [INFO] Error mapping chip at address 0x48: IoError(Os { code: 22, kind: InvalidInput, message: "Invalid argument" })
+2026-04-14T07:26:27.213053Z [INFO] Error mapping chip at address 0x49: IoError(Os { code: 22, kind: InvalidInput, message: "Invalid argument" })
+2026-04-14T07:26:28.613909Z [INFO] Expected board info CRC: 0xD, got 0xD
+2026-04-14T07:26:28.614046Z [INFO] Expected param info CRC: 0xF, got 0xF
+2026-04-14T07:26:28.614851Z [INFO] Expected extra info CRC: 0xB, got 0xB
+2026-04-14T07:26:28.616236Z [INFO] Board info version: 0x5
+2026-04-14T07:26:28.616343Z [INFO] Encryption algo and key version: 0x11
+2026-04-14T07:26:28.616875Z [INFO] Board serial number: SMTTYPDBCJDJF03E8
+2026-04-14T07:26:28.618467Z [INFO] Default board voltage: 1290cV
+2026-04-14T07:26:28.618602Z [INFO] Default board frequency: 485MHz
+2026-04-14T07:26:28.620230Z [INFO] Connector: 0
+2026-04-14T07:26:28.660721Z [INFO] Expected board info CRC: 0x1A, got 0x1A
+2026-04-14T07:26:28.660852Z [INFO] Expected param info CRC: 0x1B, got 0x1B
+2026-04-14T07:26:28.660957Z [INFO] Expected extra info CRC: 0x0, got 0x0
+2026-04-14T07:26:28.661065Z [INFO] Board info version: 0x5
+2026-04-14T07:26:28.661143Z [INFO] Encryption algo and key version: 0x11
+2026-04-14T07:26:28.661222Z [INFO] Board serial number: SMTTYPDBCJDJF03N8
+2026-04-14T07:26:28.661329Z [INFO] Default board voltage: 1290cV
+2026-04-14T07:26:28.661411Z [INFO] Default board frequency: 460MHz
+2026-04-14T07:26:28.661501Z [INFO] Connector: 1
+2026-04-14T07:26:28.700783Z [INFO] Expected board info CRC: 0x1E, got 0x1E
+2026-04-14T07:26:28.700912Z [INFO] Expected param info CRC: 0xD, got 0xD
+2026-04-14T07:26:28.701020Z [INFO] Expected extra info CRC: 0x7, got 0x7
+2026-04-14T07:26:28.701127Z [INFO] Board info version: 0x5
+2026-04-14T07:26:28.701205Z [INFO] Encryption algo and key version: 0x11
+2026-04-14T07:26:28.701284Z [INFO] Board serial number: SMTTYPDBCJDJF03A7
+2026-04-14T07:26:28.701384Z [INFO] Default board voltage: 1290cV
+2026-04-14T07:26:28.701464Z [INFO] Default board frequency: 435MHz
+2026-04-14T07:26:28.701548Z [INFO] Connector: 2
+2026-04-14T07:26:29.266373Z [INFO] Attempt 1 - Sending message to return PSU power type: [11, 55, AA, 4, 2, 6, 0] :
+2026-04-14T07:26:29.367482Z [INFO] Attempt 1 - Reading PSU power type. command: [11, 55, AA, 4, 2, 6, 0] :
+2026-04-14T07:26:29.980761Z [INFO] Attempt 1 - power type message return: [55, AA, 6, 2, 76, 0, 7E, 0].
+
+2026-04-14T07:26:30.081136Z [INFO] Attempt 1 - Sending message to return PSU firmware version: [11, 55, AA, 4, 1, 5, 0]
+2026-04-14T07:26:30.181443Z [INFO] Attempt 1 - Reading PSU firmware version. command: [11, 55, AA, 4, 1, 5, 0] :
+2026-04-14T07:26:30.468451Z [INFO] Attempt 1 - firmware version message return: [55, AA, 6, 1, 19, 0, 20, 0].
+
+2026-04-14T07:26:30.469200Z [INFO] Setting PSU hw/fw to: 0x76/0x19
+2026-04-14T07:26:30.485653Z [INFO] 
+*** System information summary ***
+- SW: ................. luxminer v2025.12.12.164659 (e88514b22)
+- Package: ............ 2025.12.12-u0
+- Miner model: ........ Antminer S19 XP (s19xp)
+- External storage: ... No
+- RAM storage: ........ Yes, /mnt/ramdisk (rw)
+- Config storage: ..... Yes, /config (rw)
+- Persistent NAND Logs:  /persistent/miner
+- Logs dir: ........... (empty)
+- Logs link: .......... (empty)
+- Profiles dir: ....... /config/profiles
+- Backup dir: ......... /backup/luxminer.conf.d
+- Config dir: ......... /config/luxminer.conf.d
+
+2026-04-14T07:26:30.486489Z [INFO] Checking profiles...
+2026-04-14T07:26:30.491900Z [WARN] Skipped dynamic profile step: frequency out of bounds
+2026-04-14T07:26:30.492485Z [WARN] Skipped dynamic profile step: frequency out of bounds
+2026-04-14T07:26:30.495043Z [WARN] Skipped dynamic profile step: frequency out of bounds
+2026-04-14T07:26:30.503798Z [INFO] Applying configuration...
+2026-04-14T07:26:30.542716Z [INFO] No need to watch partitions; no external partition is being used
+2026-04-14T07:26:30.556728Z [INFO] Starting periodic disk check
+2026-04-14T07:26:30.556722Z [INFO] Starting system audit task
+2026-04-14T07:26:30.565380Z [INFO] Checking available disk space
+2026-04-14T07:26:32.378604Z [WARN] 76 PSU calibration message failed: ChecksumMismatch { hw_type: 118, version: 1 }
+2026-04-14T07:26:34.826433Z [INFO] Current power status: ON
+2026-04-14T07:26:34.845434Z [INFO] Pools configuration:
+Group default, quota: 1:
+  Pools:
+  - url: sha256.poolbinance.com:443, user: NCATX.016
+  - url: btc.poolbinance.com:1800, user: NCATX.016
+  - url: bs.poolbinance.com:3333, user: NCATX.016
+
+2026-04-14T07:26:34.854005Z [INFO] Waiting for board initialization before starting chip healthchecker.
+2026-04-14T07:26:34.868735Z [INFO] 3 boards, 3 identified and 0 disabled
+2026-04-14T07:26:34.893439Z [INFO] Partner ID loaded: foreman
+2026-04-14T07:26:34.912810Z [INFO] Autotuner enabled
+2026-04-14T07:26:34.929223Z [INFO] Current power status: ON
+2026-04-14T07:26:34.941507Z [INFO] Power targeting is now enabled
+2026-04-14T07:26:34.953986Z [INFO] Advanced Thermal Management (ATM) process started (off)
+2026-04-14T07:26:34.967945Z [INFO] Connecting to pool
+2026-04-14T07:26:34.968186Z [INFO] Power Target mode is now active; Legacy ATM will be disabled
+2026-04-14T07:26:34.975289Z [INFO] Pool status changed
+2026-04-14T07:26:34.979941Z [INFO] Power target set
+2026-04-14T07:26:34.992362Z [INFO] Miner is configured for power targeting; skipping the pre-init step
+2026-04-14T07:26:34.995849Z [INFO] Opening TCP connection
+2026-04-14T07:26:35.007829Z [INFO] Starting API server
+2026-04-14T07:26:35.022920Z [INFO] Starting HTTP API
+2026-04-14T07:26:35.053043Z [INFO] Connection successful
+2026-04-14T07:26:35.053344Z [INFO] Pool status changed
+2026-04-14T07:26:35.201633Z [INFO] Starting PIC controller
+2026-04-14T07:26:35.202101Z [INFO] Starting PIC controller
+2026-04-14T07:26:35.202247Z [INFO] Starting PIC controller
+2026-04-14T07:26:35.271776Z [INFO] Authorization successful
+2026-04-14T07:26:35.274053Z [INFO] New pool difficulty
+2026-04-14T07:26:35.368133Z [INFO] Cycle board reset
+2026-04-14T07:26:35.425069Z [INFO] Board reset complete
+2026-04-14T07:26:35.876553Z [INFO] Cycle board reset
+2026-04-14T07:26:35.925827Z [INFO] Board reset complete
+2026-04-14T07:26:36.007750Z [INFO] Connecting to pool
+2026-04-14T07:26:36.008064Z [INFO] Opening TCP connection
+2026-04-14T07:26:36.008865Z [INFO] Pool status changed
+2026-04-14T07:26:36.051477Z [INFO] Connection successful
+2026-04-14T07:26:36.052868Z [INFO] Pool status changed
+2026-04-14T07:26:36.332573Z [INFO] New pool difficulty
+2026-04-14T07:26:36.375535Z [INFO] Authorization successful
+2026-04-14T07:26:36.376616Z [INFO] Cycle board reset
+2026-04-14T07:26:36.426399Z [INFO] Board reset complete
+2026-04-14T07:26:36.647858Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-14T07:26:36.650495Z [ERROR] Initialization of hashboard failed
+2026-04-14T07:26:36.725077Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 1/5 - asic enumeration failure]
+2026-04-14T07:26:36.725313Z [INFO] Board powered off
+2026-04-14T07:26:37.136089Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-14T07:26:37.136237Z [ERROR] Initialization of hashboard failed
+2026-04-14T07:26:37.232014Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 1/5 - asic enumeration failure]
+2026-04-14T07:26:37.232585Z [INFO] Board powered off
+2026-04-14T07:26:37.596243Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-14T07:26:40.849834Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight:  0.00, BottomRight:  0.00, BottomLeft: 24.00
+-   1: TopLeft: 24.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 24.00
+-   2: TopLeft: 42.00, TopRight: 30.00, BottomRight: 30.00, BottomLeft: 42.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T07:26:41.782873Z [INFO] Starting PIC controller
+2026-04-14T07:26:41.966699Z [INFO] Cycle board reset
+2026-04-14T07:26:42.052269Z [INFO] Board reset complete
+2026-04-14T07:26:42.288835Z [INFO] Starting PIC controller
+2026-04-14T07:26:42.466885Z [INFO] Cycle board reset
+2026-04-14T07:26:42.471399Z [INFO] Board reset complete
+2026-04-14T07:26:43.248093Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-14T07:26:43.248244Z [ERROR] Initialization of hashboard failed
+2026-04-14T07:26:43.299297Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 2/5 - asic enumeration failure]
+2026-04-14T07:26:43.299935Z [INFO] Board powered off
+2026-04-14T07:26:43.562640Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:26:43.636060Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-14T07:26:43.636212Z [ERROR] Initialization of hashboard failed
+2026-04-14T07:26:43.703721Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 2/5 - asic enumeration failure]
+2026-04-14T07:26:43.703995Z [INFO] Board powered off
+2026-04-14T07:26:48.357213Z [INFO] Starting PIC controller
+2026-04-14T07:26:48.586699Z [INFO] Cycle board reset
+2026-04-14T07:26:48.596321Z [INFO] Board reset complete
+2026-04-14T07:26:48.763948Z [INFO] Starting PIC controller
+2026-04-14T07:26:49.086864Z [INFO] Cycle board reset
+2026-04-14T07:26:49.115283Z [INFO] Board reset complete
+2026-04-14T07:26:49.848097Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-14T07:26:49.848251Z [ERROR] Initialization of hashboard failed
+2026-04-14T07:26:49.876193Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 3/5 - asic enumeration failure]
+2026-04-14T07:26:49.876572Z [INFO] Board powered off
+2026-04-14T07:26:50.340063Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-14T07:26:50.340223Z [ERROR] Initialization of hashboard failed
+2026-04-14T07:26:50.384502Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 3/5 - asic enumeration failure]
+2026-04-14T07:26:50.385219Z [INFO] Board powered off
+2026-04-14T07:26:50.990481Z [INFO] Current fan status:
+- 0 FAN4:  OK 
+- 1 FAN2:  OK 
+- 2 FAN1: FAIL
+- 3 FAN3:  OK 
+
+2026-04-14T07:26:52.692934Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:26:54.214082Z [INFO] ASIC board summary:
+-   2:  50MHz, Elapsed: 0s, Hashing: NO , 5m:   0.00, 15m:   0.00, 1h:   0.00, Nominal:   4.91
+2026-04-14T07:26:54.230225Z [INFO] First board started; previous autotuner state will be discarded
+2026-04-14T07:26:54.941663Z [INFO] Starting PIC controller
+2026-04-14T07:26:55.235895Z [INFO] Cycle board reset
+2026-04-14T07:26:55.240542Z [INFO] Board reset complete
+2026-04-14T07:26:55.447579Z [INFO] Starting PIC controller
+2026-04-14T07:26:55.742631Z [INFO] Cycle board reset
+2026-04-14T07:26:55.759106Z [INFO] Board reset complete
+2026-04-14T07:26:56.448114Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-14T07:26:56.448273Z [ERROR] Initialization of hashboard failed
+2026-04-14T07:26:56.459164Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 4/5 - asic enumeration failure]
+2026-04-14T07:26:56.459865Z [INFO] Board powered off
+2026-04-14T07:26:56.940068Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-14T07:26:56.940227Z [ERROR] Initialization of hashboard failed
+2026-04-14T07:26:56.965096Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 4/5 - asic enumeration failure]
+2026-04-14T07:26:56.965883Z [INFO] Board powered off
+2026-04-14T07:27:01.512341Z [INFO] Starting PIC controller
+2026-04-14T07:27:01.763838Z [INFO] Shares counter
+2026-04-14T07:27:01.801355Z [INFO] Cycle board reset
+2026-04-14T07:27:01.883274Z [INFO] Board reset complete
+2026-04-14T07:27:02.018112Z [INFO] Starting PIC controller
+2026-04-14T07:27:02.301544Z [INFO] Cycle board reset
+2026-04-14T07:27:02.302104Z [INFO] Board reset complete
+2026-04-14T07:27:03.048144Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-14T07:27:03.048296Z [ERROR] Initialization of hashboard failed
+2026-04-14T07:27:03.130927Z [WARN] Switching off the board; no automatic start scheduled, this board will remain offline [enumeration_reboot, 5/5 - asic enumeration failure]
+2026-04-14T07:27:03.131191Z [INFO] Board powered off
+2026-04-14T07:27:03.540053Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-04-14T07:27:03.540210Z [ERROR] Initialization of hashboard failed
+2026-04-14T07:27:03.636943Z [WARN] Switching off the board; no automatic start scheduled, this board will remain offline [enumeration_reboot, 5/5 - asic enumeration failure]
+2026-04-14T07:27:03.637629Z [INFO] Board powered off
+2026-04-14T07:27:03.637809Z [INFO] Ramping board frequency
+2026-04-14T07:27:03.639337Z [INFO] Ramping board voltage
+2026-04-14T07:27:35.381698Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:27:37.155423Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T07:27:46.184806Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T07:27:54.210565Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T07:27:54.732858Z [INFO] Ramping board frequency
+2026-04-14T07:27:58.352230Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:28:01.247983Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T07:28:01.486800Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:28:02.251344Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T07:28:03.254807Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T07:28:08.271821Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T07:28:10.738183Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:28:14.291087Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T07:28:16.889101Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:28:17.301121Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T07:28:30.660439Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:28:36.177675Z [INFO] Ramping board frequency
+2026-04-14T07:28:38.294259Z [INFO] New pool difficulty
+2026-04-14T07:28:38.362024Z [INFO] New pool difficulty
+2026-04-14T07:28:57.107918Z [INFO] Ramping board frequency
+2026-04-14T07:29:01.458403Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T07:29:14.942965Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:29:18.046970Z [INFO] Ramping board frequency
+2026-04-14T07:29:18.075372Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:29:27.359657Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:29:33.510977Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:29:38.983928Z [INFO] Ramping board frequency
+2026-04-14T07:29:56.450447Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:29:59.819624Z [INFO] Ramping board frequency
+2026-04-14T07:30:11.702925Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:30:20.760331Z [INFO] Ramping board frequency
+2026-04-14T07:30:37.561692Z [INFO] Ramping board frequency
+2026-04-14T07:30:51.342038Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:30:58.500828Z [INFO] Ramping board frequency
+2026-04-14T07:31:11.299083Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:31:19.435562Z [INFO] Ramping board frequency
+2026-04-14T07:31:30.195672Z [INFO] New pool difficulty
+2026-04-14T07:31:30.563897Z [INFO] Checking available disk space
+2026-04-14T07:31:36.235642Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T07:31:42.214226Z [INFO] Current temperatures:
+-   0: TopLeft: 27.00, TopRight:  0.00, BottomRight:  0.00, BottomLeft: 27.00
+-   1: TopLeft: 26.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 26.00
+-   2: TopLeft: 51.00, TopRight: 39.00, BottomRight: 39.00, BottomLeft: 51.00
+
+Fan status:
+[ OK ] (0): FAN4
+[FAIL] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T07:31:50.941580Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:31:51.000402Z [INFO] Starting early optimization phase.
+2026-04-14T07:31:51.003284Z [INFO] Ramping board frequency and voltage
+2026-04-14T07:31:56.931187Z [INFO] ASIC board summary, 13.95V:
+-  *2: 325MHz, Elapsed:     5m 2s, Hashing: YES, 5m:  16.39, 15m:  16.12, 1h:  16.12, Nominal:  31.96
+2026-04-14T07:32:01.754287Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-14T07:32:01.793859Z [INFO] Shares counter
+2026-04-14T07:32:12.349475Z [INFO] Ramping board frequency and voltage
+2026-04-14T07:32:27.656987Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:32:37.731996Z [INFO] Ramping board frequency and voltage
+2026-04-14T07:32:47.433798Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:32:52.610178Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-14T07:32:54.767138Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T07:32:55.770735Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T07:33:03.126355Z [INFO] Ramping board frequency and voltage
+2026-04-14T07:33:04.800449Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T07:33:07.264723Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:33:13.935163Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-14T07:33:21.917565Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T07:33:24.059593Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:33:24.463663Z [INFO] Ramping board frequency and voltage
+2026-04-14T07:33:26.848992Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-14T07:33:45.810050Z [INFO] Ramping board frequency and voltage
+2026-04-14T07:33:49.127122Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T07:33:50.274360Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-14T07:33:54.143064Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T07:33:54.579500Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-14T07:33:56.040985Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:34:00.162694Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T07:34:01.166609Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T07:34:05.126162Z [INFO] Ramping board frequency and voltage
+2026-04-14T07:34:11.200808Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T07:34:11.699191Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-14T07:34:12.204401Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T07:34:22.236695Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T07:34:26.567378Z [INFO] Ramping board frequency and voltage
+2026-04-14T07:34:29.260094Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T07:34:39.308859Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T07:34:44.518081Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:34:48.024189Z [INFO] Starting power tune phase.
+2026-04-14T07:34:55.184831Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:34:56.784288Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:34:58.379415Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:35:16.740592Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:35:19.843091Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:35:39.561749Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:35:50.858990Z [WARN] Job ID not found in the jobs queue; share will not be submitted
+2026-04-14T07:36:09.877539Z [INFO] Ramping board frequency and voltage
+2026-04-14T07:36:16.437898Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-14T07:36:17.696508Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:36:20.743473Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-14T07:36:30.563839Z [INFO] Checking available disk space
+2026-04-14T07:36:40.545197Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:36:43.641996Z [INFO] Current temperatures:
+-   0: TopLeft: 25.00, TopRight:  1.00, BottomRight:  1.00, BottomLeft: 25.00
+-   1: TopLeft: 24.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 24.00
+-   2: TopLeft: 54.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 54.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T07:36:48.230104Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:36:54.409526Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:37:00.356341Z [INFO] ASIC board summary, 13.37V:
+-   2: 385MHz, Elapsed:    10m 6s, Hashing: YES, 5m:  36.24, 15m:  26.09, 1h:  26.09, Nominal:  37.86
+2026-04-14T07:37:02.035591Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:37:06.547610Z [INFO] Shares counter
+2026-04-14T07:37:12.802410Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:37:50.881071Z [INFO] Ramping board frequency and voltage
+2026-04-14T07:37:59.647600Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-14T07:38:04.618665Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:38:23.009431Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:38:30.663431Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:38:50.377303Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:39:13.226748Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:39:19.381019Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:39:30.052371Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:39:32.080967Z [INFO] Ramping board frequency and voltage
+2026-04-14T07:39:36.551485Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-14T07:39:44.803270Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:39:46.400963Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:39:49.066365Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-14T07:39:57.072002Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:40:12.325268Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:40:13.424486Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:41:18.007383Z [INFO] Ramping board frequency and voltage
+2026-04-14T07:41:26.627982Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:41:28.869286Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-14T07:41:30.563419Z [INFO] Checking available disk space
+2026-04-14T07:41:45.002137Z [INFO] Current temperatures:
+-   0: TopLeft: 25.00, TopRight:  0.00, BottomRight:  0.00, BottomLeft: 25.00
+-   1: TopLeft: 24.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 24.00
+-   2: TopLeft: 53.00, TopRight: 38.00, BottomRight: 38.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T07:42:03.171579Z [INFO] ASIC board summary, 13.13V:
+-   2: 402MHz, Elapsed:    15m 9s, Hashing: YES, 5m:  38.62, 15m:  30.56, 1h:  30.25, Nominal:  39.53
+2026-04-14T07:42:03.347074Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:42:07.909209Z [INFO] Shares counter
+2026-04-14T07:42:32.346018Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:42:37.076951Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:42:53.872528Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:42:55.468554Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:42:58.750694Z [INFO] Ramping board frequency and voltage
+2026-04-14T07:43:05.268945Z [WARN] Requested voltage is not reachable; an approximate value will be used instead
+2026-04-14T07:43:07.649151Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:43:10.751439Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:43:26.095536Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:43:53.436779Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:44:39.628451Z [INFO] Ramping board frequency and voltage
+2026-04-14T07:45:20.108338Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:45:23.210517Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:45:35.386654Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:46:30.563494Z [INFO] Checking available disk space
+2026-04-14T07:46:46.568158Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight:  0.00, BottomRight:  0.00, BottomLeft: 24.00
+-   1: TopLeft: 24.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 24.00
+-   2: TopLeft: 53.00, TopRight: 38.00, BottomRight: 38.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T07:46:51.476037Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:47:06.233632Z [INFO] ASIC board summary, 12.94V:
+-   2: 412MHz, Elapsed:   20m 12s, Hashing: YES, 5m:  40.15, 15m:  38.37, 1h:  32.71, Nominal:  40.51
+2026-04-14T07:47:11.254377Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:47:15.377170Z [INFO] Shares counter
+2026-04-14T07:47:22.299994Z [INFO] New pool difficulty
+2026-04-14T07:47:24.995434Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:47:35.844114Z [INFO] Ramping board frequency and voltage
+2026-04-14T07:47:41.756434Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:47:50.890332Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:47:55.534855Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:48:12.356055Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:49:11.125497Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:49:14.288466Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:49:18.961137Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:49:32.707025Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:50:00.115084Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:50:01.710316Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:50:03.310454Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:50:38.172667Z [INFO] Ramping board frequency and voltage
+2026-04-14T07:51:08.908279Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:51:15.027681Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:51:30.563164Z [INFO] Checking available disk space
+2026-04-14T07:51:31.941761Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:51:47.812854Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight:  0.00, BottomRight:  0.00, BottomLeft: 24.00
+-   1: TopLeft: 24.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 24.00
+-   2: TopLeft: 54.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 54.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T07:51:48.818577Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:51:53.430527Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:52:02.625028Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:52:09.548276Z [INFO] ASIC board summary, 12.78V:
+-   2: 427MHz, Elapsed:   25m 15s, Hashing: YES, 5m:  41.42, 15m:  40.09, 1h:  34.45, Nominal:  41.99
+2026-04-14T07:52:14.680488Z [INFO] Ramping board frequency and voltage
+2026-04-14T07:52:19.069671Z [INFO] Shares counter
+2026-04-14T07:52:46.915217Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:53:28.064613Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:55:11.131347Z [INFO] Ramping board frequency and voltage
+2026-04-14T07:55:24.042170Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-14T07:55:38.685325Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:55:56.956018Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:56:15.311172Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:56:30.563594Z [INFO] Checking available disk space
+2026-04-14T07:56:49.285834Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight:  0.00, BottomRight:  0.00, BottomLeft: 24.00
+-   1: TopLeft: 24.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 24.00
+-   2: TopLeft: 53.00, TopRight: 38.00, BottomRight: 38.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T07:57:13.358167Z [INFO] ASIC board summary, 12.63V:
+-   2: 441MHz, Elapsed:   30m 19s, Hashing: YES, 5m:  42.38, 15m:  41.33, 1h:  35.77, Nominal:  43.36
+2026-04-14T07:57:28.783111Z [INFO] Shares counter
+2026-04-14T07:57:44.816683Z [WARN] Temperature Sensor Read Failed
+2026-04-14T07:58:39.327822Z [WARN] Job ID not found in the jobs queue; share will not be submitted
+2026-04-14T07:59:23.630054Z [INFO] Starting domain tune phase
+2026-04-14T08:00:18.659172Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T08:00:24.679075Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T08:00:25.683320Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T08:00:38.777024Z [INFO] Ramping board voltage
+2026-04-14T08:00:42.754944Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T08:00:51.588180Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:00:51.801452Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-14T08:00:54.104633Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-14T08:00:56.408041Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-14T08:00:58.710871Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-14T08:00:58.911445Z [WARN] Mismatch on target frequency; auto-correcting the value with the closest match
+2026-04-14T08:01:13.267885Z [ERROR] Error reading chip PLL
+2026-04-14T08:01:13.268057Z [ERROR] Error reading chip PLL
+2026-04-14T08:01:27.746420Z [INFO] Ramping board voltage
+2026-04-14T08:01:30.563321Z [INFO] Checking available disk space
+2026-04-14T08:01:50.753800Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight:  1.00, BottomRight:  1.00, BottomLeft: 24.00
+-   1: TopLeft: 24.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 24.00
+-   2: TopLeft: 54.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 54.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T08:01:54.046912Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:01:58.689360Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:02:00.289060Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:02:16.921379Z [INFO] ASIC board summary, 12.63V:
+-   2: 445MHz, Elapsed:   35m 22s, Hashing: YES, 5m:  43.12, 15m:  42.33, 1h:  36.82, Nominal:  43.63
+2026-04-14T08:02:31.971457Z [INFO] Shares counter
+2026-04-14T08:03:01.274571Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:03:08.935428Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:03:13.267085Z [INFO] Ramping board voltage
+2026-04-14T08:03:48.684907Z [INFO] Ramping board voltage
+2026-04-14T08:04:34.185434Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:04:55.678760Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:05:10.935120Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:05:12.535317Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:05:29.556254Z [INFO] Ramping board voltage
+2026-04-14T08:05:44.548148Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:05:58.083096Z [INFO] Ramping board voltage
+2026-04-14T08:06:01.399137Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:06:30.563853Z [INFO] Checking available disk space
+2026-04-14T08:06:51.864916Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight:  0.00, BottomRight:  0.00, BottomLeft: 24.00
+-   1: TopLeft: 24.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 24.00
+-   2: TopLeft: 53.00, TopRight: 38.00, BottomRight: 38.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T08:07:00.512677Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:07:02.115211Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:07:08.231963Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:07:20.006281Z [INFO] ASIC board summary, 12.63V:
+-   2: 450MHz, Elapsed:   40m 26s, Hashing: YES, 5m:  43.60, 15m:  43.05, 1h:  37.66, Nominal:  43.94
+2026-04-14T08:07:26.590860Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:07:40.169971Z [INFO] Ramping board voltage
+2026-04-14T08:07:41.874621Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:07:44.860778Z [INFO] Shares counter
+2026-04-14T08:07:53.270087Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-04-14T08:08:01.679768Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:08:15.369979Z [INFO] Ramping board voltage
+2026-04-14T08:08:44.337417Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:08:55.100020Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:09:11.891572Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:09:15.029154Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:09:31.815008Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:09:51.802153Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:09:53.399521Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:09:56.504350Z [INFO] Ramping board voltage
+2026-04-14T08:09:56.507072Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:10:04.193800Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:10:17.943041Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:10:24.821920Z [INFO] Ramping board voltage
+2026-04-14T08:11:05.062017Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T08:11:06.065680Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T08:11:07.069212Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T08:11:08.343533Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:11:12.085819Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T08:11:15.111052Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T08:11:22.120085Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:11:24.217697Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T08:11:25.221311Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T08:11:26.224856Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T08:11:29.234601Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T08:11:30.238022Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T08:11:30.563603Z [INFO] Checking available disk space
+2026-04-14T08:11:53.075738Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight:  3.00, BottomRight:  3.00, BottomLeft: 24.00
+-   1: TopLeft: 24.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 24.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T08:11:54.136869Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:12:00.286767Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:12:08.349662Z [INFO] Ramping board voltage
+2026-04-14T08:12:09.451936Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:12:23.236069Z [INFO] ASIC board summary, 12.88V:
+-  *2: 455MHz, Elapsed:   45m 29s, Hashing: YES, 5m:  43.67, 15m:  43.47, 1h:  38.33, Nominal:  43.89
+2026-04-14T08:12:27.780366Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:12:36.946843Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:12:38.896227Z [INFO] Ramping board voltage
+2026-04-14T08:12:43.124281Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:12:47.764030Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:12:50.725460Z [INFO] Shares counter
+2026-04-14T08:12:58.465635Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:14:10.128351Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:14:19.254206Z [INFO] Ramping board voltage
+2026-04-14T08:14:45.152736Z [INFO] Ramping board voltage
+2026-04-14T08:15:06.528639Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:15:53.767811Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:16:30.563494Z [INFO] Checking available disk space
+2026-04-14T08:16:33.348812Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:16:48.693139Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:16:54.180825Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight:  0.00, BottomRight:  0.00, BottomLeft: 24.00
+-   1: TopLeft: 24.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 24.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T08:17:09.946904Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:17:19.168650Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:17:23.783004Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:17:26.119500Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:   50m 32s, Hashing: YES, 5m:  43.28, 15m:  43.52, 1h:  38.82, Nominal:  43.80
+2026-04-14T08:17:40.891328Z [INFO] Starting tuner maintenance phase
+2026-04-14T08:17:58.957644Z [INFO] Shares counter
+2026-04-14T08:20:46.119935Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:20:53.835145Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:21:13.703152Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:21:18.348101Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:21:27.511768Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:21:30.563078Z [INFO] Checking available disk space
+2026-04-14T08:21:39.716438Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:21:44.332664Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:21:55.700262Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight:  0.00, BottomRight:  0.00, BottomLeft: 24.00
+-   1: TopLeft: 24.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 24.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T08:22:19.360604Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:22:29.384070Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:   55m 35s, Hashing: YES, 5m:  43.43, 15m:  43.46, 1h:  39.24, Nominal:  43.80
+2026-04-14T08:23:01.480185Z [INFO] Shares counter
+2026-04-14T08:23:53.686899Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:24:28.656919Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:24:53.045374Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:25:02.178908Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:25:35.791905Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:25:37.394082Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:25:48.066310Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:26:30.563882Z [INFO] Checking available disk space
+2026-04-14T08:26:44.499989Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:26:53.724525Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:26:57.720032Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight:  0.00, BottomRight:  0.00, BottomLeft: 24.00
+-   1: TopLeft: 24.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 24.00
+-   2: TopLeft: 52.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 52.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T08:27:22.756287Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:27:32.849381Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:    1h 38s, Hashing: YES, 5m:  43.37, 15m:  43.36, 1h:  39.98, Nominal:  43.80
+2026-04-14T08:28:18.152245Z [INFO] Shares counter
+2026-04-14T08:28:58.705856Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:29:00.303168Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:29:12.574298Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:29:21.735798Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:29:27.856701Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:30:05.929994Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:30:21.241619Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:30:24.346698Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:30:30.470915Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:30:47.231566Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:30:54.883372Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:31:30.563595Z [INFO] Checking available disk space
+2026-04-14T08:31:55.098400Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:31:59.650486Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight:  0.00, BottomRight:  0.00, BottomLeft: 24.00
+-   1: TopLeft: 24.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 24.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T08:32:36.212899Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:    ~1h 5m, Hashing: YES, 5m:  43.41, 15m:  43.40, 1h:  41.98, Nominal:  43.80
+2026-04-14T08:33:21.982267Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:33:24.289432Z [INFO] Shares counter
+2026-04-14T08:33:25.087097Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:34:26.017573Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:34:41.235962Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:34:44.345476Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:34:58.027464Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:35:57.323969Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:36:20.175943Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:36:30.563919Z [INFO] Checking available disk space
+2026-04-14T08:37:01.900854Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight:  0.00, BottomRight:  0.00, BottomLeft: 24.00
+-   1: TopLeft: 24.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 24.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T08:37:04.337761Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:37:08.951925Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:37:12.058996Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:37:22.852180Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:37:30.533952Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:37:39.936715Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:   ~1h 10m, Hashing: YES, 5m:  43.37, 15m:  43.38, 1h:  42.53, Nominal:  43.80
+2026-04-14T08:37:53.449331Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:38:28.098177Z [INFO] Shares counter
+2026-04-14T08:39:10.922482Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:40:11.812531Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:40:31.618261Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:40:43.858271Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:40:46.965319Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:41:08.371494Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:41:12.978852Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:41:30.563875Z [INFO] Checking available disk space
+2026-04-14T08:41:58.682315Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:41:59.890952Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T08:42:01.897865Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T08:42:04.305119Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight:  3.00, BottomRight:  3.00, BottomLeft: 24.00
+-   1: TopLeft: 24.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 24.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T08:42:13.965960Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:42:36.821133Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:42:38.418484Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:42:43.606655Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:   ~1h 15m, Hashing: YES, 5m:  43.42, 15m:  43.39, 1h:  42.92, Nominal:  43.80
+2026-04-14T08:43:22.018053Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:43:23.619221Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:43:31.273415Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:43:43.569160Z [INFO] Shares counter
+2026-04-14T08:43:44.193573Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T08:43:46.250749Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T08:43:49.260732Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T08:43:54.277603Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T08:43:56.284522Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T08:44:08.323635Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T08:44:10.330317Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T08:44:23.389783Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T08:44:25.396727Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T08:44:38.517997Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T08:44:40.524564Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T08:44:41.528216Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T08:44:43.550032Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T08:44:44.291630Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:44:45.886732Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:44:47.486322Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:44:50.586307Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:44:53.695903Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:44:54.586298Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T08:44:56.593239Z [INFO] Fan status changes:
+- 1 FAN2:  OK  -> FAIL
+
+2026-04-14T08:44:57.597035Z [INFO] Fan status changes:
+- 1 FAN2: FAIL ->  OK 
+
+2026-04-14T08:44:59.933476Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:46:30.563901Z [INFO] Checking available disk space
+2026-04-14T08:47:06.580581Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight:  0.00, BottomRight:  0.00, BottomLeft: 24.00
+-   1: TopLeft: 24.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 24.00
+-   2: TopLeft: 52.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 52.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T08:47:47.812014Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:   ~1h 20m, Hashing: YES, 5m:  43.35, 15m:  43.37, 1h:  43.18, Nominal:  43.80
+2026-04-14T08:48:38.735548Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:48:50.645356Z [INFO] Shares counter
+2026-04-14T08:50:41.817218Z [WARN] Job ID not found in the jobs queue; share will not be submitted
+2026-04-14T08:51:30.563989Z [INFO] Checking available disk space
+2026-04-14T08:52:08.760023Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight:  0.00, BottomRight:  0.00, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 23.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T08:52:51.195136Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:   ~1h 25m, Hashing: YES, 5m:  43.41, 15m:  43.39, 1h:  43.33, Nominal:  43.80
+2026-04-14T08:53:49.837155Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:53:53.067214Z [INFO] Shares counter
+2026-04-14T08:54:05.029737Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:54:12.810077Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:54:20.469303Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:54:38.792758Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:56:30.564300Z [INFO] Checking available disk space
+2026-04-14T08:57:11.372619Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight:  0.00, BottomRight:  0.00, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 23.00
+-   2: TopLeft: 52.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 52.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T08:57:29.427778Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:57:31.020454Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:57:34.125184Z [WARN] Temperature Sensor Read Failed
+2026-04-14T08:57:54.197717Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:    1h 31m, Hashing: YES, 5m:  43.38, 15m:  43.38, 1h:  43.40, Nominal:  43.80
+2026-04-14T08:58:58.605932Z [INFO] Shares counter
+2026-04-14T09:01:30.563327Z [INFO] Checking available disk space
+2026-04-14T09:02:13.714158Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight:  1.00, BottomRight:  1.00, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 23.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T09:02:58.313309Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:   ~1h 36m, Hashing: YES, 5m:  43.29, 15m:  43.36, 1h:  43.42, Nominal:  43.80
+2026-04-14T09:04:06.128421Z [INFO] Shares counter
+2026-04-14T09:05:37.346159Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:06:30.564038Z [INFO] Checking available disk space
+2026-04-14T09:07:16.545543Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight:  0.00, BottomRight:  0.00, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 23.00
+-   2: TopLeft: 52.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 52.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T09:08:01.534040Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:   ~1h 41m, Hashing: YES, 5m:  43.35, 15m:  43.34, 1h:  43.39, Nominal:  43.80
+2026-04-14T09:09:39.097917Z [INFO] Shares counter
+2026-04-14T09:10:30.938586Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:11:12.091059Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:11:24.360398Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:11:30.563779Z [INFO] Checking available disk space
+2026-04-14T09:12:19.136110Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight:  3.00, BottomRight:  3.00, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 23.00
+-   2: TopLeft: 52.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 52.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T09:13:05.820927Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:   ~1h 46m, Hashing: YES, 5m:  43.36, 15m:  43.34, 1h:  43.37, Nominal:  43.80
+2026-04-14T09:14:09.664757Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:14:12.764726Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:14:28.084040Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:14:35.862017Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:14:40.502669Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:14:46.622307Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:14:54.307033Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:14:54.323210Z [INFO] Shares counter
+2026-04-14T09:16:04.245230Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:16:30.563770Z [INFO] Checking available disk space
+2026-04-14T09:17:21.555247Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight:  0.00, BottomRight:  0.00, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 23.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T09:18:09.644549Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:   ~1h 51m, Hashing: YES, 5m:  43.33, 15m:  43.34, 1h:  43.37, Nominal:  43.80
+2026-04-14T09:19:49.932690Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:19:55.468431Z [INFO] Shares counter
+2026-04-14T09:20:00.631935Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:20:24.934303Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:21:30.563529Z [INFO] Checking available disk space
+2026-04-14T09:22:09.987955Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:22:20.633349Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:22:23.768169Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:22:24.264039Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight:  3.00, BottomRight:  3.00, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 23.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T09:23:13.445498Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:   ~1h 56m, Hashing: YES, 5m:  43.46, 15m:  43.39, 1h:  43.38, Nominal:  43.80
+2026-04-14T09:25:06.234058Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:25:07.446041Z [INFO] Shares counter
+2026-04-14T09:25:30.503392Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:25:39.730839Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:25:41.325870Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:25:49.010893Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:26:12.869530Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:26:30.563910Z [INFO] Checking available disk space
+2026-04-14T09:26:49.530097Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:26:54.204933Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:27:04.932583Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:27:26.998607Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight:  0.00, BottomRight:  0.00, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 23.00
+-   2: TopLeft: 52.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 52.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T09:27:53.243028Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:28:18.254367Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:    ~2h 1m, Hashing: YES, 5m:  43.24, 15m:  43.33, 1h:  43.36, Nominal:  43.80
+2026-04-14T09:28:44.917783Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:29:29.049260Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:30:06.999729Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:30:09.257248Z [INFO] Shares counter
+2026-04-14T09:30:13.153629Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:31:29.210942Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:31:30.563952Z [INFO] Checking available disk space
+2026-04-14T09:31:35.392679Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:32:29.849563Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight:  0.00, BottomRight:  0.00, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 23.00
+-   2: TopLeft: 52.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 52.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T09:32:37.852778Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:33:21.007984Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:    ~2h 6m, Hashing: YES, 5m:  43.32, 15m:  43.34, 1h:  43.36, Nominal:  43.80
+2026-04-14T09:35:17.151585Z [INFO] Shares counter
+2026-04-14T09:36:30.563664Z [INFO] Checking available disk space
+2026-04-14T09:37:32.684103Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight:  0.00, BottomRight:  0.00, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 23.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T09:38:23.685148Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:   ~2h 11m, Hashing: YES, 5m:  43.39, 15m:  43.32, 1h:  43.36, Nominal:  43.80
+2026-04-14T09:39:15.146510Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:39:19.758066Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:40:03.717041Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:40:28.163402Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:41:01.158762Z [INFO] Shares counter
+2026-04-14T09:41:30.563973Z [INFO] Checking available disk space
+2026-04-14T09:42:11.353334Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:42:35.328474Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight:  0.00, BottomRight:  0.00, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 23.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T09:43:07.693319Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:43:26.464884Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:   ~2h 16m, Hashing: YES, 5m:  43.41, 15m:  43.38, 1h:  43.37, Nominal:  43.80
+2026-04-14T09:44:13.022008Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:46:14.812129Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:46:28.091561Z [INFO] Shares counter
+2026-04-14T09:46:30.563490Z [INFO] Checking available disk space
+2026-04-14T09:47:01.814248Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:47:38.078447Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight:  0.00, BottomRight:  0.00, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 23.00
+-   2: TopLeft: 52.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 52.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T09:48:30.167525Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:   ~2h 21m, Hashing: YES, 5m:  43.35, 15m:  43.39, 1h:  43.36, Nominal:  43.80
+2026-04-14T09:51:30.563579Z [INFO] Checking available disk space
+2026-04-14T09:51:37.041428Z [INFO] Shares counter
+2026-04-14T09:52:40.799383Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 23.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T09:53:22.889136Z [WARN] Temperature Sensor Read Failed
+2026-04-14T09:53:33.964865Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:   ~2h 26m, Hashing: YES, 5m:  43.36, 15m:  43.37, 1h:  43.36, Nominal:  43.80
+2026-04-14T09:56:30.563851Z [INFO] Checking available disk space
+2026-04-14T09:56:40.388515Z [INFO] Shares counter
+2026-04-14T09:57:43.577638Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 23.00
+-   2: TopLeft: 52.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 52.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T09:58:37.906278Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:   ~2h 31m, Hashing: YES, 5m:  43.42, 15m:  43.38, 1h:  43.36, Nominal:  43.80
+2026-04-14T09:59:20.907906Z [WARN] Temperature Sensor Read Failed
+2026-04-14T10:00:50.412010Z [WARN] Temperature Sensor Read Failed
+2026-04-14T10:01:30.563769Z [INFO] Checking available disk space
+2026-04-14T10:01:48.309506Z [INFO] Shares counter
+2026-04-14T10:02:21.728180Z [WARN] Temperature Sensor Read Failed
+2026-04-14T10:02:46.328106Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 23.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T10:03:41.186815Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:   ~2h 36m, Hashing: YES, 5m:  43.42, 15m:  43.40, 1h:  43.37, Nominal:  43.80
+2026-04-14T10:04:52.002841Z [WARN] Temperature Sensor Read Failed
+2026-04-14T10:06:30.563896Z [INFO] Checking available disk space
+2026-04-14T10:06:50.688054Z [WARN] Temperature Sensor Read Failed
+2026-04-14T10:06:59.202255Z [INFO] Shares counter
+2026-04-14T10:07:48.560412Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 23.00
+-   2: TopLeft: 52.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 52.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T10:08:44.756968Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:   ~2h 41m, Hashing: YES, 5m:  43.41, 15m:  43.42, 1h:  43.37, Nominal:  43.80
+2026-04-14T10:11:30.563462Z [INFO] Checking available disk space
+2026-04-14T10:12:07.856375Z [INFO] Shares counter
+2026-04-14T10:12:51.502821Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 23.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T10:13:47.312625Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:   ~2h 46m, Hashing: YES, 5m:  43.45, 15m:  43.43, 1h:  43.38, Nominal:  43.80
+2026-04-14T10:16:30.563345Z [INFO] Checking available disk space
+2026-04-14T10:17:11.356734Z [INFO] Shares counter
+2026-04-14T10:17:54.048548Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 23.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T10:18:50.074886Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:   ~2h 51m, Hashing: YES, 5m:  43.22, 15m:  43.36, 1h:  43.37, Nominal:  43.80
+2026-04-14T10:20:45.172026Z [WARN] Temperature Sensor Read Failed
+2026-04-14T10:21:30.563583Z [INFO] Checking available disk space
+2026-04-14T10:22:22.095297Z [INFO] Shares counter
+2026-04-14T10:22:56.624778Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 23.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T10:23:53.177657Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:   ~2h 56m, Hashing: YES, 5m:  43.48, 15m:  43.38, 1h:  43.37, Nominal:  43.80
+2026-04-14T10:25:06.143800Z [WARN] Temperature Sensor Read Failed
+2026-04-14T10:26:30.563499Z [INFO] Checking available disk space
+2026-04-14T10:27:26.299383Z [INFO] Shares counter
+2026-04-14T10:27:59.055613Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 23.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[FAIL] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-14T10:28:56.952521Z [INFO] ASIC board summary, 12.63V:
+-   2: 455MHz, Elapsed:    ~3h 2m, Hashing: YES, 5m:  43.32, 15m:  43.34, 1h:  43.38, Nominal:  43.80
+2026-04-14T10:30:11.188419Z [WARN] Temperature Sensor Read Failed
+2026-04-14T10:31:30.563503Z [INFO] Checking available disk space
+2026-04-14T10:32:25.104573Z [WARN] Temperature Sensor Read Failed
+2026-04-14T10:32:31.555282Z [INFO] Shares counter
+2026-04-14T10:32:32.733225Z [WARN] Temperature Sensor Read Failed
+
+[2026-04-14 05:32:33] [SUMMARY]
+{
+  "STATUS": [
+    {
+      "Code": 11,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "Summary",
+      "STATUS": "S",
+      "When": 1776162753
+    }
+  ],
+  "SUMMARY": [
+    {
+      "Accepted": 933,
+      "Best Share": 131072,
+      "Device Hardware%": 0.0,
+      "Device Rejected%": 0.0,
+      "Difficulty Accepted": 110919680,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "Elapsed": 11158,
+      "Found Blocks": 0,
+      "GHS 15m": 43362.47,
+      "GHS 1m": 43450.01,
+      "GHS 24h": 42089.01,
+      "GHS 30m": 43383.34,
+      "GHS 5m": 43326.38,
+      "GHS 5s": 43980.19,
+      "GHS av": 42166.16,
+      "Get Failures": 0,
+      "Getworks": 1029,
+      "Hardware Errors": 0,
+      "Last getwork": 1776162752,
+      "Local Work": 0,
+      "Network Blocks": 0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Total MH": 42166162.87571788,
+      "Utility": 5.04,
+      "Work Utility": 5.56
+    }
+  ],
+  "id": 1
+}
+
+[2026-04-14 05:32:33] [STATS]
+{
+  "STATS": [
+    {
+      "CompileTime": "Fri Dec 12 16:49:20 UTC 2025",
+      "Miner": "2025.12.12.164659",
+      "Type": "Antminer S19 XP"
+    },
+    {
+      "Calls": 0,
+      "Elapsed": 11158,
+      "GHS 5s": 43980.19,
+      "GHS av": 42166.16,
+      "ID": "BTM_SOC0",
+      "Max": 0,
+      "Min": 99999999,
+      "Mode": 2,
+      "STATS": 0,
+      "Wait": 0,
+      "chain_acn1": 0,
+      "chain_acn2": 0,
+      "chain_acn3": 110,
+      "chain_acn4": 0,
+      "chain_acs1": "",
+      "chain_acs2": "",
+      "chain_acs3": " oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oooo oo",
+      "chain_acs4": "",
+      "chain_hw1": 0,
+      "chain_hw2": 0,
+      "chain_hw3": 0,
+      "chain_hw4": 0,
+      "chain_rate1": "0",
+      "chain_rate2": "0",
+      "chain_rate3": "42166.16",
+      "chain_rate4": "0",
+      "fan1": 4140,
+      "fan2": 4380,
+      "fan3": 0,
+      "fan4": 4020,
+      "fan_num": 4,
+      "freq1": 0.0,
+      "freq2": 0.0,
+      "freq3": 445.45,
+      "freq4": 0.0,
+      "frequency": 455,
+      "miner_count": 1,
+      "miner_id": "0246dad262e5",
+      "miner_version": "2025.12.12.164659",
+      "no_matching_work": 0,
+      "rate_30m": 43383.34,
+      "rate_unit": "GH",
+      "temp1": 0.0,
+      "temp2": 0.0,
+      "temp2_1": 0.0,
+      "temp2_2": 0.0,
+      "temp2_3": 53.0,
+      "temp3": 53.0,
+      "temp_chip1": "0-0-0-0",
+      "temp_chip2": "0-0-0-0",
+      "temp_chip3": "53-37-37-53",
+      "temp_chip4": "0-0-0-0",
+      "temp_max": 53.0,
+      "temp_num": 3,
+      "temp_pcb1": "0-0-0-0",
+      "temp_pcb2": "0-0-0-0",
+      "temp_pcb3": "53-37-37-53",
+      "temp_pcb4": "0-0-0-0",
+      "temp_pic1": "0-0-0-0",
+      "temp_pic2": "0-0-0-0",
+      "temp_pic3": "53-37-37-53",
+      "temp_pic4": "0-0-0-0",
+      "total rate": 42166.16,
+      "total_acn": 4,
+      "total_freqavg": 445.45,
+      "total_rateideal": 43806.0
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 70,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "LUXminer stats",
+      "STATUS": "S",
+      "When": 1776162753
+    }
+  ],
+  "id": 1
+}
+
+[2026-04-14 05:32:33] [DEVS]
+{
+  "DEVS": [
+    {
+      "ASC": 1,
+      "Accepted": 0,
+      "Board": "BHB56801",
+      "Connector": "J13",
+      "ControllerIPVersionHex": "0x0A113D",
+      "ControllerIPVersionStr": "0.11.0",
+      "Device Elapsed": 0,
+      "Device Hardware%": 0,
+      "Device Rejected%": 0,
+      "Diff1 Work": 0,
+      "Difficulty Accepted": 0,
+      "Difficulty Rejected": 0,
+      "Enabled": "Y",
+      "Hardware Error MHS 15m": 0,
+      "Hardware Errors": 0,
+      "ID": 1,
+      "IsRamping": false,
+      "IsUserShutdown": false,
+      "Last Share Difficulty": 0,
+      "Last Share Pool": 0,
+      "Last Share Time": 0,
+      "Last Valid Work": 0,
+      "MHS 15m": 0.0,
+      "MHS 1m": 0.0,
+      "MHS 30m": 0.0,
+      "MHS 5m": 0.0,
+      "MHS 5s": 0.0,
+      "MHS 60m": 0.0,
+      "MHS av": 0.0,
+      "Name": "",
+      "Nominal MHS": 0.0,
+      "Profile": "default",
+      "Rejected": 0,
+      "SerialNumber": "SMTTYPDBCJDJF03N8",
+      "Status": "Dead",
+      "Temperature": 23.0,
+      "Total MH": 0.0,
+      "Utility": 0
+    },
+    {
+      "ASC": 0,
+      "Accepted": 0,
+      "Board": "BHB56801",
+      "Connector": "J11",
+      "ControllerIPVersionHex": "0x0A113D",
+      "ControllerIPVersionStr": "0.11.0",
+      "Device Elapsed": 0,
+      "Device Hardware%": 0,
+      "Device Rejected%": 0,
+      "Diff1 Work": 0,
+      "Difficulty Accepted": 0,
+      "Difficulty Rejected": 0,
+      "Enabled": "Y",
+      "Hardware Error MHS 15m": 0,
+      "Hardware Errors": 0,
+      "ID": 0,
+      "IsRamping": false,
+      "IsUserShutdown": false,
+      "Last Share Difficulty": 0,
+      "Last Share Pool": 0,
+      "Last Share Time": 0,
+      "Last Valid Work": 0,
+      "MHS 15m": 0.0,
+      "MHS 1m": 0.0,
+      "MHS 30m": 0.0,
+      "MHS 5m": 0.0,
+      "MHS 5s": 0.0,
+      "MHS 60m": 0.0,
+      "MHS av": 0.0,
+      "Name": "",
+      "Nominal MHS": 0.0,
+      "Profile": "default",
+      "Rejected": 0,
+      "SerialNumber": "SMTTYPDBCJDJF03E8",
+      "Status": "Dead",
+      "Temperature": 23.0,
+      "Total MH": 0.0,
+      "Utility": 0
+    },
+    {
+      "ASC": 2,
+      "Accepted": 933,
+      "Board": "BHB56801",
+      "Connector": "J12",
+      "ControllerIPVersionHex": "0x0A113D",
+      "ControllerIPVersionStr": "0.11.0",
+      "Device Elapsed": 11135,
+      "Device Hardware%": 0,
+      "Device Rejected%": 0,
+      "Diff1 Work": 110919680,
+      "Difficulty Accepted": 110919680,
+      "Difficulty Rejected": 0,
+      "Enabled": "Y",
+      "Hardware Error MHS 15m": 0,
+      "Hardware Errors": 0,
+      "ID": 2,
+      "IsRamping": false,
+      "IsUserShutdown": false,
+      "Last Share Difficulty": 131072,
+      "Last Share Pool": 1,
+      "Last Share Time": 1776162751,
+      "Last Valid Work": 1776162751,
+      "MHS 15m": 43362474.00006802,
+      "MHS 1m": 43450010.23798862,
+      "MHS 30m": 43383346.76064552,
+      "MHS 5m": 43326387.49947496,
+      "MHS 5s": 43980192.57692643,
+      "MHS 60m": 43387373.03257202,
+      "MHS av": 42166162.87571788,
+      "Name": "",
+      "Nominal MHS": 43806000.0,
+      "Profile": "default",
+      "Rejected": 0,
+      "SerialNumber": "SMTTYPDBCJDJF03A7",
+      "Status": "Alive",
+      "Temperature": 53.0,
+      "Total MH": 42166162.87571788,
+      "Utility": 0
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 9,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "3 ASC(s)",
+      "STATUS": "S",
+      "When": 1776162753
+    }
+  ],
+  "id": 1
+}
+
+[2026-04-14 05:32:33] [POOLS]
+{
+  "POOLS": [
+    {
+      "Accepted": 933,
+      "AsicBoost": true,
+      "Bad Work": 0,
+      "Best Share": 131072,
+      "Current Block Height": 0,
+      "Current Block Version": 536870912,
+      "Diff": "131K",
+      "Diff1 Shares": 110919680,
+      "Difficulty Accepted": 110919680,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "GROUP": 0,
+      "Get Failures": 0,
+      "Getworks": 1029,
+      "Has GBT": false,
+      "Has Stratum": true,
+      "Has Vmask": true,
+      "Last Share Difficulty": 131072,
+      "Last Share Time": "00:00:02",
+      "Long Pool": "N",
+      "POOL": 0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Priority": 0,
+      "Proxy": "",
+      "Proxy Type": "",
+      "Quota": 1.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Status": "Alive",
+      "Stratum Active": true,
+      "Stratum Difficulty": 131072,
+      "Stratum URL": "sha256.poolbinance.com:443",
+      "URL": "stratum+tcp://sha256.poolbinance.com:443",
+      "User": "NCATX.016",
+      "Work Difficulty": 131072,
+      "Works": 0
+    },
+    {
+      "Accepted": 0,
+      "AsicBoost": true,
+      "Bad Work": 0,
+      "Best Share": 0,
+      "Current Block Height": 0,
+      "Current Block Version": 0,
+      "Diff": "0",
+      "Diff1 Shares": 0,
+      "Difficulty Accepted": 0,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "GROUP": 0,
+      "Get Failures": 0,
+      "Getworks": 0,
+      "Has GBT": false,
+      "Has Stratum": true,
+      "Has Vmask": true,
+      "Last Share Difficulty": 0,
+      "Last Share Time": "03:05:58",
+      "Long Pool": "N",
+      "POOL": 1,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Priority": 1,
+      "Proxy": "",
+      "Proxy Type": "",
+      "Quota": 1.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Status": "Dead",
+      "Stratum Active": false,
+      "Stratum Difficulty": 0,
+      "Stratum URL": "btc.poolbinance.com:1800",
+      "URL": "stratum+tcp://btc.poolbinance.com:1800",
+      "User": "NCATX.016",
+      "Work Difficulty": 0,
+      "Works": 0
+    },
+    {
+      "Accepted": 0,
+      "AsicBoost": true,
+      "Bad Work": 0,
+      "Best Share": 0,
+      "Current Block Height": 0,
+      "Current Block Version": 0,
+      "Diff": "0",
+      "Diff1 Shares": 0,
+      "Difficulty Accepted": 0,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "GROUP": 0,
+      "Get Failures": 0,
+      "Getworks": 0,
+      "Has GBT": false,
+      "Has Stratum": true,
+      "Has Vmask": true,
+      "Last Share Difficulty": 0,
+      "Last Share Time": "03:05:58",
+      "Long Pool": "N",
+      "POOL": 2,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Priority": 2,
+      "Proxy": "",
+      "Proxy Type": "",
+      "Quota": 1.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Status": "Dead",
+      "Stratum Active": false,
+      "Stratum Difficulty": 0,
+      "Stratum URL": "bs.poolbinance.com:3333",
+      "URL": "stratum+tcp://bs.poolbinance.com:3333",
+      "User": "NCATX.016",
+      "Work Difficulty": 0,
+      "Works": 0
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 7,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "3 Pool(s)",
+      "STATUS": "S",
+      "When": 1776162753
+    }
+  ],
+  "id": 1
+}
+
+[2026-04-14 05:32:33] [CONFIG]
+{
+  "CONFIG": [
+    {
+      "ASC Count": 3,
+      "ActualPowerTarget": 947,
+      "BcastAddr": "10.102.1.255",
+      "ControlBoardType": "amlogic",
+      "Cooling": "Air",
+      "CurtailMode": "None",
+      "DHCP": true,
+      "DNS Servers": "",
+      "Device Code": "",
+      "FPGABuildIdHex": "0x000A113D",
+      "FPGABuildIdStr": "2000-0A-11 3D:00",
+      "FeeStatus": "Ok",
+      "Gateway": "10.102.0.1",
+      "GreenLed": "auto",
+      "Hostname": "Antminer",
+      "Hotplug": "None",
+      "IPAddr": "10.102.0.228",
+      "IdealPowerTarget": 2840,
+      "ImmersionMode": false,
+      "IsAtmEnabled": false,
+      "IsPowerSupplyOn": true,
+      "IsPowerTargetEnabled": true,
+      "IsSingleVoltage": true,
+      "IsTuning": true,
+      "Log Interval": 0,
+      "LogFileLevel": "info",
+      "MACAddr": "02:46:da:d2:62:e5",
+      "Model": "Antminer S19 XP",
+      "NameplateTHS": 134.0,
+      "Netmask": "255.255.254.0",
+      "OS": "LuxOS",
+      "PGA Count": 0,
+      "PIC": "NoPIC",
+      "PSUHwVersion": "76",
+      "PSULabel": "APW121215f",
+      "Pool Count": 3,
+      "PowerLimit": 2840,
+      "Profile": "default",
+      "ProfileStep": "0",
+      "RedLed": "auto",
+      "SerialNumber": "SMTTEAUBCJDJC074Y",
+      "Strategy": "Failover",
+      "SystemStatus": "Normal",
+      "UpdateOnStartup": "off",
+      "UpdateOnTimeout": "off",
+      "UpdateOnUser": "full",
+      "UpdateSource": "https://storage.googleapis.com/luxor-firmware/stable",
+      "UpdateTimeout": 60
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 33,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "LUXminer config",
+      "STATUS": "S",
+      "When": 1776162753
+    }
+  ],
+  "id": 1
+}

@@ -100,6 +100,17 @@
             border-radius: 8px;
             margin-top: 20px;
         }
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: white;
+        }
+        .tag-high { background: #c0392b; }
+        .tag-mid { background: #d68910; }
+        .tag-low { background: #2980b9; }
         .summary-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -241,6 +252,29 @@
             <p style="color:#7f8c8d; font-size:0.9rem; margin-bottom:15px;">仅显示当前零算力或低算力（&lt;50 TH/s）的矿机，可逐台下载运行日志便于分析。若无日志请先到矿机详情页点击「刷新日志」。</p>
             <div id="faultMinersContainer">
                 <div style="text-align:center; color:#999; padding:20px;">点击「刷新列表」加载故障矿机</div>
+            </div>
+        </div>
+
+        <!-- 长期故障矿机 -->
+        <div class="report-section" style="margin-top: 24px;">
+            <div class="section-header">
+                <h3><i class="fas fa-tools"></i> 长期故障矿机（连续故障）</h3>
+                <div style="display:flex; gap:8px; align-items:center;">
+                    <label style="font-size:0.9rem; color:#555;">
+                        连续故障 ≥
+                        <input id="longFaultMinHours" type="number" min="1" value="24" style="width:70px; margin:0 4px; padding:4px;">
+                        小时
+                    </label>
+                    <button class="btn-sm btn-secondary" onclick="loadLongFaultMiners()">
+                        <i class="fas fa-sync-alt"></i> 刷新列表
+                    </button>
+                </div>
+            </div>
+            <p style="color:#7f8c8d; font-size:0.9rem; margin-bottom:15px;">
+                按“当前仍故障且连续故障时长”排序，优先用于维护计划和下架维修排期。
+            </p>
+            <div id="longFaultMinersContainer">
+                <div style="text-align:center; color:#999; padding:20px;">点击「刷新列表」加载长期故障矿机</div>
             </div>
         </div>
 
@@ -571,10 +605,54 @@
             }
         }
 
+        // 加载长期故障矿机（连续故障时长）
+        async function loadLongFaultMiners() {
+            const container = document.getElementById('longFaultMinersContainer');
+            const minHoursInput = document.getElementById('longFaultMinHours');
+            const minHours = Math.max(1, parseInt(minHoursInput.value || '24', 10));
+            minHoursInput.value = minHours;
+            container.innerHTML = '<div style="text-align:center; color:#3498db; padding:20px;"><i class="fas fa-spinner fa-spin"></i> 加载中...</div>';
+            try {
+                const res = await fetch('/api/statistics/long-fault-miners?min_hours=' + encodeURIComponent(minHours) + '&max_rows=120');
+                const data = await res.json();
+                if (!data.success || !data.long_fault_miners || data.long_fault_miners.length === 0) {
+                    container.innerHTML = '<div style="text-align:center; color:#7f8c8d; padding:20px;">当前无连续故障超过 ' + minHours + ' 小时的矿机</div>';
+                    return;
+                }
+                let html = '<table class="report-table"><thead><tr><th>IP</th><th>序列号</th><th>型号</th><th>状态</th><th>当前算力</th><th>连续故障时长</th><th>建议动作</th><th>操作</th></tr></thead><tbody>';
+                data.long_fault_miners.forEach(function(m) {
+                    const hashrateDisplay = m.hashrate !== null ? (m.hashrate + ' TH/s') : '无数据';
+                    const status = m.status || 'unknown';
+                    const action = m.action || '建议继续观察';
+                    let tagClass = 'tag-low';
+                    if ((m.fault_duration_hours || 0) >= 72) tagClass = 'tag-high';
+                    else if ((m.fault_duration_hours || 0) >= 24) tagClass = 'tag-mid';
+                    html += '<tr>'
+                        + '<td>' + (m.ip_address || '-') + '</td>'
+                        + '<td>' + (m.serial_number || '-') + '</td>'
+                        + '<td>' + (m.model || '-') + '</td>'
+                        + '<td>' + status + '</td>'
+                        + '<td>' + hashrateDisplay + '</td>'
+                        + '<td>' + (m.fault_duration_hours || 0) + ' 小时</td>'
+                        + '<td><span class="tag ' + tagClass + '">' + action + '</span></td>'
+                        + '<td>'
+                        + '<a href="/miner/' + m.id + '" class="btn btn-sm btn-info" style="margin-right:6px;"><i class="fas fa-eye"></i> 详情</a>'
+                        + '<a href="/api/statistics/export-fault-miner-logs?miner_id=' + m.id + '" class="btn btn-sm btn-secondary" download><i class="fas fa-download"></i> 日志</a>'
+                        + '</td>'
+                        + '</tr>';
+                });
+                html += '</tbody></table>';
+                container.innerHTML = html;
+            } catch (e) {
+                container.innerHTML = '<div style="text-align:center; color:#e74c3c;">加载失败: ' + (e.message || '未知错误') + '</div>';
+            }
+        }
+
         // 页面加载时自动获取数据
         document.addEventListener('DOMContentLoaded', function() {
             loadStatistics();
             loadFaultMiners();
+            loadLongFaultMiners();
         });
     </script>
 </body>

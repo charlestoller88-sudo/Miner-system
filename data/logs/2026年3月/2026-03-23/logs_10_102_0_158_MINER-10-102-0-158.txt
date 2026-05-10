@@ -1,0 +1,1821 @@
+============================================================
+矿机运行日志 - 10.102.0.158
+导出时间: 2026-03-23 00:02:37
+IP: 10.102.0.158  序列号: MINER-10-102-0-158  型号: Antminer S19 XP
+============================================================
+
+[2026-03-23 00:02:37] [SYSTEM_LOG] 矿机后台系统日志（与 Web 界面一致）
+2026-03-23T00:19:42.348257Z [INFO] Detected CPU model AMLOGIC
+2026-03-23T00:19:42.353434Z [INFO] Detected existing root bind mount
+2026-03-23T00:19:42.353536Z [INFO] Detected existing base overlay mount
+2026-03-23T00:19:42.353639Z [INFO] Detected existing etc mount via overlay
+2026-03-23T00:19:42.353740Z [INFO] Note: could not mount an external partition
+2026-03-23T00:19:42.353839Z [INFO] Linked current log directory on: /mnt/ramdisk/logs/current
+2026-03-23T00:19:42.382914Z [INFO] Raw i2detect CB bus output:
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- 48 49 4a -- 4c 4d 4e -- 
+50: 50 51 52 -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --                         
+
+2026-03-23T00:19:51.125837Z [INFO] Raw i2detect PSU bus output:
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: 10 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --                         
+
+
+2026-03-23T00:19:51.134521Z [INFO] Error mapping chip at address 0x48: IoError(Os { code: 22, kind: InvalidInput, message: "Invalid argument" })
+2026-03-23T00:19:51.137770Z [INFO] Error mapping chip at address 0x49: IoError(Os { code: 22, kind: InvalidInput, message: "Invalid argument" })
+2026-03-23T00:19:51.352069Z [INFO] Expected board info CRC: 0x3, got 0x3
+2026-03-23T00:19:51.352208Z [INFO] Expected param info CRC: 0x4, got 0x4
+2026-03-23T00:19:51.353035Z [INFO] Expected extra info CRC: 0xB, got 0xB
+2026-03-23T00:19:51.354469Z [INFO] Board info version: 0x5
+2026-03-23T00:19:51.354600Z [INFO] Encryption algo and key version: 0x11
+2026-03-23T00:19:51.355151Z [INFO] Board serial number: YNAHYPDBCJFBJ2108
+2026-03-23T00:19:51.356904Z [INFO] Default board voltage: 1270cV
+2026-03-23T00:19:51.357047Z [INFO] Default board frequency: 485MHz
+2026-03-23T00:19:51.358654Z [INFO] Connector: 0
+2026-03-23T00:19:51.399189Z [INFO] Expected board info CRC: 0xF, got 0xF
+2026-03-23T00:19:51.399386Z [INFO] Expected param info CRC: 0x4, got 0x4
+2026-03-23T00:19:51.399494Z [INFO] Expected extra info CRC: 0xB, got 0xB
+2026-03-23T00:19:51.399621Z [INFO] Board info version: 0x5
+2026-03-23T00:19:51.399701Z [INFO] Encryption algo and key version: 0x11
+2026-03-23T00:19:51.399853Z [INFO] Board serial number: SMTTYPDBCJDJC00HJ
+2026-03-23T00:19:51.399957Z [INFO] Default board voltage: 1270cV
+2026-03-23T00:19:51.400035Z [INFO] Default board frequency: 485MHz
+2026-03-23T00:19:51.400119Z [INFO] Connector: 1
+2026-03-23T00:19:51.439427Z [INFO] Expected board info CRC: 0x12, got 0x12
+2026-03-23T00:19:51.439557Z [INFO] Expected param info CRC: 0x4, got 0x4
+2026-03-23T00:19:51.439665Z [INFO] Expected extra info CRC: 0xB, got 0xB
+2026-03-23T00:19:51.439823Z [INFO] Board info version: 0x5
+2026-03-23T00:19:51.439908Z [INFO] Encryption algo and key version: 0x11
+2026-03-23T00:19:51.439989Z [INFO] Board serial number: YNAHYPDBCJFBJ2MEA
+2026-03-23T00:19:51.440090Z [INFO] Default board voltage: 1270cV
+2026-03-23T00:19:51.440170Z [INFO] Default board frequency: 485MHz
+2026-03-23T00:19:51.440255Z [INFO] Connector: 2
+2026-03-23T00:19:52.004540Z [INFO] Attempt 1 - Sending message to return PSU power type: [11, 55, AA, 4, 2, 6, 0] :
+2026-03-23T00:19:52.104392Z [INFO] Attempt 1 - Reading PSU power type. command: [11, 55, AA, 4, 2, 6, 0] :
+2026-03-23T00:19:52.717792Z [INFO] Attempt 1 - power type message return: [55, AA, 6, 2, 75, 0, 7D, 0].
+
+2026-03-23T00:19:52.818207Z [INFO] Attempt 1 - Sending message to return PSU firmware version: [11, 55, AA, 4, 1, 5, 0]
+2026-03-23T00:19:52.918438Z [INFO] Attempt 1 - Reading PSU firmware version. command: [11, 55, AA, 4, 1, 5, 0] :
+2026-03-23T00:19:53.206019Z [INFO] Attempt 1 - firmware version message return: [55, AA, 6, 1, 19, 0, 20, 0].
+
+2026-03-23T00:19:53.206745Z [INFO] Setting PSU hw/fw to: 0x75/0x19
+2026-03-23T00:19:53.224584Z [INFO] 
+*** System information summary ***
+- SW: ................. luxminer v2025.12.12.164659 (e88514b22)
+- Package: ............ 2025.12.12-u0
+- Miner model: ........ Antminer S19 XP (s19xp)
+- External storage: ... No
+- RAM storage: ........ Yes, /mnt/ramdisk (rw)
+- Config storage: ..... Yes, /config (rw)
+- Persistent NAND Logs:  /persistent/miner
+- Logs dir: ........... (empty)
+- Logs link: .......... (empty)
+- Profiles dir: ....... /config/profiles
+- Backup dir: ......... /backup/luxminer.conf.d
+- Config dir: ......... /config/luxminer.conf.d
+
+2026-03-23T00:19:53.225455Z [INFO] Checking profiles...
+2026-03-23T00:19:53.231348Z [WARN] Skipped dynamic profile step: frequency out of bounds
+2026-03-23T00:19:53.242730Z [INFO] Applying configuration...
+2026-03-23T00:19:53.292526Z [INFO] Starting system audit task
+2026-03-23T00:19:53.296328Z [INFO] No need to watch partitions; no external partition is being used
+2026-03-23T00:19:53.305656Z [INFO] Starting periodic disk check
+2026-03-23T00:19:53.309221Z [INFO] Checking available disk space
+2026-03-23T00:19:57.669241Z [INFO] Current power status: ON
+2026-03-23T00:19:57.693775Z [INFO] Pools configuration:
+Group default, quota: 1:
+  Pools:
+  - url: sha256.poolbinance.com:443, user: NCATX.093
+  - url: btc.poolbinance.com:1800, user: NCATX.093
+  - url: bs.poolbinance.com:3333, user: NCATX.093
+
+2026-03-23T00:19:57.701428Z [INFO] Waiting for board initialization before starting chip healthchecker.
+2026-03-23T00:19:57.715709Z [INFO] 3 boards, 3 identified and 0 disabled
+2026-03-23T00:19:57.734124Z [INFO] Partner ID loaded: foreman
+2026-03-23T00:19:57.746516Z [INFO] Autotuner enabled
+2026-03-23T00:19:57.781210Z [INFO] Current power status: ON
+2026-03-23T00:19:57.784609Z [INFO] Power targeting is now enabled
+2026-03-23T00:19:57.802077Z [INFO] Connecting to pool
+2026-03-23T00:19:57.803362Z [INFO] Pool status changed
+2026-03-23T00:19:57.811291Z [INFO] Advanced Thermal Management (ATM) process started (off)
+2026-03-23T00:19:57.820416Z [INFO] Power Target mode is now active; Legacy ATM will be disabled
+2026-03-23T00:19:57.839204Z [INFO] Opening TCP connection
+2026-03-23T00:19:57.839445Z [INFO] Power target set
+2026-03-23T00:19:57.848994Z [INFO] Miner is configured for power targeting; skipping the pre-init step
+2026-03-23T00:19:57.855025Z [INFO] Starting API server
+2026-03-23T00:19:57.867924Z [INFO] Starting HTTP API
+2026-03-23T00:19:57.915588Z [INFO] Connection successful
+2026-03-23T00:19:57.915978Z [INFO] Pool status changed
+2026-03-23T00:19:58.057930Z [INFO] Starting PIC controller
+2026-03-23T00:19:58.058076Z [INFO] Starting PIC controller
+2026-03-23T00:19:58.058167Z [INFO] Starting PIC controller
+2026-03-23T00:19:58.159988Z [INFO] Authorization successful
+2026-03-23T00:19:58.162326Z [INFO] New pool difficulty
+2026-03-23T00:19:58.200914Z [INFO] Cycle board reset
+2026-03-23T00:19:58.254022Z [INFO] Board reset complete
+2026-03-23T00:19:58.708925Z [INFO] Cycle board reset
+2026-03-23T00:19:58.755326Z [INFO] Board reset complete
+2026-03-23T00:19:58.860995Z [INFO] Connecting to pool
+2026-03-23T00:19:58.861285Z [INFO] Opening TCP connection
+2026-03-23T00:19:58.861873Z [INFO] Pool status changed
+2026-03-23T00:19:58.932665Z [INFO] Connection successful
+2026-03-23T00:19:58.933198Z [INFO] Pool status changed
+2026-03-23T00:19:59.209083Z [INFO] Cycle board reset
+2026-03-23T00:19:59.256904Z [INFO] Board reset complete
+2026-03-23T00:19:59.304953Z [INFO] New pool difficulty
+2026-03-23T00:19:59.344169Z [INFO] Authorization successful
+2026-03-23T00:19:59.485416Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-03-23T00:19:59.486751Z [ERROR] Initialization of hashboard failed
+2026-03-23T00:19:59.583881Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 1/5 - asic enumeration failure]
+2026-03-23T00:19:59.584537Z [INFO] Board powered off
+2026-03-23T00:19:59.972902Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-03-23T00:20:00.488168Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-03-23T00:20:00.488319Z [ERROR] Initialization of hashboard failed
+2026-03-23T00:20:00.499657Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 1/5 - asic enumeration failure]
+2026-03-23T00:20:00.500319Z [INFO] Board powered off
+2026-03-23T00:20:03.708761Z [INFO] Current temperatures:
+-   0: TopLeft: 31.00, TopRight: 32.00, BottomRight: 32.00, BottomLeft: 31.00
+-   1: TopLeft: 31.00, TopRight: 31.00, BottomRight: 31.00, BottomLeft: 31.00
+-   2: TopLeft: 31.00, TopRight: 31.00, BottomRight: 31.00, BottomLeft: 31.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T00:20:04.643500Z [INFO] Starting PIC controller
+2026-03-23T00:20:04.738292Z [INFO] Cycle board reset
+2026-03-23T00:20:04.781993Z [INFO] Board reset complete
+2026-03-23T00:20:05.552770Z [INFO] Starting PIC controller
+2026-03-23T00:20:05.738329Z [INFO] Cycle board reset
+2026-03-23T00:20:05.801166Z [INFO] Board reset complete
+2026-03-23T00:20:05.988370Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-03-23T00:20:06.988226Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-03-23T00:20:06.988381Z [ERROR] Initialization of hashboard failed
+2026-03-23T00:20:07.070062Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 2/5 - asic enumeration failure]
+2026-03-23T00:20:07.070628Z [INFO] Board powered off
+2026-03-23T00:20:12.129076Z [INFO] Starting PIC controller
+2026-03-23T00:20:12.273294Z [INFO] Cycle board reset
+2026-03-23T00:20:12.325678Z [INFO] Board reset complete
+2026-03-23T00:20:13.624129Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-03-23T00:20:13.624280Z [ERROR] Initialization of hashboard failed
+2026-03-23T00:20:13.646434Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 3/5 - asic enumeration failure]
+2026-03-23T00:20:13.646933Z [INFO] Board powered off
+2026-03-23T00:20:13.844630Z [INFO] Current fan status:
+- 0 FAN4:  OK 
+- 1 FAN2:  OK 
+- 2 FAN1:  OK 
+- 3 FAN3:  OK 
+
+2026-03-23T00:20:16.523759Z [INFO] ASIC board summary:
+-   1:  50MHz, Elapsed: 0s, Hashing: NO , 5m:   0.00, 15m:   0.00, 1h:   0.00, Nominal:   4.91
+2026-03-23T00:20:16.579850Z [INFO] First board started; previous autotuner state will be discarded
+2026-03-23T00:20:18.708820Z [INFO] Starting PIC controller
+2026-03-23T00:20:18.802087Z [INFO] Cycle board reset
+2026-03-23T00:20:18.849714Z [INFO] Board reset complete
+2026-03-23T00:20:20.124152Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-03-23T00:20:20.124325Z [ERROR] Initialization of hashboard failed
+2026-03-23T00:20:20.124867Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 4/5 - asic enumeration failure]
+2026-03-23T00:20:20.125216Z [INFO] Board powered off
+2026-03-23T00:20:25.184562Z [INFO] Starting PIC controller
+2026-03-23T00:20:25.330530Z [INFO] Cycle board reset
+2026-03-23T00:20:25.373570Z [INFO] Board reset complete
+2026-03-23T00:20:26.624135Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-03-23T00:20:26.624286Z [ERROR] Initialization of hashboard failed
+2026-03-23T00:20:26.703060Z [WARN] Switching off the board; no automatic start scheduled, this board will remain offline [enumeration_reboot, 5/5 - asic enumeration failure]
+2026-03-23T00:20:26.703396Z [INFO] Board powered off
+2026-03-23T00:20:26.703532Z [INFO] Ramping board frequency
+2026-03-23T00:20:26.703636Z [INFO] Ramping board frequency
+2026-03-23T00:20:26.705044Z [INFO] Ramping board voltage
+2026-03-23T00:20:26.706850Z [INFO] Ramping board voltage
+2026-03-23T00:21:02.694102Z [INFO] Shares counter
+2026-03-23T00:21:17.985971Z [INFO] Ramping board frequency
+2026-03-23T00:21:17.986125Z [INFO] Ramping board frequency
+2026-03-23T00:21:21.097246Z [ERROR] Error reading chip PLL
+2026-03-23T00:21:22.321102Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:21:23.121666Z [ERROR] Error reading chip PLL
+2026-03-23T00:21:24.824276Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:21:25.456247Z [ERROR] Error reading chip PLL
+2026-03-23T00:21:27.727941Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:21:28.381723Z [ERROR] Error reading chip PLL
+2026-03-23T00:21:31.432462Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:21:32.029569Z [ERROR] Error reading chip PLL
+2026-03-23T00:21:36.738956Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:21:37.389769Z [ERROR] Error reading chip PLL
+2026-03-23T00:21:45.250063Z [ERROR] Too many frequency read errors; ramping step will be aborted.
+2026-03-23T00:21:46.600270Z [ERROR] Error reading chip PLL
+2026-03-23T00:21:48.836445Z [ERROR] Error reading chip PLL
+2026-03-23T00:21:50.760303Z [ERROR] Error reading chip PLL
+2026-03-23T00:21:52.884370Z [ERROR] Error reading chip PLL
+2026-03-23T00:21:55.008508Z [ERROR] Error reading chip PLL
+2026-03-23T00:21:57.133547Z [ERROR] Error reading chip PLL
+2026-03-23T00:21:59.257327Z [ERROR] Error reading chip PLL
+2026-03-23T00:21:59.469909Z [INFO] Ramping board frequency
+2026-03-23T00:21:59.470063Z [INFO] Ramping board frequency
+2026-03-23T00:22:01.638906Z [INFO] New pool difficulty
+2026-03-23T00:22:01.640071Z [INFO] New pool difficulty
+2026-03-23T00:22:02.634017Z [ERROR] Error reading chip PLL
+2026-03-23T00:22:03.873384Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:22:04.557738Z [ERROR] Error reading chip PLL
+2026-03-23T00:22:06.376776Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:22:06.882246Z [ERROR] Error reading chip PLL
+2026-03-23T00:22:09.280662Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:22:09.818275Z [ERROR] Error reading chip PLL
+2026-03-23T00:22:12.985729Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:22:13.565836Z [ERROR] Error reading chip PLL
+2026-03-23T00:22:18.292355Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:22:18.925902Z [ERROR] Error reading chip PLL
+2026-03-23T00:22:26.802993Z [ERROR] Too many frequency read errors; ramping step will be aborted.
+2026-03-23T00:22:26.981478Z [INFO] Ramping board frequency
+2026-03-23T00:22:26.981631Z [INFO] Ramping board frequency
+2026-03-23T00:22:33.218858Z [INFO] New pool difficulty
+2026-03-23T00:22:47.912283Z [INFO] Ramping board frequency
+2026-03-23T00:22:47.912451Z [INFO] Ramping board frequency
+2026-03-23T00:22:54.479283Z [WARN] Rebooting board; automatic start scheduled [quick_reboot, 2/5 - board is not hashing]
+2026-03-23T00:22:54.479593Z [INFO] Board powered off
+2026-03-23T00:22:59.541910Z [INFO] Starting PIC controller
+2026-03-23T00:23:00.062778Z [INFO] Cycle board reset
+2026-03-23T00:23:00.143963Z [INFO] Board reset complete
+2026-03-23T00:23:01.360160Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-03-23T00:23:01.360317Z [ERROR] Initialization of hashboard failed
+2026-03-23T00:23:01.362151Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 2/5 - asic enumeration failure]
+2026-03-23T00:23:01.362563Z [INFO] Board powered off
+2026-03-23T00:23:06.428359Z [INFO] Starting PIC controller
+2026-03-23T00:23:06.591158Z [INFO] Cycle board reset
+2026-03-23T00:23:06.668545Z [INFO] Board reset complete
+2026-03-23T00:23:07.860314Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-03-23T00:23:07.860486Z [ERROR] Initialization of hashboard failed
+2026-03-23T00:23:07.945836Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 3/5 - asic enumeration failure]
+2026-03-23T00:23:07.946580Z [INFO] Board powered off
+2026-03-23T00:23:13.005971Z [INFO] Starting PIC controller
+2026-03-23T00:23:13.126723Z [INFO] Cycle board reset
+2026-03-23T00:23:13.193059Z [INFO] Board reset complete
+2026-03-23T00:23:14.360491Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-03-23T00:23:30.916063Z [INFO] Ramping board frequency
+2026-03-23T00:23:30.916217Z [INFO] Ramping board frequency
+2026-03-23T00:23:30.916318Z [INFO] Ramping board frequency
+2026-03-23T00:23:30.916414Z [INFO] Ramping board frequency
+2026-03-23T00:24:41.421586Z [ERROR] Error reading chip PLL
+2026-03-23T00:24:43.063610Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:24:43.745312Z [ERROR] Error reading chip PLL
+2026-03-23T00:24:45.567909Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:24:46.130343Z [ERROR] Error reading chip PLL
+2026-03-23T00:24:48.473172Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:24:49.016822Z [ERROR] Error reading chip PLL
+2026-03-23T00:24:52.177782Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:24:53.306722Z [INFO] Checking available disk space
+2026-03-23T00:25:04.062188Z [ERROR] Error reading chip PLL
+2026-03-23T00:25:05.330121Z [INFO] Current temperatures:
+-   0: TopLeft: 49.00, TopRight: 43.00, BottomRight: 43.00, BottomLeft: 49.00
+-   1: TopLeft: 52.00, TopRight: 42.00, BottomRight: 42.00, BottomLeft: 52.00
+-   2: TopLeft: 44.00, TopRight: 38.00, BottomRight: 38.00, BottomLeft: 44.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T00:25:05.692470Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:25:06.186002Z [ERROR] Error reading chip PLL
+2026-03-23T00:25:09.396641Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:25:10.033705Z [ERROR] Chip number mismatch on read PLL data
+2026-03-23T00:25:16.801442Z [INFO] ASIC board summary, 14V:
+-   1: 195MHz, Elapsed:    4m 58s, Hashing: YES, 5m:  12.81, 15m:  12.81, 1h:  12.81, Nominal:  19.17
+-  *2: 150MHz, Elapsed:    1m 46s, Hashing: YES, 5m:   3.34, 15m:   3.34, 1h:   3.34, Nominal:  14.75
+2026-03-23T00:25:25.460466Z [ERROR] Error reading chip PLL
+2026-03-23T00:25:27.016593Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:25:27.484374Z [ERROR] Error reading chip PLL
+2026-03-23T00:25:29.919998Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:25:30.420290Z [ERROR] Error reading chip PLL
+2026-03-23T00:25:33.624368Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:26:07.865379Z [INFO] Ramping board frequency
+2026-03-23T00:26:07.865536Z [INFO] Ramping board frequency
+2026-03-23T00:26:10.713922Z [ERROR] Error reading chip PLL
+2026-03-23T00:26:12.270156Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:26:12.937754Z [ERROR] Error reading chip PLL
+2026-03-23T00:26:14.773326Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:26:15.272505Z [ERROR] Error reading chip PLL
+2026-03-23T00:26:17.677485Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:26:18.208393Z [ERROR] Error reading chip PLL
+2026-03-23T00:26:20.199615Z [INFO] Shares counter
+2026-03-23T00:26:21.382133Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:26:21.883905Z [ERROR] Error reading chip PLL
+2026-03-23T00:26:26.688777Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:26:27.221945Z [ERROR] Error reading chip PLL
+2026-03-23T00:26:35.198982Z [ERROR] Too many frequency read errors; ramping step will be aborted.
+2026-03-23T00:26:35.386401Z [INFO] Ramping board frequency
+2026-03-23T00:26:35.386553Z [INFO] Ramping board frequency
+2026-03-23T00:26:56.248363Z [INFO] Ramping board frequency
+2026-03-23T00:26:56.248551Z [INFO] Ramping board frequency
+2026-03-23T00:27:17.197324Z [INFO] Ramping board frequency
+2026-03-23T00:27:17.197487Z [INFO] Ramping board frequency
+2026-03-23T00:27:17.792884Z [INFO] New pool difficulty
+2026-03-23T00:27:38.149261Z [INFO] Ramping board frequency
+2026-03-23T00:27:38.149418Z [INFO] Ramping board frequency
+2026-03-23T00:27:59.089958Z [INFO] Ramping board frequency
+2026-03-23T00:27:59.090111Z [INFO] Ramping board frequency
+2026-03-23T00:28:24.072333Z [INFO] Ramping board frequency
+2026-03-23T00:28:24.072503Z [INFO] Ramping board frequency
+2026-03-23T00:28:49.156824Z [INFO] Ramping board frequency
+2026-03-23T00:28:49.156979Z [INFO] Ramping board frequency
+2026-03-23T00:29:14.088671Z [WARN] Requested frequency is not reachable; an approximate value will be used instead
+2026-03-23T00:29:14.239609Z [INFO] Ramping board frequency
+2026-03-23T00:29:14.239762Z [INFO] Ramping board frequency
+2026-03-23T00:29:39.311356Z [INFO] Ramping board frequency
+2026-03-23T00:29:39.311508Z [INFO] Ramping board frequency
+2026-03-23T00:29:53.307007Z [INFO] Checking available disk space
+2026-03-23T00:30:00.244278Z [INFO] Ramping board frequency
+2026-03-23T00:30:00.244440Z [INFO] Ramping board frequency
+2026-03-23T00:30:06.626803Z [INFO] Current temperatures:
+-   0: TopLeft: 43.00, TopRight: 40.00, BottomRight: 40.00, BottomLeft: 43.00
+-   1: TopLeft: 62.00, TopRight: 46.00, BottomRight: 46.00, BottomLeft: 62.00
+-   2: TopLeft: 48.00, TopRight: 38.00, BottomRight: 38.00, BottomLeft: 48.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T00:30:17.509863Z [INFO] ASIC board summary, 14V:
+-  *1: 470MHz, Elapsed:    10m 1s, Hashing: YES, 5m:  30.34, 15m:  21.57, 1h:  21.57, Nominal:  46.21
+-   2: 200MHz, Elapsed:    6m 45s, Hashing: YES, 5m:   8.60, 15m:   6.06, 1h:   6.06, Nominal:  18.59
+2026-03-23T00:30:21.076700Z [INFO] Ramping board frequency
+2026-03-23T00:30:21.076878Z [INFO] Ramping board frequency
+2026-03-23T00:30:52.421939Z [INFO] Starting early optimization phase.
+2026-03-23T00:30:52.423959Z [INFO] Ramping board frequency and voltage
+2026-03-23T00:30:52.425154Z [INFO] Ramping board frequency and voltage
+2026-03-23T00:30:55.207394Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:30:55.772488Z [ERROR] Error reading chip PLL
+2026-03-23T00:30:57.710644Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:30:58.398219Z [ERROR] Error reading chip PLL
+2026-03-23T00:31:00.614320Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:31:01.233381Z [ERROR] Error reading chip PLL
+2026-03-23T00:31:04.320790Z [WARN] Frequency received is too low; trying again
+2026-03-23T00:31:04.852266Z [ERROR] Error reading chip PLL
+2026-03-23T00:31:07.448822Z [ERROR] Sent poweroff signal to hashboard due to high temperature!
+2026-03-23T00:31:07.504516Z [WARN] Switching off all boards; no automatic start scheduled, all boards will remain offline [long_reboot, 1/5 - temperature too high (board)]
+2026-03-23T00:31:07.504685Z [INFO] Manual board reboot is now disabled
+2026-03-23T00:31:07.504768Z [INFO] System entering the HALTED state
+2026-03-23T00:31:07.606911Z [INFO] Board powered off
+2026-03-23T00:31:07.607052Z [INFO] Board powered off
+2026-03-23T00:31:13.780440Z [INFO] Set power supply pin to OFF
+2026-03-23T00:31:13.874325Z [INFO] Current power status: OFF
+2026-03-23T00:34:53.308310Z [INFO] Checking available disk space
+2026-03-23T00:35:02.103638Z [INFO] New pool difficulty
+2026-03-23T00:35:07.681711Z [INFO] Current temperatures:
+-   0: TopLeft: 32.00, TopRight: 31.00, BottomRight: 31.00, BottomLeft: 32.00
+-   1: TopLeft: 34.00, TopRight: 31.00, BottomRight: 31.00, BottomLeft: 34.00
+-   2: TopLeft: 32.00, TopRight: 31.00, BottomRight: 31.00, BottomLeft: 32.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T00:35:08.491857Z [INFO] New pool difficulty
+2026-03-23T00:39:53.307208Z [INFO] Checking available disk space
+2026-03-23T00:39:53.863983Z [INFO] New pool difficulty
+2026-03-23T00:40:08.734887Z [INFO] Current temperatures:
+-   0: TopLeft: 30.00, TopRight: 30.00, BottomRight: 30.00, BottomLeft: 30.00
+-   1: TopLeft: 30.00, TopRight: 30.00, BottomRight: 30.00, BottomLeft: 30.00
+-   2: TopLeft: 30.00, TopRight: 30.00, BottomRight: 30.00, BottomLeft: 30.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T00:41:12.303253Z [INFO] Connection closed by the server
+2026-03-23T00:41:12.303473Z [INFO] Connecting to pool
+2026-03-23T00:41:12.304001Z [INFO] Pool status changed
+2026-03-23T00:41:12.304121Z [INFO] Pool status changed
+2026-03-23T00:41:13.307237Z [INFO] Opening TCP connection
+2026-03-23T00:41:13.374105Z [INFO] Connection successful
+2026-03-23T00:41:13.375175Z [INFO] Pool status changed
+2026-03-23T00:41:13.679415Z [INFO] Authorization successful
+2026-03-23T00:41:13.680941Z [INFO] New pool difficulty
+2026-03-23T00:41:57.627506Z [INFO] New pool difficulty
+2026-03-23T00:43:13.538333Z [INFO] New pool difficulty
+2026-03-23T00:44:53.307210Z [INFO] Checking available disk space
+2026-03-23T00:45:09.809838Z [INFO] Current temperatures:
+-   0: TopLeft: 29.00, TopRight: 30.00, BottomRight: 30.00, BottomLeft: 29.00
+-   1: TopLeft: 29.00, TopRight: 30.00, BottomRight: 30.00, BottomLeft: 29.00
+-   2: TopLeft: 29.00, TopRight: 30.00, BottomRight: 30.00, BottomLeft: 29.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T00:49:53.307059Z [INFO] Checking available disk space
+2026-03-23T00:49:56.360435Z [INFO] New pool difficulty
+2026-03-23T00:50:10.895513Z [INFO] Current temperatures:
+-   0: TopLeft: 29.00, TopRight: 29.00, BottomRight: 29.00, BottomLeft: 29.00
+-   1: TopLeft: 29.00, TopRight: 29.00, BottomRight: 29.00, BottomLeft: 29.00
+-   2: TopLeft: 29.00, TopRight: 29.00, BottomRight: 29.00, BottomLeft: 29.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T00:51:19.195591Z [INFO] Connection closed by the server
+2026-03-23T00:51:19.196072Z [INFO] Connecting to pool
+2026-03-23T00:51:19.196113Z [INFO] Pool status changed
+2026-03-23T00:51:19.196359Z [INFO] Pool status changed
+2026-03-23T00:51:20.196803Z [INFO] Opening TCP connection
+2026-03-23T00:51:20.260377Z [INFO] Connection successful
+2026-03-23T00:51:20.260713Z [INFO] Pool status changed
+2026-03-23T00:51:20.541731Z [INFO] Authorization successful
+2026-03-23T00:51:20.542201Z [INFO] New pool difficulty
+2026-03-23T00:52:11.153228Z [INFO] New pool difficulty
+2026-03-23T00:53:34.444318Z [INFO] New pool difficulty
+2026-03-23T00:54:53.306953Z [INFO] Checking available disk space
+2026-03-23T00:55:11.968103Z [INFO] Current temperatures:
+-   0: TopLeft: 29.00, TopRight: 28.00, BottomRight: 28.00, BottomLeft: 29.00
+-   1: TopLeft: 29.00, TopRight: 28.00, BottomRight: 28.00, BottomLeft: 29.00
+-   2: TopLeft: 29.00, TopRight: 28.00, BottomRight: 28.00, BottomLeft: 29.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T00:59:53.310038Z [INFO] Checking available disk space
+2026-03-23T01:00:13.043401Z [INFO] Current temperatures:
+-   0: TopLeft: 29.00, TopRight: 28.00, BottomRight: 28.00, BottomLeft: 29.00
+-   1: TopLeft: 29.00, TopRight: 28.00, BottomRight: 28.00, BottomLeft: 29.00
+-   2: TopLeft: 29.00, TopRight: 28.00, BottomRight: 28.00, BottomLeft: 29.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T01:00:13.354437Z [INFO] New pool difficulty
+2026-03-23T01:01:49.831515Z [INFO] Connection closed by the server
+2026-03-23T01:01:49.831738Z [INFO] Connecting to pool
+2026-03-23T01:01:49.832789Z [INFO] Pool status changed
+2026-03-23T01:01:49.832918Z [INFO] Pool status changed
+2026-03-23T01:01:50.833375Z [INFO] Opening TCP connection
+2026-03-23T01:01:50.901437Z [INFO] Connection successful
+2026-03-23T01:01:50.902101Z [INFO] Pool status changed
+2026-03-23T01:01:51.194337Z [INFO] Authorization successful
+2026-03-23T01:01:51.194903Z [INFO] New pool difficulty
+2026-03-23T01:02:21.084527Z [INFO] New pool difficulty
+2026-03-23T01:03:57.905499Z [INFO] New pool difficulty
+2026-03-23T01:04:53.307075Z [INFO] Checking available disk space
+2026-03-23T01:05:14.119071Z [INFO] Current temperatures:
+-   0: TopLeft: 28.00, TopRight: 28.00, BottomRight: 28.00, BottomLeft: 28.00
+-   1: TopLeft: 28.00, TopRight: 28.00, BottomRight: 28.00, BottomLeft: 28.00
+-   2: TopLeft: 28.00, TopRight: 28.00, BottomRight: 28.00, BottomLeft: 28.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T01:09:53.306738Z [INFO] Checking available disk space
+2026-03-23T01:10:15.195587Z [INFO] Current temperatures:
+-   0: TopLeft: 28.00, TopRight: 27.00, BottomRight: 27.00, BottomLeft: 28.00
+-   1: TopLeft: 28.00, TopRight: 27.00, BottomRight: 27.00, BottomLeft: 28.00
+-   2: TopLeft: 27.00, TopRight: 27.00, BottomRight: 27.00, BottomLeft: 27.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T01:10:32.566675Z [INFO] New pool difficulty
+2026-03-23T01:12:00.402710Z [INFO] Connection closed by the server
+2026-03-23T01:12:00.402919Z [INFO] Connecting to pool
+2026-03-23T01:12:00.403175Z [INFO] Pool status changed
+2026-03-23T01:12:00.403326Z [INFO] Pool status changed
+2026-03-23T01:12:01.404257Z [INFO] Opening TCP connection
+2026-03-23T01:12:01.474387Z [INFO] Connection successful
+2026-03-23T01:12:01.475289Z [INFO] Pool status changed
+2026-03-23T01:12:01.768271Z [INFO] Authorization successful
+2026-03-23T01:12:01.768648Z [INFO] New pool difficulty
+2026-03-23T01:12:32.619945Z [INFO] New pool difficulty
+2026-03-23T01:14:08.350534Z [INFO] New pool difficulty
+2026-03-23T01:14:53.307976Z [INFO] Checking available disk space
+2026-03-23T01:15:16.271112Z [INFO] Current temperatures:
+-   0: TopLeft: 27.00, TopRight: 27.00, BottomRight: 27.00, BottomLeft: 27.00
+-   1: TopLeft: 27.00, TopRight: 27.00, BottomRight: 27.00, BottomLeft: 27.00
+-   2: TopLeft: 27.00, TopRight: 27.00, BottomRight: 27.00, BottomLeft: 27.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T01:19:53.307242Z [INFO] Checking available disk space
+2026-03-23T01:20:17.347342Z [INFO] Current temperatures:
+-   0: TopLeft: 27.00, TopRight: 27.00, BottomRight: 27.00, BottomLeft: 27.00
+-   1: TopLeft: 27.00, TopRight: 27.00, BottomRight: 27.00, BottomLeft: 27.00
+-   2: TopLeft: 27.00, TopRight: 27.00, BottomRight: 27.00, BottomLeft: 27.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T01:20:37.239655Z [INFO] New pool difficulty
+2026-03-23T01:22:18.537545Z [INFO] Connection closed by the server
+2026-03-23T01:22:18.537773Z [INFO] Connecting to pool
+2026-03-23T01:22:18.538622Z [INFO] Pool status changed
+2026-03-23T01:22:18.538738Z [INFO] Pool status changed
+2026-03-23T01:22:19.538821Z [INFO] Opening TCP connection
+2026-03-23T01:22:19.638329Z [INFO] Connection successful
+2026-03-23T01:22:19.639029Z [INFO] Pool status changed
+2026-03-23T01:22:19.950600Z [INFO] Authorization successful
+2026-03-23T01:22:19.951141Z [INFO] New pool difficulty
+2026-03-23T01:22:49.228469Z [INFO] New pool difficulty
+2026-03-23T01:24:28.261853Z [INFO] New pool difficulty
+2026-03-23T01:24:53.306948Z [INFO] Checking available disk space
+2026-03-23T01:25:18.412348Z [INFO] Current temperatures:
+-   0: TopLeft: 27.00, TopRight: 27.00, BottomRight: 27.00, BottomLeft: 27.00
+-   1: TopLeft: 27.00, TopRight: 27.00, BottomRight: 27.00, BottomLeft: 27.00
+-   2: TopLeft: 27.00, TopRight: 27.00, BottomRight: 27.00, BottomLeft: 27.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T01:29:53.308069Z [INFO] Checking available disk space
+2026-03-23T01:30:19.475828Z [INFO] Current temperatures:
+-   0: TopLeft: 27.00, TopRight: 27.00, BottomRight: 27.00, BottomLeft: 27.00
+-   1: TopLeft: 27.00, TopRight: 27.00, BottomRight: 27.00, BottomLeft: 27.00
+-   2: TopLeft: 27.00, TopRight: 27.00, BottomRight: 27.00, BottomLeft: 27.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T01:30:37.715385Z [INFO] New pool difficulty
+2026-03-23T01:32:26.962712Z [INFO] Connection closed by the server
+2026-03-23T01:32:26.962908Z [INFO] Connecting to pool
+2026-03-23T01:32:26.963241Z [INFO] Pool status changed
+2026-03-23T01:32:26.963353Z [INFO] Pool status changed
+2026-03-23T01:32:27.964241Z [INFO] Opening TCP connection
+2026-03-23T01:32:28.010788Z [INFO] Connection successful
+2026-03-23T01:32:28.011010Z [INFO] Pool status changed
+2026-03-23T01:32:28.219047Z [INFO] Authorization successful
+2026-03-23T01:32:28.219965Z [INFO] New pool difficulty
+2026-03-23T01:32:38.015238Z [INFO] New pool difficulty
+2026-03-23T01:34:36.273188Z [INFO] New pool difficulty
+2026-03-23T01:34:53.306907Z [INFO] Checking available disk space
+2026-03-23T01:35:20.570049Z [INFO] Current temperatures:
+-   0: TopLeft: 26.00, TopRight: 26.00, BottomRight: 26.00, BottomLeft: 26.00
+-   1: TopLeft: 26.00, TopRight: 26.00, BottomRight: 26.00, BottomLeft: 26.00
+-   2: TopLeft: 26.00, TopRight: 26.00, BottomRight: 26.00, BottomLeft: 26.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T01:39:53.307581Z [INFO] Checking available disk space
+2026-03-23T01:40:21.640058Z [INFO] Current temperatures:
+-   0: TopLeft: 26.00, TopRight: 26.00, BottomRight: 26.00, BottomLeft: 26.00
+-   1: TopLeft: 26.00, TopRight: 26.00, BottomRight: 26.00, BottomLeft: 26.00
+-   2: TopLeft: 26.00, TopRight: 26.00, BottomRight: 26.00, BottomLeft: 26.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T01:41:06.651898Z [INFO] New pool difficulty
+2026-03-23T01:42:32.231238Z [INFO] Connection closed by the server
+2026-03-23T01:42:32.231454Z [INFO] Connecting to pool
+2026-03-23T01:42:32.232057Z [INFO] Pool status changed
+2026-03-23T01:42:32.232199Z [INFO] Pool status changed
+2026-03-23T01:42:33.233787Z [INFO] Opening TCP connection
+2026-03-23T01:42:33.350740Z [INFO] Connection successful
+2026-03-23T01:42:33.351859Z [INFO] Pool status changed
+2026-03-23T01:42:33.634216Z [INFO] Authorization successful
+2026-03-23T01:42:33.634707Z [INFO] New pool difficulty
+2026-03-23T01:43:31.832357Z [INFO] New pool difficulty
+2026-03-23T01:44:53.306774Z [INFO] Checking available disk space
+2026-03-23T01:45:03.436753Z [INFO] New pool difficulty
+2026-03-23T01:45:22.704478Z [INFO] Current temperatures:
+-   0: TopLeft: 25.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 25.00
+-   1: TopLeft: 25.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 25.00
+-   2: TopLeft: 25.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 25.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T01:49:53.307230Z [INFO] Checking available disk space
+2026-03-23T01:50:23.772852Z [INFO] Current temperatures:
+-   0: TopLeft: 25.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 25.00
+-   1: TopLeft: 25.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 25.00
+-   2: TopLeft: 25.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 25.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T01:51:39.110194Z [INFO] New pool difficulty
+2026-03-23T01:52:34.707043Z [INFO] Connection closed by the server
+2026-03-23T01:52:34.707277Z [INFO] Connecting to pool
+2026-03-23T01:52:34.707343Z [INFO] Pool status changed
+2026-03-23T01:52:34.707450Z [INFO] Pool status changed
+2026-03-23T01:52:35.709491Z [INFO] Opening TCP connection
+2026-03-23T01:52:35.756083Z [INFO] Connection successful
+2026-03-23T01:52:35.757241Z [INFO] Pool status changed
+2026-03-23T01:52:36.076675Z [INFO] Authorization successful
+2026-03-23T01:52:36.077034Z [INFO] New pool difficulty
+2026-03-23T01:53:42.572794Z [INFO] New pool difficulty
+2026-03-23T01:54:46.377735Z [INFO] New pool difficulty
+2026-03-23T01:54:53.307559Z [INFO] Checking available disk space
+2026-03-23T01:55:24.859763Z [INFO] Current temperatures:
+-   0: TopLeft: 25.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 25.00
+-   1: TopLeft: 25.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 25.00
+-   2: TopLeft: 25.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 25.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T01:59:53.312502Z [INFO] Checking available disk space
+2026-03-23T02:00:25.935350Z [INFO] Current temperatures:
+-   0: TopLeft: 25.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 25.00
+-   1: TopLeft: 25.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 25.00
+-   2: TopLeft: 25.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 25.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T02:01:56.219538Z [INFO] New pool difficulty
+2026-03-23T02:02:57.396102Z [INFO] Connection closed by the server
+2026-03-23T02:02:57.397003Z [INFO] Pool status changed
+2026-03-23T02:02:57.398163Z [INFO] Connecting to pool
+2026-03-23T02:02:57.398418Z [INFO] Pool status changed
+2026-03-23T02:02:58.400164Z [INFO] Opening TCP connection
+2026-03-23T02:02:58.471848Z [INFO] Connection successful
+2026-03-23T02:02:58.472828Z [INFO] Pool status changed
+2026-03-23T02:02:58.744267Z [INFO] Authorization successful
+2026-03-23T02:02:58.744884Z [INFO] New pool difficulty
+2026-03-23T02:03:58.461724Z [INFO] New pool difficulty
+2026-03-23T02:04:53.307585Z [INFO] Checking available disk space
+2026-03-23T02:05:01.719871Z [INFO] New pool difficulty
+2026-03-23T02:05:26.995084Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+-   1: TopLeft: 24.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 24.00
+-   2: TopLeft: 24.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 24.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T02:09:53.306865Z [INFO] Checking available disk space
+2026-03-23T02:10:28.070350Z [INFO] Current temperatures:
+-   0: TopLeft: 25.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 25.00
+-   1: TopLeft: 25.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 25.00
+-   2: TopLeft: 25.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 25.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T02:12:01.368146Z [INFO] New pool difficulty
+2026-03-23T02:13:05.524676Z [INFO] Connection closed by the server
+2026-03-23T02:13:05.524915Z [INFO] Connecting to pool
+2026-03-23T02:13:05.525130Z [INFO] Pool status changed
+2026-03-23T02:13:05.525244Z [INFO] Pool status changed
+2026-03-23T02:13:06.526350Z [INFO] Opening TCP connection
+2026-03-23T02:13:06.594446Z [INFO] Connection successful
+2026-03-23T02:13:06.594677Z [INFO] Pool status changed
+2026-03-23T02:13:06.904228Z [INFO] Authorization successful
+2026-03-23T02:13:06.911631Z [INFO] New pool difficulty
+2026-03-23T02:14:24.470161Z [INFO] New pool difficulty
+2026-03-23T02:14:53.309413Z [INFO] Checking available disk space
+2026-03-23T02:15:29.141190Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+-   1: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+-   2: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T02:15:32.489401Z [INFO] New pool difficulty
+2026-03-23T02:19:53.306937Z [INFO] Checking available disk space
+2026-03-23T02:20:30.218659Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 24.00
+-   1: TopLeft: 24.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 24.00
+-   2: TopLeft: 24.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 24.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T02:22:11.565966Z [INFO] New pool difficulty
+2026-03-23T02:23:16.796352Z [INFO] Connection closed by the server
+2026-03-23T02:23:16.796575Z [INFO] Connecting to pool
+2026-03-23T02:23:16.796684Z [INFO] Pool status changed
+2026-03-23T02:23:16.796796Z [INFO] Pool status changed
+2026-03-23T02:23:17.798115Z [INFO] Opening TCP connection
+2026-03-23T02:23:17.852803Z [INFO] Connection successful
+2026-03-23T02:23:17.853165Z [INFO] Pool status changed
+2026-03-23T02:23:18.124329Z [INFO] Authorization successful
+2026-03-23T02:23:18.125368Z [INFO] New pool difficulty
+2026-03-23T02:24:14.994278Z [INFO] New pool difficulty
+2026-03-23T02:24:53.307029Z [INFO] Checking available disk space
+2026-03-23T02:25:29.767954Z [INFO] New pool difficulty
+2026-03-23T02:25:31.277497Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+-   1: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+-   2: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T02:29:53.307171Z [INFO] Checking available disk space
+2026-03-23T02:30:32.351126Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+-   1: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+-   2: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T02:32:20.693125Z [INFO] New pool difficulty
+2026-03-23T02:33:36.453617Z [INFO] Connection closed by the server
+2026-03-23T02:33:36.453825Z [INFO] Connecting to pool
+2026-03-23T02:33:36.454125Z [INFO] Pool status changed
+2026-03-23T02:33:36.454250Z [INFO] Pool status changed
+2026-03-23T02:33:37.456794Z [INFO] Opening TCP connection
+2026-03-23T02:33:37.517918Z [INFO] Connection successful
+2026-03-23T02:33:37.518304Z [INFO] Pool status changed
+2026-03-23T02:33:37.762291Z [INFO] Authorization successful
+2026-03-23T02:33:37.762655Z [INFO] New pool difficulty
+2026-03-23T02:34:24.812979Z [INFO] New pool difficulty
+2026-03-23T02:34:53.307181Z [INFO] Checking available disk space
+2026-03-23T02:35:33.420490Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+-   1: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+-   2: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T02:35:40.041808Z [INFO] New pool difficulty
+2026-03-23T02:39:53.307185Z [INFO] Checking available disk space
+2026-03-23T02:40:34.489027Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 23.00
+-   1: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+-   2: TopLeft: 23.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T02:42:45.723702Z [INFO] New pool difficulty
+2026-03-23T02:43:51.333250Z [INFO] Connection closed by the server
+2026-03-23T02:43:51.333477Z [INFO] Connecting to pool
+2026-03-23T02:43:51.333651Z [INFO] Pool status changed
+2026-03-23T02:43:51.333766Z [INFO] Pool status changed
+2026-03-23T02:43:52.336427Z [INFO] Opening TCP connection
+2026-03-23T02:43:52.404838Z [INFO] Connection successful
+2026-03-23T02:43:52.405493Z [INFO] Pool status changed
+2026-03-23T02:43:52.673924Z [INFO] Authorization successful
+2026-03-23T02:43:52.674868Z [INFO] New pool difficulty
+2026-03-23T02:44:53.307529Z [INFO] Checking available disk space
+2026-03-23T02:45:01.417722Z [INFO] New pool difficulty
+2026-03-23T02:45:35.575484Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T02:45:55.636520Z [INFO] New pool difficulty
+2026-03-23T02:49:53.308927Z [INFO] Checking available disk space
+2026-03-23T02:50:36.663159Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T02:53:10.438777Z [INFO] New pool difficulty
+2026-03-23T02:53:55.581775Z [INFO] Connection closed by the server
+2026-03-23T02:53:55.582972Z [INFO] Pool status changed
+2026-03-23T02:53:55.582971Z [INFO] Connecting to pool
+2026-03-23T02:53:55.583987Z [INFO] Pool status changed
+2026-03-23T02:53:56.585186Z [INFO] Opening TCP connection
+2026-03-23T02:53:56.678360Z [INFO] Connection successful
+2026-03-23T02:53:56.679194Z [INFO] Pool status changed
+2026-03-23T02:53:56.966525Z [INFO] Authorization successful
+2026-03-23T02:53:56.966963Z [INFO] New pool difficulty
+2026-03-23T02:54:53.307194Z [INFO] Checking available disk space
+2026-03-23T02:55:17.427385Z [INFO] New pool difficulty
+2026-03-23T02:55:37.728963Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T02:55:57.917081Z [INFO] New pool difficulty
+2026-03-23T02:59:53.308021Z [INFO] Checking available disk space
+2026-03-23T03:00:38.800786Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T03:03:13.153361Z [INFO] New pool difficulty
+2026-03-23T03:03:57.583263Z [INFO] Connection closed by the server
+2026-03-23T03:03:57.583482Z [INFO] Connecting to pool
+2026-03-23T03:03:57.584279Z [INFO] Pool status changed
+2026-03-23T03:03:57.584402Z [INFO] Pool status changed
+2026-03-23T03:03:58.585305Z [INFO] Opening TCP connection
+2026-03-23T03:03:58.643223Z [INFO] Connection successful
+2026-03-23T03:03:58.643494Z [INFO] Pool status changed
+2026-03-23T03:03:58.875708Z [INFO] Authorization successful
+2026-03-23T03:03:58.877286Z [INFO] New pool difficulty
+2026-03-23T03:04:53.308131Z [INFO] Checking available disk space
+2026-03-23T03:05:35.054792Z [INFO] New pool difficulty
+2026-03-23T03:05:39.878927Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T03:06:10.283469Z [INFO] New pool difficulty
+2026-03-23T03:09:53.308823Z [INFO] Checking available disk space
+2026-03-23T03:10:40.956938Z [INFO] Current temperatures:
+-   0: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   1: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   2: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T03:13:30.248996Z [INFO] New pool difficulty
+2026-03-23T03:14:04.585697Z [INFO] Connection closed by the server
+2026-03-23T03:14:04.585919Z [INFO] Connecting to pool
+2026-03-23T03:14:04.586589Z [INFO] Pool status changed
+2026-03-23T03:14:04.586703Z [INFO] Pool status changed
+2026-03-23T03:14:05.588064Z [INFO] Opening TCP connection
+2026-03-23T03:14:05.661662Z [INFO] Connection successful
+2026-03-23T03:14:05.662408Z [INFO] Pool status changed
+2026-03-23T03:14:05.951470Z [INFO] Authorization successful
+2026-03-23T03:14:05.953173Z [INFO] New pool difficulty
+2026-03-23T03:14:53.307302Z [INFO] Checking available disk space
+2026-03-23T03:15:36.689488Z [INFO] New pool difficulty
+2026-03-23T03:15:42.044177Z [INFO] Current temperatures:
+-   0: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   1: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   2: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T03:16:09.184218Z [INFO] New pool difficulty
+2026-03-23T03:19:53.307285Z [INFO] Checking available disk space
+2026-03-23T03:20:43.123742Z [INFO] Current temperatures:
+-   0: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   1: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   2: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T03:23:31.933451Z [INFO] New pool difficulty
+2026-03-23T03:24:09.190751Z [INFO] Connection closed by the server
+2026-03-23T03:24:09.191021Z [INFO] Connecting to pool
+2026-03-23T03:24:09.191905Z [INFO] Pool status changed
+2026-03-23T03:24:09.192055Z [INFO] Pool status changed
+2026-03-23T03:24:10.191843Z [INFO] Opening TCP connection
+2026-03-23T03:24:10.261540Z [INFO] Connection successful
+2026-03-23T03:24:10.261820Z [INFO] Pool status changed
+2026-03-23T03:24:10.522633Z [INFO] Authorization successful
+2026-03-23T03:24:10.523040Z [INFO] New pool difficulty
+2026-03-23T03:24:53.308307Z [INFO] Checking available disk space
+2026-03-23T03:25:39.317558Z [INFO] New pool difficulty
+2026-03-23T03:25:44.206099Z [INFO] Current temperatures:
+-   0: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   1: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   2: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T03:26:27.437228Z [INFO] New pool difficulty
+2026-03-23T03:29:53.308946Z [INFO] Checking available disk space
+2026-03-23T03:30:45.275410Z [INFO] Current temperatures:
+-   0: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   1: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   2: TopLeft: 21.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T03:33:33.595327Z [INFO] New pool difficulty
+2026-03-23T03:34:12.250844Z [INFO] Connection closed by the server
+2026-03-23T03:34:12.251040Z [INFO] Connecting to pool
+2026-03-23T03:34:12.251139Z [INFO] Pool status changed
+2026-03-23T03:34:12.251248Z [INFO] Pool status changed
+2026-03-23T03:34:13.251998Z [INFO] Opening TCP connection
+2026-03-23T03:34:13.333447Z [INFO] Connection successful
+2026-03-23T03:34:13.334108Z [INFO] Pool status changed
+2026-03-23T03:34:13.582265Z [INFO] Authorization successful
+2026-03-23T03:34:13.582887Z [INFO] New pool difficulty
+2026-03-23T03:34:53.307009Z [INFO] Checking available disk space
+2026-03-23T03:35:38.712040Z [INFO] New pool difficulty
+2026-03-23T03:35:46.356656Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   1: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T03:36:14.453464Z [INFO] New pool difficulty
+2026-03-23T03:39:53.306677Z [INFO] Checking available disk space
+2026-03-23T03:40:47.415049Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   1: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T03:43:56.437539Z [INFO] New pool difficulty
+2026-03-23T03:44:31.571298Z [INFO] Connection closed by the server
+2026-03-23T03:44:31.571491Z [INFO] Connecting to pool
+2026-03-23T03:44:31.571694Z [INFO] Pool status changed
+2026-03-23T03:44:31.571867Z [INFO] Pool status changed
+2026-03-23T03:44:32.573629Z [INFO] Opening TCP connection
+2026-03-23T03:44:32.631768Z [INFO] Connection successful
+2026-03-23T03:44:32.632134Z [INFO] Pool status changed
+2026-03-23T03:44:32.905127Z [INFO] Authorization successful
+2026-03-23T03:44:32.906539Z [INFO] New pool difficulty
+2026-03-23T03:44:53.307129Z [INFO] Checking available disk space
+2026-03-23T03:45:48.486987Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   1: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T03:45:58.758167Z [INFO] New pool difficulty
+2026-03-23T03:46:34.685315Z [INFO] New pool difficulty
+2026-03-23T03:47:08.955997Z [INFO] New pool difficulty
+2026-03-23T03:49:09.366045Z [INFO] New pool difficulty
+2026-03-23T03:49:53.306757Z [INFO] Checking available disk space
+2026-03-23T03:50:49.561989Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   1: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T03:54:37.456306Z [INFO] Connection closed by the server
+2026-03-23T03:54:37.456524Z [INFO] Connecting to pool
+2026-03-23T03:54:37.457034Z [INFO] Pool status changed
+2026-03-23T03:54:37.457150Z [INFO] Pool status changed
+2026-03-23T03:54:38.459889Z [INFO] Opening TCP connection
+2026-03-23T03:54:38.519298Z [INFO] Connection successful
+2026-03-23T03:54:38.520538Z [INFO] Pool status changed
+2026-03-23T03:54:38.823526Z [INFO] Authorization successful
+2026-03-23T03:54:38.824325Z [INFO] New pool difficulty
+2026-03-23T03:54:53.308694Z [INFO] Checking available disk space
+2026-03-23T03:55:50.644681Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 21.00
+-   1: TopLeft: 21.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T03:57:01.513506Z [INFO] New pool difficulty
+2026-03-23T03:57:13.273520Z [INFO] New pool difficulty
+2026-03-23T03:59:36.540781Z [INFO] New pool difficulty
+2026-03-23T03:59:53.307564Z [INFO] Checking available disk space
+2026-03-23T04:00:51.721510Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   1: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T04:04:44.532494Z [INFO] Connection closed by the server
+2026-03-23T04:04:44.532689Z [INFO] Connecting to pool
+2026-03-23T04:04:44.532930Z [INFO] Pool status changed
+2026-03-23T04:04:44.533048Z [INFO] Pool status changed
+2026-03-23T04:04:45.533834Z [INFO] Opening TCP connection
+2026-03-23T04:04:45.635980Z [INFO] Connection successful
+2026-03-23T04:04:45.636809Z [INFO] Pool status changed
+2026-03-23T04:04:45.883907Z [INFO] Authorization successful
+2026-03-23T04:04:45.888780Z [INFO] New pool difficulty
+2026-03-23T04:04:53.307465Z [INFO] Checking available disk space
+2026-03-23T04:05:52.793113Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 21.00
+-   1: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T04:06:53.705712Z [INFO] New pool difficulty
+2026-03-23T04:07:32.087506Z [INFO] New pool difficulty
+2026-03-23T04:09:37.486739Z [INFO] New pool difficulty
+2026-03-23T04:09:53.313631Z [INFO] Checking available disk space
+2026-03-23T04:10:53.877208Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   1: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 20.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T04:14:50.250460Z [INFO] Connection closed by the server
+2026-03-23T04:14:50.250658Z [INFO] Connecting to pool
+2026-03-23T04:14:50.251241Z [INFO] Pool status changed
+2026-03-23T04:14:50.251350Z [INFO] Pool status changed
+2026-03-23T04:14:51.252399Z [INFO] Opening TCP connection
+2026-03-23T04:14:51.298581Z [INFO] Connection successful
+2026-03-23T04:14:51.299321Z [INFO] Pool status changed
+2026-03-23T04:14:51.542113Z [INFO] Authorization successful
+2026-03-23T04:14:51.542580Z [INFO] New pool difficulty
+2026-03-23T04:14:53.306687Z [INFO] Checking available disk space
+2026-03-23T04:15:54.948457Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   1: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T04:16:56.198362Z [INFO] New pool difficulty
+2026-03-23T04:17:36.002240Z [INFO] New pool difficulty
+2026-03-23T04:19:40.473650Z [INFO] New pool difficulty
+2026-03-23T04:19:53.307190Z [INFO] Checking available disk space
+2026-03-23T04:20:56.027592Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   1: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T04:24:51.513145Z [INFO] Connection closed by the server
+2026-03-23T04:24:51.513341Z [INFO] Connecting to pool
+2026-03-23T04:24:51.513412Z [INFO] Pool status changed
+2026-03-23T04:24:51.513519Z [INFO] Pool status changed
+2026-03-23T04:24:52.515480Z [INFO] Opening TCP connection
+2026-03-23T04:24:52.580668Z [INFO] Connection successful
+2026-03-23T04:24:52.581656Z [INFO] Pool status changed
+2026-03-23T04:24:52.812752Z [INFO] Authorization successful
+2026-03-23T04:24:52.813603Z [INFO] New pool difficulty
+2026-03-23T04:24:53.306883Z [INFO] Checking available disk space
+2026-03-23T04:25:57.114071Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   1: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T04:27:07.888993Z [INFO] New pool difficulty
+2026-03-23T04:27:37.621644Z [INFO] New pool difficulty
+2026-03-23T04:29:53.308397Z [INFO] Checking available disk space
+2026-03-23T04:30:05.653035Z [INFO] New pool difficulty
+2026-03-23T04:30:58.190850Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   1: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T04:34:53.307275Z [INFO] Checking available disk space
+2026-03-23T04:35:06.543203Z [INFO] Connection closed by the server
+2026-03-23T04:35:06.543400Z [INFO] Connecting to pool
+2026-03-23T04:35:06.543681Z [INFO] Pool status changed
+2026-03-23T04:35:06.543854Z [INFO] Pool status changed
+2026-03-23T04:35:07.545208Z [INFO] Opening TCP connection
+2026-03-23T04:35:07.629290Z [INFO] Connection successful
+2026-03-23T04:35:07.629516Z [INFO] Pool status changed
+2026-03-23T04:35:07.969678Z [INFO] Authorization successful
+2026-03-23T04:35:07.970201Z [INFO] New pool difficulty
+2026-03-23T04:35:59.262360Z [INFO] Current temperatures:
+-   0: TopLeft: 19.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 19.00
+-   1: TopLeft: 20.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 20.00
+-   2: TopLeft: 19.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 19.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T04:37:13.242477Z [INFO] New pool difficulty
+2026-03-23T04:37:44.070128Z [INFO] New pool difficulty
+2026-03-23T04:39:48.073506Z [INFO] New pool difficulty
+2026-03-23T04:39:53.307493Z [INFO] Checking available disk space
+2026-03-23T04:41:00.353079Z [INFO] Current temperatures:
+-   0: TopLeft: 19.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 19.00
+-   1: TopLeft: 19.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 19.00
+-   2: TopLeft: 19.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 19.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T04:44:53.308300Z [INFO] Checking available disk space
+2026-03-23T04:45:16.814627Z [INFO] Connection closed by the server
+2026-03-23T04:45:16.814848Z [INFO] Connecting to pool
+2026-03-23T04:45:16.815457Z [INFO] Pool status changed
+2026-03-23T04:45:16.815585Z [INFO] Pool status changed
+2026-03-23T04:45:17.816501Z [INFO] Opening TCP connection
+2026-03-23T04:45:17.878300Z [INFO] Connection successful
+2026-03-23T04:45:17.879033Z [INFO] Pool status changed
+2026-03-23T04:45:18.167389Z [INFO] Authorization successful
+2026-03-23T04:45:18.167754Z [INFO] New pool difficulty
+2026-03-23T04:46:01.424626Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   1: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T04:47:27.571522Z [INFO] New pool difficulty
+2026-03-23T04:47:51.796787Z [INFO] New pool difficulty
+2026-03-23T04:49:53.307469Z [INFO] Checking available disk space
+2026-03-23T04:49:54.900859Z [INFO] New pool difficulty
+2026-03-23T04:51:02.500127Z [INFO] Current temperatures:
+-   0: TopLeft: 19.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 19.00
+-   1: TopLeft: 19.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 19.00
+-   2: TopLeft: 19.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 19.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T04:54:53.307136Z [INFO] Checking available disk space
+2026-03-23T04:55:25.318163Z [INFO] Connection closed by the server
+2026-03-23T04:55:25.318362Z [INFO] Connecting to pool
+2026-03-23T04:55:25.318487Z [INFO] Pool status changed
+2026-03-23T04:55:25.318595Z [INFO] Pool status changed
+2026-03-23T04:55:26.320553Z [INFO] Opening TCP connection
+2026-03-23T04:55:26.376851Z [INFO] Connection successful
+2026-03-23T04:55:26.377131Z [INFO] Pool status changed
+2026-03-23T04:55:26.617175Z [INFO] Authorization successful
+2026-03-23T04:55:26.617512Z [INFO] New pool difficulty
+2026-03-23T04:56:03.560289Z [INFO] Current temperatures:
+-   0: TopLeft: 19.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 19.00
+-   1: TopLeft: 19.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 19.00
+-   2: TopLeft: 19.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 19.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T04:57:52.935745Z [INFO] New pool difficulty
+2026-03-23T04:57:53.292525Z [INFO] New pool difficulty
+2026-03-23T04:59:53.307272Z [INFO] Checking available disk space
+2026-03-23T05:00:09.703202Z [INFO] New pool difficulty
+2026-03-23T05:01:04.631508Z [INFO] Current temperatures:
+-   0: TopLeft: 19.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 19.00
+-   1: TopLeft: 19.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 19.00
+-   2: TopLeft: 19.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 19.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+
+[2026-03-23 00:02:36] [SUMMARY]
+{
+  "STATUS": [
+    {
+      "Code": 11,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "Summary",
+      "STATUS": "S",
+      "When": 1774242156
+    }
+  ],
+  "SUMMARY": [
+    {
+      "Accepted": 65,
+      "Best Share": 131072,
+      "Device Hardware%": 0.0,
+      "Device Rejected%": 0.0,
+      "Difficulty Accepted": 5373952,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "Elapsed": 16958,
+      "Found Blocks": 0,
+      "GHS 15m": 0.0,
+      "GHS 1m": 0.0,
+      "GHS 24h": 0.0,
+      "GHS 30m": 0.0,
+      "GHS 5m": 0.0,
+      "GHS 5s": 0.0,
+      "GHS av": 0.0,
+      "Get Failures": 0,
+      "Getworks": 1551,
+      "Hardware Errors": 0,
+      "Last getwork": 1774242143,
+      "Local Work": 0,
+      "Network Blocks": 0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Total MH": 0.0,
+      "Utility": 0.23,
+      "Work Utility": 5.5
+    }
+  ],
+  "id": 1
+}
+
+[2026-03-23 00:02:36] [STATS]
+{
+  "STATS": [
+    {
+      "CompileTime": "Fri Dec 12 16:49:20 UTC 2025",
+      "Miner": "2025.12.12.164659",
+      "Type": "Antminer S19 XP"
+    },
+    {
+      "Calls": 0,
+      "Elapsed": 16958,
+      "GHS 5s": 0.0,
+      "GHS av": 0.0,
+      "ID": "BTM_SOC0",
+      "Max": 0,
+      "Min": 99999999,
+      "Mode": 2,
+      "STATS": 0,
+      "Wait": 0,
+      "chain_acn1": 0,
+      "chain_acn2": 0,
+      "chain_acn3": 0,
+      "chain_acn4": 0,
+      "chain_acs1": "",
+      "chain_acs2": "",
+      "chain_acs3": "",
+      "chain_acs4": "",
+      "chain_hw1": 0,
+      "chain_hw2": 0,
+      "chain_hw3": 0,
+      "chain_hw4": 0,
+      "chain_rate1": "0",
+      "chain_rate2": "0",
+      "chain_rate3": "0",
+      "chain_rate4": "0",
+      "fan1": 2280,
+      "fan2": 2220,
+      "fan3": 2220,
+      "fan4": 2220,
+      "fan_num": 4,
+      "freq1": 0.0,
+      "freq2": 0.0,
+      "freq3": 0.0,
+      "freq4": 0.0,
+      "frequency": 0,
+      "miner_count": 0,
+      "miner_id": "02e4cca050d5",
+      "miner_version": "2025.12.12.164659",
+      "no_matching_work": 0,
+      "rate_30m": 0.0,
+      "rate_unit": "GH",
+      "temp1": 0.0,
+      "temp2": 0.0,
+      "temp2_1": 0.0,
+      "temp2_2": 0.0,
+      "temp2_3": 0.0,
+      "temp3": 0.0,
+      "temp_chip1": "0-0-0-0",
+      "temp_chip2": "0-0-0-0",
+      "temp_chip3": "0-0-0-0",
+      "temp_chip4": "0-0-0-0",
+      "temp_max": 0.0,
+      "temp_num": 3,
+      "temp_pcb1": "0-0-0-0",
+      "temp_pcb2": "0-0-0-0",
+      "temp_pcb3": "0-0-0-0",
+      "temp_pcb4": "0-0-0-0",
+      "temp_pic1": "0-0-0-0",
+      "temp_pic2": "0-0-0-0",
+      "temp_pic3": "0-0-0-0",
+      "temp_pic4": "0-0-0-0",
+      "total rate": null,
+      "total_acn": 4,
+      "total_freqavg": null,
+      "total_rateideal": 0.0
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 70,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "LUXminer stats",
+      "STATUS": "S",
+      "When": 1774242156
+    }
+  ],
+  "id": 1
+}
+
+[2026-03-23 00:02:36] [DEVS]
+{
+  "DEVS": [
+    {
+      "ASC": 2,
+      "Accepted": 16,
+      "Board": "BHB56801",
+      "Connector": "J12",
+      "ControllerIPVersionHex": "0x0A113D",
+      "ControllerIPVersionStr": "0.11.0",
+      "Device Elapsed": 0,
+      "Device Hardware%": 0,
+      "Device Rejected%": 0,
+      "Diff1 Work": 1179648,
+      "Difficulty Accepted": 1179648,
+      "Difficulty Rejected": 0,
+      "Enabled": "Y",
+      "Hardware Error MHS 15m": 0,
+      "Hardware Errors": 0,
+      "ID": 2,
+      "IsRamping": false,
+      "IsUserShutdown": false,
+      "Last Share Difficulty": 131072,
+      "Last Share Pool": 1,
+      "Last Share Time": 1774225663,
+      "Last Valid Work": 1774225663,
+      "MHS 15m": 0.0,
+      "MHS 1m": 0.0,
+      "MHS 30m": 0.0,
+      "MHS 5m": 0.0,
+      "MHS 5s": 0.0,
+      "MHS 60m": 0.0,
+      "MHS av": 0.0,
+      "Name": "",
+      "Nominal MHS": 0.0,
+      "Profile": "default",
+      "Rejected": 0,
+      "SerialNumber": "YNAHYPDBCJFBJ2MEA",
+      "Status": "Dead",
+      "Temperature": 19.0,
+      "Total MH": 0.0,
+      "Utility": 0
+    },
+    {
+      "ASC": 1,
+      "Accepted": 49,
+      "Board": "BHB56801",
+      "Connector": "J13",
+      "ControllerIPVersionHex": "0x0A113D",
+      "ControllerIPVersionStr": "0.11.0",
+      "Device Elapsed": 0,
+      "Device Hardware%": 0,
+      "Device Rejected%": 0,
+      "Diff1 Work": 4194304,
+      "Difficulty Accepted": 4194304,
+      "Difficulty Rejected": 0,
+      "Enabled": "Y",
+      "Hardware Error MHS 15m": 0,
+      "Hardware Errors": 0,
+      "ID": 1,
+      "IsRamping": false,
+      "IsUserShutdown": false,
+      "Last Share Difficulty": 131072,
+      "Last Share Pool": 1,
+      "Last Share Time": 1774225867,
+      "Last Valid Work": 1774225867,
+      "MHS 15m": 0.0,
+      "MHS 1m": 0.0,
+      "MHS 30m": 0.0,
+      "MHS 5m": 0.0,
+      "MHS 5s": 0.0,
+      "MHS 60m": 0.0,
+      "MHS av": 0.0,
+      "Name": "",
+      "Nominal MHS": 0.0,
+      "Profile": "default",
+      "Rejected": 0,
+      "SerialNumber": "SMTTYPDBCJDJC00HJ",
+      "Status": "Dead",
+      "Temperature": 19.0,
+      "Total MH": 0.0,
+      "Utility": 0
+    },
+    {
+      "ASC": 0,
+      "Accepted": 0,
+      "Board": "BHB56801",
+      "Connector": "J11",
+      "ControllerIPVersionHex": "0x0A113D",
+      "ControllerIPVersionStr": "0.11.0",
+      "Device Elapsed": 0,
+      "Device Hardware%": 0,
+      "Device Rejected%": 0,
+      "Diff1 Work": 0,
+      "Difficulty Accepted": 0,
+      "Difficulty Rejected": 0,
+      "Enabled": "Y",
+      "Hardware Error MHS 15m": 0,
+      "Hardware Errors": 0,
+      "ID": 0,
+      "IsRamping": false,
+      "IsUserShutdown": false,
+      "Last Share Difficulty": 0,
+      "Last Share Pool": 0,
+      "Last Share Time": 0,
+      "Last Valid Work": 0,
+      "MHS 15m": 0.0,
+      "MHS 1m": 0.0,
+      "MHS 30m": 0.0,
+      "MHS 5m": 0.0,
+      "MHS 5s": 0.0,
+      "MHS 60m": 0.0,
+      "MHS av": 0.0,
+      "Name": "",
+      "Nominal MHS": 0.0,
+      "Profile": "default",
+      "Rejected": 0,
+      "SerialNumber": "YNAHYPDBCJFBJ2108",
+      "Status": "Dead",
+      "Temperature": 19.0,
+      "Total MH": 0.0,
+      "Utility": 0
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 9,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "3 ASC(s)",
+      "STATUS": "S",
+      "When": 1774242156
+    }
+  ],
+  "id": 1
+}
+
+[2026-03-23 00:02:36] [POOLS]
+{
+  "POOLS": [
+    {
+      "Accepted": 65,
+      "AsicBoost": true,
+      "Bad Work": 0,
+      "Best Share": 131072,
+      "Current Block Height": 0,
+      "Current Block Version": 536870912,
+      "Diff": "131K",
+      "Diff1 Shares": 5373952,
+      "Difficulty Accepted": 5373952,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "GROUP": 0,
+      "Get Failures": 0,
+      "Getworks": 1551,
+      "Has GBT": false,
+      "Has Stratum": true,
+      "Has Vmask": true,
+      "Last Share Difficulty": 131072,
+      "Last Share Time": "04:31:29",
+      "Long Pool": "N",
+      "POOL": 0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Priority": 0,
+      "Proxy": "",
+      "Proxy Type": "",
+      "Quota": 1.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Status": "Alive",
+      "Stratum Active": true,
+      "Stratum Difficulty": 32768,
+      "Stratum URL": "sha256.poolbinance.com:443",
+      "URL": "stratum+tcp://sha256.poolbinance.com:443",
+      "User": "NCATX.093",
+      "Work Difficulty": 131072,
+      "Works": 0
+    },
+    {
+      "Accepted": 0,
+      "AsicBoost": true,
+      "Bad Work": 0,
+      "Best Share": 0,
+      "Current Block Height": 0,
+      "Current Block Version": 0,
+      "Diff": "0",
+      "Diff1 Shares": 0,
+      "Difficulty Accepted": 0,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "GROUP": 0,
+      "Get Failures": 0,
+      "Getworks": 0,
+      "Has GBT": false,
+      "Has Stratum": true,
+      "Has Vmask": true,
+      "Last Share Difficulty": 0,
+      "Last Share Time": "04:42:38",
+      "Long Pool": "N",
+      "POOL": 1,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Priority": 1,
+      "Proxy": "",
+      "Proxy Type": "",
+      "Quota": 1.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Status": "Dead",
+      "Stratum Active": false,
+      "Stratum Difficulty": 0,
+      "Stratum URL": "btc.poolbinance.com:1800",
+      "URL": "stratum+tcp://btc.poolbinance.com:1800",
+      "User": "NCATX.093",
+      "Work Difficulty": 0,
+      "Works": 0
+    },
+    {
+      "Accepted": 0,
+      "AsicBoost": true,
+      "Bad Work": 0,
+      "Best Share": 0,
+      "Current Block Height": 0,
+      "Current Block Version": 0,
+      "Diff": "0",
+      "Diff1 Shares": 0,
+      "Difficulty Accepted": 0,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "GROUP": 0,
+      "Get Failures": 0,
+      "Getworks": 0,
+      "Has GBT": false,
+      "Has Stratum": true,
+      "Has Vmask": true,
+      "Last Share Difficulty": 0,
+      "Last Share Time": "04:42:38",
+      "Long Pool": "N",
+      "POOL": 2,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Priority": 2,
+      "Proxy": "",
+      "Proxy Type": "",
+      "Quota": 1.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Status": "Dead",
+      "Stratum Active": false,
+      "Stratum Difficulty": 0,
+      "Stratum URL": "bs.poolbinance.com:3333",
+      "URL": "stratum+tcp://bs.poolbinance.com:3333",
+      "User": "NCATX.093",
+      "Work Difficulty": 0,
+      "Works": 0
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 7,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "3 Pool(s)",
+      "STATUS": "S",
+      "When": 1774242156
+    }
+  ],
+  "id": 1
+}
+
+[2026-03-23 00:02:36] [CONFIG]
+{
+  "CONFIG": [
+    {
+      "ASC Count": 3,
+      "ActualPowerTarget": 2029,
+      "BcastAddr": "10.102.1.255",
+      "ControlBoardType": "amlogic",
+      "Cooling": "Air",
+      "CurtailMode": "None",
+      "DHCP": true,
+      "DNS Servers": "",
+      "Device Code": "",
+      "FPGABuildIdHex": "0x000A113D",
+      "FPGABuildIdStr": "2000-0A-11 3D:00",
+      "FeeStatus": "Ok",
+      "Gateway": "10.102.0.1",
+      "GreenLed": "auto",
+      "Hostname": "Antminer",
+      "Hotplug": "None",
+      "IPAddr": "10.102.0.158",
+      "IdealPowerTarget": 3043,
+      "ImmersionMode": false,
+      "IsAtmEnabled": false,
+      "IsPowerSupplyOn": false,
+      "IsPowerTargetEnabled": true,
+      "IsSingleVoltage": true,
+      "IsTuning": true,
+      "Log Interval": 0,
+      "LogFileLevel": "info",
+      "MACAddr": "02:e4:cc:a0:50:d5",
+      "Model": "Antminer S19 XP",
+      "NameplateTHS": 141.0,
+      "Netmask": "255.255.254.0",
+      "OS": "LuxOS",
+      "PGA Count": 0,
+      "PIC": "NoPIC",
+      "PSUHwVersion": "75",
+      "PSULabel": "APW121215e",
+      "Pool Count": 3,
+      "PowerLimit": 3043,
+      "Profile": "default",
+      "ProfileStep": "0",
+      "RedLed": "auto",
+      "SerialNumber": "SMTTEAUBCJDJC01BL",
+      "Strategy": "Failover",
+      "SystemStatus": "Normal",
+      "UpdateOnStartup": "off",
+      "UpdateOnTimeout": "off",
+      "UpdateOnUser": "full",
+      "UpdateSource": "https://storage.googleapis.com/luxor-firmware/stable",
+      "UpdateTimeout": 60
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 33,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "LUXminer config",
+      "STATUS": "S",
+      "When": 1774242156
+    }
+  ],
+  "id": 1
+}

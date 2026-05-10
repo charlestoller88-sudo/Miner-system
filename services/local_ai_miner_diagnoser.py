@@ -386,45 +386,159 @@ def _has_strong_hashboard_hw_evidence(lower: str) -> bool:
     )
 
 
+def _learned_rule_skip_by_substrings(lower: str, rule: dict) -> bool:
+    for skip_pat in rule.get("skip_if_log_matches") or []:
+        if skip_pat and skip_pat.lower() in lower:
+            return True
+    return False
+
+
+def _learned_rule_match_score(rule: dict, lower: str) -> bool:
+    """
+    学习规则匹配：
+    - patterns_any：命中次数之和 >= min_total_hits（默认 1）
+    - patterns_all：每个模式各自命中 >= min_each_hits（默认 1）
+    二者可同时存在（更贴近「多条日志共同印证」的人工判读）。
+    """
+    m = rule.get("match") or {}
+    pats_any = m.get("patterns_any") or []
+    pats_all = m.get("patterns_all") or []
+    if not pats_any and not pats_all:
+        return False
+
+    def _count_pat(p: str) -> int:
+        try:
+            return len(re.findall(p, lower, flags=re.I))
+        except re.error:
+            return lower.count(p.lower())
+
+    if pats_any:
+        total = sum(_count_pat(str(p)) for p in pats_any)
+        min_total = int(m.get("min_total_hits", 1))
+        if total < min_total:
+            return False
+
+    min_each = int(m.get("min_each_hits", 1))
+    for p in pats_all:
+        if _count_pat(str(p)) < min_each:
+            return False
+    return True
+
+
+def _learned_rule_when(rule: dict) -> str:
+    """
+    unknown_only：仅在规则引擎主因仍为「未识别」时参与（走早期短路）。
+    refine：在完整内置判定结束后执行，可在你指定条件下覆盖主因/方案（人工经验修正）。
+    """
+    w = (rule.get("when") or "").strip().lower()
+    if w in ("refine", "refine_primary", "override"):
+        return "refine"
+    if w in ("unknown_only", "unknown"):
+        return "unknown_only"
+    if w == "":
+        return "unknown_only" if rule.get("only_after_primary_unknown", True) else "refine"
+    return "unknown_only"
+
+
 def _evaluate_learned_extra_rules(
     lower: str,
     primary: str,
     curtail_sleep: bool,
 ) -> Optional[tuple]:
-    """返回 (primary_cause, solutions_list) 或 None"""
+    """返回 (primary_cause, solutions_list) 或 None；仅 when=unknown_only 的规则。"""
     learned = _load_learned_json()
     sop = _merged_primary_sop()
     for rule in learned.get("extra_rules") or []:
         if not rule.get("enabled", False):
             continue
+        if _learned_rule_when(rule) != "unknown_only":
+            continue
         if rule.get("skip_if_curtailment_sleep") and curtail_sleep:
             continue
         if rule.get("only_after_primary_unknown") and primary != "未识别明确故障关键词":
             continue
-        skip_rule = False
-        for skip_pat in rule.get("skip_if_log_matches") or []:
-            if skip_pat and skip_pat.lower() in lower:
-                skip_rule = True
-                break
-        if skip_rule:
+        if _learned_rule_skip_by_substrings(lower, rule):
             continue
-        m = rule.get("match") or {}
-        pats = m.get("patterns_any") or []
-        if not pats:
+        if not _learned_rule_match_score(rule, lower):
             continue
-        total = 0
-        for p in pats:
-            try:
-                total += len(re.findall(p.lower(), lower))
-            except re.error:
-                total += lower.count(p.lower())
-        min_hits = int(m.get("min_total_hits", 1))
-        if total >= min_hits:
-            name = str(rule.get("primary_cause", "")).strip()
-            sols = rule.get("solutions") or []
-            if name and isinstance(sols, list):
-                return (name, sols if sols else sop.get(name, ["请补充 fault_patterns_learned.json 中的 solutions"]))
+        name = str(rule.get("primary_cause", "")).strip()
+        sols = rule.get("solutions") or []
+        if name and isinstance(sols, list):
+            return (name, sols if sols else sop.get(name, ["请补充 fault_patterns_learned.json 中的 solutions"]))
     return None
+
+
+def _safe_int_priority(rule: dict) -> int:
+    try:
+        return int(rule.get("priority", 0) or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
+def _try_learned_refine_primary(
+    lower: str,
+    primary: str,
+    curtail_sleep: bool,
+) -> Optional[Tuple[str, List[str], List[str]]]:
+    """
+    人工经验「修正」层：在固定规则已给出主因后，若命中 refine 规则则替换主因与方案。
+    返回 (新主因, 新方案列表, 追加到 secondary 的提示语列表)。
+    """
+    learned = _load_learned_json()
+    sop = _merged_primary_sop()
+    refine_rules = [r for r in (learned.get("extra_rules") or []) if isinstance(r, dict)]
+    refine_rules.sort(key=lambda r: (-_safe_int_priority(r), str(r.get("id", ""))))
+    for rule in refine_rules:
+        if not rule.get("enabled", False):
+            continue
+        if _learned_rule_when(rule) != "refine":
+            continue
+        if rule.get("skip_if_curtailment_sleep") and curtail_sleep:
+            continue
+        if _learned_rule_skip_by_substrings(lower, rule):
+            continue
+
+        only_if = [str(x) for x in (rule.get("only_if_primary_in") or []) if str(x).strip()]
+        if only_if and not any(sub in primary for sub in only_if):
+            continue
+
+        not_if = [str(x) for x in (rule.get("not_if_primary_in") or []) if str(x).strip()]
+        if not_if and any(sub in primary for sub in not_if):
+            continue
+
+        if not _learned_rule_match_score(rule, lower):
+            continue
+
+        name = str(rule.get("primary_cause", "")).strip()
+        sols = rule.get("solutions") or []
+        if not name or not isinstance(sols, list):
+            continue
+        sols_out = sols if sols else sop.get(name, ["请补充 fault_patterns_learned.json 中的 solutions"])
+        hints = [str(x).strip() for x in (rule.get("secondary_hints") or []) if str(x).strip()]
+        tag = str(rule.get("id") or "").strip()
+        if tag:
+            hints.insert(0, f"已由学习规则「{tag}」覆盖默认判定（人工经验）")
+        return (name, list(sols_out), hints)
+    return None
+
+
+def load_diagnostic_few_shot_from_json() -> str:
+    """从 fault_patterns_learned.json 读取少量人工范例，供 Ollama 叙事参考。"""
+    learned = _load_learned_json()
+    cases = learned.get("diagnostic_few_shot") or []
+    if not isinstance(cases, list) or not cases:
+        return ""
+    parts: List[str] = []
+    for i, c in enumerate(cases[:6], 1):
+        if not isinstance(c, dict):
+            continue
+        title = str(c.get("title", f"范例{i}")).strip()
+        excerpt = str(c.get("log_excerpt", "")).strip()[:1200]
+        conclusion = str(c.get("your_conclusion", "")).strip()
+        if not conclusion and not excerpt:
+            continue
+        parts.append(f"【{title}】\n你的结论：{conclusion}\n相关日志摘录：\n{excerpt}\n")
+    return "\n".join(parts).strip()
 
 
 def extract_ip(text: str) -> str:
@@ -606,6 +720,355 @@ def collect_evidence(text: str, limit: int = 12) -> str:
                 break
     merged = priority_lines[:limit] + lines[: max(0, limit - len(priority_lines[:limit]))]
     return "\n".join(merged[:limit])
+
+
+def _truncate_line(s: str, max_len: int = 240) -> str:
+    s = s.strip()
+    if len(s) <= max_len:
+        return s
+    return s[: max_len - 1] + "…"
+
+
+def _log_date_span_hint(text: str) -> str:
+    """从日志中提取日期范围（YYYY-MM-DD），供叙事引用。"""
+    dates = sorted(set(re.findall(r"\b(20[2-3]\d-\d{2}-\d{2})\b", text)))
+    if not dates:
+        return "未能从日志正文可靠提取日期范围（请以导出/采集时间为准）"
+    if dates[0] == dates[-1]:
+        return f"日志中出现的日期集中在 {dates[0]} 附近"
+    return f"日志中出现的日期约从 {dates[0]} 至 {dates[-1]}"
+
+
+def _extract_hb_numbers(text: str) -> List[int]:
+    ids: List[int] = []
+    for m in re.finditer(r"\{hb:(\d+)\}", text, flags=re.I):
+        try:
+            ids.append(int(m.group(1)))
+        except ValueError:
+            continue
+    return sorted(set(ids))
+
+
+def gather_categorized_log_lines(
+    text: str,
+    max_per_category: int = 10,
+) -> Dict[str, List[str]]:
+    """
+    按主题从全量日志中抽取可引用原文行，用于「有理有据」叙事诊断。
+    同一行可落入多个主题（板卡 + 总线等），便于交叉印证。
+    """
+    cats: Dict[str, List[str]] = {
+        "board": [],
+        "psu": [],
+        "net": [],
+        "temp_fan": [],
+        "bus": [],
+        "generic": [],
+    }
+    seen: set[str] = set()
+
+    pat_board = re.compile(
+        r"{err:i3}|no\s*chips\s*detected|nochipsdetected|disabled\s*hashboard|"
+        r"discovered\s+\d+\s+chips|expected\s+110|only\s+find|tuner\s+error|"
+        r"hashboard|expected\s+maximum\s+110|asic\s+enumeration|enumeration_reboot|"
+        r"initialization\s+of\s+hashboard\s+failed|switching\s+off\s+the\s+board|"
+        r'"status"\s*:\s*"dead"',
+        re.I,
+    )
+    pat_psu = re.compile(
+        r"psu|checksum|undervolt|over\s*voltage|overcurrent|"
+        r"failed\s+to\s+(detect|set\s+up)\s+psu|dummy\s+backend",
+        re.I,
+    )
+    pat_net = re.compile(
+        r"failed\s+to\s+resolve|dns|stratum|no\s+stratum|pool\s+inactivity|"
+        r"connection\s+closed|socket\s+(error|timeout|reset)|"
+        r"stratum\s+read\s+failure|client\s+disconnected",
+        re.I,
+    )
+    pat_temp_fan = re.compile(
+        r"overtemp|temp\s+diff|error_temp|fail\s+to\s+read\s+tsensor|"
+        r"pic\s+temp|fan\s+lost|error_fan|tachometer|temperature\s+sensor",
+        re.I,
+    )
+    pat_bus = re.compile(
+        r"probing\s+failed|no\s+such\s+device|i2c|uart|spi|reg\s+crc\s+error|"
+        r"checksum.*i2c|communication",
+        re.I,
+    )
+
+    def _push(cat: str, line: str) -> None:
+        if len(cats[cat]) >= max_per_category:
+            return
+        key = f"{cat}|{line[:200]}"
+        if key in seen:
+            return
+        seen.add(key)
+        cats[cat].append(_truncate_line(line))
+
+    for raw in text.splitlines():
+        line = raw.strip()
+        if not line or len(line) < 8:
+            continue
+        low = line.lower()
+        matched = False
+        if pat_board.search(low):
+            _push("board", line)
+            matched = True
+        if pat_psu.search(low):
+            _push("psu", line)
+            matched = True
+        if pat_net.search(low):
+            _push("net", line)
+            matched = True
+        if pat_temp_fan.search(low):
+            _push("temp_fan", line)
+            matched = True
+        if pat_bus.search(low):
+            _push("bus", line)
+            matched = True
+        if not matched and (
+            "[error]" in low
+            or re.search(r"\berror\b", low)
+            or "fail" in low
+            or "warning" in low
+        ):
+            _push("generic", line)
+
+    return cats
+
+
+def _opening_summary_from_facts(
+    primary: str,
+    parsed_ths: Optional[float],
+    nameplate_ths: Optional[float],
+    hb_ids: List[int],
+    board_lines: List[str],
+) -> str:
+    """基于规则主因 + 抽取事实生成开篇结论段（不编造日志未出现的编号）。"""
+    ths_txt = f"{parsed_ths:.3f} TH/s" if parsed_ths is not None else "未知"
+    np_txt = f"{nameplate_ths:.1f} TH/s" if nameplate_ths else None
+    cap = f"识别总算力约 {ths_txt}"
+    if np_txt:
+        cap += f"，额定约 {np_txt}"
+
+    hb_txt = ""
+    if hb_ids:
+        hb_txt = f"日志中明确出现算力板编号 HB:{','.join(str(x) for x in hb_ids)}。"
+
+    i3_n = sum(1 for x in board_lines if re.search(r"{err:i3}|no\s*chips\s*detected|nochipsdetected", x, re.I))
+    disc = [x for x in board_lines if re.search(r"discovered\s+\d+\s+chips", x, re.I)]
+
+    tail = ""
+    if i3_n >= 2:
+        tail = "多条日志指向「检测不到芯片/ERR:I3」类致命错误，说明至少多块算力板已无法完成 ASIC 枚举。"
+    elif i3_n == 1:
+        tail = "日志出现「检测不到芯片/ERR:I3」类错误，至少一块算力板存在致命硬件或链路问题。"
+    if disc:
+        tail += " 另有日志显示某链「检出芯片数」远低于额定 110，属于严重残缺状态。"
+
+    if not tail:
+        tail = f"规则引擎将当前现象归类为「{primary}」；具体机理需结合下方原文摘录核对。"
+
+    return f"综合规则判定与日志摘录：{cap}。{hb_txt}{tail}"
+
+
+def _secondary_ranking_sentence(
+    primary: str,
+    secondary_joined: str,
+    alt_joined: str,
+    cats: Dict[str, List[str]],
+) -> str:
+    parts: List[str] = []
+    if secondary_joined:
+        parts.append(f"规则标注的伴生/次要因素包括：{secondary_joined}")
+    if alt_joined:
+        parts.append(f"候选需排除项：{alt_joined}")
+    # 用是否有原文支撑来提示「伴生」
+    if cats.get("psu") and "电源" not in primary and "PSU" not in primary.upper():
+        parts.append("日志中可见电源通信/校验类原文，多为次生或连带现象，应在板卡与供电稳定后复测。")
+    if cats.get("net") and "矿池" not in primary and "网络" not in primary:
+        parts.append("日志中可见 DNS/Stratum/断连类原文，多为伴生问题；若总算力已为 0，应优先核对板卡硬件。")
+    if not parts:
+        return "未从规则侧列出额外次要标签；若日志仍有其他告警，请以原文摘录为准。"
+    return " ".join(parts)
+
+
+def build_narrative_report(
+    text: str,
+    rule_bundle: Dict[str, str],
+    *,
+    ip: str,
+    model: str,
+    nameplate_ths: Optional[float],
+    parsed_ths: Optional[float],
+    suggestions: List[str],
+) -> str:
+    """
+    生成「有理有据」的结构化中文诊断叙述：结论 + 分主题原文摘录 + 主次说明 + 行动建议。
+    仅使用日志中真实出现的行与规则引擎已有标签，不虚构具体日期/芯片数（摘录行内数字除外）。
+    """
+    primary = (rule_bundle.get("primary_cause") or "未识别明确故障关键词").strip()
+    secondary = (rule_bundle.get("secondary_causes") or "").strip()
+    alternate = (rule_bundle.get("alternate_causes") or "").strip()
+    confidence = (rule_bundle.get("confidence") or "中").strip()
+
+    cats = gather_categorized_log_lines(text, max_per_category=10)
+    hb_ids = _extract_hb_numbers(text)
+    date_hint = _log_date_span_hint(text)
+
+    lines_out: List[str] = []
+    lines_out.append(f"矿机（{ip}，型号 {model or '未知'}）")
+    lines_out.append("")
+    lines_out.append("【诊断依据概览】")
+    lines_out.append(
+        f"- 规则引擎主因：{primary}（置信度：{confidence}）"
+    )
+    lines_out.append(f"- 日志时间参考：{date_hint}")
+    lines_out.append(_opening_summary_from_facts(primary, parsed_ths, nameplate_ths, hb_ids, cats["board"]))
+    lines_out.append("")
+    lines_out.append("【结论摘要（逻辑链）】")
+    lines_out.append(
+        _secondary_ranking_sentence(primary, secondary, alternate, cats)
+    )
+    lines_out.append("")
+
+    def _section(title: str, key: str) -> None:
+        rows = cats.get(key) or []
+        if not rows:
+            return
+        lines_out.append(title)
+        for i, row in enumerate(rows, 1):
+            lines_out.append(f"  {i}. 日志摘录：{row}")
+        lines_out.append("")
+
+    _section("1. 算力板与芯片（与主因直接相关的原文）", "board")
+    _section("2. 总线 / 传感器 / 通信类（可与板卡故障交叉印证）", "bus")
+    _section("3. 电源与 PSU 通信（次生或诱因，需结合板卡现象）", "psu")
+    _section("4. 网络与矿池 / Stratum（伴生或放大器）", "net")
+    _section("5. 温度与风扇（保护链路与误报排查）", "temp_fan")
+    _section("6. 其他告警行（泛化错误，供人工复核）", "generic")
+
+    lines_out.append("【主次关系说明】")
+    if primary in (
+        "算力板全板失效（芯片未检出/初始化失败）",
+        "算力板部分失效（芯片数量严重不足）",
+        "单链算力板故障致 SOC 停机（芯片数异常/CRC/通信）",
+        "多块算力板故障致 SOC 停机（芯片数严重不足/CRC）",
+        "算力板严重异常（芯片识别/通信错误，NoPIC 可能无法单禁板）",
+        "算力板芯片枚举不足（Hashchip 与 110 不符，已被禁用）",
+    ):
+        if cats.get("net"):
+            lines_out.append(
+                "当前主因归类为算力板/芯片侧。若同时存在矿池断连，多为「无有效算力可提交」或网络波动叠加；"
+                "修复板卡与上电稳定后，应再观察 Stratum 是否恢复正常。"
+            )
+        else:
+            lines_out.append("当前证据链主要围绕算力板/芯片与链路，请优先按板卡排障流程处理。")
+    elif "矿池" in primary or "网络" in primary or "Stratum" in primary:
+        lines_out.append(
+            "当前主因归类为网络/矿池连接。若日志仍大量出现板级致命错误，则应将板卡问题提升为主矛盾，"
+            "网络修复后仍需解决硬件侧。"
+        )
+    elif "限电" in primary or "休眠" in primary or "Curtail" in primary:
+        lines_out.append("当前主因与策略休眠/限电相关；其他硬件告警可能是休眠前残留或唤醒失败连带，请结合时间线阅读摘录。")
+    else:
+        lines_out.append(
+            "请以上方规则主因为主线，将其他主题的原文视为「支持/排除/伴生」证据；"
+            "若摘录之间时间跨度较大，建议截取故障前后各 30 分钟日志复核。"
+        )
+    lines_out.append("")
+
+    lines_out.append("【总结与行动建议】")
+    for i, s in enumerate(suggestions[:12], 1):
+        lines_out.append(f"  {i}. {s}")
+    if not suggestions:
+        lines_out.append("  （暂无结构化建议，请导出完整日志由人工复核。）")
+
+    lines_out.append("")
+    lines_out.append(
+        "—— 说明：上文「日志摘录」均来自当前拉取的原文行；"
+        "若需达到人工报告级别的时序分析（例如精确到某日某时的趋势），请保证导出日志包含完整时间戳并覆盖故障前后时段。"
+    )
+    return "\n".join(lines_out).strip()
+
+
+def try_ollama_narrative_report(
+    *,
+    ip: str,
+    model: str,
+    primary: str,
+    secondary: str,
+    alternate: str,
+    confidence: str,
+    parsed_ths: Optional[float],
+    nameplate_ths: Optional[float],
+    evidence_text: str,
+) -> Optional[str]:
+    """
+    可选：调用本地 Ollama 生成长文叙事诊断（更接近自然语言报告）。
+    需设置环境变量 MINER_AI_NARRATIVE=1（或 true），且本机已启动 Ollama。
+    """
+    if os.environ.get("MINER_AI_NARRATIVE", "").strip() not in ("1", "true", "True"):
+        return None
+    ths_s = f"{parsed_ths:.6f}" if parsed_ths is not None else "null"
+    np_s = f"{nameplate_ths:.3f}" if nameplate_ths else "null"
+    few = load_diagnostic_few_shot_from_json()
+    few_block = ""
+    if few:
+        few_block = (
+            "\n\n你过去的人工诊断范例（请模仿其严谨性与主次结构，结论仍须以本次摘录为准）：\n"
+            + few
+            + "\n"
+        )
+    prompt = f"""你是资深矿机运维专家。请根据「规则引擎结论」与「日志原文摘录」写一份中文诊断报告。
+
+硬性要求：
+1) 不得编造日志里没有的 IP、型号、日期、芯片数量；所有数字与专有名词必须能在「日志原文摘录」或「规则引擎结论」中找到依据。
+2) 结构包含：开篇结论段；分小节（算力板/电源/网络/其他）；「主次关系」一段；「行动建议」分条。
+3) 每个小节至少引用 1 条原文摘录，格式为「摘录：」后跟短句。
+4) 若某类证据缺失，明确写「当前摘录未覆盖」。
+
+规则引擎结论：
+- 主因：{primary}
+- 置信度：{confidence}
+- 次要：{secondary or "无"}
+- 候选：{alternate or "无"}
+矿机 IP：{ip}
+型号：{model}
+识别总算力(TH/s)：{ths_s}
+额定 NameplateTHS（若有）：{np_s}
+
+日志原文摘录（截断）：
+{evidence_text[:12000]}
+{few_block}
+只输出 JSON：{{"narrative": "……"}} ，narrative 内用 \\n 换行。"""
+
+    payload = {
+        "model": OLLAMA_MODEL,
+        "prompt": prompt.strip(),
+        "stream": False,
+        "format": "json",
+        "options": {"temperature": 0.15},
+    }
+    req = urllib.request.Request(
+        OLLAMA_URL,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=120) as resp:
+            raw = resp.read().decode("utf-8", errors="ignore")
+        data = json.loads(raw)
+        text_resp = (data.get("response") or "").strip()
+        if not text_resp:
+            return None
+        obj = json.loads(text_resp)
+        nar = str(obj.get("narrative", "")).strip()
+        return nar or None
+    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, OSError, TypeError):
+        return None
 
 
 def rule_diagnose(text: str, parsed_hashrate_ths: Optional[float] = None) -> Dict[str, str]:
@@ -1029,15 +1492,29 @@ def rule_diagnose(text: str, parsed_hashrate_ths: Optional[float] = None) -> Dic
         if len(secondary) >= 2:
             break
 
-    if primary in sop:
-        solutions = "；".join(sop[primary])
-    else:
-        actions_fallback: list[str] = []
-        for _pat, lab, acts in RULES:
-            if lab == primary and acts:
-                actions_fallback = list(acts)
-                break
-        solutions = "；".join(actions_fallback or ["建议人工复核日志并做单机排障"])
+    refined = _try_learned_refine_primary(lower, primary, curtail_sleep)
+    learned_refined = False
+    if refined:
+        new_primary, new_sols, sec_hints = refined
+        primary = new_primary
+        for h in sec_hints:
+            if h and h not in secondary:
+                secondary.append(h)
+        solutions = "；".join(new_sols)
+        from_rules_generic = False
+        priority_lane = "learned"
+        learned_refined = True
+
+    if not learned_refined:
+        if primary in sop:
+            solutions = "；".join(sop[primary])
+        else:
+            actions_fallback: list[str] = []
+            for _pat, lab, acts in RULES:
+                if lab == primary and acts:
+                    actions_fallback = list(acts)
+                    break
+            solutions = "；".join(actions_fallback or ["建议人工复核日志并做单机排障"])
     if hb_ids:
         solutions += f"；当前日志涉及 HB:{','.join(sorted(hb_ids))}"
 

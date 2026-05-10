@@ -1,0 +1,2335 @@
+============================================================
+矿机运行日志 - 10.102.0.223
+导出时间: 2026-05-03 01:41:45
+IP: 10.102.0.223  序列号: MINER-10-102-0-223  型号: Antminer S19 XP
+============================================================
+
+[2026-05-03 01:41:45] [SYSTEM_LOG] 矿机后台系统日志（与 Web 界面一致）
+[    0.000000@0] Booting Linux on physical CPU 0x0
+[    0.000000@0] Linux version 4.9.113 (jenkins@nomd-nomd-fwc-bj) (gcc version 6.3.1 20170109 (Linaro GCC 6.3-2017.02) ) #1 SMP PREEMPT Tue Nov 29 12:17:10 CST 2022
+[    0.000000@0] Boot CPU: AArch64 Processor [410fd034]
+[    0.000000@0] earlycon: aml_uart0 at MMIO 0x00000000ff803000 (options '')
+[    0.000000@0] bootconsole [aml_uart0] enabled
+[    0.000000@0] efi: Getting EFI parameters from FDT:
+[    0.000000@0] efi: UEFI not found.
+[    0.000000@0] 	07400000 - 07500000,     1024 KB, ramoops@0x07400000
+[    0.000000@0] __reserved_mem_alloc_size, start:0x0000000005000000, end:0x0000000005400000, len:4 MiB
+[    0.000000@0] 	05000000 - 05400000,     4096 KB, linux,secmon
+[    0.000000@0] cma: Reserved 16 MiB at 0x000000000f000000
+[    0.000000@0] On node 0 totalpages: 65536
+[    0.000000@0]   DMA zone: 1024 pages used for memmap
+[    0.000000@0]   DMA zone: 0 pages reserved
+[    0.000000@0]   DMA zone: 65536 pages, LIFO batch:15
+[    0.000000@0] psci: probing for conduit method from DT.
+[    0.000000@0] psci: PSCIv1.0 detected in firmware.
+[    0.000000@0] psci: Using standard PSCI v0.2 function IDs
+[    0.000000@0] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000@0] psci: SMC Calling Convention v1.1
+[    0.000000@0] percpu: Embedded 25 pages/cpu @ffffffc00ef53000 s64536 r8192 d29672 u102400
+[    0.000000@0] pcpu-alloc: s64536 r8192 d29672 u102400 alloc=25*4096
+[    0.000000@0] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 
+[    0.000000@0] Detected VIPT I-cache on CPU0
+[    0.000000@0] CPU features: enabling workaround for ARM erratum 845719
+[    0.000000@0] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 64512
+[    0.000000@0] Kernel command line: init=/init console=ttyS0,115200 no_console_suspend earlycon=aml_uart,0xff803000 ramoops.pstore_en=1 ramoops.record_size=0x8000 ramoops.console_size=0x4000 logo=,loaded,androidboot.selinux=enforcing androidboot.firstboot=1 jtag=disable androidboot.hardware=amlogic androidboot.bootloader=U-Boot 2015.01 androidboot.build.expect.baseband=N/A androidboot.serialno=1234567890 androidboot.rpmb_state=0 rootfstype=ramfs init=/sbin/init
+[    0.000000@0] PID hash table entries: 1024 (order: 1, 8192 bytes)
+[    0.000000@0] Dentry cache hash table entries: 32768 (order: 6, 262144 bytes)
+[    0.000000@0] Inode-cache hash table entries: 16384 (order: 5, 131072 bytes)
+[    0.000000@0] Memory: 209572K/262144K available (8764K kernel code, 1194K rwdata, 2424K rodata, 3648K init, 1017K bss, 32092K reserved, 20480K cma-reserved)
+[    0.000000@0] Virtual kernel memory layout:
+[    0.000000@0]     modules : 0xffffff8000000000 - 0xffffff8008000000   (   128 MB)
+[    0.000000@0]     vmalloc : 0xffffff8008000000 - 0xffffffbebfff0000   (   250 GB)
+[    0.000000@0]       .text : 0xffffff8009080000 - 0xffffff8009910000   (  8768 KB)
+[    0.000000@0]     .rodata : 0xffffff8009910000 - 0xffffff8009b80000   (  2496 KB)
+[    0.000000@0]       .init : 0xffffff8009b80000 - 0xffffff8009f10000   (  3648 KB)
+[    0.000000@0]       .data : 0xffffff8009f10000 - 0xffffff800a03aa00   (  1195 KB)
+[    0.000000@0]        .bss : 0xffffff800a03aa00 - 0xffffff800a139034   (  1018 KB)
+[    0.000000@0]     fixed   : 0xffffffbefe7fb000 - 0xffffffbefec00000   (  4116 KB)
+[    0.000000@0]     PCI I/O : 0xffffffbefee00000 - 0xffffffbeffe00000   (    16 MB)
+[    0.000000@0]     vmemmap : 0xffffffbf00000000 - 0xffffffc000000000   (     4 GB maximum)
+[    0.000000@0]               0xffffffbf00000000 - 0xffffffbf00400000   (     4 MB actual)
+[    0.000000@0]     memory  : 0xffffffc000000000 - 0xffffffc010000000   (   256 MB)
+[    0.000000@0] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000@0] Preemptible hierarchical RCU implementation.
+[    0.000000@0] 	Build-time adjustment of leaf fanout to 64.
+[    0.000000@0] 	RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=4.
+[    0.000000@0] RCU: Adjusting geometry for rcu_fanout_leaf=64, nr_cpu_ids=4
+[    0.000000@0] NR_IRQS:64 nr_irqs:64 0
+[    0.000000@0] irq_meson_gpio: 100 to 8 gpio interrupt mux initialized
+[    0.000000@0] axg_aoclkc_init: register ao clk ok!
+[    0.000000@0] axg_amlogic_init_sdemmc: register amlogic sdemmc clk
+[    0.000000@0] axg_amlogic_init_sdemmc: register amlogic sdemmc clk
+[    0.000000@0] axg_amlogic_init_media: register meson media clk
+[    0.000000@0] axg_amlogic_init_misc: register amlogic axg misc clks
+[    0.000000@0] axg_amlogic_init_misc: register amlogic sdemmc clk
+[    0.000000@0] axg_clkc_init initialization complete
+[    0.000000@0] arm_arch_timer: Architected cp15 timer(s) running at 24.00MHz (phys).
+[    0.000000@0] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
+[    0.000003@0] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
+[    0.008254@0] meson_bc_timer: mclk->mux_reg =ffffff800800a190,mclk->reg =ffffff800800c194
+[    0.016896@0] Console: colour dummy device 80x25
+[    0.021107@0] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=96000)
+[    0.031585@0] pid_max: default: 32768 minimum: 301
+[    0.036436@0] thread_stack_cache_init, vmap:ffffffc00e5af600, bitmap:ffffffc00e5a3000, cache page:e5e0
+[    0.045771@0] thread_stack_cache_init, allocation vm area:ffffffc00e5d94c0, addr:ffffff8020000000, size:20001000
+[    0.056004@0] cpu 0, vmap_stack:[ffffffc00ef5c960-ffffffc00ef60950]
+[    0.062304@0] cpu 0, irq_stack: [ffffffc00ef53060-ffffffc00ef57050]
+[    0.068603@0] cpu 1, vmap_stack:[ffffffc00ef75960-ffffffc00ef79950]
+[    0.074904@0] cpu 1, irq_stack: [ffffffc00ef6c060-ffffffc00ef70050]
+[    0.081203@0] cpu 2, vmap_stack:[ffffffc00ef8e960-ffffffc00ef92950]
+[    0.087503@0] cpu 2, irq_stack: [ffffffc00ef85060-ffffffc00ef89050]
+[    0.093803@0] cpu 3, vmap_stack:[ffffffc00efa7960-ffffffc00efab950]
+[    0.100103@0] cpu 3, irq_stack: [ffffffc00ef9e060-ffffffc00efa2050]
+[    0.106466@0] Security Framework initialized
+[    0.110695@0] SELinux:  Initializing.
+[    0.114387@0] SELinux:  Starting in permissive mode
+[    0.114424@0] Mount-cache hash table entries: 512 (order: 0, 4096 bytes)
+[    0.121107@0] Mountpoint-cache hash table entries: 512 (order: 0, 4096 bytes)
+[    0.128838@0] ftrace: allocating 30061 entries in 118 pages
+[    0.186520@0] sched-energy: CPU device node has no sched-energy-costs
+[    0.187329@0] CPU0: update cpu_capacity 1024
+[    0.191655@0] ASID allocator initialised with 32768 entries
+[    0.229798@0] secmon: can't fine clear_range
+[    0.230001@0] EFI services will not be available.
+[    0.233269@0] Meson chip version = RevC (25:C - 23:0)
+[    0.266947@1] Detected VIPT I-cache on CPU1
+[    0.267006@1] CPU1: update cpu_capacity 1024
+[    0.267008@1] CPU1: Booted secondary processor [410fd034]
+[    0.294996@2] Detected VIPT I-cache on CPU2
+[    0.295050@2] CPU2: update cpu_capacity 1024
+[    0.295052@2] CPU2: Booted secondary processor [410fd034]
+[    0.323070@3] Detected VIPT I-cache on CPU3
+[    0.323120@3] CPU3: update cpu_capacity 1024
+[    0.323122@3] CPU3: Booted secondary processor [410fd034]
+[    0.323210@0] Brought up 4 CPUs
+[    0.362433@0] SMP: Total of 4 processors activated.
+[    0.367342@0] CPU features: detected feature: 32-bit EL0 Support
+[    0.373378@0] CPU features: detected feature: Kernel page table isolation (KPTI)
+[    0.383937@0] CPU: All CPU(s) started at EL2
+[    0.385117@0] alternatives: patching kernel code
+[    0.390422@1] addr:ffffff802007be10 is in kernel, size fix 4096->10, data:mode=0755
+[    0.397643@0] devtmpfs: initialized
+[    0.412682@0] DMI not present or invalid.
+[    0.413082@0] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.421055@0] futex hash table entries: 1024 (order: 4, 65536 bytes)
+[    0.427625@0] pinctrl core: initialized pinctrl subsystem
+[    0.434009@0] NET: Registered protocol family 16
+[    0.457581@0] cpuidle: using governor menu
+[    0.458090@0] vdso: 2 pages (1 code @ ffffff8009917000, 1 data @ ffffff8009f14000)
+[    0.463692@0] hw-breakpoint: found 6 breakpoint and 2 watchpoint registers.
+[    0.471100@0] DMA: preallocated 256 KiB pool for atomic allocations
+[    0.477231@0] clkmsr: clkmsr: driver init
+[    0.481291@0] aml_watch_point_probe, in, wp:2
+[    0.486720@0] pstore: using zlib compression
+[    0.490127@0] console [pstore-1] enabled
+[    0.493570@0] pstore: Registered ramoops as persistent store backend
+[    0.499978@0] ramoops: attached 0x100000@0x7400000, ecc: 0/0
+[    0.514338@0] aml_iomap: amlogic iomap probe done
+[    0.521246@0] clkmsr: msr_clk_reg0=ffffff800817e004,msr_clk_reg2=ffffff80081d100c
+[    0.523180@0] clkmsr ffd18004.meson_clk_msr: failed to get msr ring reg0
+[    0.608573@0] usbcore: registered new interface driver usbfs
+[    0.608731@0] usbcore: registered new interface driver hub
+[    0.614364@0] usbcore: registered new device driver usb
+[    0.619659@0] pps_core: LinuxPPS API ver. 1 registered
+[    0.624579@0] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.633978@0] PTP clock support registered
+[    0.638304@0] dmi: Firmware registration failed.
+[    0.643292@0] secmon: reserve_mem_size:0x300000
+[    0.647345@0] secmon secmon: assigned reserved memory node linux,secmon
+[    0.654234@0] secmon: get page:ffffffbf00140000, 5000
+[    0.658959@0] secmon: share in base: 0xffffffc0050fe000, share out base: 0xffffffc0050ff000
+[    0.667332@0] secmon: phy_in_base: 0x50fe000, phy_out_base: 0x50ff000
+[    0.675197@0] NetLabel: Initializing
+[    0.677384@0] NetLabel:  domain hash size = 128
+[    0.681968@0] NetLabel:  protocols = UNLABELED CIPSOv4
+[    0.687201@0] NetLabel:  unlabeled traffic allowed by default
+[    0.693836@0] clocksource: Switched to clocksource arch_sys_counter
+[    0.820484@0] VFS: Disk quotas dquot_6.6.0
+[    0.820631@0] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    0.846813@2] NET: Registered protocol family 2
+[    0.847871@2] TCP established hash table entries: 2048 (order: 2, 16384 bytes)
+[    0.853054@2] TCP bind hash table entries: 2048 (order: 3, 32768 bytes)
+[    0.859780@2] TCP: Hash tables configured (established 2048 bind 2048)
+[    0.866304@2] UDP hash table entries: 256 (order: 1, 8192 bytes)
+[    0.872284@2] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+[    0.879028@2] NET: Registered protocol family 1
+[    0.883963@2] RPC: Registered named UNIX socket transport module.
+[    0.889417@2] RPC: Registered udp transport module.
+[    0.894299@2] RPC: Registered tcp transport module.
+[    0.899187@2] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.908351@2] Unpacking initramfs...
+[    1.510569@2] Initramfs unpacking failed: junk in compressed archive
+[    1.519308@2] Freeing initrd memory: 8688K
+[    1.520238@2] hw perfevents: clusterb_enabled = 0
+[    1.522554@2] hw perfevents: cpumasks 0xf, 0x0
+[    1.527030@2] hw perfevents: cluster A irq = 7
+[    1.531606@2] hw perfevents: enabled with armv8_pmuv3 PMU driver, 7 counters available
+[    1.541671@2] audit: initializing netlink subsys (disabled)
+[    1.545101@2] audit: type=2000 audit(1.356:1): initialized
+[    1.552310@2] workingset: timestamp_bits=62 max_order=16 bucket_order=0
+[    1.576672@0] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    1.579627@0] NFS: Registering the id_resolver key type
+[    1.582381@0] Key type id_resolver registered
+[    1.586696@0] Key type id_legacy registered
+[    1.591350@0] fuse init (API version 7.26)
+[    1.596684@0] SELinux:  Registering netfilter hooks
+[    1.602881@0] NET: Registered protocol family 38
+[    1.602944@0] Key type asymmetric registered
+[    1.606194@0] Asymmetric key parser 'x509' registered
+[    1.611677@0] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 248)
+[    1.618894@0] io scheduler noop registered (default)
+[    1.623924@0] io scheduler deadline registered
+[    1.628655@0] io scheduler cfq registered
+[    1.649317@2] random: fast init done
+[    1.649416@2] random: crng init done
+[    1.649921@0] Unable to detect cache hierarchy for CPU 0
+[    1.691209@0] loop: module loaded
+[    1.692642@0] zram: Added device: zram0
+[    1.693075@0] mtdoops: mtd device (mtddev=name/number) must be supplied
+[    1.699884@0] libphy: Fixed MDIO Bus: probed
+[    1.704604@0] tun: Universal TUN/TAP device driver, 1.6
+[    1.708980@0] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    1.717150@0]  ee eth reset:Addr = ffffff80081fd008
+[    1.724676@0] meson6-dwmac ff3f0000.ethernet: no reset control found
+[    1.726631@0] stmmac - user ID: 0x11, Synopsys ID: 0x37
+[    1.731869@0]  Ring mode enabled
+[    1.735096@0]  DMA HW capability register supported
+[    1.739827@0]  Normal descriptors
+[    1.743142@0]  RX Checksum Offload Engine supported
+[    1.748043@0] 	COE Type 2
+[    1.750669@0]  TX Checksum insertion supported
+[    1.755129@0]  Wake-Up On Lan supported
+[    1.759072@0]  Enable RX Mitigation via HW Watchdog Timer
+[    1.777940@0] libphy: stmmac: probed
+[    1.777995@0] eth%d: PHY ID 00000128 at 0 IRQ POLL (stmmac-0:00) active
+[    1.782541@0] eth%d: PHY ID 00000128 at 3 IRQ POLL (stmmac-0:03)
+[    1.790527@0] PPP generic driver version 2.4.2
+[    1.793400@0] PPP BSD Compression module registered
+[    1.797971@0] PPP Deflate Compression module registered
+[    1.803211@0] PPP MPPE Compression module registered
+[    1.808184@0] NET: Registered protocol family 24
+[    1.813638@0] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    1.819583@0] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    1.826603@0] usbcore: registered new interface driver cdc_acm
+[    1.831828@0] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+[    1.840239@0] usbcore: registered new interface driver usbserial
+[    1.846911@0] mousedev: PS/2 mouse device common for all mice
+[    1.852369@0] usbcore: registered new interface driver xpad
+[    1.857784@1] i2c /dev entries driver
+[    1.862600@1] cpu cpu0: bL_cpufreq_init: CPU 0 initialized
+[    1.866775@1] arm_big_little: bL_cpufreq_register: Registered platform driver: scpi
+[    1.877660@1] ff803000.serial: clock gate not found
+[    1.879332@1] meson_uart ff803000.serial: ==uart0 reg addr = ffffff800830d000
+[    1.886500@1] ff803000.serial: ttyS0 at MMIO 0xff803000 (irq = 13, base_baud = 1500000) is a meson_uart
+[    1.901434@1] meson_uart ff803000.serial: ttyS0 use xtal(24M) 24000000 change 0 to 115200
+[    1.904173@1] console [ttyS0] enabled
+[    1.911420@1] bootconsole [aml_uart0] disabled
+[    1.921028@2] ff804000.serial: clock gate not found
+[    1.925163@2] meson_uart ff804000.serial: ==uart3 reg addr = ffffff8008321000
+[    1.932277@2] ff804000.serial: ttyS3 at MMIO 0xff804000 (irq = 14, base_baud = 1500000) is a meson_uart
+[    1.942689@0] meson_uart ffd24000.serial: ==uart1 reg addr = ffffff8008323000
+[    1.948780@0] ffd24000.serial: ttyS1 at MMIO 0xffd24000 (irq = 25, base_baud = 1500000) is a meson_uart
+[    1.958948@2] meson_uart ffd23000.serial: ==uart2 reg addr = ffffff8008325000
+[    1.965212@2] ffd23000.serial: ttyS2 at MMIO 0xffd23000 (irq = 26, base_baud = 1500000) is a meson_uart
+[    1.976145@0] amlogic-new-usb2 ffe09000.usb2phy: USB2 phy probe:phy_mem:0xffe09000, iomap phy_base:0xffffff8008348000
+[    1.985488@0] amlogic-new-usb3 ffe09080.usb3phy: This phy has no usb port
+[    1.991980@0] amlogic-new-usb3 ffe09080.usb3phy: USB3 phy probe:phy_mem:0xffe09080, iomap phy_base:0xffffff800834c080
+[    2.007017@2] i2c i2c-1: of_i2c: modalias failure on /soc/aobus@ff800000/i2c@5000/mcu6350@40
+[    2.010797@2] i2c i2c-1: Failed to create I2C device for /soc/aobus@ff800000/i2c@5000/mcu6350@40
+[    2.023155@2] aml_dma ff63e000.aml_dma: Aml dma
+[    2.026291@2] aml_aes_dma ff63e000.aml_dma:aml_aes: Aml AES_dma
+[    2.031314@2] aml_sha_dma ff63e000.aml_dma:aml_sha: Aml SHA1/SHA224/SHA256 dma
+[    2.037637@2] efusekeynum: 4
+[    2.040018@2] efusekeyname:             mac	offset:     0	size:     6
+[    2.046411@2] efusekeyname:          mac_bt	offset:     6	size:     6
+[    2.052820@2] efusekeyname:        mac_wifi	offset:    12	size:     6
+[    2.059249@2] efusekeyname:            usid	offset:    18	size:    16
+[    2.066097@0] efuse efuse: probe OK!
+[    2.071618@0] meson-mmc: mmc driver version: 3.02, 2017-05-15: New Emmc Host Controller
+[    2.078702@0] meson-mmc: >>>>>>>>hostbase ffffff8008358000, dmode 
+[    2.083824@0] meson-mmc: actual_clock :400000, HHI_nand: 0x80
+[    2.089054@0] meson-mmc: [meson_mmc_clk_set_rate_v3] after clock: 0x1000033c
+[    2.133884@0] meson-mmc: meson_mmc_probe() : success!
+[    2.134132@0] amlogic mtd driver init
+[    2.138247@0] prase_get_dtb_nand_parameter:128,parse dts start
+[    2.142958@0] bl mode descrete
+[    2.145836@0] fip_copies 4
+[    2.148501@0] fip_size 0x200000
+[    2.151642@0] nand_clk_ctrl 0xffe07000
+[    2.155365@0] prase_get_dtb_nand_parameter:234,parse dts end
+[    2.161032@0] nand_clk_ctrl 0xffe07000
+[    2.164755@0] nand register base ffffff80083df800, nand clock register ffffff80083e1000
+[    2.173499@0] plat->aml_nand_device ffffff800a005c10
+[    2.177661@0] m3_nand_probe() aml_nand_device ffffff800a005c10
+[    2.183734@0] NAND device id: 98 da 90 15 76 16
+[    2.187963@0] NAND device: Manufacturer ID: 
+[    2.192028@0]  0x98, Chip ID: 0x98 (Toshiba A revision NAND 2Gib TC58NVG1S3HBAI4 )
+[    2.199591@0] oob_fill_cnt =32 oob_size =64, bch_bytes =14
+[    2.205024@0] ecc mode:6 ecc_page_num=2 eep_need_oobsize=16
+[    2.210573@0] plane_num=1 writesize=0x800 ecc.size=0x200 bch_mode=1
+[    2.216818@0] mtd->oobavail: 0x8
+[    2.220248@0] aml_nand_init 2119: plat-name:bootloader
+[    2.225144@0] Creating 1 MTD partitions on "bootloader":
+[    2.230426@0] 0x000000000000-0x000000200000 : "bootloader"
+[    2.239432@0] bootloader initialized ok
+[    2.239685@0] plat->aml_nand_device ffffff800a005c10
+[    2.244655@0] m3_nand_probe() aml_nand_device ffffff800a005c10
+[    2.250800@0] NAND device id: 98 da 90 15 76 16
+[    2.254955@0] NAND device: Manufacturer ID: 
+[    2.259031@0]  0x98, Chip ID: 0x98 (Toshiba A revision NAND 2Gib TC58NVG1S3HBAI4 )
+[    2.266602@0] oob_fill_cnt =32 oob_size =64, bch_bytes =14
+[    2.272027@0] ecc mode:6 ecc_page_num=2 eep_need_oobsize=16
+[    2.277567@0] plane_num=1 writesize=0x800 ecc.size=0x200 bch_mode=1
+[    2.283819@0] mtd->oobavail: 0x8
+[    2.287239@0] aml_nand_init 2119: plat-name:nandnormal
+[    2.292186@0] bbt_start=20
+[    2.294813@0] env_start=24
+[    2.297478@0] key_start=32
+[    2.300183@0] dtb_start=40
+[    2.302888@0] ddr_start=44
+[    2.305542@0] nbbt: info size=0x800 max_scan_blk=24, start_blk=20
+[    2.312074@0] get_free_node 43: bitmap=0
+[    2.315526@0] get_free_node 55: bitmap=1
+[    2.319630@0] get_free_node 43: bitmap=1
+[    2.323325@0] get_free_node 55: bitmap=3
+[    2.327430@0] get_free_node 43: bitmap=3
+[    2.331125@0] get_free_node 55: bitmap=7
+[    2.335025@0] nbbt : phy_blk_addr=20, ec=0, phy_page_addr=0, timestamp=1
+[    2.341695@0] nbbt free list:
+[    2.344643@0] blockN=21, ec=-1, dirty_flag=0
+[    2.348890@0] blockN=22, ec=-1, dirty_flag=0
+[    2.353135@0] blockN=23, ec=-1, dirty_flag=0
+[    2.357384@0] aml_nand_scan_rsv_info 1141: page_num=1
+[    2.362819@0] nbbt valid addr: 280000
+[    2.366052@0] aml_nand_bbt_check 1306 bbt is valid, reading.
+[    2.371685@0] aml_nand_read_rsv_info:423,read nbbt info at 280000
+[    2.377975@0] nenv: info size=0x10000 max_scan_blk=32, start_blk=24
+[    2.384399@0] get_free_node 43: bitmap=7
+[    2.387891@0] get_free_node 55: bitmap=f
+[    2.391995@0] get_free_node 43: bitmap=f
+[    2.395691@0] get_free_node 55: bitmap=1f
+[    2.399882@0] get_free_node 43: bitmap=1f
+[    2.403664@0] get_free_node 55: bitmap=3f
+[    2.407856@0] get_free_node 43: bitmap=3f
+[    2.411637@0] get_free_node 55: bitmap=7f
+[    2.415829@0] get_free_node 43: bitmap=7f
+[    2.419611@0] get_free_node 55: bitmap=ff
+[    2.423802@0] get_free_node 43: bitmap=ff
+[    2.427584@0] get_free_node 55: bitmap=1ff
+[    2.431862@0] get_free_node 43: bitmap=1ff
+[    2.435729@0] get_free_node 55: bitmap=3ff
+[    2.439805@0] nenv : phy_blk_addr=25, ec=1, phy_page_addr=0, timestamp=4
+[    2.446475@0] nenv free list:
+[    2.449406@0] blockN=24, ec=0, dirty_flag=1
+[    2.453582@0] blockN=26, ec=-1, dirty_flag=0
+[    2.457830@0] blockN=27, ec=-1, dirty_flag=0
+[    2.462076@0] blockN=28, ec=-1, dirty_flag=0
+[    2.466322@0] blockN=29, ec=-1, dirty_flag=0
+[    2.470569@0] blockN=30, ec=-1, dirty_flag=0
+[    2.474816@0] blockN=31, ec=-1, dirty_flag=0
+[    2.479062@0] aml_nand_scan_rsv_info 1141: page_num=32
+[    2.490884@0] nenv valid addr: 320000
+[    2.490918@0] nkey: info size=0x8000 max_scan_blk=40, start_blk=32
+[    2.495304@0] get_free_node 43: bitmap=3ff
+[    2.499163@0] get_free_node 55: bitmap=7ff
+[    2.503440@0] get_free_node 43: bitmap=7ff
+[    2.507309@0] get_free_node 55: bitmap=fff
+[    2.511587@0] get_free_node 43: bitmap=fff
+[    2.515456@0] get_free_node 55: bitmap=1fff
+[    2.519820@0] get_free_node 43: bitmap=1fff
+[    2.523775@0] get_free_node 55: bitmap=3fff
+[    2.528140@0] get_free_node 43: bitmap=3fff
+[    2.532095@0] get_free_node 55: bitmap=7fff
+[    2.536461@0] get_free_node 43: bitmap=7fff
+[    2.540415@0] get_free_node 55: bitmap=ffff
+[    2.544780@0] get_free_node 43: bitmap=ffff
+[    2.548735@0] get_free_node 55: bitmap=1ffff
+[    2.553187@0] get_free_node 43: bitmap=1ffff
+[    2.557229@0] get_free_node 55: bitmap=3ffff
+[    2.561476@0] nkey : phy_blk_addr=-1, ec=0, phy_page_addr=0, timestamp=0
+[    2.568147@0] nkey free list:
+[    2.571094@0] blockN=32, ec=-1, dirty_flag=0
+[    2.575341@0] blockN=33, ec=-1, dirty_flag=0
+[    2.579587@0] blockN=34, ec=-1, dirty_flag=0
+[    2.583891@0] blockN=35, ec=-1, dirty_flag=0
+[    2.588083@0] blockN=36, ec=-1, dirty_flag=0
+[    2.592328@0] blockN=37, ec=-1, dirty_flag=0
+[    2.596574@0] blockN=38, ec=-1, dirty_flag=0
+[    2.600821@0] blockN=39, ec=-1, dirty_flag=0
+[    2.605067@0] aml_nand_scan_rsv_info 1141: page_num=16
+[    2.610181@0] nkey valid addr: fffffffffffe0000
+[    2.614688@0] aml_nand_key_check 1251 NO key exist
+[    2.619455@0] ndtb: info size=0x20000 max_scan_blk=44, start_blk=40
+[    2.625903@0] get_free_node 43: bitmap=3ffff
+[    2.629942@0] get_free_node 55: bitmap=7ffff
+[    2.634598@0] get_free_node 43: bitmap=7ffff
+[    2.638436@0] get_free_node 55: bitmap=fffff
+[    2.642886@0] get_free_node 43: bitmap=fffff
+[    2.646929@0] get_free_node 55: bitmap=1fffff
+[    2.651263@0] ndtb : phy_blk_addr=41, ec=0, phy_page_addr=0, timestamp=2
+[    2.657933@0] ndtb free list:
+[    2.660864@0] blockN=40, ec=-1, dirty_flag=0
+[    2.665127@0] blockN=42, ec=-1, dirty_flag=0
+[    2.669374@0] blockN=43, ec=-1, dirty_flag=0
+[    2.673621@0] aml_nand_scan_rsv_info 1141: page_num=64
+[    2.691693@0] ndtb valid addr: 520000
+[    2.691727@0] nddr: info size=0x20000 max_scan_blk=46, start_blk=44
+[    2.696187@0] get_free_node 43: bitmap=1fffff
+[    2.700316@0] get_free_node 55: bitmap=3fffff
+[    2.704853@0] get_free_node 43: bitmap=3fffff
+[    2.708983@0] get_free_node 55: bitmap=7fffff
+[    2.713316@0] nddr : phy_blk_addr=-1, ec=0, phy_page_addr=0, timestamp=0
+[    2.719986@0] nddr free list:
+[    2.722934@0] blockN=44, ec=-1, dirty_flag=0
+[    2.727181@0] blockN=45, ec=-1, dirty_flag=0
+[    2.731427@0] aml_nand_scan_rsv_info 1141: page_num=64
+[    2.736540@0] nddr valid addr: fffffffffffe0000
+[    2.741047@0] aml_nand_ddr_check 1281 NO ddr exist
+[    2.745831@0] tpl: off 8388608, size 8388608
+[    2.843647@0]  NAND bbt detect factory Bad block at c000000
+[    2.843697@0] aml_nand_add_partition:394 factory bad addr=600
+[    2.849379@0]  NAND bbt detect factory Bad block at c020000
+[    2.854879@0] aml_nand_add_partition:394 factory bad addr=601
+[    2.894462@0] Creating 6 MTD partitions on "nandnormal":
+[    2.894510@0] 0x000000800000-0x000001000000 : "tpl"
+[    2.905501@3] 0x000001000000-0x000001200000 : "misc"
+[    2.908668@2] 0x000001200000-0x000002200000 : "recovery"
+[    2.920658@1] 0x000002200000-0x000004200000 : "boot"
+[    2.939784@1] 0x000004200000-0x000004700000 : "config"
+[    2.944394@1] 0x000004700000-0x000010000000 : "nvdata"
+[    3.009063@1]  NAND bbt detect factory Bad block at c000000
+[    3.009180@1]  NAND bbt detect factory Bad block at c020000
+[    3.050926@2] nandnormal initialized ok
+[    3.051033@2] aml_ubootenv_init: register env chardev
+[    3.054763@2] aml_ubootenv_init: register env chardev OK
+[    3.059626@2] amlnf_dtb_init: register dtb cdev
+[    3.064546@2] amlnf_dtb_init: register dtd cdev OK
+[    3.068794@2] mtd_nand_probe 267 , err = 0
+[    3.074089@2] aml_vrtc rtc: rtc core: registered aml_vrtc as rtc0
+[    3.079353@2] input: aml_vkeypad as /devices/platform/rtc/input/input0
+[    3.086572@2] unifykey: storage in base: 0xffffffc005000000
+[    3.090966@2] unifykey: storage out base: 0xffffffc005040000
+[    3.096564@2] unifykey: storage block base: 0xffffffc005080000
+[    3.102369@2] unifykey: probe done!
+[    3.106571@2] unifykey: no efuse-version set, use default value: -1
+[    3.112093@2] unifykey: key unify config unifykey-num is 6
+[    3.117629@2] unifykey: key unify fact unifykey-num is 6
+[    3.122829@2] unifykey: unifykey_devno: f200000
+[    3.128015@2] unifykey: device unifykeys created ok
+[    3.132334@2] unifykey: aml_unifykeys_init done!
+[    3.137206@2] sysled: module init
+[    3.140707@2] meson_wdt ffd0f0d0.watchdog: start watchdog
+[    3.145467@2] meson_wdt ffd0f0d0.watchdog: creat work queue for watch dog
+[    3.152878@3] meson_wdt ffd0f0d0.watchdog: AML Watchdog Timer probed done
+[    3.161681@2] dmc_monitor_probe
+[    3.167974@2] defendkey defendkey: Reserved memory is not enough!
+[    3.168464@2] defendkey: probe of defendkey failed with error -22
+[    3.174858@2] GACT probability NOT on
+[    3.178193@2] Mirror/redirect action on
+[    3.181997@2] u32 classifier
+[    3.184815@2]     Actions configured
+[    3.188394@2] Netfilter messages via NETLINK v0.30.
+[    3.193658@2] nf_conntrack version 0.5.0 (2048 buckets, 8192 max)
+[    3.199867@2] ctnetlink v0.93: registering with nfnetlink.
+[    3.205702@2] xt_time: kernel timezone is -0000
+[    3.209446@2] ipip: IPv4 and MPLS over IPv4 tunneling driver
+[    3.216089@2] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    3.220778@2] arp_tables: arp_tables: (C) 2002 David S. Miller
+[    3.226278@2] Initializing XFRM netlink socket
+[    3.231806@2] NET: Registered protocol family 10
+[    3.237486@2] mip6: Mobile IPv6
+[    3.238391@2] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[    3.244296@2] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    3.252250@2] NET: Registered protocol family 17
+[    3.254590@2] NET: Registered protocol family 15
+[    3.259179@2] bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to load br_netfilter if you need this.
+[    3.272362@2] l2tp_core: L2TP core driver, V2.0
+[    3.276723@2] l2tp_ppp: PPPoL2TP kernel driver, V2.0
+[    3.281650@2] l2tp_ip: L2TP IP encapsulation support (L2TPv3)
+[    3.287400@2] l2tp_netlink: L2TP netlink interface
+[    3.292205@2] l2tp_eth: L2TP ethernet pseudowire support (L2TPv3)
+[    3.298264@2] l2tp_debugfs: L2TP debugfs support
+[    3.302796@2] l2tp_ip6: L2TP IP encapsulation support for IPv6 (L2TPv3)
+[    3.309438@2] NET: Registered protocol family 35
+[    3.314366@2] Key type dns_resolver registered
+[    3.318969@2] Registered swp emulation handler
+[    3.322830@2] Registered cp15_barrier emulation handler
+[    3.328024@2] Registered setend emulation handler
+[    3.332766@2] disable EAS feature
+[    3.337309@1] registered taskstats version 1
+[    3.353922@2] dwc3 ff500000.dwc3: Configuration mismatch. dr_mode forced to host
+[    3.860323@2] xhci-hcd xhci-hcd.0.auto: xHCI Host Controller
+[    3.860410@2] xhci-hcd xhci-hcd.0.auto: new USB bus registered, assigned bus number 1
+[    3.868719@2] xhci-hcd xhci-hcd.0.auto: hcc params 0x0220f664 hci version 0x100 quirks 0x02010010
+[    3.877139@2] xhci-hcd xhci-hcd.0.auto: irq 22, io mem 0xff500000
+[    3.884635@1] hub 1-0:1.0: USB hub found
+[    3.887089@1] hub 1-0:1.0: 1 port detected
+[    3.891700@1] xhci-hcd xhci-hcd.0.auto: xHCI Host Controller
+[    3.896712@1] xhci-hcd xhci-hcd.0.auto: new USB bus registered, assigned bus number 2
+[    3.904609@1] usb usb2: We don't know the algorithms for LPM for this host, disabling LPM.
+[    3.914301@2] hub 2-0:1.0: USB hub found
+[    3.916668@2] hub 2-0:1.0: config failed, hub doesn't have any ports! (err -19)
+[    3.924003@2] usb usb2: Unsupported the hub
+[    3.928745@2] aml_vrtc rtc: setting system clock to 2026-05-03 03:01:44 UTC (1777777304)
+[    3.936834@2] dwc_otg ff400000.dwc2_a: dwc_otg_driver_probe(ffffffc00cd6f000)
+[    3.936911@2] dwc_otg: usb0: type: 2 speed: 0, config: 0, dma: 0, id: 0, phy: ffe09000, ctrl: 0
+[    3.944791@2] dwc_otg ff400000.dwc2_a: base=0xffffff8008580000
+[    3.944804@2] dwc_otg ff400000.dwc2_a: dwc_otg_device=0xffffffc00d822e00
+[    4.045235@3] dwc_otg: Core Release: 3.10a
+[    4.045331@3] dwc_otg: Setting default values for core params
+[    4.049540@3] dwc_otg: curmode: 0, host_only: 0
+[    4.053989@3] dwc_otg ff400000.dwc2_a: DMA config: BURST_DEFAULT
+[    4.066501@3] dwc_otg: Using Buffer DMA mode
+[    4.066538@3] dwc_otg: OTG VER PARAM: 1, OTG VER FLAG: 1
+[    4.070446@3] dwc_otg: Working on port type = SLAVE
+[    4.075303@3] dwc_otg: Dedicated Tx FIFOs mode
+[    4.082357@0] thermal thermal_zone0: binding zone soc_thermal with cdev thermal-cpufreq-0 failed:-22
+[    4.089014@0] cpucore_cooling_register, max_cpu_core_num:4
+[    4.101365@0] gxbb_pm: enter meson_pm_probe!
+[    4.101422@0] no vddio3v3_en pin
+[    4.103111@0] pm-meson aml_pm: Can't get switch_clk81
+[    4.108161@0] gxbb_pm: meson_pm_probe done
+[    4.113091@0] meson_uart ff803000.serial: ttyS0 use xtal(24M) 24000000 change 115200 to 115200
+[    4.119523@0] Freeing unused kernel memory: 3648K
+[    4.134034@0] meson_uart ff803000.serial: ttyS0 use xtal(24M) 24000000 change 115200 to 115200
+[    4.386076@3] ubi0: attaching mtd5
+[    4.405636@3] ubi0: scanning is finished
+[    4.410692@3] ubi0: attached mtd5 (name "config", size 5 MiB)
+[    4.410822@3] ubi0: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
+[    4.417880@3] ubi0: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
+[    4.424795@3] ubi0: VID header offset: 2048 (aligned 2048), data offset: 4096
+[    4.431899@3] ubi0: good PEBs: 40, bad PEBs: 0, corrupted PEBs: 0
+[    4.437957@3] ubi0: user volume: 1, internal volumes: 1, max. volumes count: 128
+[    4.445333@3] ubi0: max/mean erase counter: 337/214, WL threshold: 4096, image sequence number: 4219514493
+[    4.454944@3] ubi0: available PEBs: 0, total reserved PEBs: 40, PEBs reserved for bad PEB handling: 4
+[    4.464163@2] ubi0: background thread "ubi_bgt0d" started, PID 1079
+[    4.477316@3] UBIFS (ubi0:0): background thread "ubifs_bgt0_0" started, PID 1083
+[    4.516104@2] UBIFS (ubi0:0): UBIFS: mounted UBI device 0, volume 0, name "config_data"
+[    4.518537@2] UBIFS (ubi0:0): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
+[    4.528557@2] UBIFS (ubi0:0): FS size: 2793472 bytes (2 MiB, 22 LEBs), journal size 1015809 bytes (0 MiB, 6 LEBs)
+[    4.538777@2] UBIFS (ubi0:0): reserved for root: 131942 bytes (128 KiB)
+[    4.545366@2] UBIFS (ubi0:0): media format: w4/r0 (latest is w4/r0), UUID 88A5D5AE-96F6-4A61-8FA6-F661C941BA52, small LPT model
+[    4.569777@0] ubi2: attaching mtd6
+[    5.035868@0]  NAND bbt detect factory Bad block at c000000
+[    5.035993@0]  NAND bbt detect factory Bad block at c020000
+[    5.286974@0] ubi2: scanning is finished
+[    5.294391@2] ubi2: attached mtd6 (name "nvdata", size 185 MiB)
+[    5.294692@2] ubi2: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
+[    5.301741@2] ubi2: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
+[    5.308686@2] ubi2: VID header offset: 2048 (aligned 2048), data offset: 4096
+[    5.315762@2] ubi2: good PEBs: 1478, bad PEBs: 2, corrupted PEBs: 0
+[    5.322009@2] ubi2: user volume: 1, internal volumes: 1, max. volumes count: 128
+[    5.329369@2] ubi2: max/mean erase counter: 4326/2961, WL threshold: 4096, image sequence number: 4101770282
+[    5.339169@2] ubi2: available PEBs: 0, total reserved PEBs: 1478, PEBs reserved for bad PEB handling: 2
+[    5.348540@0] ubi2: background thread "ubi_bgt2d" started, PID 1090
+[    5.361588@2] UBIFS (ubi2:0): background thread "ubifs_bgt2_0" started, PID 1094
+[    5.411608@1] UBIFS (ubi2:0): UBIFS: mounted UBI device 2, volume 0, name "nvdada_log"
+[    5.413952@1] UBIFS (ubi2:0): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
+[    5.423979@1] UBIFS (ubi2:0): FS size: 185384960 bytes (176 MiB, 1460 LEBs), journal size 9269248 bytes (8 MiB, 73 LEBs)
+[    5.434809@1] UBIFS (ubi2:0): reserved for root: 4952683 bytes (4836 KiB)
+[    5.441570@1] UBIFS (ubi2:0): media format: w4/r0 (latest is w4/r0), UUID 9BFF79C4-6D5F-4620-B4D1-F23C57E953AF, small LPT model
+[    5.670668@1] eth0: device MAC address 02:fe:5c:b5:63:5d
+[    5.755531@0] meson6-dwmac ff3f0000.ethernet eth0: fail to init PTP.
+[    5.756917@0] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+[    6.000102@2] uart_trans: loading out-of-tree module taints kernel.
+[    6.002436@2] register uart_trans chrdev success.
+[    6.005981@2] meson_uart ff804000.serial: ttyS3 use xtal(24M) 24000000 change 0 to 9600
+[    6.013511@2] tty port open success [/dev/ttyS3]!
+[    6.018411@2] meson_uart ff804000.serial: ttyS3 use xtal(24M) 24000000 change 9600 to 115200
+[    6.026563@2] init sucess for tty struct (246:3)  [/dev/ttyS3]
+[    6.032711@2] meson_uart ffd23000.serial: ttyS2 use xtal(24M) 24000000 change 0 to 9600
+[    6.040356@2] tty port open success [/dev/ttyS2]!
+[    6.045022@2] meson_uart ffd23000.serial: ttyS2 use xtal(24M) 24000000 change 9600 to 115200
+[    6.053454@2] init sucess for tty struct (246:2)  [/dev/ttyS2]
+[    6.059587@2] meson_uart ffd24000.serial: ttyS1 use xtal(24M) 24000000 change 0 to 9600
+[    6.067197@2] tty port open success [/dev/ttyS1]!
+[    6.071920@2] meson_uart ffd24000.serial: ttyS1 use xtal(24M) 24000000 change 9600 to 115200
+[    6.080274@2] init sucess for tty struct (246:1)  [/dev/ttyS1]
+[    6.086392@0] create workqueue success!
+[    7.798062@0] meson6-dwmac ff3f0000.ethernet eth0: Link is Up - 100Mbps/Full - flow control off
+[    7.801171@0] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+
+
+===========================================Miner log===========================================
+2026-05-03 03:01:51 Miner compile time: Tue Nov 29 11:42:05 CST 2022 type: Antminer S19 XP sn :SMTTEAUBCJDJC052H
+2026-05-03 03:01:52 This is fix-freq version
+2026-05-03 03:01:52 Miner compile time: Tue Nov 29 11:42:05 CST 2022 type: Antminer S19 XP
+2026-05-03 03:01:53 Miner sn: SMTTEAUBCJDJC052H
+2026-05-03 03:01:53 commit version: dd076742 2022-10-27 22:42:25, build by: jenkins 2022-11-29 12:03:58
+2026-05-03 03:01:53 opt_multi_version     = 1
+2026-05-03 03:01:53 opt_bitmain_ab        = 1
+2026-05-03 03:01:53 mid_auto_gen          = 1
+2026-05-03 03:01:53 opt_bitmain_work_mode = 0
+2026-05-03 03:01:53 port 439 already exported
+2026-05-03 03:01:53 port 454 already exported
+2026-05-03 03:01:53 port 440 already exported
+2026-05-03 03:01:53 port 455 already exported
+2026-05-03 03:01:53 port 441 already exported
+2026-05-03 03:01:53 port 456 already exported
+2026-05-03 03:01:53 port 438 already exported
+2026-05-03 03:01:53 port 453 already exported
+2026-05-03 03:01:53 port 446 already exported
+2026-05-03 03:01:53 port 445 already exported
+2026-05-03 03:01:53 Note: front fan is power on!
+2026-05-03 03:01:53 Note: rear fan is power on!
+2026-05-03 03:01:53 start the http log.
+2026-05-03 03:01:53 httpListenThread start ret=0
+2026-05-03 03:01:53 start listen on 6060 ...
+2026-05-03 03:01:53 load machine BHB56801 conf
+2026-05-03 03:01:53 machine : BHB56801 
+2026-05-03 03:01:53 get test_loop_securely_find_asic_num failed
+2026-05-03 03:01:53 get mix boardname[0][BHB56801], name:BHB56801
+2026-05-03 03:01:53 get mix boardname[1][BHB56802], name:BHB56802
+2026-05-03 03:01:53 bad chain id = 3
+2026-05-03 03:01:56 bad chain id = 3
+2026-05-03 03:01:58 power off
+2026-05-03 03:02:00 ==========================capability start==========================
+2026-05-03 03:02:00 board num = 3
+2026-05-03 03:02:00 board id = 0, chain num = 1
+2026-05-03 03:02:00 	chain id = 0
+2026-05-03 03:02:00 board id = 1, chain num = 1
+2026-05-03 03:02:00 	chain id = 1
+2026-05-03 03:02:00 board id = 2, chain num = 1
+2026-05-03 03:02:00 	chain id = 2
+2026-05-03 03:02:00 ==========================capability end============================
+2026-05-03 03:02:00 chain num = 3
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:00 fail to write 0:1
+2026-05-03 03:02:00 fail to read 0:1
+2026-05-03 03:02:01 load chain 0 eeprom data
+2026-05-03 03:02:01 got nothing
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 load chain 0 eeprom data
+2026-05-03 03:02:01 got nothing
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:01 fail to read 0:1
+2026-05-03 03:02:01 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 fail to write 0:1
+2026-05-03 03:02:02 fail to read 0:1
+2026-05-03 03:02:02 load chain 0 eeprom data
+2026-05-03 03:02:02 got nothing
+2026-05-03 03:02:02 Data load fail for chain 0.
+2026-05-03 03:02:03 load chain 1 eeprom data
+2026-05-03 03:02:03 EEPROM error: CRC 1ST REGION
+2026-05-03 03:02:03 got nothing
+2026-05-03 03:02:03 load chain 1 eeprom data
+2026-05-03 03:02:03 EEPROM error: CRC 1ST REGION
+2026-05-03 03:02:03 got nothing
+2026-05-03 03:02:04 load chain 1 eeprom data
+2026-05-03 03:02:04 EEPROM error: CRC 1ST REGION
+2026-05-03 03:02:04 got nothing
+2026-05-03 03:02:04 Data load fail for chain 1.
+2026-05-03 03:02:05 load chain 2 eeprom data
+2026-05-03 03:02:05 Sweep error string = J3:4.
+2026-05-03 03:02:05 Fixture data load failed, exit.
+2026-05-03 03:02:05 eeprom load ret:-1
+2026-05-03 03:02:05 ERROR_SOC_INIT: basic init failed!
+2026-05-03 03:02:05 stop_mining: basic init failed!
+2026-05-03 03:02:05 ****power off hashboard****
+2026-05-03 03:02:05 power off
+
+[2026-05-03 01:41:45] [SUMMARY]
+{
+  "STATUS": [
+    {
+      "STATUS": "S",
+      "When": 1777790506,
+      "Code": 11,
+      "Msg": "Summary",
+      "Description": "cgminer 1.0.0"
+    }
+  ],
+  "SUMMARY": [
+    {
+      "Elapsed": 1,
+      "GHS 5s": 0.0,
+      "GHS av": 0.0,
+      "GHS 30m": 0.0,
+      "Found Blocks": 0,
+      "Getwork": 0,
+      "Accepted": 0,
+      "Rejected": 0,
+      "Hardware Errors": 0,
+      "Utility": 0.0,
+      "Discarded": 0,
+      "Stale": 0,
+      "Get Failures": 0,
+      "Local Work": 0,
+      "Remote Failures": 0,
+      "Network Blocks": 0,
+      "Total MH": 0.0,
+      "Work Utility": 0.0,
+      "Difficulty Accepted": 0.0,
+      "Difficulty Rejected": 0.0,
+      "Difficulty Stale": 0.0,
+      "Best Share": 0,
+      "Device Hardware%": 0.0,
+      "Device Rejected%": 0.0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Last getwork": 0
+    }
+  ],
+  "id": 1
+}
+
+[2026-05-03 01:41:45] [STATS]
+{
+  "STATUS": [
+    {
+      "STATUS": "S",
+      "When": 1777790506,
+      "Code": 70,
+      "Msg": "CGMiner stats",
+      "Description": "cgminer 1.0.0"
+    }
+  ],
+  "STATS": [
+    {
+      "BMMiner": "1.0.0",
+      "Miner": "",
+      "CompileTime": "Tue Nov 29 11:42:05 CST 2022",
+      "Type": "Antminer S19 XP"
+    }
+  ],
+  "id": 1
+}
+
+[2026-05-03 01:41:45] [POOLS]
+{
+  "STATUS": [
+    {
+      "STATUS": "S",
+      "When": 1777790506,
+      "Code": 7,
+      "Msg": "3 Pool(s)",
+      "Description": "cgminer 1.0.0"
+    }
+  ],
+  "POOLS": [
+    {
+      "POOL": 0,
+      "URL": "stratum+tcp://sha256.poolbinance.com:443",
+      "Status": "Disabled",
+      "Priority": 0,
+      "Quota": 1,
+      "Long Poll": "N",
+      "Getworks": 0,
+      "Accepted": 0,
+      "Rejected": 0,
+      "Discarded": 0,
+      "Stale": 0,
+      "Get Failures": 0,
+      "Remote Failures": 0,
+      "User": "NCATX.082",
+      "Last Share Time": "0",
+      "Diff": "",
+      "Diff1 Shares": 0,
+      "Proxy Type": "",
+      "Proxy": "",
+      "Difficulty Accepted": 0.0,
+      "Difficulty Rejected": 0.0,
+      "Difficulty Stale": 0.0,
+      "Last Share Difficulty": 0.0,
+      "Has Stratum": true,
+      "Stratum Active": false,
+      "Stratum URL": "",
+      "Has GBT": false,
+      "Best Share": 0.0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%%": 0.0
+    },
+    {
+      "POOL": 1,
+      "URL": "stratum+tcp://btc.poolbinance.com:1800",
+      "Status": "Disabled",
+      "Priority": 1,
+      "Quota": 1,
+      "Long Poll": "N",
+      "Getworks": 0,
+      "Accepted": 0,
+      "Rejected": 0,
+      "Discarded": 0,
+      "Stale": 0,
+      "Get Failures": 0,
+      "Remote Failures": 0,
+      "User": "NCATX.082",
+      "Last Share Time": "0",
+      "Diff": "",
+      "Diff1 Shares": 0,
+      "Proxy Type": "",
+      "Proxy": "",
+      "Difficulty Accepted": 0.0,
+      "Difficulty Rejected": 0.0,
+      "Difficulty Stale": 0.0,
+      "Last Share Difficulty": 0.0,
+      "Has Stratum": true,
+      "Stratum Active": false,
+      "Stratum URL": "",
+      "Has GBT": false,
+      "Best Share": 0.0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%%": 0.0
+    },
+    {
+      "POOL": 2,
+      "URL": "stratum+tcp://bs.poolbinance.com:3333",
+      "Status": "Disabled",
+      "Priority": 2,
+      "Quota": 1,
+      "Long Poll": "N",
+      "Getworks": 0,
+      "Accepted": 0,
+      "Rejected": 0,
+      "Discarded": 0,
+      "Stale": 0,
+      "Get Failures": 0,
+      "Remote Failures": 0,
+      "User": "NCATX.082",
+      "Last Share Time": "0",
+      "Diff": "",
+      "Diff1 Shares": 0,
+      "Proxy Type": "",
+      "Proxy": "",
+      "Difficulty Accepted": 0.0,
+      "Difficulty Rejected": 0.0,
+      "Difficulty Stale": 0.0,
+      "Last Share Difficulty": 0.0,
+      "Has Stratum": true,
+      "Stratum Active": false,
+      "Stratum URL": "",
+      "Has GBT": false,
+      "Best Share": 0.0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%%": 0.0
+    }
+  ],
+  "id": 1
+}

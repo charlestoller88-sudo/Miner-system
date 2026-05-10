@@ -1,0 +1,724 @@
+============================================================
+矿机运行日志 - 10.102.1.72
+导出时间: 2026-04-18 01:58:27
+IP: 10.102.1.72  序列号: MINER-10-102-1-72  型号: Antminer S19 XP
+============================================================
+
+[2026-04-18 01:58:27] [SYSTEM_LOG] 矿机后台系统日志（与 Web 界面一致）
+[    0.000000@0] Booting Linux on physical CPU 0x0
+[    0.000000@0] Linux version 4.9.113 (jenkins@nomd-nomd-fwc-bj) (gcc version 6.3.1 20170109 (Linaro GCC 6.3-2017.02) ) #1 SMP PREEMPT Tue Nov 29 12:17:10 CST 2022
+[    0.000000@0] Boot CPU: AArch64 Processor [410fd034]
+[    0.000000@0] earlycon: aml_uart0 at MMIO 0x00000000ff803000 (options '')
+[    0.000000@0] bootconsole [aml_uart0] enabled
+[    0.000000@0] efi: Getting EFI parameters from FDT:
+[    0.000000@0] efi: UEFI not found.
+[    0.000000@0] 	07400000 - 07500000,     1024 KB, ramoops@0x07400000
+[    0.000000@0] __reserved_mem_alloc_size, start:0x0000000005000000, end:0x0000000005400000, len:4 MiB
+[    0.000000@0] 	05000000 - 05400000,     4096 KB, linux,secmon
+[    0.000000@0] cma: Reserved 16 MiB at 0x000000000f000000
+[    0.000000@0] On node 0 totalpages: 65536
+[    0.000000@0]   DMA zone: 1024 pages used for memmap
+[    0.000000@0]   DMA zone: 0 pages reserved
+[    0.000000@0]   DMA zone: 65536 pages, LIFO batch:15
+[    0.000000@0] psci: probing for conduit method from DT.
+[    0.000000@0] psci: PSCIv1.0 detected in firmware.
+[    0.000000@0] psci: Using standard PSCI v0.2 function IDs
+[    0.000000@0] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000@0] psci: SMC Calling Convention v1.1
+[    0.000000@0] percpu: Embedded 25 pages/cpu @ffffffc00ef53000 s64536 r8192 d29672 u102400
+[    0.000000@0] pcpu-alloc: s64536 r8192 d29672 u102400 alloc=25*4096
+[    0.000000@0] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 
+[    0.000000@0] Detected VIPT I-cache on CPU0
+[    0.000000@0] CPU features: enabling workaround for ARM erratum 845719
+[    0.000000@0] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 64512
+[    0.000000@0] Kernel command line: init=/init console=ttyS0,115200 no_console_suspend earlycon=aml_uart,0xff803000 ramoops.pstore_en=1 ramoops.record_size=0x8000 ramoops.console_size=0x4000 logo=,loaded,androidboot.selinux=enforcing androidboot.firstboot=1 jtag=disable androidboot.hardware=amlogic androidboot.bootloader=U-Boot 2015.01 androidboot.build.expect.baseband=N/A androidboot.serialno=1234567890 androidboot.rpmb_state=0 rootfstype=ramfs init=/sbin/init
+[    0.000000@0] PID hash table entries: 1024 (order: 1, 8192 bytes)
+[    0.000000@0] Dentry cache hash table entries: 32768 (order: 6, 262144 bytes)
+[    0.000000@0] Inode-cache hash table entries: 16384 (order: 5, 131072 bytes)
+[    0.000000@0] Memory: 209572K/262144K available (8764K kernel code, 1194K rwdata, 2424K rodata, 3648K init, 1017K bss, 32092K reserved, 20480K cma-reserved)
+[    0.000000@0] Virtual kernel memory layout:
+[    0.000000@0]     modules : 0xffffff8000000000 - 0xffffff8008000000   (   128 MB)
+[    0.000000@0]     vmalloc : 0xffffff8008000000 - 0xffffffbebfff0000   (   250 GB)
+[    0.000000@0]       .text : 0xffffff8009080000 - 0xffffff8009910000   (  8768 KB)
+[    0.000000@0]     .rodata : 0xffffff8009910000 - 0xffffff8009b80000   (  2496 KB)
+[    0.000000@0]       .init : 0xffffff8009b80000 - 0xffffff8009f10000   (  3648 KB)
+[    0.000000@0]       .data : 0xffffff8009f10000 - 0xffffff800a03aa00   (  1195 KB)
+[    0.000000@0]        .bss : 0xffffff800a03aa00 - 0xffffff800a139034   (  1018 KB)
+[    0.000000@0]     fixed   : 0xffffffbefe7fb000 - 0xffffffbefec00000   (  4116 KB)
+[    0.000000@0]     PCI I/O : 0xffffffbefee00000 - 0xffffffbeffe00000   (    16 MB)
+[    0.000000@0]     vmemmap : 0xffffffbf00000000 - 0xffffffc000000000   (     4 GB maximum)
+[    0.000000@0]               0xffffffbf00000000 - 0xffffffbf00400000   (     4 MB actual)
+[    0.000000@0]     memory  : 0xffffffc000000000 - 0xffffffc010000000   (   256 MB)
+[    0.000000@0] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000@0] Preemptible hierarchical RCU implementation.
+[    0.000000@0] 	Build-time adjustment of leaf fanout to 64.
+[    0.000000@0] 	RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=4.
+[    0.000000@0] RCU: Adjusting geometry for rcu_fanout_leaf=64, nr_cpu_ids=4
+[    0.000000@0] NR_IRQS:64 nr_irqs:64 0
+[    0.000000@0] irq_meson_gpio: 100 to 8 gpio interrupt mux initialized
+[    0.000000@0] axg_aoclkc_init: register ao clk ok!
+[    0.000000@0] axg_amlogic_init_sdemmc: register amlogic sdemmc clk
+[    0.000000@0] axg_amlogic_init_sdemmc: register amlogic sdemmc clk
+[    0.000000@0] axg_amlogic_init_media: register meson media clk
+[    0.000000@0] axg_amlogic_init_misc: register amlogic axg misc clks
+[    0.000000@0] axg_amlogic_init_misc: register amlogic sdemmc clk
+[    0.000000@0] axg_clkc_init initialization complete
+[    0.000000@0] arm_arch_timer: Architected cp15 timer(s) running at 24.00MHz (phys).
+[    0.000000@0] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
+[    0.000004@0] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
+[    0.008252@0] meson_bc_timer: mclk->mux_reg =ffffff800800a190,mclk->reg =ffffff800800c194
+[    0.016906@0] Console: colour dummy device 80x25
+[    0.021107@0] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=96000)
+[    0.031587@0] pid_max: default: 32768 minimum: 301
+[    0.036435@0] thread_stack_cache_init, vmap:ffffffc00e5af600, bitmap:ffffffc00e5a3000, cache page:e5e0
+[    0.045772@0] thread_stack_cache_init, allocation vm area:ffffffc00e5d94c0, addr:ffffff8020000000, size:20001000
+[    0.056005@0] cpu 0, vmap_stack:[ffffffc00ef5c960-ffffffc00ef60950]
+[    0.062304@0] cpu 0, irq_stack: [ffffffc00ef53060-ffffffc00ef57050]
+[    0.068604@0] cpu 1, vmap_stack:[ffffffc00ef75960-ffffffc00ef79950]
+[    0.074904@0] cpu 1, irq_stack: [ffffffc00ef6c060-ffffffc00ef70050]
+[    0.081204@0] cpu 2, vmap_stack:[ffffffc00ef8e960-ffffffc00ef92950]
+[    0.087504@0] cpu 2, irq_stack: [ffffffc00ef85060-ffffffc00ef89050]
+[    0.093804@0] cpu 3, vmap_stack:[ffffffc00efa7960-ffffffc00efab950]
+[    0.100104@0] cpu 3, irq_stack: [ffffffc00ef9e060-ffffffc00efa2050]
+[    0.106465@0] Security Framework initialized
+[    0.110696@0] SELinux:  Initializing.
+[    0.114388@0] SELinux:  Starting in permissive mode
+[    0.114425@0] Mount-cache hash table entries: 512 (order: 0, 4096 bytes)
+[    0.121107@0] Mountpoint-cache hash table entries: 512 (order: 0, 4096 bytes)
+[    0.128841@0] ftrace: allocating 30061 entries in 118 pages
+[    0.186347@0] sched-energy: CPU device node has no sched-energy-costs
+[    0.187155@0] CPU0: update cpu_capacity 1024
+[    0.191482@0] ASID allocator initialised with 32768 entries
+[    0.229620@0] secmon: can't fine clear_range
+[    0.229822@0] EFI services will not be available.
+[    0.233086@0] Meson chip version = RevC (25:C - 23:0)
+[    0.266757@1] Detected VIPT I-cache on CPU1
+[    0.266817@1] CPU1: update cpu_capacity 1024
+[    0.266819@1] CPU1: Booted secondary processor [410fd034]
+[    0.294812@2] Detected VIPT I-cache on CPU2
+[    0.294866@2] CPU2: update cpu_capacity 1024
+[    0.294868@2] CPU2: Booted secondary processor [410fd034]
+[    0.322878@3] Detected VIPT I-cache on CPU3
+[    0.322927@3] CPU3: update cpu_capacity 1024
+[    0.322929@3] CPU3: Booted secondary processor [410fd034]
+[    0.323017@0] Brought up 4 CPUs
+[    0.362233@0] SMP: Total of 4 processors activated.
+[    0.367141@0] CPU features: detected feature: 32-bit EL0 Support
+[    0.373177@0] CPU features: detected feature: Kernel page table isolation (KPTI)
+[    0.383730@0] CPU: All CPU(s) started at EL2
+[    0.384918@0] alternatives: patching kernel code
+[    0.390221@1] addr:ffffff802007be10 is in kernel, size fix 4096->10, data:mode=0755
+[    0.397441@0] devtmpfs: initialized
+[    0.412474@0] DMI not present or invalid.
+[    0.412871@0] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.420844@0] futex hash table entries: 1024 (order: 4, 65536 bytes)
+[    0.427423@0] pinctrl core: initialized pinctrl subsystem
+[    0.433817@0] NET: Registered protocol family 16
+[    0.457374@0] cpuidle: using governor menu
+[    0.457893@0] vdso: 2 pages (1 code @ ffffff8009917000, 1 data @ ffffff8009f14000)
+[    0.463483@0] hw-breakpoint: found 6 breakpoint and 2 watchpoint registers.
+[    0.470885@0] DMA: preallocated 256 KiB pool for atomic allocations
+[    0.477023@0] clkmsr: clkmsr: driver init
+[    0.481079@0] aml_watch_point_probe, in, wp:2
+[    0.486510@0] pstore: using zlib compression
+[    0.489924@0] console [pstore-1] enabled
+[    0.493361@0] pstore: Registered ramoops as persistent store backend
+[    0.499769@0] ramoops: attached 0x100000@0x7400000, ecc: 0/0
+[    0.514115@0] aml_iomap: amlogic iomap probe done
+[    0.521032@0] clkmsr: msr_clk_reg0=ffffff800817e004,msr_clk_reg2=ffffff80081d100c
+[    0.522970@0] clkmsr ffd18004.meson_clk_msr: failed to get msr ring reg0
+[    0.623243@0] usbcore: registered new interface driver usbfs
+[    0.623409@0] usbcore: registered new interface driver hub
+[    0.629024@0] usbcore: registered new device driver usb
+[    0.634322@0] pps_core: LinuxPPS API ver. 1 registered
+[    0.639257@0] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.648641@0] PTP clock support registered
+[    0.653024@0] dmi: Firmware registration failed.
+[    0.657980@0] secmon: reserve_mem_size:0x300000
+[    0.662003@0] secmon secmon: assigned reserved memory node linux,secmon
+[    0.668918@0] secmon: get page:ffffffbf00140000, 5000
+[    0.673620@0] secmon: share in base: 0xffffffc0050fe000, share out base: 0xffffffc0050ff000
+[    0.682006@0] secmon: phy_in_base: 0x50fe000, phy_out_base: 0x50ff000
+[    0.689884@0] NetLabel: Initializing
+[    0.692057@0] NetLabel:  domain hash size = 128
+[    0.696641@0] NetLabel:  protocols = UNLABELED CIPSOv4
+[    0.701874@0] NetLabel:  unlabeled traffic allowed by default
+[    0.708515@0] clocksource: Switched to clocksource arch_sys_counter
+[    0.835384@0] VFS: Disk quotas dquot_6.6.0
+[    0.835531@0] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    0.861560@0] NET: Registered protocol family 2
+[    0.862595@0] TCP established hash table entries: 2048 (order: 2, 16384 bytes)
+[    0.867791@0] TCP bind hash table entries: 2048 (order: 3, 32768 bytes)
+[    0.874518@0] TCP: Hash tables configured (established 2048 bind 2048)
+[    0.881064@0] UDP hash table entries: 256 (order: 1, 8192 bytes)
+[    0.887016@0] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+[    0.893765@0] NET: Registered protocol family 1
+[    0.898707@0] RPC: Registered named UNIX socket transport module.
+[    0.904155@0] RPC: Registered udp transport module.
+[    0.909040@0] RPC: Registered tcp transport module.
+[    0.913930@0] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.923060@0] Unpacking initramfs...
+[    1.524953@0] Initramfs unpacking failed: junk in compressed archive
+[    1.533705@0] Freeing initrd memory: 8688K
+[    1.534611@0] hw perfevents: clusterb_enabled = 0
+[    1.536945@0] hw perfevents: cpumasks 0xf, 0x0
+[    1.541422@0] hw perfevents: cluster A irq = 7
+[    1.545996@0] hw perfevents: enabled with armv8_pmuv3 PMU driver, 7 counters available
+[    1.556059@0] audit: initializing netlink subsys (disabled)
+[    1.559497@0] audit: type=2000 audit(1.372:1): initialized
+[    1.566817@0] workingset: timestamp_bits=62 max_order=16 bucket_order=0
+[    1.590859@0] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    1.593819@0] NFS: Registering the id_resolver key type
+[    1.596572@0] Key type id_resolver registered
+[    1.600891@0] Key type id_legacy registered
+[    1.605503@0] fuse init (API version 7.26)
+[    1.610956@0] SELinux:  Registering netfilter hooks
+[    1.617455@0] NET: Registered protocol family 38
+[    1.617517@0] Key type asymmetric registered
+[    1.620755@0] Asymmetric key parser 'x509' registered
+[    1.626231@0] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 248)
+[    1.633462@0] io scheduler noop registered (default)
+[    1.638430@0] io scheduler deadline registered
+[    1.643298@0] io scheduler cfq registered
+[    1.663759@2] random: fast init done
+[    1.663859@2] random: crng init done
+[    1.664308@0] Unable to detect cache hierarchy for CPU 0
+[    1.706836@0] loop: module loaded
+[    1.708258@0] zram: Added device: zram0
+[    1.708773@0] mtdoops: mtd device (mtddev=name/number) must be supplied
+[    1.715893@0] libphy: Fixed MDIO Bus: probed
+[    1.720160@0] tun: Universal TUN/TAP device driver, 1.6
+[    1.724601@0] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    1.732835@0]  ee eth reset:Addr = ffffff80081fd008
+[    1.740209@0] meson6-dwmac ff3f0000.ethernet: no reset control found
+[    1.742263@0] stmmac - user ID: 0x11, Synopsys ID: 0x37
+[    1.747498@0]  Ring mode enabled
+[    1.750727@0]  DMA HW capability register supported
+[    1.755455@0]  Normal descriptors
+[    1.758770@0]  RX Checksum Offload Engine supported
+[    1.763679@0] 	COE Type 2
+[    1.766295@0]  TX Checksum insertion supported
+[    1.770765@0]  Wake-Up On Lan supported
+[    1.774702@0]  Enable RX Mitigation via HW Watchdog Timer
+[    1.793545@0] libphy: stmmac: probed
+[    1.793598@0] eth%d: PHY ID 00000128 at 0 IRQ POLL (stmmac-0:00) active
+[    1.798165@0] eth%d: PHY ID 00000128 at 3 IRQ POLL (stmmac-0:03)
+[    1.806076@0] PPP generic driver version 2.4.2
+[    1.809061@0] PPP BSD Compression module registered
+[    1.813569@0] PPP Deflate Compression module registered
+[    1.818821@0] PPP MPPE Compression module registered
+[    1.823786@0] NET: Registered protocol family 24
+[    1.829263@0] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    1.835181@0] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    1.842245@0] usbcore: registered new interface driver cdc_acm
+[    1.847428@0] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+[    1.855872@0] usbcore: registered new interface driver usbserial
+[    1.862525@3] mousedev: PS/2 mouse device common for all mice
+[    1.868062@3] usbcore: registered new interface driver xpad
+[    1.873388@0] i2c /dev entries driver
+[    1.878125@0] cpu cpu0: bL_cpufreq_init: CPU 0 initialized
+[    1.882394@0] arm_big_little: bL_cpufreq_register: Registered platform driver: scpi
+[    1.893363@0] ff803000.serial: clock gate not found
+[    1.894897@0] meson_uart ff803000.serial: ==uart0 reg addr = ffffff800830d000
+[    1.902135@0] ff803000.serial: ttyS0 at MMIO 0xff803000 (irq = 13, base_baud = 1500000) is a meson_uart
+[    1.917046@0] meson_uart ff803000.serial: ttyS0 use xtal(24M) 24000000 change 0 to 115200
+[    1.919734@0] console [ttyS0] enabled
+[    1.926968@0] bootconsole [aml_uart0] disabled
+[    1.936683@1] ff804000.serial: clock gate not found
+[    1.940757@1] meson_uart ff804000.serial: ==uart3 reg addr = ffffff8008321000
+[    1.947859@1] ff804000.serial: ttyS3 at MMIO 0xff804000 (irq = 14, base_baud = 1500000) is a meson_uart
+[    1.958202@0] meson_uart ffd24000.serial: ==uart1 reg addr = ffffff8008323000
+[    1.964343@0] ffd24000.serial: ttyS1 at MMIO 0xffd24000 (irq = 25, base_baud = 1500000) is a meson_uart
+[    1.974582@2] meson_uart ffd23000.serial: ==uart2 reg addr = ffffff8008325000
+[    1.980876@2] ffd23000.serial: ttyS2 at MMIO 0xffd23000 (irq = 26, base_baud = 1500000) is a meson_uart
+[    1.991758@1] amlogic-new-usb2 ffe09000.usb2phy: USB2 phy probe:phy_mem:0xffe09000, iomap phy_base:0xffffff8008348000
+[    2.001103@1] amlogic-new-usb3 ffe09080.usb3phy: This phy has no usb port
+[    2.007574@1] amlogic-new-usb3 ffe09080.usb3phy: USB3 phy probe:phy_mem:0xffe09080, iomap phy_base:0xffffff800834c080
+[    2.022647@1] i2c i2c-1: of_i2c: modalias failure on /soc/aobus@ff800000/i2c@5000/mcu6350@40
+[    2.026412@1] i2c i2c-1: Failed to create I2C device for /soc/aobus@ff800000/i2c@5000/mcu6350@40
+[    2.038831@1] aml_dma ff63e000.aml_dma: Aml dma
+[    2.041895@1] aml_aes_dma ff63e000.aml_dma:aml_aes: Aml AES_dma
+[    2.046869@1] aml_sha_dma ff63e000.aml_dma:aml_sha: Aml SHA1/SHA224/SHA256 dma
+[    2.053308@1] efusekeynum: 4
+[    2.055594@1] efusekeyname:             mac	offset:     0	size:     6
+[    2.062049@1] efusekeyname:          mac_bt	offset:     6	size:     6
+[    2.068433@1] efusekeyname:        mac_wifi	offset:    12	size:     6
+[    2.074853@1] efusekeyname:            usid	offset:    18	size:    16
+[    2.081683@2] efuse efuse: probe OK!
+[    2.087126@2] meson-mmc: mmc driver version: 3.02, 2017-05-15: New Emmc Host Controller
+[    2.094423@0] meson-mmc: >>>>>>>>hostbase ffffff8008358000, dmode 
+[    2.099490@0] meson-mmc: actual_clock :400000, HHI_nand: 0x80
+[    2.104667@0] meson-mmc: [meson_mmc_clk_set_rate_v3] after clock: 0x1000033c
+[    2.148558@0] meson-mmc: meson_mmc_probe() : success!
+[    2.148798@0] amlogic mtd driver init
+[    2.152887@0] prase_get_dtb_nand_parameter:128,parse dts start
+[    2.157623@0] bl mode descrete
+[    2.160480@0] fip_copies 4
+[    2.163187@0] fip_size 0x200000
+[    2.166304@0] nand_clk_ctrl 0xffe07000
+[    2.170029@0] prase_get_dtb_nand_parameter:234,parse dts end
+[    2.175696@0] nand_clk_ctrl 0xffe07000
+[    2.179417@0] nand register base ffffff80083df800, nand clock register ffffff80083e1000
+[    2.188155@0] plat->aml_nand_device ffffff800a005c10
+[    2.192323@0] m3_nand_probe() aml_nand_device ffffff800a005c10
+[    2.198385@0] NAND device id: 2c da 90 95 6 0
+[    2.202455@0] NAND device: Manufacturer ID: 
+[    2.206521@0]  0x2c, Chip ID: 0x2c (Micron A revision NAND 2Gib MT29F2G08-A)
+[    2.213563@0] oob_fill_cnt =32 oob_size =64, bch_bytes =14
+[    2.218997@0] ecc mode:6 ecc_page_num=2 eep_need_oobsize=16
+[    2.224545@0] plane_num=1 writesize=0x800 ecc.size=0x200 bch_mode=1
+[    2.230791@0] mtd->oobavail: 0x8
+[    2.234199@0] aml_nand_init 2119: plat-name:bootloader
+[    2.239121@0] Creating 1 MTD partitions on "bootloader":
+[    2.244399@0] 0x000000000000-0x000000200000 : "bootloader"
+[    2.253517@0] bootloader initialized ok
+[    2.253658@0] plat->aml_nand_device ffffff800a005c10
+[    2.258632@0] m3_nand_probe() aml_nand_device ffffff800a005c10
+[    2.264788@0] NAND device id: 2c da 90 95 6 0
+[    2.268763@0] NAND device: Manufacturer ID: 
+[    2.272821@0]  0x2c, Chip ID: 0x2c (Micron A revision NAND 2Gib MT29F2G08-A)
+[    2.279872@0] oob_fill_cnt =32 oob_size =64, bch_bytes =14
+[    2.285297@0] ecc mode:6 ecc_page_num=2 eep_need_oobsize=16
+[    2.290854@0] plane_num=1 writesize=0x800 ecc.size=0x200 bch_mode=1
+[    2.297092@0] mtd->oobavail: 0x8
+[    2.300549@0] aml_nand_init 2119: plat-name:nandnormal
+[    2.305437@0] bbt_start=20
+[    2.308071@0] env_start=24
+[    2.310777@0] key_start=32
+[    2.313461@0] dtb_start=40
+[    2.316131@0] ddr_start=44
+[    2.318838@0] nbbt: info size=0x800 max_scan_blk=24, start_blk=20
+[    2.325327@0] get_free_node 43: bitmap=0
+[    2.328805@0] get_free_node 55: bitmap=1
+[    2.332896@0] get_free_node 43: bitmap=1
+[    2.336604@0] get_free_node 55: bitmap=3
+[    2.340697@0] get_free_node 43: bitmap=3
+[    2.344386@0] get_free_node 55: bitmap=7
+[    2.348305@0] nbbt : phy_blk_addr=20, ec=0, phy_page_addr=0, timestamp=1
+[    2.354975@0] nbbt free list:
+[    2.357922@0] blockN=21, ec=-1, dirty_flag=0
+[    2.362169@0] blockN=22, ec=-1, dirty_flag=0
+[    2.366415@0] blockN=23, ec=-1, dirty_flag=0
+[    2.370664@0] aml_nand_scan_rsv_info 1141: page_num=1
+[    2.376071@0] nbbt valid addr: 280000
+[    2.379332@0] aml_nand_bbt_check 1306 bbt is valid, reading.
+[    2.384964@0] aml_nand_read_rsv_info:423,read nbbt info at 280000
+[    2.391224@0] nenv: info size=0x10000 max_scan_blk=32, start_blk=24
+[    2.397652@0] get_free_node 43: bitmap=7
+[    2.401171@0] get_free_node 55: bitmap=f
+[    2.405275@0] get_free_node 43: bitmap=f
+[    2.408971@0] get_free_node 55: bitmap=1f
+[    2.413149@0] get_free_node 43: bitmap=1f
+[    2.416944@0] get_free_node 55: bitmap=3f
+[    2.421122@0] get_free_node 43: bitmap=3f
+[    2.424918@0] get_free_node 55: bitmap=7f
+[    2.429095@0] get_free_node 43: bitmap=7f
+[    2.432891@0] get_free_node 55: bitmap=ff
+[    2.437068@0] get_free_node 43: bitmap=ff
+[    2.440864@0] get_free_node 55: bitmap=1ff
+[    2.445129@0] get_free_node 43: bitmap=1ff
+[    2.449010@0] get_free_node 55: bitmap=3ff
+[    2.453084@0] nenv : phy_blk_addr=25, ec=1, phy_page_addr=0, timestamp=4
+[    2.459754@0] nenv free list:
+[    2.462702@0] blockN=24, ec=0, dirty_flag=1
+[    2.466862@0] blockN=26, ec=-1, dirty_flag=0
+[    2.471108@0] blockN=27, ec=-1, dirty_flag=0
+[    2.475355@0] blockN=28, ec=-1, dirty_flag=0
+[    2.479602@0] blockN=29, ec=-1, dirty_flag=0
+[    2.483849@0] blockN=30, ec=-1, dirty_flag=0
+[    2.488095@0] blockN=31, ec=-1, dirty_flag=0
+[    2.492342@0] aml_nand_scan_rsv_info 1141: page_num=32
+[    2.503710@0] nenv valid addr: 320000
+[    2.503743@0] nkey: info size=0x8000 max_scan_blk=40, start_blk=32
+[    2.508102@0] get_free_node 43: bitmap=3ff
+[    2.511983@0] get_free_node 55: bitmap=7ff
+[    2.516247@0] get_free_node 43: bitmap=7ff
+[    2.520129@0] get_free_node 55: bitmap=fff
+[    2.524394@0] get_free_node 43: bitmap=fff
+[    2.528276@0] get_free_node 55: bitmap=1fff
+[    2.532644@0] get_free_node 43: bitmap=1fff
+[    2.536596@0] get_free_node 55: bitmap=3fff
+[    2.540947@0] get_free_node 43: bitmap=3fff
+[    2.544915@0] get_free_node 55: bitmap=7fff
+[    2.549268@0] get_free_node 43: bitmap=7fff
+[    2.553236@0] get_free_node 55: bitmap=ffff
+[    2.557587@0] get_free_node 43: bitmap=ffff
+[    2.561556@0] get_free_node 55: bitmap=1ffff
+[    2.565994@0] get_free_node 43: bitmap=1ffff
+[    2.570049@0] get_free_node 55: bitmap=3ffff
+[    2.574296@0] nkey : phy_blk_addr=-1, ec=0, phy_page_addr=0, timestamp=0
+[    2.580966@0] nkey free list:
+[    2.583897@0] blockN=32, ec=-1, dirty_flag=0
+[    2.588215@0] blockN=33, ec=-1, dirty_flag=0
+[    2.592410@0] blockN=34, ec=-1, dirty_flag=0
+[    2.596655@0] blockN=35, ec=-1, dirty_flag=0
+[    2.600900@0] blockN=36, ec=-1, dirty_flag=0
+[    2.605147@0] blockN=37, ec=-1, dirty_flag=0
+[    2.609394@0] blockN=38, ec=-1, dirty_flag=0
+[    2.613640@0] blockN=39, ec=-1, dirty_flag=0
+[    2.617888@0] aml_nand_scan_rsv_info 1141: page_num=16
+[    2.623001@0] nkey valid addr: fffffffffffe0000
+[    2.627508@0] aml_nand_key_check 1251 NO key exist
+[    2.632275@0] ndtb: info size=0x20000 max_scan_blk=44, start_blk=40
+[    2.638709@0] get_free_node 43: bitmap=3ffff
+[    2.642763@0] get_free_node 55: bitmap=7ffff
+[    2.647390@0] get_free_node 43: bitmap=7ffff
+[    2.651256@0] get_free_node 55: bitmap=fffff
+[    2.655693@0] get_free_node 43: bitmap=fffff
+[    2.659749@0] get_free_node 55: bitmap=1fffff
+[    2.664090@0] ndtb : phy_blk_addr=41, ec=0, phy_page_addr=0, timestamp=2
+[    2.670754@0] ndtb free list:
+[    2.673701@0] blockN=40, ec=-1, dirty_flag=0
+[    2.677947@0] blockN=42, ec=-1, dirty_flag=0
+[    2.682194@0] blockN=43, ec=-1, dirty_flag=0
+[    2.686441@0] aml_nand_scan_rsv_info 1141: page_num=64
+[    2.703684@0] ndtb valid addr: 520000
+[    2.703718@0] nddr: info size=0x20000 max_scan_blk=46, start_blk=44
+[    2.708162@0] get_free_node 43: bitmap=1fffff
+[    2.712304@0] get_free_node 55: bitmap=3fffff
+[    2.716829@0] get_free_node 43: bitmap=3fffff
+[    2.720970@0] get_free_node 55: bitmap=7fffff
+[    2.725304@0] nddr : phy_blk_addr=-1, ec=0, phy_page_addr=0, timestamp=0
+[    2.731975@0] nddr free list:
+[    2.734922@0] blockN=44, ec=-1, dirty_flag=0
+[    2.739169@0] blockN=45, ec=-1, dirty_flag=0
+[    2.743415@0] aml_nand_scan_rsv_info 1141: page_num=64
+[    2.748529@0] nddr valid addr: fffffffffffe0000
+[    2.753035@0] aml_nand_ddr_check 1281 NO ddr exist
+[    2.757805@0] tpl: off 8388608, size 8388608
+[    2.889633@0] Creating 6 MTD partitions on "nandnormal":
+[    2.889680@0] 0x000000800000-0x000001000000 : "tpl"
+[    2.900832@2] 0x000001000000-0x000001200000 : "misc"
+[    2.903936@3] 0x000001200000-0x000002200000 : "recovery"
+[    2.915919@1] 0x000002200000-0x000004200000 : "boot"
+[    2.935097@1] 0x000004200000-0x000004700000 : "config"
+[    2.939738@1] 0x000004700000-0x000010000000 : "nvdata"
+[    3.040349@3] nandnormal initialized ok
+[    3.040458@3] aml_ubootenv_init: register env chardev
+[    3.044037@3] aml_ubootenv_init: register env chardev OK
+[    3.049037@3] amlnf_dtb_init: register dtb cdev
+[    3.053769@3] amlnf_dtb_init: register dtd cdev OK
+[    3.058204@3] mtd_nand_probe 267 , err = 0
+[    3.063309@3] aml_vrtc rtc: rtc core: registered aml_vrtc as rtc0
+[    3.068781@3] input: aml_vkeypad as /devices/platform/rtc/input/input0
+[    3.075749@3] unifykey: storage in base: 0xffffffc005000000
+[    3.080379@3] unifykey: storage out base: 0xffffffc005040000
+[    3.085995@3] unifykey: storage block base: 0xffffffc005080000
+[    3.091789@3] unifykey: probe done!
+[    3.095999@3] unifykey: no efuse-version set, use default value: -1
+[    3.101516@3] unifykey: key unify config unifykey-num is 6
+[    3.107046@3] unifykey: key unify fact unifykey-num is 6
+[    3.112249@3] unifykey: unifykey_devno: f200000
+[    3.117224@3] unifykey: device unifykeys created ok
+[    3.121723@3] unifykey: aml_unifykeys_init done!
+[    3.126613@3] sysled: module init
+[    3.130106@3] meson_wdt ffd0f0d0.watchdog: start watchdog
+[    3.134886@3] meson_wdt ffd0f0d0.watchdog: creat work queue for watch dog
+[    3.142295@3] meson_wdt ffd0f0d0.watchdog: AML Watchdog Timer probed done
+[    3.150935@3] dmc_monitor_probe
+[    3.160806@3] defendkey defendkey: Reserved memory is not enough!
+[    3.161299@3] defendkey: probe of defendkey failed with error -22
+[    3.167718@1] GACT probability NOT on
+[    3.171060@1] Mirror/redirect action on
+[    3.174825@1] u32 classifier
+[    3.177667@1]     Actions configured
+[    3.181227@1] Netfilter messages via NETLINK v0.30.
+[    3.186529@1] nf_conntrack version 0.5.0 (2048 buckets, 8192 max)
+[    3.192732@1] ctnetlink v0.93: registering with nfnetlink.
+[    3.198547@3] xt_time: kernel timezone is -0000
+[    3.202294@3] ipip: IPv4 and MPLS over IPv4 tunneling driver
+[    3.208946@3] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    3.213608@3] arp_tables: arp_tables: (C) 2002 David S. Miller
+[    3.219098@3] Initializing XFRM netlink socket
+[    3.224670@3] NET: Registered protocol family 10
+[    3.230267@3] mip6: Mobile IPv6
+[    3.231174@3] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[    3.237147@3] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    3.245217@3] NET: Registered protocol family 17
+[    3.247381@3] NET: Registered protocol family 15
+[    3.252029@3] bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to load br_netfilter if you need this.
+[    3.265176@3] l2tp_core: L2TP core driver, V2.0
+[    3.269555@3] l2tp_ppp: PPPoL2TP kernel driver, V2.0
+[    3.274484@3] l2tp_ip: L2TP IP encapsulation support (L2TPv3)
+[    3.280227@3] l2tp_netlink: L2TP netlink interface
+[    3.285051@3] l2tp_eth: L2TP ethernet pseudowire support (L2TPv3)
+[    3.291096@3] l2tp_debugfs: L2TP debugfs support
+[    3.295631@3] l2tp_ip6: L2TP IP encapsulation support for IPv6 (L2TPv3)
+[    3.302275@3] NET: Registered protocol family 35
+[    3.307212@3] Key type dns_resolver registered
+[    3.311804@3] Registered swp emulation handler
+[    3.315666@3] Registered cp15_barrier emulation handler
+[    3.320859@3] Registered setend emulation handler
+[    3.325604@3] disable EAS feature
+[    3.330206@0] registered taskstats version 1
+[    3.346685@3] dwc3 ff500000.dwc3: Configuration mismatch. dr_mode forced to host
+[    3.853134@3] xhci-hcd xhci-hcd.0.auto: xHCI Host Controller
+[    3.853235@3] xhci-hcd xhci-hcd.0.auto: new USB bus registered, assigned bus number 1
+[    3.861507@3] xhci-hcd xhci-hcd.0.auto: hcc params 0x0220f664 hci version 0x100 quirks 0x02010010
+[    3.869962@3] xhci-hcd xhci-hcd.0.auto: irq 22, io mem 0xff500000
+[    3.877392@2] hub 1-0:1.0: USB hub found
+[    3.879841@2] hub 1-0:1.0: 1 port detected
+[    3.884564@2] xhci-hcd xhci-hcd.0.auto: xHCI Host Controller
+[    3.889521@2] xhci-hcd xhci-hcd.0.auto: new USB bus registered, assigned bus number 2
+[    3.897433@2] usb usb2: We don't know the algorithms for LPM for this host, disabling LPM.
+[    3.906882@1] hub 2-0:1.0: USB hub found
+[    3.909516@1] hub 2-0:1.0: config failed, hub doesn't have any ports! (err -19)
+[    3.916792@1] usb usb2: Unsupported the hub
+[    3.921547@1] aml_vrtc rtc: setting system clock to 2026-04-17 22:50:26 UTC (1776466226)
+[    3.929629@1] dwc_otg ff400000.dwc2_a: dwc_otg_driver_probe(ffffffc00cd63000)
+[    3.929706@1] dwc_otg: usb0: type: 2 speed: 0, config: 0, dma: 0, id: 0, phy: ffe09000, ctrl: 0
+[    3.937618@1] dwc_otg ff400000.dwc2_a: base=0xffffff8008580000
+[    3.937631@1] dwc_otg ff400000.dwc2_a: dwc_otg_device=0xffffffc00b319400
+[    4.038217@1] dwc_otg: Core Release: 3.10a
+[    4.038272@1] dwc_otg: Setting default values for core params
+[    4.042459@1] dwc_otg: curmode: 0, host_only: 0
+[    4.046967@1] dwc_otg ff400000.dwc2_a: DMA config: BURST_DEFAULT
+[    4.059474@1] dwc_otg: Using Buffer DMA mode
+[    4.059511@1] dwc_otg: OTG VER PARAM: 1, OTG VER FLAG: 1
+[    4.063420@1] dwc_otg: Working on port type = SLAVE
+[    4.068276@1] dwc_otg: Dedicated Tx FIFOs mode
+[    4.075158@1] thermal thermal_zone0: binding zone soc_thermal with cdev thermal-cpufreq-0 failed:-22
+[    4.081993@1] cpucore_cooling_register, max_cpu_core_num:4
+[    4.094159@0] gxbb_pm: enter meson_pm_probe!
+[    4.094217@0] no vddio3v3_en pin
+[    4.095868@0] pm-meson aml_pm: Can't get switch_clk81
+[    4.100986@0] gxbb_pm: meson_pm_probe done
+[    4.105907@0] meson_uart ff803000.serial: ttyS0 use xtal(24M) 24000000 change 115200 to 115200
+[    4.112257@0] Freeing unused kernel memory: 3648K
+[    4.126591@0] meson_uart ff803000.serial: ttyS0 use xtal(24M) 24000000 change 115200 to 115200
+[    4.380428@2] ubi0: attaching mtd5
+[    4.399072@2] ubi0: scanning is finished
+[    4.403844@3] ubi0: attached mtd5 (name "config", size 5 MiB)
+[    4.403977@3] ubi0: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
+[    4.411050@3] ubi0: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
+[    4.417943@3] ubi0: VID header offset: 2048 (aligned 2048), data offset: 4096
+[    4.425055@3] ubi0: good PEBs: 40, bad PEBs: 0, corrupted PEBs: 0
+[    4.431113@3] ubi0: user volume: 1, internal volumes: 1, max. volumes count: 128
+[    4.438488@3] ubi0: max/mean erase counter: 375/229, WL threshold: 4096, image sequence number: 45540109
+[    4.447927@3] ubi0: available PEBs: 0, total reserved PEBs: 40, PEBs reserved for bad PEB handling: 4
+[    4.457147@2] ubi0: background thread "ubi_bgt0d" started, PID 1078
+[    4.470180@0] UBIFS (ubi0:0): background thread "ubifs_bgt0_0" started, PID 1082
+[    4.511987@1] UBIFS (ubi0:0): UBIFS: mounted UBI device 0, volume 0, name "config_data"
+[    4.514426@1] UBIFS (ubi0:0): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
+[    4.524442@1] UBIFS (ubi0:0): FS size: 2793472 bytes (2 MiB, 22 LEBs), journal size 1015809 bytes (0 MiB, 6 LEBs)
+[    4.534674@1] UBIFS (ubi0:0): reserved for root: 131942 bytes (128 KiB)
+[    4.541256@1] UBIFS (ubi0:0): media format: w4/r0 (latest is w4/r0), UUID 454CBF12-A17A-47BB-905B-5F2D6F79FC9B, small LPT model
+[    4.565983@0] ubi2: attaching mtd6
+[    5.239754@0] ubi2: scanning is finished
+[    5.246832@1] ubi2: attached mtd6 (name "nvdata", size 185 MiB)
+[    5.247131@1] ubi2: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
+[    5.254186@1] ubi2: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
+[    5.261105@1] ubi2: VID header offset: 2048 (aligned 2048), data offset: 4096
+[    5.268200@1] ubi2: good PEBs: 1480, bad PEBs: 0, corrupted PEBs: 0
+[    5.274450@1] ubi2: user volume: 1, internal volumes: 1, max. volumes count: 128
+[    5.281809@1] ubi2: max/mean erase counter: 4384/2826, WL threshold: 4096, image sequence number: 1604681067
+[    5.291608@1] ubi2: available PEBs: 0, total reserved PEBs: 1480, PEBs reserved for bad PEB handling: 4
+[    5.300979@0] ubi2: background thread "ubi_bgt2d" started, PID 1089
+[    5.313988@2] UBIFS (ubi2:0): background thread "ubifs_bgt2_0" started, PID 1093
+[    5.360079@3] UBIFS (ubi2:0): UBIFS: mounted UBI device 2, volume 0, name "nvdada_log"
+[    5.362419@3] UBIFS (ubi2:0): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
+[    5.372448@3] UBIFS (ubi2:0): FS size: 185384960 bytes (176 MiB, 1460 LEBs), journal size 9269248 bytes (8 MiB, 73 LEBs)
+[    5.383279@3] UBIFS (ubi2:0): reserved for root: 4952683 bytes (4836 KiB)
+[    5.390040@3] UBIFS (ubi2:0): media format: w4/r0 (latest is w4/r0), UUID 0BAB583D-16D6-4155-AADF-5309ED964012, small LPT model
+[    5.617889@1] eth0: device MAC address 02:44:02:eb:3b:f1
+[    5.701699@2] meson6-dwmac ff3f0000.ethernet eth0: fail to init PTP.
+[    5.703075@2] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+[    5.949200@2] uart_trans: loading out-of-tree module taints kernel.
+[    5.951636@2] register uart_trans chrdev success.
+[    5.955036@2] meson_uart ff804000.serial: ttyS3 use xtal(24M) 24000000 change 0 to 9600
+[    5.962629@2] tty port open success [/dev/ttyS3]!
+[    5.967337@2] meson_uart ff804000.serial: ttyS3 use xtal(24M) 24000000 change 9600 to 115200
+[    5.975682@2] init sucess for tty struct (246:3)  [/dev/ttyS3]
+[    5.981986@2] meson_uart ffd23000.serial: ttyS2 use xtal(24M) 24000000 change 0 to 9600
+[    5.989459@2] tty port open success [/dev/ttyS2]!
+[    5.994141@2] meson_uart ffd23000.serial: ttyS2 use xtal(24M) 24000000 change 9600 to 115200
+[    6.002553@2] init sucess for tty struct (246:2)  [/dev/ttyS2]
+[    6.008675@2] meson_uart ffd24000.serial: ttyS1 use xtal(24M) 24000000 change 0 to 9600
+[    6.016307@2] tty port open success [/dev/ttyS1]!
+[    6.020988@2] meson_uart ffd24000.serial: ttyS1 use xtal(24M) 24000000 change 9600 to 115200
+[    6.029363@2] init sucess for tty struct (246:1)  [/dev/ttyS1]
+[    6.035510@2] create workqueue success!
+[    7.736819@2] meson6-dwmac ff3f0000.ethernet eth0: Link is Up - 100Mbps/Full - flow control off
+[    7.739929@2] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+
+
+===========================================Miner log===========================================
+
+[2026-04-18 01:58:12] [SUMMARY]
+{
+  "STATUS": [
+    {
+      "STATUS": "S",
+      "When": 1776495491,
+      "Code": 11,
+      "Msg": "Summary",
+      "Description": "cgminer 1.0.0"
+    }
+  ],
+  "SUMMARY": [
+    {
+      "Elapsed": 1,
+      "GHS 5s": 0.0,
+      "GHS av": 0.0,
+      "GHS 30m": 0.0,
+      "Found Blocks": 0,
+      "Getwork": 0,
+      "Accepted": 0,
+      "Rejected": 0,
+      "Hardware Errors": 0,
+      "Utility": 0.0,
+      "Discarded": 0,
+      "Stale": 0,
+      "Get Failures": 0,
+      "Local Work": 0,
+      "Remote Failures": 0,
+      "Network Blocks": 0,
+      "Total MH": 0.0,
+      "Work Utility": 0.0,
+      "Difficulty Accepted": 0.0,
+      "Difficulty Rejected": 0.0,
+      "Difficulty Stale": 0.0,
+      "Best Share": 0,
+      "Device Hardware%": 0.0,
+      "Device Rejected%": 0.0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Last getwork": 0
+    }
+  ],
+  "id": 1
+}
+
+[2026-04-18 01:58:12] [STATS]
+{
+  "STATUS": [
+    {
+      "STATUS": "S",
+      "When": 1776495491,
+      "Code": 70,
+      "Msg": "CGMiner stats",
+      "Description": "cgminer 1.0.0"
+    }
+  ],
+  "STATS": [
+    {
+      "BMMiner": "1.0.0",
+      "Miner": "",
+      "CompileTime": "Tue Nov 29 11:42:05 CST 2022",
+      "Type": "Antminer S19 XP"
+    }
+  ],
+  "id": 1
+}
+
+[2026-04-18 01:58:12] [POOLS]
+{
+  "STATUS": [
+    {
+      "STATUS": "S",
+      "When": 1776495491,
+      "Code": 7,
+      "Msg": "3 Pool(s)",
+      "Description": "cgminer 1.0.0"
+    }
+  ],
+  "POOLS": [
+    {
+      "POOL": 0,
+      "URL": "stratum+tcp://sha256.poolbinance.com:3333",
+      "Status": "Disabled",
+      "Priority": 0,
+      "Quota": 1,
+      "Long Poll": "N",
+      "Getworks": 0,
+      "Accepted": 0,
+      "Rejected": 0,
+      "Discarded": 0,
+      "Stale": 0,
+      "Get Failures": 0,
+      "Remote Failures": 0,
+      "User": "NCATX.082",
+      "Last Share Time": "0",
+      "Diff": "",
+      "Diff1 Shares": 0,
+      "Proxy Type": "",
+      "Proxy": "",
+      "Difficulty Accepted": 0.0,
+      "Difficulty Rejected": 0.0,
+      "Difficulty Stale": 0.0,
+      "Last Share Difficulty": 0.0,
+      "Has Stratum": true,
+      "Stratum Active": false,
+      "Stratum URL": "",
+      "Has GBT": false,
+      "Best Share": 0.0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%%": 0.0
+    },
+    {
+      "POOL": 1,
+      "URL": "",
+      "Status": "Disabled",
+      "Priority": 1,
+      "Quota": 1,
+      "Long Poll": "N",
+      "Getworks": 0,
+      "Accepted": 0,
+      "Rejected": 0,
+      "Discarded": 0,
+      "Stale": 0,
+      "Get Failures": 0,
+      "Remote Failures": 0,
+      "User": "",
+      "Last Share Time": "0",
+      "Diff": "",
+      "Diff1 Shares": 0,
+      "Proxy Type": "",
+      "Proxy": "",
+      "Difficulty Accepted": 0.0,
+      "Difficulty Rejected": 0.0,
+      "Difficulty Stale": 0.0,
+      "Last Share Difficulty": 0.0,
+      "Has Stratum": false,
+      "Stratum Active": false,
+      "Stratum URL": "",
+      "Has GBT": false,
+      "Best Share": 0.0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%%": 0.0
+    },
+    {
+      "POOL": 2,
+      "URL": "",
+      "Status": "Disabled",
+      "Priority": 2,
+      "Quota": 1,
+      "Long Poll": "N",
+      "Getworks": 0,
+      "Accepted": 0,
+      "Rejected": 0,
+      "Discarded": 0,
+      "Stale": 0,
+      "Get Failures": 0,
+      "Remote Failures": 0,
+      "User": "",
+      "Last Share Time": "0",
+      "Diff": "",
+      "Diff1 Shares": 0,
+      "Proxy Type": "",
+      "Proxy": "",
+      "Difficulty Accepted": 0.0,
+      "Difficulty Rejected": 0.0,
+      "Difficulty Stale": 0.0,
+      "Last Share Difficulty": 0.0,
+      "Has Stratum": false,
+      "Stratum Active": false,
+      "Stratum URL": "",
+      "Has GBT": false,
+      "Best Share": 0.0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%%": 0.0
+    }
+  ],
+  "id": 1
+}

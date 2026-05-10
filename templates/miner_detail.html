@@ -264,7 +264,7 @@
                     <div class="analysis-card">
                         <div class="analysis-header">
                             <i class="fas fa-lightbulb"></i>
-                            <h4>处理建议</h4>
+                            <h4>处置方案（分级）</h4>
                         </div>
                         <div class="analysis-body">
                             <ul class="suggestions-list">
@@ -276,6 +276,79 @@
                                     <li>暂无具体建议</li>
                                 {% endif %}
                             </ul>
+                        </div>
+                    </div>
+
+                    {% if analysis.ai_fault_detail %}
+                    <div class="analysis-card">
+                        <div class="analysis-header">
+                            <i class="fas fa-search"></i>
+                            <h4>故障点详细描述</h4>
+                        </div>
+                        <div class="analysis-body">
+                            <div style="line-height: 1.7; color: #2c3e50;">{{ analysis.ai_fault_detail }}</div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if analysis.ai_narrative_report %}
+                    <div class="analysis-card">
+                        <div class="analysis-header">
+                            <i class="fas fa-file-medical-alt"></i>
+                            <h4>有理有据 · 叙事诊断报告</h4>
+                        </div>
+                        <div class="analysis-body">
+                            {% if analysis.ai_narrative_source %}
+                            <div style="font-size:0.82rem; color:#7f8c8d; margin-bottom:10px;">
+                                生成方式：{{ analysis.ai_narrative_source }}
+                                {% if analysis.ai_narrative_source == "ollama" %}
+                                （环境变量 MINER_AI_NARRATIVE=1 且本机 Ollama 可用时启用）
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                            <div style="white-space: pre-wrap; line-height: 1.75; color: #2c3e50; font-size: 0.92rem; background: #f8fafc; padding: 14px; border-radius: 8px; border: 1px solid #e9ecef;">{{ analysis.ai_narrative_report }}</div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <div class="analysis-card">
+                        <div class="analysis-header">
+                            <i class="fas fa-robot"></i>
+                            <h4>日志 AI 诊断摘要</h4>
+                        </div>
+                        <div class="analysis-body">
+                            <div class="metrics-grid">
+                                <div class="metric-item">
+                                    <span class="metric-label">置信度:</span>
+                                    <span class="metric-value">{{ analysis.ai_confidence or "-" }}</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">算力状态:</span>
+                                    <span class="metric-value">{{ analysis.ai_status or "-" }}</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">识别算力:</span>
+                                    <span class="metric-value">
+                                        {% if analysis.ai_hashrate_ths is not none %}
+                                            {{ "%.3f"|format(analysis.ai_hashrate_ths) }} TH/s
+                                        {% else %}
+                                            -
+                                        {% endif %}
+                                    </span>
+                                </div>
+                            </div>
+                            <div style="margin-top: 12px;">
+                                <div class="metric-label" style="margin-bottom: 6px;">证据摘要:</div>
+                                {% if analysis.ai_evidence %}
+                                    <ul class="causes-list">
+                                        {% for ev in analysis.ai_evidence %}
+                                        <li>{{ ev }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% else %}
+                                    <div style="color:#888;">暂无可展示的日志证据</div>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
 

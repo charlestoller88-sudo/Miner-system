@@ -1,0 +1,2189 @@
+============================================================
+矿机运行日志 - 10.102.0.222
+导出时间: 2026-03-24 01:02:18
+IP: 10.102.0.222  序列号: MINER-10-102-0-222  型号: Antminer S19 XP
+============================================================
+
+[2026-03-24 01:02:18] [SYSTEM_LOG] 矿机后台系统日志（与 Web 界面一致）
+2026-03-23T21:01:57.355398Z [INFO] Detected CPU model AMLOGIC
+2026-03-23T21:01:57.360288Z [INFO] Detected existing root bind mount
+2026-03-23T21:01:57.360387Z [INFO] Detected existing base overlay mount
+2026-03-23T21:01:57.360488Z [INFO] Detected existing etc mount via overlay
+2026-03-23T21:01:57.360587Z [INFO] Note: could not mount an external partition
+2026-03-23T21:01:57.360693Z [INFO] Linked current log directory on: /mnt/ramdisk/logs/current
+2026-03-23T21:01:57.390642Z [INFO] Raw i2detect CB bus output:
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- 48 49 4a -- 4c 4d 4e -- 
+50: 50 51 52 -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --                         
+
+2026-03-23T21:02:04.228910Z [INFO] Raw i2detect PSU bus output:
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: 10 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --                         
+
+
+2026-03-23T21:02:04.237084Z [INFO] Error mapping chip at address 0x48: IoError(Os { code: 22, kind: InvalidInput, message: "Invalid argument" })
+2026-03-23T21:02:04.240471Z [INFO] Error mapping chip at address 0x49: IoError(Os { code: 22, kind: InvalidInput, message: "Invalid argument" })
+2026-03-23T21:02:05.861568Z [INFO] Expected board info CRC: 0xF, got 0xF
+2026-03-23T21:02:05.861705Z [INFO] Expected param info CRC: 0x16, got 0x16
+2026-03-23T21:02:05.862537Z [INFO] Expected extra info CRC: 0x2, got 0x2
+2026-03-23T21:02:05.864092Z [INFO] Board info version: 0x5
+2026-03-23T21:02:05.864231Z [INFO] Encryption algo and key version: 0x11
+2026-03-23T21:02:05.864842Z [INFO] Board serial number: SMTTYPDBCJABE016Y
+2026-03-23T21:02:05.866778Z [INFO] Default board voltage: 1290cV
+2026-03-23T21:02:05.866899Z [INFO] Default board frequency: 410MHz
+2026-03-23T21:02:05.868427Z [INFO] Connector: 0
+2026-03-23T21:02:05.909304Z [INFO] Expected board info CRC: 0x10, got 0x10
+2026-03-23T21:02:05.909485Z [INFO] Expected param info CRC: 0xF, got 0xF
+2026-03-23T21:02:05.909625Z [INFO] Expected extra info CRC: 0xB, got 0xB
+2026-03-23T21:02:05.909745Z [INFO] Board info version: 0x5
+2026-03-23T21:02:05.909823Z [INFO] Encryption algo and key version: 0x11
+2026-03-23T21:02:05.909902Z [INFO] Board serial number: YNAHYPDBCJFBJ05HR
+2026-03-23T21:02:05.910005Z [INFO] Default board voltage: 1290cV
+2026-03-23T21:02:05.910083Z [INFO] Default board frequency: 485MHz
+2026-03-23T21:02:05.910166Z [INFO] Connector: 1
+2026-03-23T21:02:05.949784Z [INFO] Expected board info CRC: 0xE, got 0xE
+2026-03-23T21:02:05.949910Z [INFO] Expected param info CRC: 0xF, got 0xF
+2026-03-23T21:02:05.950014Z [INFO] Expected extra info CRC: 0xB, got 0xB
+2026-03-23T21:02:05.950126Z [INFO] Board info version: 0x5
+2026-03-23T21:02:05.950201Z [INFO] Encryption algo and key version: 0x11
+2026-03-23T21:02:05.950279Z [INFO] Board serial number: YNAHYPDBCJFBJ1EP6
+2026-03-23T21:02:05.950377Z [INFO] Default board voltage: 1290cV
+2026-03-23T21:02:05.950456Z [INFO] Default board frequency: 485MHz
+2026-03-23T21:02:05.950548Z [INFO] Connector: 2
+2026-03-23T21:02:06.516032Z [INFO] Attempt 1 - Sending message to return PSU power type: [11, 55, AA, 4, 2, 6, 0] :
+2026-03-23T21:02:06.616173Z [INFO] Attempt 1 - Reading PSU power type. command: [11, 55, AA, 4, 2, 6, 0] :
+2026-03-23T21:02:07.229497Z [INFO] Attempt 1 - power type message return: [55, AA, 6, 2, 75, 0, 7D, 0].
+
+2026-03-23T21:02:07.329948Z [INFO] Attempt 1 - Sending message to return PSU firmware version: [11, 55, AA, 4, 1, 5, 0]
+2026-03-23T21:02:07.430216Z [INFO] Attempt 1 - Reading PSU firmware version. command: [11, 55, AA, 4, 1, 5, 0] :
+2026-03-23T21:02:07.717912Z [INFO] Attempt 1 - firmware version message return: [55, AA, 6, 1, 19, 0, 20, 0].
+
+2026-03-23T21:02:07.718682Z [INFO] Setting PSU hw/fw to: 0x75/0x19
+2026-03-23T21:02:07.735912Z [INFO] 
+*** System information summary ***
+- SW: ................. luxminer v2025.12.12.164659 (e88514b22)
+- Package: ............ 2025.12.12-u0
+- Miner model: ........ Antminer S19 XP (s19xp)
+- External storage: ... No
+- RAM storage: ........ Yes, /mnt/ramdisk (rw)
+- Config storage: ..... Yes, /config (rw)
+- Persistent NAND Logs:  /persistent/miner
+- Logs dir: ........... (empty)
+- Logs link: .......... (empty)
+- Profiles dir: ....... /config/profiles
+- Backup dir: ......... /backup/luxminer.conf.d
+- Config dir: ......... /config/luxminer.conf.d
+
+2026-03-23T21:02:07.736817Z [INFO] Checking profiles...
+2026-03-23T21:02:07.742970Z [WARN] Skipped dynamic profile step: frequency out of bounds
+2026-03-23T21:02:07.743580Z [WARN] Skipped dynamic profile step: frequency out of bounds
+2026-03-23T21:02:07.743730Z [WARN] Skipped dynamic profile step: frequency out of bounds
+2026-03-23T21:02:07.743857Z [WARN] Skipped dynamic profile step: frequency out of bounds
+2026-03-23T21:02:07.754908Z [INFO] Applying configuration...
+2026-03-23T21:02:07.800499Z [INFO] Starting system audit task
+2026-03-23T21:02:07.802820Z [INFO] Starting periodic disk check
+2026-03-23T21:02:07.804255Z [INFO] Checking available disk space
+2026-03-23T21:02:07.813241Z [INFO] No need to watch partitions; no external partition is being used
+2026-03-23T21:02:12.174085Z [INFO] Current power status: ON
+2026-03-23T21:02:12.192036Z [INFO] Pools configuration:
+Group default, quota: 1:
+  Pools:
+  - url: sha256.poolbinance.com:443, user: NCATX.017
+  - url: btc.poolbinance.com:1800, user: NCATX.017
+  - url: bs.poolbinance.com:3333, user: NCATX.017
+
+2026-03-23T21:02:12.226066Z [INFO] Waiting for board initialization before starting chip healthchecker.
+2026-03-23T21:02:12.226066Z [INFO] 3 boards, 3 identified and 0 disabled
+2026-03-23T21:02:12.243747Z [INFO] Partner ID loaded: foreman
+2026-03-23T21:02:12.284302Z [INFO] Current power status: ON
+2026-03-23T21:02:12.313499Z [INFO] Advanced Thermal Management (ATM) process started (off)
+2026-03-23T21:02:12.314640Z [INFO] Connecting to pool
+2026-03-23T21:02:12.316053Z [INFO] Starting API server
+2026-03-23T21:02:12.318080Z [INFO] Pool status changed
+2026-03-23T21:02:12.346505Z [INFO] Opening TCP connection
+2026-03-23T21:02:12.373341Z [INFO] Starting HTTP API
+2026-03-23T21:02:12.413632Z [INFO] Connection successful
+2026-03-23T21:02:12.413953Z [INFO] Pool status changed
+2026-03-23T21:02:12.508010Z [INFO] Starting PIC controller
+2026-03-23T21:02:12.508156Z [INFO] Starting PIC controller
+2026-03-23T21:02:12.508244Z [INFO] Starting PIC controller
+2026-03-23T21:02:12.658806Z [INFO] Authorization successful
+2026-03-23T21:02:12.661510Z [INFO] New pool difficulty
+2026-03-23T21:02:12.706817Z [INFO] Cycle board reset
+2026-03-23T21:02:12.755969Z [INFO] Board reset complete
+2026-03-23T21:02:13.215458Z [INFO] Cycle board reset
+2026-03-23T21:02:13.256550Z [INFO] Board reset complete
+2026-03-23T21:02:13.350012Z [INFO] Connecting to pool
+2026-03-23T21:02:13.351533Z [INFO] Opening TCP connection
+2026-03-23T21:02:13.351882Z [INFO] Pool status changed
+2026-03-23T21:02:13.418583Z [INFO] Connection successful
+2026-03-23T21:02:13.418898Z [INFO] Pool status changed
+2026-03-23T21:02:13.715599Z [INFO] Cycle board reset
+2026-03-23T21:02:13.758019Z [INFO] Board reset complete
+2026-03-23T21:02:13.871820Z [INFO] New pool difficulty
+2026-03-23T21:02:13.914892Z [INFO] Authorization successful
+2026-03-23T21:02:14.026976Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-03-23T21:02:14.028280Z [ERROR] Initialization of hashboard failed
+2026-03-23T21:02:14.131452Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 1/5 - asic enumeration failure]
+2026-03-23T21:02:14.131764Z [INFO] Board powered off
+2026-03-23T21:02:14.498549Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-03-23T21:02:14.993983Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-03-23T21:02:18.203747Z [INFO] Current temperatures:
+-   0: TopLeft: 42.00, TopRight: 32.00, BottomRight: 32.00, BottomLeft: 42.00
+-   1: TopLeft: 27.00, TopRight: 26.00, BottomRight: 26.00, BottomLeft: 27.00
+-   2: TopLeft: 44.00, TopRight: 33.00, BottomRight: 33.00, BottomLeft: 44.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T21:02:19.186581Z [INFO] Starting PIC controller
+2026-03-23T21:02:19.744932Z [INFO] Cycle board reset
+2026-03-23T21:02:19.785520Z [INFO] Board reset complete
+2026-03-23T21:02:21.029775Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-03-23T21:02:21.029931Z [ERROR] Initialization of hashboard failed
+2026-03-23T21:02:21.105653Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 2/5 - asic enumeration failure]
+2026-03-23T21:02:21.106133Z [INFO] Board powered off
+2026-03-23T21:02:26.160751Z [INFO] Starting PIC controller
+2026-03-23T21:02:26.273396Z [INFO] Cycle board reset
+2026-03-23T21:02:26.312596Z [INFO] Board reset complete
+2026-03-23T21:02:27.557834Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-03-23T21:02:27.558017Z [ERROR] Initialization of hashboard failed
+2026-03-23T21:02:27.576728Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 3/5 - asic enumeration failure]
+2026-03-23T21:02:27.577186Z [INFO] Board powered off
+2026-03-23T21:02:28.341763Z [INFO] Current fan status:
+- 0 FAN4:  OK 
+- 1 FAN2:  OK 
+- 2 FAN1:  OK 
+- 3 FAN3:  OK 
+
+2026-03-23T21:02:31.132801Z [INFO] ASIC board summary:
+-   2:  50MHz, Elapsed: 0s, Hashing: NO , 5m:   0.00, 15m:   0.00, 1h:   0.00, Nominal:   4.91
+2026-03-23T21:02:32.633721Z [INFO] Starting PIC controller
+2026-03-23T21:02:32.809079Z [INFO] Cycle board reset
+2026-03-23T21:02:32.838128Z [INFO] Board reset complete
+2026-03-23T21:02:33.957796Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-03-23T21:02:33.957949Z [ERROR] Initialization of hashboard failed
+2026-03-23T21:02:34.048760Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 4/5 - asic enumeration failure]
+2026-03-23T21:02:34.049172Z [INFO] Board powered off
+2026-03-23T21:02:39.106582Z [INFO] Starting PIC controller
+2026-03-23T21:02:39.337706Z [INFO] Cycle board reset
+2026-03-23T21:02:39.362712Z [INFO] Board reset complete
+2026-03-23T21:02:40.557799Z [INFO] ASIC Enumeration, Chip count (initialization)
+2026-03-23T21:02:40.557955Z [ERROR] Initialization of hashboard failed
+2026-03-23T21:02:40.622808Z [WARN] Switching off the board; no automatic start scheduled, this board will remain offline [enumeration_reboot, 5/5 - asic enumeration failure]
+2026-03-23T21:02:40.623541Z [INFO] Board powered off
+2026-03-23T21:03:03.136240Z [INFO] Shares counter
+2026-03-23T21:03:36.661986Z [INFO] Environment temperature is 26C; Adjusting profiles for cold environment
+2026-03-23T21:03:36.662310Z [INFO] Current profile voltage updated
+2026-03-23T21:03:36.764315Z [INFO] Ramping board voltage
+2026-03-23T21:03:36.764500Z [INFO] Ramping board voltage
+2026-03-23T21:03:46.075930Z [INFO] Ramping board frequency and voltage
+2026-03-23T21:03:46.076128Z [INFO] Ramping board frequency and voltage
+2026-03-23T21:04:20.861257Z [INFO] New pool difficulty
+2026-03-23T21:04:20.888382Z [INFO] New pool difficulty
+2026-03-23T21:05:48.377543Z [ERROR] Error reading chip PLL
+2026-03-23T21:05:49.981361Z [WARN] Frequency received is too low; trying again
+2026-03-23T21:07:05.419614Z [INFO] New pool difficulty
+2026-03-23T21:07:07.804296Z [INFO] Checking available disk space
+2026-03-23T21:07:19.280535Z [INFO] Current temperatures:
+-   0: TopLeft: 38.00, TopRight: 33.00, BottomRight: 33.00, BottomLeft: 38.00
+-   1: TopLeft: 28.00, TopRight: 26.00, BottomRight: 26.00, BottomLeft: 28.00
+-   2: TopLeft: 37.00, TopRight: 32.00, BottomRight: 32.00, BottomLeft: 37.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T21:07:34.484582Z [INFO] ASIC board summary, 12.9V:
+-  *0: 215MHz, Elapsed:    4m 58s, Hashing: YES, 5m:   8.36, 15m:   8.36, 1h:   8.36, Nominal:  21.14
+-  *2: 215MHz, Elapsed:     5m 3s, Hashing: YES, 5m:   8.59, 15m:   8.45, 1h:   8.45, Nominal:  21.14
+2026-03-23T21:08:04.140919Z [INFO] Shares counter
+2026-03-23T21:10:01.263758Z [ERROR] Error reading chip PLL
+2026-03-23T21:10:02.925284Z [WARN] Frequency received is too low; trying again
+2026-03-23T21:10:37.060400Z [INFO] New pool difficulty
+2026-03-23T21:10:47.080340Z [INFO] Health summary:
+-   0: Avg. Score:  100.84, Good: 110, Bad:   0
+2026-03-23T21:12:07.804548Z [INFO] Checking available disk space
+2026-03-23T21:12:20.850291Z [INFO] Current temperatures:
+-   0: TopLeft: 52.00, TopRight: 38.00, BottomRight: 38.00, BottomLeft: 52.00
+-   1: TopLeft: 27.00, TopRight: 26.00, BottomRight: 26.00, BottomLeft: 27.00
+-   2: TopLeft: 54.00, TopRight: 38.00, BottomRight: 38.00, BottomLeft: 54.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T21:12:37.083631Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:    10m 2s, Hashing: YES, 5m:  35.02, 15m:  21.69, 1h:  21.69, Nominal:  40.31
+-   2: 485MHz, Elapsed:    10m 6s, Hashing: YES, 5m:  37.68, 15m:  22.94, 1h:  22.94, Nominal:  47.69
+2026-03-23T21:13:19.181681Z [INFO] Shares counter
+2026-03-23T21:15:48.546109Z [INFO] Health summary:
+-   0: Avg. Score:  101.03, Good: 110, Bad:   0
+-   2: Avg. Score:   99.93, Good: 110, Bad:   0
+2026-03-23T21:17:07.804834Z [INFO] Checking available disk space
+2026-03-23T21:17:22.226976Z [INFO] Current temperatures:
+-   0: TopLeft: 51.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 51.00
+-   1: TopLeft: 27.00, TopRight: 26.00, BottomRight: 26.00, BottomLeft: 27.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T21:17:39.439925Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:    15m 5s, Hashing: YES, 5m:  40.34, 15m:  28.06, 1h:  27.91, Nominal:  40.31
+-   2: 485MHz, Elapsed:    15m 8s, Hashing: YES, 5m:  47.65, 15m:  31.46, 1h:  31.13, Nominal:  47.69
+2026-03-23T21:18:22.942187Z [INFO] Shares counter
+2026-03-23T21:20:51.198081Z [INFO] Health summary:
+-   0: Avg. Score:  101.26, Good: 110, Bad:   0
+-   2: Avg. Score:  100.78, Good: 110, Bad:   0
+2026-03-23T21:22:07.804619Z [INFO] Checking available disk space
+2026-03-23T21:22:23.352572Z [INFO] Current temperatures:
+-   0: TopLeft: 50.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 50.00
+-   1: TopLeft: 27.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 27.00
+-   2: TopLeft: 53.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T21:22:39.521524Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:    20m 8s, Hashing: YES, 5m:  40.26, 15m:  38.64, 1h:  30.99, Nominal:  40.31
+-   2: 485MHz, Elapsed:    20m 6s, Hashing: YES, 5m:  47.58, 15m:  44.28, 1h:  35.18, Nominal:  47.69
+2026-03-23T21:23:04.544295Z [INFO] New pool difficulty
+2026-03-23T21:23:32.775314Z [INFO] Shares counter
+2026-03-23T21:25:51.448076Z [INFO] Health summary:
+-   0: Avg. Score:  100.89, Good: 110, Bad:   0
+-   2: Avg. Score:  100.83, Good: 110, Bad:   0
+2026-03-23T21:27:07.804231Z [INFO] Checking available disk space
+2026-03-23T21:27:24.590683Z [INFO] Current temperatures:
+-   0: TopLeft: 50.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 50.00
+-   1: TopLeft: 26.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 26.00
+-   2: TopLeft: 53.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T21:27:39.588926Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:    25m 6s, Hashing: YES, 5m:  40.32, 15m:  40.31, 1h:  32.83, Nominal:  40.31
+-   2: 485MHz, Elapsed:    25m 8s, Hashing: YES, 5m:  47.65, 15m:  47.62, 1h:  37.67, Nominal:  47.69
+2026-03-23T21:28:42.702593Z [INFO] Shares counter
+2026-03-23T21:30:51.500559Z [INFO] Health summary:
+-   0: Avg. Score:  100.75, Good: 110, Bad:   0
+-   2: Avg. Score:  100.93, Good: 110, Bad:   0
+2026-03-23T21:32:07.804463Z [INFO] Checking available disk space
+2026-03-23T21:32:25.861582Z [INFO] Current temperatures:
+-   0: TopLeft: 50.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 50.00
+-   1: TopLeft: 26.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 26.00
+-   2: TopLeft: 53.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T21:32:40.764340Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:    30m 9s, Hashing: YES, 5m:  40.25, 15m:  40.28, 1h:  34.07, Nominal:  40.31
+-   2: 485MHz, Elapsed:    30m 6s, Hashing: YES, 5m:  47.63, 15m:  47.62, 1h:  39.31, Nominal:  47.69
+2026-03-23T21:33:51.466545Z [INFO] Shares counter
+2026-03-23T21:35:52.661158Z [INFO] Health summary:
+-   0: Avg. Score:  100.82, Good: 110, Bad:   0
+-   2: Avg. Score:  100.57, Good: 110, Bad:   0
+2026-03-23T21:37:07.804624Z [INFO] Checking available disk space
+2026-03-23T21:37:27.297285Z [INFO] Current temperatures:
+-   0: TopLeft: 51.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 51.00
+-   1: TopLeft: 27.00, TopRight: 26.00, BottomRight: 26.00, BottomLeft: 27.00
+-   2: TopLeft: 54.00, TopRight: 38.00, BottomRight: 38.00, BottomLeft: 54.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T21:37:43.645107Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:   35m 12s, Hashing: YES, 5m:  40.26, 15m:  40.28, 1h:  34.96, Nominal:  40.31
+-   2: 485MHz, Elapsed:    35m 8s, Hashing: YES, 5m:  47.64, 15m:  47.64, 1h:  40.50, Nominal:  47.69
+2026-03-23T21:39:04.653724Z [INFO] Shares counter
+2026-03-23T21:40:55.922222Z [INFO] Health summary:
+-   0: Avg. Score:  100.95, Good: 110, Bad:   0
+-   2: Avg. Score:  100.05, Good: 110, Bad:   0
+2026-03-23T21:42:07.804864Z [INFO] Checking available disk space
+2026-03-23T21:42:28.482165Z [INFO] Current temperatures:
+-   0: TopLeft: 50.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 50.00
+-   1: TopLeft: 27.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 27.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T21:42:46.727394Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:   40m 15s, Hashing: YES, 5m:  40.30, 15m:  40.27, 1h:  35.63, Nominal:  40.31
+-   2: 485MHz, Elapsed:   40m 11s, Hashing: YES, 5m:  47.62, 15m:  47.63, 1h:  41.39, Nominal:  47.69
+2026-03-23T21:44:05.991603Z [INFO] Shares counter
+2026-03-23T21:45:58.667434Z [INFO] Health summary:
+-   0: Avg. Score:  100.81, Good: 110, Bad:   0
+-   2: Avg. Score:  100.30, Good: 110, Bad:   0
+2026-03-23T21:47:07.804763Z [INFO] Checking available disk space
+2026-03-23T21:47:29.925665Z [INFO] Current temperatures:
+-   0: TopLeft: 51.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 51.00
+-   1: TopLeft: 27.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 27.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T21:47:49.552264Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:   45m 14s, Hashing: YES, 5m:  40.34, 15m:  40.30, 1h:  36.14, Nominal:  40.31
+-   2: 485MHz, Elapsed:   45m 18s, Hashing: YES, 5m:  47.61, 15m:  47.62, 1h:  42.09, Nominal:  47.69
+2026-03-23T21:49:09.165095Z [INFO] Shares counter
+2026-03-23T21:51:01.135876Z [INFO] Health summary:
+-   0: Avg. Score:  100.53, Good: 110, Bad:   0
+-   2: Avg. Score:  101.10, Good: 110, Bad:   0
+2026-03-23T21:52:07.804124Z [INFO] Checking available disk space
+2026-03-23T21:52:31.116001Z [INFO] Current temperatures:
+-   0: TopLeft: 51.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 51.00
+-   1: TopLeft: 27.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 27.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T21:52:51.748270Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:   50m 17s, Hashing: YES, 5m:  40.19, 15m:  40.27, 1h:  36.55, Nominal:  40.31
+-   2: 485MHz, Elapsed:   50m 20s, Hashing: YES, 5m:  47.66, 15m:  47.62, 1h:  42.65, Nominal:  47.69
+2026-03-23T21:54:22.767677Z [INFO] Shares counter
+2026-03-23T21:56:03.411465Z [INFO] Health summary:
+-   0: Avg. Score:  100.53, Good: 110, Bad:   0
+-   2: Avg. Score:  100.65, Good: 110, Bad:   0
+2026-03-23T21:57:07.804770Z [INFO] Checking available disk space
+2026-03-23T21:57:32.477763Z [INFO] Current temperatures:
+-   0: TopLeft: 50.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 50.00
+-   1: TopLeft: 26.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 26.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T21:57:54.356564Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:   55m 20s, Hashing: YES, 5m:  40.29, 15m:  40.27, 1h:  36.89, Nominal:  40.31
+-   2: 485MHz, Elapsed:   55m 23s, Hashing: YES, 5m:  47.64, 15m:  47.64, 1h:  43.10, Nominal:  47.69
+2026-03-23T21:59:35.156577Z [INFO] Shares counter
+2026-03-23T22:01:06.383359Z [INFO] Health summary:
+-   0: Avg. Score:  100.17, Good: 110, Bad:   0
+-   2: Avg. Score:  100.50, Good: 110, Bad:   0
+2026-03-23T22:02:07.804587Z [INFO] Checking available disk space
+2026-03-23T22:02:33.664135Z [INFO] Current temperatures:
+-   0: TopLeft: 50.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 50.00
+-   1: TopLeft: 27.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 27.00
+-   2: TopLeft: 53.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T22:02:57.558975Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:    1h 23s, Hashing: YES, 5m:  40.24, 15m:  40.24, 1h:  37.41, Nominal:  40.31
+-   2: 485MHz, Elapsed:    1h 26s, Hashing: YES, 5m:  47.55, 15m:  47.61, 1h:  43.81, Nominal:  47.69
+2026-03-23T22:04:46.669192Z [INFO] Shares counter
+2026-03-23T22:06:06.748818Z [INFO] Health summary:
+-   0: Avg. Score:  100.60, Good: 110, Bad:   0
+-   2: Avg. Score:  100.69, Good: 110, Bad:   0
+2026-03-23T22:07:07.804089Z [INFO] Checking available disk space
+2026-03-23T22:07:35.325988Z [INFO] Current temperatures:
+-   0: TopLeft: 50.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 50.00
+-   1: TopLeft: 26.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 26.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T22:07:57.662179Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:    ~1h 5m, Hashing: YES, 5m:  40.17, 15m:  40.24, 1h:  39.95, Nominal:  40.31
+-   2: 485MHz, Elapsed:    ~1h 5m, Hashing: YES, 5m:  47.53, 15m:  47.57, 1h:  46.92, Nominal:  47.69
+2026-03-23T22:09:57.632370Z [INFO] Shares counter
+2026-03-23T22:11:07.204514Z [INFO] Health summary:
+-   0: Avg. Score:  100.38, Good: 110, Bad:   0
+-   2: Avg. Score:  100.66, Good: 110, Bad:   0
+2026-03-23T22:12:07.804279Z [INFO] Checking available disk space
+2026-03-23T22:12:36.886210Z [INFO] Current temperatures:
+-   0: TopLeft: 50.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 50.00
+-   1: TopLeft: 26.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 26.00
+-   2: TopLeft: 53.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T22:12:57.987593Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:   ~1h 10m, Hashing: YES, 5m:  40.28, 15m:  40.23, 1h:  40.27, Nominal:  40.31
+-   2: 485MHz, Elapsed:   ~1h 10m, Hashing: YES, 5m:  47.65, 15m:  47.58, 1h:  47.62, Nominal:  47.69
+2026-03-23T22:15:10.337862Z [INFO] Shares counter
+2026-03-23T22:16:07.567642Z [INFO] Health summary:
+-   0: Avg. Score:  101.29, Good: 110, Bad:   0
+-   2: Avg. Score:  100.53, Good: 110, Bad:   0
+2026-03-23T22:17:07.804803Z [INFO] Checking available disk space
+2026-03-23T22:17:38.323599Z [INFO] Current temperatures:
+-   0: TopLeft: 50.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 50.00
+-   1: TopLeft: 27.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 27.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T22:17:58.637183Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:   ~1h 15m, Hashing: YES, 5m:  40.24, 15m:  40.23, 1h:  40.26, Nominal:  40.31
+-   2: 485MHz, Elapsed:   ~1h 15m, Hashing: YES, 5m:  47.56, 15m:  47.58, 1h:  47.61, Nominal:  47.69
+2026-03-23T22:20:42.247003Z [INFO] Shares counter
+2026-03-23T22:21:10.843171Z [INFO] Health summary:
+-   0: Avg. Score:  100.44, Good: 110, Bad:   0
+-   2: Avg. Score:   99.93, Good: 110, Bad:   0
+2026-03-23T22:22:07.804374Z [INFO] Checking available disk space
+2026-03-23T22:22:39.474919Z [INFO] Current temperatures:
+-   0: TopLeft: 50.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 50.00
+-   1: TopLeft: 26.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 26.00
+-   2: TopLeft: 53.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T22:23:02.052797Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:   ~1h 20m, Hashing: YES, 5m:  40.23, 15m:  40.25, 1h:  40.26, Nominal:  40.31
+-   2: 485MHz, Elapsed:   ~1h 20m, Hashing: YES, 5m:  47.56, 15m:  47.59, 1h:  47.61, Nominal:  47.69
+2026-03-23T22:26:13.801827Z [INFO] Shares counter
+2026-03-23T22:26:13.808154Z [INFO] Health summary:
+-   0: Avg. Score:  101.00, Good: 110, Bad:   0
+-   2: Avg. Score:  100.88, Good: 110, Bad:   0
+2026-03-23T22:27:07.804659Z [INFO] Checking available disk space
+2026-03-23T22:27:40.629808Z [INFO] Current temperatures:
+-   0: TopLeft: 50.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 50.00
+-   1: TopLeft: 26.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 26.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T22:28:05.155454Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:   ~1h 25m, Hashing: YES, 5m:  40.23, 15m:  40.23, 1h:  40.25, Nominal:  40.31
+-   2: 485MHz, Elapsed:   ~1h 25m, Hashing: YES, 5m:  47.59, 15m:  47.57, 1h:  47.60, Nominal:  47.69
+2026-03-23T22:31:16.873758Z [INFO] Health summary:
+-   0: Avg. Score:  100.88, Good: 110, Bad:   0
+-   2: Avg. Score:  100.96, Good: 110, Bad:   0
+2026-03-23T22:31:39.994478Z [INFO] Shares counter
+2026-03-23T22:32:07.804110Z [INFO] Checking available disk space
+2026-03-23T22:32:41.920159Z [INFO] Current temperatures:
+-   0: TopLeft: 50.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 50.00
+-   1: TopLeft: 26.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 26.00
+-   2: TopLeft: 53.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T22:33:07.904040Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:   ~1h 30m, Hashing: YES, 5m:  40.29, 15m:  40.25, 1h:  40.26, Nominal:  40.31
+-   2: 485MHz, Elapsed:   ~1h 30m, Hashing: YES, 5m:  47.65, 15m:  47.61, 1h:  47.60, Nominal:  47.69
+2026-03-23T22:36:19.664801Z [INFO] Health summary:
+-   0: Avg. Score:  100.68, Good: 110, Bad:   0
+-   2: Avg. Score:  100.75, Good: 110, Bad:   0
+2026-03-23T22:36:52.405326Z [INFO] Shares counter
+2026-03-23T22:37:07.804345Z [INFO] Checking available disk space
+2026-03-23T22:37:43.358740Z [INFO] Current temperatures:
+-   0: TopLeft: 50.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 50.00
+-   1: TopLeft: 26.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 26.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T22:38:10.585498Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:   ~1h 35m, Hashing: YES, 5m:  40.23, 15m:  40.25, 1h:  40.25, Nominal:  40.31
+-   2: 485MHz, Elapsed:   ~1h 35m, Hashing: YES, 5m:  47.57, 15m:  47.59, 1h:  47.60, Nominal:  47.69
+2026-03-23T22:41:22.139031Z [INFO] Health summary:
+-   0: Avg. Score:  100.58, Good: 110, Bad:   0
+-   2: Avg. Score:  100.17, Good: 110, Bad:   0
+2026-03-23T22:42:04.754314Z [INFO] Shares counter
+2026-03-23T22:42:07.804662Z [INFO] Checking available disk space
+2026-03-23T22:42:44.607341Z [INFO] Current temperatures:
+-   0: TopLeft: 50.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 50.00
+-   1: TopLeft: 26.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 26.00
+-   2: TopLeft: 53.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T22:43:13.021119Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:   ~1h 40m, Hashing: YES, 5m:  40.28, 15m:  40.26, 1h:  40.25, Nominal:  40.31
+-   2: 485MHz, Elapsed:   ~1h 40m, Hashing: YES, 5m:  47.59, 15m:  47.60, 1h:  47.60, Nominal:  47.69
+2026-03-23T22:44:05.697878Z [WARN] Job ID not found in the jobs queue; share will not be submitted
+2026-03-23T22:44:06.329368Z [WARN] Job ID not found in the jobs queue; share will not be submitted
+2026-03-23T22:46:24.718269Z [INFO] Health summary:
+-   0: Avg. Score:  100.57, Good: 110, Bad:   0
+-   2: Avg. Score:  101.18, Good: 110, Bad:   0
+2026-03-23T22:47:07.804652Z [INFO] Checking available disk space
+2026-03-23T22:47:14.421326Z [INFO] Shares counter
+2026-03-23T22:47:45.968421Z [INFO] Current temperatures:
+-   0: TopLeft: 50.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 50.00
+-   1: TopLeft: 26.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 26.00
+-   2: TopLeft: 53.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T22:48:13.051366Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:   ~1h 45m, Hashing: YES, 5m:  40.28, 15m:  40.27, 1h:  40.25, Nominal:  40.31
+-   2: 485MHz, Elapsed:   ~1h 45m, Hashing: YES, 5m:  47.60, 15m:  47.58, 1h:  47.60, Nominal:  47.69
+2026-03-23T22:51:25.091175Z [INFO] Health summary:
+-   0: Avg. Score:  100.56, Good: 110, Bad:   0
+-   2: Avg. Score:  101.18, Good: 110, Bad:   0
+2026-03-23T22:52:07.804323Z [INFO] Checking available disk space
+2026-03-23T22:52:22.043917Z [INFO] Shares counter
+2026-03-23T22:52:47.179450Z [INFO] Current temperatures:
+-   0: TopLeft: 50.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 50.00
+-   1: TopLeft: 27.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 27.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T22:53:13.453325Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:   ~1h 50m, Hashing: YES, 5m:  40.32, 15m:  40.29, 1h:  40.26, Nominal:  40.31
+-   2: 485MHz, Elapsed:   ~1h 50m, Hashing: YES, 5m:  47.51, 15m:  47.56, 1h:  47.58, Nominal:  47.69
+2026-03-23T22:56:28.264475Z [INFO] Health summary:
+-   0: Avg. Score:  100.51, Good: 110, Bad:   0
+-   2: Avg. Score:  100.38, Good: 110, Bad:   0
+2026-03-23T22:57:07.804734Z [INFO] Checking available disk space
+2026-03-23T22:57:37.162349Z [INFO] Shares counter
+2026-03-23T22:57:48.367643Z [INFO] Current temperatures:
+-   0: TopLeft: 51.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 51.00
+-   1: TopLeft: 27.00, TopRight: 26.00, BottomRight: 26.00, BottomLeft: 27.00
+-   2: TopLeft: 53.00, TopRight: 38.00, BottomRight: 38.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T22:58:14.161496Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:   ~1h 55m, Hashing: YES, 5m:  40.24, 15m:  40.27, 1h:  40.25, Nominal:  40.31
+-   2: 485MHz, Elapsed:   ~1h 55m, Hashing: YES, 5m:  47.60, 15m:  47.57, 1h:  47.58, Nominal:  47.69
+2026-03-23T23:01:31.447758Z [INFO] Health summary:
+-   0: Avg. Score:  100.36, Good: 110, Bad:   0
+-   2: Avg. Score:  101.41, Good: 110, Bad:   0
+2026-03-23T23:02:07.804249Z [INFO] Checking available disk space
+2026-03-23T23:02:49.951682Z [INFO] Current temperatures:
+-   0: TopLeft: 50.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 50.00
+-   1: TopLeft: 27.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 27.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T23:02:50.302074Z [INFO] Shares counter
+2026-03-23T23:03:17.577789Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:    2h 46s, Hashing: YES, 5m:  40.26, 15m:  40.27, 1h:  40.25, Nominal:  40.31
+-   2: 485MHz, Elapsed:    2h 42s, Hashing: YES, 5m:  47.62, 15m:  47.58, 1h:  47.59, Nominal:  47.69
+2026-03-23T23:06:34.909322Z [INFO] Health summary:
+-   0: Avg. Score:  101.71, Good: 110, Bad:   0
+-   2: Avg. Score:  100.35, Good: 110, Bad:   0
+2026-03-23T23:07:07.804482Z [INFO] Checking available disk space
+2026-03-23T23:07:50.734820Z [INFO] Shares counter
+2026-03-23T23:07:51.074642Z [INFO] Current temperatures:
+-   0: TopLeft: 50.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 50.00
+-   1: TopLeft: 26.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 26.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T23:08:21.014190Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:    ~2h 5m, Hashing: YES, 5m:  40.24, 15m:  40.24, 1h:  40.26, Nominal:  40.31
+-   2: 485MHz, Elapsed:    ~2h 5m, Hashing: YES, 5m:  47.53, 15m:  47.58, 1h:  47.58, Nominal:  47.69
+2026-03-23T23:11:37.683535Z [INFO] Health summary:
+-   0: Avg. Score:  100.34, Good: 110, Bad:   0
+-   2: Avg. Score:  100.65, Good: 110, Bad:   0
+2026-03-23T23:12:07.804935Z [INFO] Checking available disk space
+2026-03-23T23:12:52.606628Z [INFO] Current temperatures:
+-   0: TopLeft: 50.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 50.00
+-   1: TopLeft: 26.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 26.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T23:13:23.441758Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:   ~2h 10m, Hashing: YES, 5m:  40.30, 15m:  40.26, 1h:  40.26, Nominal:  40.31
+-   2: 485MHz, Elapsed:   ~2h 10m, Hashing: YES, 5m:  47.66, 15m:  47.60, 1h:  47.59, Nominal:  47.69
+2026-03-23T23:13:27.008098Z [INFO] Shares counter
+2026-03-23T23:16:40.260822Z [INFO] Health summary:
+-   0: Avg. Score:  101.15, Good: 110, Bad:   0
+-   2: Avg. Score:  101.03, Good: 110, Bad:   0
+2026-03-23T23:17:07.804629Z [INFO] Checking available disk space
+2026-03-23T23:17:53.783950Z [INFO] Current temperatures:
+-   0: TopLeft: 50.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 50.00
+-   1: TopLeft: 27.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 27.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T23:18:26.070582Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:   ~2h 15m, Hashing: YES, 5m:  40.28, 15m:  40.27, 1h:  40.26, Nominal:  40.31
+-   2: 485MHz, Elapsed:   ~2h 15m, Hashing: YES, 5m:  47.70, 15m:  47.63, 1h:  47.60, Nominal:  47.69
+2026-03-23T23:18:34.580508Z [INFO] Shares counter
+2026-03-23T23:21:42.538708Z [INFO] Health summary:
+-   0: Avg. Score:  101.00, Good: 110, Bad:   0
+-   2: Avg. Score:  100.19, Good: 110, Bad:   0
+2026-03-23T23:22:07.804569Z [INFO] Checking available disk space
+2026-03-23T23:22:55.176078Z [INFO] Current temperatures:
+-   0: TopLeft: 50.00, TopRight: 36.00, BottomRight: 36.00, BottomLeft: 50.00
+-   1: TopLeft: 26.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 26.00
+-   2: TopLeft: 53.00, TopRight: 37.00, BottomRight: 37.00, BottomLeft: 53.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T23:23:28.250513Z [INFO] ASIC board summary, 12.9V:
+-   0: 410MHz, Elapsed:   ~2h 20m, Hashing: YES, 5m:  40.28, 15m:  40.29, 1h:  40.27, Nominal:  40.31
+-   2: 485MHz, Elapsed:   ~2h 20m, Hashing: YES, 5m:  47.59, 15m:  47.65, 1h:  47.60, Nominal:  47.69
+2026-03-23T23:23:49.770661Z [INFO] Shares counter
+2026-03-23T23:26:43.019802Z [INFO] Health summary:
+-   0: Avg. Score:  101.55, Good: 110, Bad:   0
+-   2: Avg. Score:  101.19, Good: 110, Bad:   0
+2026-03-23T23:27:07.804816Z [INFO] Checking available disk space
+2026-03-23T23:27:23.468920Z [INFO] Received API command: curtail, params=7aWkpzZd,sleep
+2026-03-23T23:27:23.487050Z [INFO] Skipping group connection due to curtailment
+2026-03-23T23:27:23.487124Z [INFO] Skipping group connection due to curtailment
+2026-03-23T23:27:23.496855Z [INFO] Setting curtailment to sleep mode...
+2026-03-23T23:27:23.497146Z [INFO] Powering off the board due to curtailment...
+2026-03-23T23:27:23.497248Z [INFO] Powering off the board due to curtailment...
+2026-03-23T23:27:23.514293Z [INFO] Configuration changed to: 
+[app]
++ curtailment_mode = "sleep"
+
+2026-03-23T23:27:23.514573Z [INFO] Pool status changed
+2026-03-23T23:27:23.514844Z [INFO] Pool status changed
+2026-03-23T23:27:23.514981Z [INFO] Board powered off
+2026-03-23T23:27:23.515141Z [INFO] Board powered off
+2026-03-23T23:27:26.469164Z [INFO] Pools configuration:
+Group default, quota: 1:
+  Pools:
+  - url: sha256.poolbinance.com:443, user: NCATX.017
+  - url: btc.poolbinance.com:1800, user: NCATX.017
+  - url: bs.poolbinance.com:3333, user: NCATX.017
+
+2026-03-23T23:27:26.631383Z [INFO] Set power supply pin to OFF
+2026-03-23T23:27:26.713810Z [INFO] Current power status: OFF
+2026-03-23T23:27:56.641535Z [INFO] Current temperatures:
+-   0: TopLeft: 45.00, TopRight: 32.00, BottomRight: 32.00, BottomLeft: 45.00
+-   1: TopLeft: 25.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 25.00
+-   2: TopLeft: 47.00, TopRight: 32.00, BottomRight: 32.00, BottomLeft: 47.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T23:32:07.804922Z [INFO] Checking available disk space
+2026-03-23T23:32:57.712270Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T23:37:07.804503Z [INFO] Checking available disk space
+2026-03-23T23:37:58.777607Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   1: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   2: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T23:42:07.804863Z [INFO] Checking available disk space
+2026-03-23T23:42:59.853852Z [INFO] Current temperatures:
+-   0: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   1: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   2: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T23:47:07.804584Z [INFO] Checking available disk space
+2026-03-23T23:48:00.930678Z [INFO] Current temperatures:
+-   0: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   1: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   2: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T23:52:07.807394Z [INFO] Checking available disk space
+2026-03-23T23:53:02.013698Z [INFO] Current temperatures:
+-   0: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   1: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   2: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-23T23:57:07.804374Z [INFO] Checking available disk space
+2026-03-23T23:58:03.090919Z [INFO] Current temperatures:
+-   0: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   1: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   2: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T00:02:07.806208Z [INFO] Checking available disk space
+2026-03-24T00:03:04.166320Z [INFO] Current temperatures:
+-   0: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   1: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   2: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T00:07:07.804744Z [INFO] Checking available disk space
+2026-03-24T00:08:05.245807Z [INFO] Current temperatures:
+-   0: TopLeft: 22.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 22.00
+-   1: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   2: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T00:12:07.804173Z [INFO] Checking available disk space
+2026-03-24T00:13:06.319627Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   1: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T00:17:07.804617Z [INFO] Checking available disk space
+2026-03-24T00:18:07.406652Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   1: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T00:22:07.805075Z [INFO] Checking available disk space
+2026-03-24T00:23:08.486336Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   1: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T00:27:07.804747Z [INFO] Checking available disk space
+2026-03-24T00:28:09.565699Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   1: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T00:32:07.804150Z [INFO] Checking available disk space
+2026-03-24T00:33:10.628570Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 21.00
+-   1: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T00:37:07.804054Z [INFO] Checking available disk space
+2026-03-24T00:38:11.709950Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   1: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T00:42:07.804774Z [INFO] Checking available disk space
+2026-03-24T00:43:12.779583Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   1: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T00:47:07.804289Z [INFO] Checking available disk space
+2026-03-24T00:48:13.883807Z [INFO] Current temperatures:
+-   0: TopLeft: 19.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 19.00
+-   1: TopLeft: 19.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 19.00
+-   2: TopLeft: 19.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 19.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T00:52:07.807224Z [INFO] Checking available disk space
+2026-03-24T00:53:14.973820Z [INFO] Current temperatures:
+-   0: TopLeft: 19.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 19.00
+-   1: TopLeft: 19.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 19.00
+-   2: TopLeft: 19.00, TopRight: 19.00, BottomRight: 19.00, BottomLeft: 19.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T00:57:07.804547Z [INFO] Checking available disk space
+2026-03-24T00:58:16.040007Z [INFO] Current temperatures:
+-   0: TopLeft: 19.00, TopRight: 18.00, BottomRight: 18.00, BottomLeft: 19.00
+-   1: TopLeft: 19.00, TopRight: 18.00, BottomRight: 18.00, BottomLeft: 19.00
+-   2: TopLeft: 18.00, TopRight: 18.00, BottomRight: 18.00, BottomLeft: 18.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T01:02:07.804073Z [INFO] Checking available disk space
+2026-03-24T01:03:17.119721Z [INFO] Current temperatures:
+-   0: TopLeft: 18.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 18.00
+-   1: TopLeft: 18.00, TopRight: 18.00, BottomRight: 18.00, BottomLeft: 18.00
+-   2: TopLeft: 18.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 18.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T01:07:07.804642Z [INFO] Checking available disk space
+2026-03-24T01:08:18.204197Z [INFO] Current temperatures:
+-   0: TopLeft: 17.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 17.00
+-   1: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   2: TopLeft: 17.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 17.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T01:12:07.804065Z [INFO] Checking available disk space
+2026-03-24T01:13:19.270677Z [INFO] Current temperatures:
+-   0: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   1: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   2: TopLeft: 17.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 17.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T01:17:07.804220Z [INFO] Checking available disk space
+2026-03-24T01:18:20.352231Z [INFO] Current temperatures:
+-   0: TopLeft: 18.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 18.00
+-   1: TopLeft: 18.00, TopRight: 18.00, BottomRight: 18.00, BottomLeft: 18.00
+-   2: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T01:22:07.806179Z [INFO] Checking available disk space
+2026-03-24T01:23:21.451801Z [INFO] Current temperatures:
+-   0: TopLeft: 18.00, TopRight: 18.00, BottomRight: 18.00, BottomLeft: 18.00
+-   1: TopLeft: 18.00, TopRight: 18.00, BottomRight: 18.00, BottomLeft: 18.00
+-   2: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T01:27:07.804330Z [INFO] Checking available disk space
+2026-03-24T01:28:22.537030Z [INFO] Current temperatures:
+-   0: TopLeft: 18.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 18.00
+-   1: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   2: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T01:32:07.809509Z [INFO] Checking available disk space
+2026-03-24T01:33:23.615706Z [INFO] Current temperatures:
+-   0: TopLeft: 17.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 17.00
+-   1: TopLeft: 17.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 17.00
+-   2: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T01:37:07.808031Z [INFO] Checking available disk space
+2026-03-24T01:38:24.708086Z [INFO] Current temperatures:
+-   0: TopLeft: 16.00, TopRight: 15.00, BottomRight: 15.00, BottomLeft: 16.00
+-   1: TopLeft: 15.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 15.00
+-   2: TopLeft: 15.00, TopRight: 15.00, BottomRight: 15.00, BottomLeft: 15.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T01:42:07.804446Z [INFO] Checking available disk space
+2026-03-24T01:43:25.787785Z [INFO] Current temperatures:
+-   0: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+-   1: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+-   2: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T01:47:07.804760Z [INFO] Checking available disk space
+2026-03-24T01:48:26.860659Z [INFO] Current temperatures:
+-   0: TopLeft: 17.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 17.00
+-   1: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   2: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T01:52:07.806017Z [INFO] Checking available disk space
+2026-03-24T01:53:27.950904Z [INFO] Current temperatures:
+-   0: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+-   1: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+-   2: TopLeft: 15.00, TopRight: 15.00, BottomRight: 15.00, BottomLeft: 15.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T01:57:07.804643Z [INFO] Checking available disk space
+2026-03-24T01:58:29.031270Z [INFO] Current temperatures:
+-   0: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+-   1: TopLeft: 16.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 16.00
+-   2: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T02:02:07.805980Z [INFO] Checking available disk space
+2026-03-24T02:03:30.109316Z [INFO] Current temperatures:
+-   0: TopLeft: 17.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 17.00
+-   1: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   2: TopLeft: 17.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 17.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T02:07:07.804438Z [INFO] Checking available disk space
+2026-03-24T02:08:31.188186Z [INFO] Current temperatures:
+-   0: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   1: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   2: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T02:12:07.805078Z [INFO] Checking available disk space
+2026-03-24T02:13:32.267278Z [INFO] Current temperatures:
+-   0: TopLeft: 18.00, TopRight: 18.00, BottomRight: 18.00, BottomLeft: 18.00
+-   1: TopLeft: 18.00, TopRight: 18.00, BottomRight: 18.00, BottomLeft: 18.00
+-   2: TopLeft: 18.00, TopRight: 18.00, BottomRight: 18.00, BottomLeft: 18.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T02:17:07.806940Z [INFO] Checking available disk space
+2026-03-24T02:18:33.354156Z [INFO] Current temperatures:
+-   0: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   1: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   2: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T02:22:07.804512Z [INFO] Checking available disk space
+2026-03-24T02:23:34.438587Z [INFO] Current temperatures:
+-   0: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   1: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   2: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T02:27:07.804363Z [INFO] Checking available disk space
+2026-03-24T02:28:35.511789Z [INFO] Current temperatures:
+-   0: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   1: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   2: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T02:32:07.804923Z [INFO] Checking available disk space
+2026-03-24T02:33:36.607388Z [INFO] Current temperatures:
+-   0: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   1: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   2: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T02:37:07.804615Z [INFO] Checking available disk space
+2026-03-24T02:38:37.681644Z [INFO] Current temperatures:
+-   0: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   1: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   2: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T02:42:07.804437Z [INFO] Checking available disk space
+2026-03-24T02:43:38.775499Z [INFO] Current temperatures:
+-   0: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   1: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   2: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T02:47:07.804282Z [INFO] Checking available disk space
+2026-03-24T02:48:39.848107Z [INFO] Current temperatures:
+-   0: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   1: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   2: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T02:52:07.804206Z [INFO] Checking available disk space
+2026-03-24T02:53:40.937331Z [INFO] Current temperatures:
+-   0: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   1: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   2: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T02:57:07.804809Z [INFO] Checking available disk space
+2026-03-24T02:58:42.013170Z [INFO] Current temperatures:
+-   0: TopLeft: 17.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 17.00
+-   1: TopLeft: 17.00, TopRight: 17.00, BottomRight: 17.00, BottomLeft: 17.00
+-   2: TopLeft: 17.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 17.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T03:02:07.804367Z [INFO] Checking available disk space
+2026-03-24T03:03:43.088170Z [INFO] Current temperatures:
+-   0: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+-   1: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+-   2: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T03:07:07.805753Z [INFO] Checking available disk space
+2026-03-24T03:08:44.166142Z [INFO] Current temperatures:
+-   0: TopLeft: 16.00, TopRight: 15.00, BottomRight: 15.00, BottomLeft: 16.00
+-   1: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+-   2: TopLeft: 15.00, TopRight: 15.00, BottomRight: 15.00, BottomLeft: 15.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T03:12:07.811461Z [INFO] Checking available disk space
+2026-03-24T03:13:45.237670Z [INFO] Current temperatures:
+-   0: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+-   1: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+-   2: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T03:17:07.804655Z [INFO] Checking available disk space
+2026-03-24T03:18:46.314769Z [INFO] Current temperatures:
+-   0: TopLeft: 16.00, TopRight: 15.00, BottomRight: 15.00, BottomLeft: 16.00
+-   1: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+-   2: TopLeft: 15.00, TopRight: 15.00, BottomRight: 15.00, BottomLeft: 15.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T03:22:07.806981Z [INFO] Checking available disk space
+2026-03-24T03:23:47.384084Z [INFO] Current temperatures:
+-   0: TopLeft: 16.00, TopRight: 15.00, BottomRight: 15.00, BottomLeft: 16.00
+-   1: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+-   2: TopLeft: 15.00, TopRight: 15.00, BottomRight: 15.00, BottomLeft: 15.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T03:27:07.804077Z [INFO] Checking available disk space
+2026-03-24T03:28:48.472098Z [INFO] Current temperatures:
+-   0: TopLeft: 16.00, TopRight: 15.00, BottomRight: 15.00, BottomLeft: 16.00
+-   1: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+-   2: TopLeft: 15.00, TopRight: 15.00, BottomRight: 15.00, BottomLeft: 15.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T03:32:07.804400Z [INFO] Checking available disk space
+2026-03-24T03:33:49.546839Z [INFO] Current temperatures:
+-   0: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+-   1: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+-   2: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T03:37:07.804779Z [INFO] Checking available disk space
+2026-03-24T03:38:50.627562Z [INFO] Current temperatures:
+-   0: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+-   1: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+-   2: TopLeft: 16.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 16.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T03:42:07.804579Z [INFO] Checking available disk space
+2026-03-24T03:43:51.694552Z [INFO] Current temperatures:
+-   0: TopLeft: 16.00, TopRight: 15.00, BottomRight: 15.00, BottomLeft: 16.00
+-   1: TopLeft: 15.00, TopRight: 16.00, BottomRight: 16.00, BottomLeft: 15.00
+-   2: TopLeft: 15.00, TopRight: 15.00, BottomRight: 15.00, BottomLeft: 15.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T03:47:07.804879Z [INFO] Checking available disk space
+2026-03-24T03:48:52.777082Z [INFO] Current temperatures:
+-   0: TopLeft: 14.00, TopRight: 14.00, BottomRight: 14.00, BottomLeft: 14.00
+-   1: TopLeft: 14.00, TopRight: 14.00, BottomRight: 14.00, BottomLeft: 14.00
+-   2: TopLeft: 14.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 14.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T03:52:07.805603Z [INFO] Checking available disk space
+2026-03-24T03:53:53.867488Z [INFO] Current temperatures:
+-   0: TopLeft: 14.00, TopRight: 14.00, BottomRight: 14.00, BottomLeft: 14.00
+-   1: TopLeft: 14.00, TopRight: 14.00, BottomRight: 14.00, BottomLeft: 14.00
+-   2: TopLeft: 14.00, TopRight: 14.00, BottomRight: 14.00, BottomLeft: 14.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T03:57:07.804987Z [INFO] Checking available disk space
+2026-03-24T03:58:54.944260Z [INFO] Current temperatures:
+-   0: TopLeft: 14.00, TopRight: 14.00, BottomRight: 14.00, BottomLeft: 14.00
+-   1: TopLeft: 14.00, TopRight: 14.00, BottomRight: 14.00, BottomLeft: 14.00
+-   2: TopLeft: 14.00, TopRight: 14.00, BottomRight: 14.00, BottomLeft: 14.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T04:02:07.804887Z [INFO] Checking available disk space
+2026-03-24T04:03:56.035620Z [INFO] Current temperatures:
+-   0: TopLeft: 14.00, TopRight: 14.00, BottomRight: 14.00, BottomLeft: 14.00
+-   1: TopLeft: 14.00, TopRight: 14.00, BottomRight: 14.00, BottomLeft: 14.00
+-   2: TopLeft: 14.00, TopRight: 14.00, BottomRight: 14.00, BottomLeft: 14.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T04:07:07.811174Z [INFO] Checking available disk space
+2026-03-24T04:08:57.105850Z [INFO] Current temperatures:
+-   0: TopLeft: 15.00, TopRight: 15.00, BottomRight: 15.00, BottomLeft: 15.00
+-   1: TopLeft: 15.00, TopRight: 15.00, BottomRight: 15.00, BottomLeft: 15.00
+-   2: TopLeft: 15.00, TopRight: 15.00, BottomRight: 15.00, BottomLeft: 15.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T04:12:07.805519Z [INFO] Checking available disk space
+2026-03-24T04:13:58.171713Z [INFO] Current temperatures:
+-   0: TopLeft: 14.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 14.00
+-   1: TopLeft: 14.00, TopRight: 14.00, BottomRight: 14.00, BottomLeft: 14.00
+-   2: TopLeft: 14.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 14.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T04:17:07.804844Z [INFO] Checking available disk space
+2026-03-24T04:18:59.251258Z [INFO] Current temperatures:
+-   0: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+-   1: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+-   2: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T04:22:07.804838Z [INFO] Checking available disk space
+2026-03-24T04:24:00.329862Z [INFO] Current temperatures:
+-   0: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+-   1: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+-   2: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T04:27:07.804590Z [INFO] Checking available disk space
+2026-03-24T04:29:01.411744Z [INFO] Current temperatures:
+-   0: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+-   1: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+-   2: TopLeft: 13.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 13.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T04:32:07.804794Z [INFO] Checking available disk space
+2026-03-24T04:34:02.483042Z [INFO] Current temperatures:
+-   0: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+-   1: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+-   2: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T04:37:07.804449Z [INFO] Checking available disk space
+2026-03-24T04:39:03.572420Z [INFO] Current temperatures:
+-   0: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+-   1: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+-   2: TopLeft: 13.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 13.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T04:42:07.804601Z [INFO] Checking available disk space
+2026-03-24T04:44:04.664367Z [INFO] Current temperatures:
+-   0: TopLeft: 13.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 13.00
+-   1: TopLeft: 12.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 12.00
+-   2: TopLeft: 12.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 12.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T04:47:07.804928Z [INFO] Checking available disk space
+2026-03-24T04:49:05.741329Z [INFO] Current temperatures:
+-   0: TopLeft: 12.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 12.00
+-   1: TopLeft: 12.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 12.00
+-   2: TopLeft: 12.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 12.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T04:52:07.804884Z [INFO] Checking available disk space
+2026-03-24T04:54:06.820950Z [INFO] Current temperatures:
+-   0: TopLeft: 12.00, TopRight: 11.00, BottomRight: 11.00, BottomLeft: 12.00
+-   1: TopLeft: 12.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 12.00
+-   2: TopLeft: 12.00, TopRight: 11.00, BottomRight: 11.00, BottomLeft: 12.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T04:57:07.804555Z [INFO] Checking available disk space
+2026-03-24T04:59:07.902047Z [INFO] Current temperatures:
+-   0: TopLeft: 12.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 12.00
+-   1: TopLeft: 12.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 12.00
+-   2: TopLeft: 12.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 12.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T05:02:07.805534Z [INFO] Checking available disk space
+2026-03-24T05:04:08.984369Z [INFO] Current temperatures:
+-   0: TopLeft: 12.00, TopRight: 11.00, BottomRight: 11.00, BottomLeft: 12.00
+-   1: TopLeft: 12.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 12.00
+-   2: TopLeft: 12.00, TopRight: 11.00, BottomRight: 11.00, BottomLeft: 12.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T05:07:07.807212Z [INFO] Checking available disk space
+2026-03-24T05:09:10.061920Z [INFO] Current temperatures:
+-   0: TopLeft: 12.00, TopRight: 11.00, BottomRight: 11.00, BottomLeft: 12.00
+-   1: TopLeft: 12.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 12.00
+-   2: TopLeft: 11.00, TopRight: 11.00, BottomRight: 11.00, BottomLeft: 11.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T05:12:07.804742Z [INFO] Checking available disk space
+2026-03-24T05:14:11.146900Z [INFO] Current temperatures:
+-   0: TopLeft: 12.00, TopRight: 11.00, BottomRight: 11.00, BottomLeft: 12.00
+-   1: TopLeft: 11.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 11.00
+-   2: TopLeft: 11.00, TopRight: 11.00, BottomRight: 11.00, BottomLeft: 11.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T05:17:07.805378Z [INFO] Checking available disk space
+2026-03-24T05:19:12.233804Z [INFO] Current temperatures:
+-   0: TopLeft: 12.00, TopRight: 11.00, BottomRight: 11.00, BottomLeft: 12.00
+-   1: TopLeft: 12.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 12.00
+-   2: TopLeft: 11.00, TopRight: 11.00, BottomRight: 11.00, BottomLeft: 11.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T05:22:07.804750Z [INFO] Checking available disk space
+2026-03-24T05:24:13.313910Z [INFO] Current temperatures:
+-   0: TopLeft: 12.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 12.00
+-   1: TopLeft: 12.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 12.00
+-   2: TopLeft: 12.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 12.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T05:27:07.804813Z [INFO] Checking available disk space
+2026-03-24T05:29:14.412110Z [INFO] Current temperatures:
+-   0: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+-   1: TopLeft: 13.00, TopRight: 14.00, BottomRight: 14.00, BottomLeft: 13.00
+-   2: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T05:32:07.805008Z [INFO] Checking available disk space
+2026-03-24T05:34:15.492244Z [INFO] Current temperatures:
+-   0: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+-   1: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+-   2: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T05:37:07.807734Z [INFO] Checking available disk space
+2026-03-24T05:39:16.583467Z [INFO] Current temperatures:
+-   0: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+-   1: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+-   2: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T05:42:07.804903Z [INFO] Checking available disk space
+2026-03-24T05:44:17.668034Z [INFO] Current temperatures:
+-   0: TopLeft: 12.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 12.00
+-   1: TopLeft: 12.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 12.00
+-   2: TopLeft: 12.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 12.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T05:47:07.804164Z [INFO] Checking available disk space
+2026-03-24T05:49:18.757796Z [INFO] Current temperatures:
+-   0: TopLeft: 12.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 12.00
+-   1: TopLeft: 12.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 12.00
+-   2: TopLeft: 12.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 12.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T05:52:07.804327Z [INFO] Checking available disk space
+2026-03-24T05:54:19.822454Z [INFO] Current temperatures:
+-   0: TopLeft: 12.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 12.00
+-   1: TopLeft: 12.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 12.00
+-   2: TopLeft: 12.00, TopRight: 12.00, BottomRight: 12.00, BottomLeft: 12.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T05:57:07.804597Z [INFO] Checking available disk space
+2026-03-24T05:59:20.899380Z [INFO] Current temperatures:
+-   0: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+-   1: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+-   2: TopLeft: 13.00, TopRight: 13.00, BottomRight: 13.00, BottomLeft: 13.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-03-24T06:02:07.804521Z [INFO] Checking available disk space
+
+[2026-03-24 01:02:17] [SUMMARY]
+{
+  "STATUS": [
+    {
+      "Code": 11,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "Summary",
+      "STATUS": "S",
+      "When": 1774332137
+    }
+  ],
+  "SUMMARY": [
+    {
+      "Accepted": 468,
+      "Best Share": 524288,
+      "Device Hardware%": 0.0,
+      "Device Rejected%": 0.0,
+      "Difficulty Accepted": 168165376,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "Elapsed": 32404,
+      "Found Blocks": 0,
+      "GHS 15m": 0.0,
+      "GHS 1m": 0.0,
+      "GHS 24h": 0.0,
+      "GHS 30m": 0.0,
+      "GHS 5m": 0.0,
+      "GHS 5s": 0.0,
+      "GHS av": 0.0,
+      "Get Failures": 0,
+      "Getworks": 844,
+      "Hardware Errors": 0,
+      "Last getwork": 1774308427,
+      "Local Work": 0,
+      "Network Blocks": 0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Total MH": 0.0,
+      "Utility": 0.86,
+      "Work Utility": 1.56
+    }
+  ],
+  "id": 1
+}
+
+[2026-03-24 01:02:17] [STATS]
+{
+  "STATS": [
+    {
+      "CompileTime": "Fri Dec 12 16:49:20 UTC 2025",
+      "Miner": "2025.12.12.164659",
+      "Type": "Antminer S19 XP"
+    },
+    {
+      "Calls": 0,
+      "Elapsed": 32404,
+      "GHS 5s": 0.0,
+      "GHS av": 0.0,
+      "ID": "BTM_SOC0",
+      "Max": 0,
+      "Min": 99999999,
+      "Mode": 2,
+      "STATS": 0,
+      "Wait": 0,
+      "chain_acn1": 0,
+      "chain_acn2": 0,
+      "chain_acn3": 0,
+      "chain_acn4": 0,
+      "chain_acs1": "",
+      "chain_acs2": "",
+      "chain_acs3": "",
+      "chain_acs4": "",
+      "chain_hw1": 0,
+      "chain_hw2": 0,
+      "chain_hw3": 0,
+      "chain_hw4": 0,
+      "chain_rate1": "0",
+      "chain_rate2": "0",
+      "chain_rate3": "0",
+      "chain_rate4": "0",
+      "fan1": 2280,
+      "fan2": 2280,
+      "fan3": 2220,
+      "fan4": 2280,
+      "fan_num": 4,
+      "freq1": 0.0,
+      "freq2": 0.0,
+      "freq3": 0.0,
+      "freq4": 0.0,
+      "frequency": 0,
+      "miner_count": 0,
+      "miner_id": "0274449ef0de",
+      "miner_version": "2025.12.12.164659",
+      "no_matching_work": 0,
+      "rate_30m": 0.0,
+      "rate_unit": "GH",
+      "temp1": 0.0,
+      "temp2": 0.0,
+      "temp2_1": 0.0,
+      "temp2_2": 0.0,
+      "temp2_3": 0.0,
+      "temp3": 0.0,
+      "temp_chip1": "0-0-0-0",
+      "temp_chip2": "0-0-0-0",
+      "temp_chip3": "0-0-0-0",
+      "temp_chip4": "0-0-0-0",
+      "temp_max": 0.0,
+      "temp_num": 3,
+      "temp_pcb1": "0-0-0-0",
+      "temp_pcb2": "0-0-0-0",
+      "temp_pcb3": "0-0-0-0",
+      "temp_pcb4": "0-0-0-0",
+      "temp_pic1": "0-0-0-0",
+      "temp_pic2": "0-0-0-0",
+      "temp_pic3": "0-0-0-0",
+      "temp_pic4": "0-0-0-0",
+      "total rate": null,
+      "total_acn": 4,
+      "total_freqavg": null,
+      "total_rateideal": 0.0
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 70,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "LUXminer stats",
+      "STATUS": "S",
+      "When": 1774332137
+    }
+  ],
+  "id": 1
+}
+
+[2026-03-24 01:02:17] [DEVS]
+{
+  "DEVS": [
+    {
+      "ASC": 0,
+      "Accepted": 226,
+      "Board": "BHB56801",
+      "Connector": "J11",
+      "ControllerIPVersionHex": "0x0A113D",
+      "ControllerIPVersionStr": "0.11.0",
+      "Device Elapsed": 0,
+      "Device Hardware%": 0,
+      "Device Rejected%": 0,
+      "Diff1 Work": 78905344,
+      "Difficulty Accepted": 78905344,
+      "Difficulty Rejected": 0,
+      "Enabled": "Y",
+      "Hardware Error MHS 15m": 0,
+      "Hardware Errors": 0,
+      "ID": 0,
+      "IsRamping": false,
+      "IsUserShutdown": false,
+      "Last Share Difficulty": 524288,
+      "Last Share Pool": 1,
+      "Last Share Time": 1774308433,
+      "Last Valid Work": 1774308433,
+      "MHS 15m": 0.0,
+      "MHS 1m": 0.0,
+      "MHS 30m": 0.0,
+      "MHS 5m": 0.0,
+      "MHS 5s": 0.0,
+      "MHS 60m": 0.0,
+      "MHS av": 0.0,
+      "Name": "",
+      "Nominal MHS": 0.0,
+      "Profile": "default",
+      "Rejected": 0,
+      "SerialNumber": "SMTTYPDBCJABE016Y",
+      "Status": "Dead",
+      "Temperature": 13.0,
+      "Total MH": 0.0,
+      "Utility": 0
+    },
+    {
+      "ASC": 1,
+      "Accepted": 0,
+      "Board": "BHB56801",
+      "Connector": "J13",
+      "ControllerIPVersionHex": "0x0A113D",
+      "ControllerIPVersionStr": "0.11.0",
+      "Device Elapsed": 0,
+      "Device Hardware%": 0,
+      "Device Rejected%": 0,
+      "Diff1 Work": 0,
+      "Difficulty Accepted": 0,
+      "Difficulty Rejected": 0,
+      "Enabled": "Y",
+      "Hardware Error MHS 15m": 0,
+      "Hardware Errors": 0,
+      "ID": 1,
+      "IsRamping": false,
+      "IsUserShutdown": false,
+      "Last Share Difficulty": 0,
+      "Last Share Pool": 0,
+      "Last Share Time": 0,
+      "Last Valid Work": 0,
+      "MHS 15m": 0.0,
+      "MHS 1m": 0.0,
+      "MHS 30m": 0.0,
+      "MHS 5m": 0.0,
+      "MHS 5s": 0.0,
+      "MHS 60m": 0.0,
+      "MHS av": 0.0,
+      "Name": "",
+      "Nominal MHS": 0.0,
+      "Profile": "default",
+      "Rejected": 0,
+      "SerialNumber": "YNAHYPDBCJFBJ05HR",
+      "Status": "Dead",
+      "Temperature": 13.0,
+      "Total MH": 0.0,
+      "Utility": 0
+    },
+    {
+      "ASC": 2,
+      "Accepted": 242,
+      "Board": "BHB56801",
+      "Connector": "J12",
+      "ControllerIPVersionHex": "0x0A113D",
+      "ControllerIPVersionStr": "0.11.0",
+      "Device Elapsed": 0,
+      "Device Hardware%": 0,
+      "Device Rejected%": 0,
+      "Diff1 Work": 89260032,
+      "Difficulty Accepted": 89260032,
+      "Difficulty Rejected": 0,
+      "Enabled": "Y",
+      "Hardware Error MHS 15m": 0,
+      "Hardware Errors": 0,
+      "ID": 2,
+      "IsRamping": false,
+      "IsUserShutdown": false,
+      "Last Share Difficulty": 524288,
+      "Last Share Pool": 1,
+      "Last Share Time": 1774308417,
+      "Last Valid Work": 1774308417,
+      "MHS 15m": 0.0,
+      "MHS 1m": 0.0,
+      "MHS 30m": 0.0,
+      "MHS 5m": 0.0,
+      "MHS 5s": 0.0,
+      "MHS 60m": 0.0,
+      "MHS av": 0.0,
+      "Name": "",
+      "Nominal MHS": 0.0,
+      "Profile": "default",
+      "Rejected": 0,
+      "SerialNumber": "YNAHYPDBCJFBJ1EP6",
+      "Status": "Dead",
+      "Temperature": 13.0,
+      "Total MH": 0.0,
+      "Utility": 0
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 9,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "3 ASC(s)",
+      "STATUS": "S",
+      "When": 1774332137
+    }
+  ],
+  "id": 1
+}
+
+[2026-03-24 01:02:17] [POOLS]
+{
+  "POOLS": [
+    {
+      "Accepted": 468,
+      "AsicBoost": true,
+      "Bad Work": 0,
+      "Best Share": 524288,
+      "Current Block Height": 0,
+      "Current Block Version": 536870912,
+      "Diff": "524K",
+      "Diff1 Shares": 168165376,
+      "Difficulty Accepted": 168165376,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "GROUP": 0,
+      "Get Failures": 0,
+      "Getworks": 844,
+      "Has GBT": false,
+      "Has Stratum": true,
+      "Has Vmask": true,
+      "Last Share Difficulty": 524288,
+      "Last Share Time": "06:35:04",
+      "Long Pool": "N",
+      "POOL": 0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Priority": 0,
+      "Proxy": "",
+      "Proxy Type": "",
+      "Quota": 1.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Status": "Dead",
+      "Stratum Active": false,
+      "Stratum Difficulty": 524288,
+      "Stratum URL": "sha256.poolbinance.com:443",
+      "URL": "stratum+tcp://sha256.poolbinance.com:443",
+      "User": "NCATX.017",
+      "Work Difficulty": 524288,
+      "Works": 0
+    },
+    {
+      "Accepted": 0,
+      "AsicBoost": true,
+      "Bad Work": 0,
+      "Best Share": 0,
+      "Current Block Height": 0,
+      "Current Block Version": 0,
+      "Diff": "0",
+      "Diff1 Shares": 0,
+      "Difficulty Accepted": 0,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "GROUP": 0,
+      "Get Failures": 0,
+      "Getworks": 0,
+      "Has GBT": false,
+      "Has Stratum": true,
+      "Has Vmask": true,
+      "Last Share Difficulty": 0,
+      "Last Share Time": "09:00:04",
+      "Long Pool": "N",
+      "POOL": 1,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Priority": 1,
+      "Proxy": "",
+      "Proxy Type": "",
+      "Quota": 1.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Status": "Dead",
+      "Stratum Active": false,
+      "Stratum Difficulty": 0,
+      "Stratum URL": "btc.poolbinance.com:1800",
+      "URL": "stratum+tcp://btc.poolbinance.com:1800",
+      "User": "NCATX.017",
+      "Work Difficulty": 0,
+      "Works": 0
+    },
+    {
+      "Accepted": 0,
+      "AsicBoost": true,
+      "Bad Work": 0,
+      "Best Share": 0,
+      "Current Block Height": 0,
+      "Current Block Version": 0,
+      "Diff": "0",
+      "Diff1 Shares": 0,
+      "Difficulty Accepted": 0,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "GROUP": 0,
+      "Get Failures": 0,
+      "Getworks": 0,
+      "Has GBT": false,
+      "Has Stratum": true,
+      "Has Vmask": true,
+      "Last Share Difficulty": 0,
+      "Last Share Time": "09:00:04",
+      "Long Pool": "N",
+      "POOL": 2,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Priority": 2,
+      "Proxy": "",
+      "Proxy Type": "",
+      "Quota": 1.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Status": "Dead",
+      "Stratum Active": false,
+      "Stratum Difficulty": 0,
+      "Stratum URL": "bs.poolbinance.com:3333",
+      "URL": "stratum+tcp://bs.poolbinance.com:3333",
+      "User": "NCATX.017",
+      "Work Difficulty": 0,
+      "Works": 0
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 7,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "3 Pool(s)",
+      "STATUS": "S",
+      "When": 1774332137
+    }
+  ],
+  "id": 1
+}
+
+[2026-03-24 01:02:17] [CONFIG]
+{
+  "CONFIG": [
+    {
+      "ASC Count": 3,
+      "ActualPowerTarget": 0,
+      "BcastAddr": "10.102.1.255",
+      "ControlBoardType": "amlogic",
+      "Cooling": "Air",
+      "CurtailMode": "Sleep",
+      "DHCP": true,
+      "DNS Servers": "",
+      "Device Code": "",
+      "FPGABuildIdHex": "0x000A113D",
+      "FPGABuildIdStr": "2000-0A-11 3D:00",
+      "FeeStatus": "Ok",
+      "Gateway": "10.102.0.1",
+      "GreenLed": "auto",
+      "Hostname": "Antminer",
+      "Hotplug": "None",
+      "IPAddr": "10.102.0.222",
+      "IdealPowerTarget": 0,
+      "ImmersionMode": false,
+      "IsAtmEnabled": false,
+      "IsPowerSupplyOn": false,
+      "IsPowerTargetEnabled": false,
+      "IsSingleVoltage": true,
+      "IsTuning": false,
+      "Log Interval": 0,
+      "LogFileLevel": "info",
+      "MACAddr": "02:74:44:9e:f0:de",
+      "Model": "Antminer S19 XP",
+      "NameplateTHS": 134.0,
+      "Netmask": "255.255.254.0",
+      "OS": "LuxOS",
+      "PGA Count": 0,
+      "PIC": "NoPIC",
+      "PSUHwVersion": "75",
+      "PSULabel": "APW121215e",
+      "Pool Count": 3,
+      "PowerLimit": 0,
+      "Profile": "default",
+      "ProfileStep": "0",
+      "RedLed": "auto",
+      "SerialNumber": "YNAHEAUBCJFBJ0LEF",
+      "Strategy": "Failover",
+      "SystemStatus": "Normal",
+      "UpdateOnStartup": "off",
+      "UpdateOnTimeout": "off",
+      "UpdateOnUser": "full",
+      "UpdateSource": "https://storage.googleapis.com/luxor-firmware/stable",
+      "UpdateTimeout": 60
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 33,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "LUXminer config",
+      "STATUS": "S",
+      "When": 1774332137
+    }
+  ],
+  "id": 1
+}

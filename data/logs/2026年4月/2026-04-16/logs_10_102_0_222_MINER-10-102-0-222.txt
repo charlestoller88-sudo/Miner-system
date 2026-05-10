@@ -1,0 +1,2069 @@
+============================================================
+矿机运行日志 - 10.102.0.222
+导出时间: 2026-04-16 00:58:37
+IP: 10.102.0.222  序列号: MINER-10-102-0-222  型号: Antminer S19 XP
+============================================================
+
+[2026-04-16 00:58:37] [SYSTEM_LOG] 矿机后台系统日志（与 Web 界面一致）
+2018-03-09T12:36:12.353310Z [INFO] Detected CPU model AMLOGIC
+2018-03-09T12:36:12.358795Z [INFO] Detected existing root bind mount
+2018-03-09T12:36:12.358892Z [INFO] Detected existing base overlay mount
+2018-03-09T12:36:12.358979Z [INFO] Detected existing etc mount via overlay
+2018-03-09T12:36:12.359068Z [INFO] Note: could not mount an external partition
+2018-03-09T12:36:12.359160Z [INFO] Linked current log directory on: /mnt/ramdisk/logs/current
+2018-03-09T12:36:12.389293Z [INFO] Raw i2detect CB bus output:
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- 48 49 -- -- 4c 4d 4e -- 
+50: 50 -- 52 -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --                         
+
+2018-03-09T12:36:19.219140Z [INFO] Raw i2detect PSU bus output:
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: 10 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --                         
+
+
+2018-03-09T12:36:19.227722Z [INFO] Error mapping chip at address 0x48: IoError(Os { code: 22, kind: InvalidInput, message: "Invalid argument" })
+2018-03-09T12:36:19.230664Z [INFO] Error mapping chip at address 0x49: IoError(Os { code: 22, kind: InvalidInput, message: "Invalid argument" })
+2018-03-09T12:36:19.393384Z [INFO] Expected board info CRC: 0xF, got 0xF
+2018-03-09T12:36:19.393522Z [INFO] Expected param info CRC: 0x16, got 0x16
+2018-03-09T12:36:19.394350Z [INFO] Expected extra info CRC: 0x2, got 0x2
+2018-03-09T12:36:19.395935Z [INFO] Board info version: 0x5
+2018-03-09T12:36:19.396074Z [INFO] Encryption algo and key version: 0x11
+2018-03-09T12:36:19.396634Z [INFO] Board serial number: SMTTYPDBCJABE016Y
+2018-03-09T12:36:19.398452Z [INFO] Default board voltage: 1290cV
+2018-03-09T12:36:19.398607Z [INFO] Default board frequency: 410MHz
+2018-03-09T12:36:19.400165Z [INFO] Connector: 0
+2018-03-09T12:36:19.441025Z [INFO] Expected board info CRC: 0xE, got 0xE
+2018-03-09T12:36:19.441157Z [INFO] Expected param info CRC: 0xF, got 0xF
+2018-03-09T12:36:19.441261Z [INFO] Expected extra info CRC: 0xB, got 0xB
+2018-03-09T12:36:19.441371Z [INFO] Board info version: 0x5
+2018-03-09T12:36:19.441447Z [INFO] Encryption algo and key version: 0x11
+2018-03-09T12:36:19.441525Z [INFO] Board serial number: YNAHYPDBCJFBJ1EP6
+2018-03-09T12:36:19.441622Z [INFO] Default board voltage: 1290cV
+2018-03-09T12:36:19.441701Z [INFO] Default board frequency: 485MHz
+2018-03-09T12:36:19.441783Z [INFO] Connector: 2
+2018-03-09T12:36:20.007279Z [INFO] Attempt 1 - Sending message to return PSU power type: [11, 55, AA, 4, 2, 6, 0] :
+2018-03-09T12:36:20.107132Z [INFO] Attempt 1 - Reading PSU power type. command: [11, 55, AA, 4, 2, 6, 0] :
+2018-03-09T12:36:20.720481Z [INFO] Attempt 1 - power type message return: [55, AA, 6, 2, 75, 0, 7D, 0].
+
+2018-03-09T12:36:20.820929Z [INFO] Attempt 1 - Sending message to return PSU firmware version: [11, 55, AA, 4, 1, 5, 0]
+2018-03-09T12:36:20.921193Z [INFO] Attempt 1 - Reading PSU firmware version. command: [11, 55, AA, 4, 1, 5, 0] :
+2018-03-09T12:36:21.208234Z [INFO] Attempt 1 - firmware version message return: [55, AA, 6, 1, 19, 0, 20, 0].
+
+2018-03-09T12:36:21.208970Z [INFO] Setting PSU hw/fw to: 0x75/0x19
+2018-03-09T12:36:21.223360Z [WARN] Detected a previous unexpected shutdown (crash, power loss, etc.)
+2018-03-09T12:36:21.227116Z [INFO] 
+*** System information summary ***
+- SW: ................. luxminer v2025.12.12.164659 (e88514b22)
+- Package: ............ 2025.12.12-u0
+- Miner model: ........ Antminer S19 XP (s19xp)
+- External storage: ... No
+- RAM storage: ........ Yes, /mnt/ramdisk (rw)
+- Config storage: ..... Yes, /config (rw)
+- Persistent NAND Logs:  /persistent/miner
+- Logs dir: ........... (empty)
+- Logs link: .......... (empty)
+- Profiles dir: ....... /config/profiles
+- Backup dir: ......... /backup/luxminer.conf.d
+- Config dir: ......... /config/luxminer.conf.d
+
+2018-03-09T12:36:21.228088Z [INFO] Checking profiles...
+2018-03-09T12:36:21.234166Z [WARN] Skipped dynamic profile step: frequency out of bounds
+2018-03-09T12:36:21.234803Z [WARN] Skipped dynamic profile step: frequency out of bounds
+2018-03-09T12:36:21.234914Z [WARN] Skipped dynamic profile step: frequency out of bounds
+2018-03-09T12:36:21.235048Z [WARN] Skipped dynamic profile step: frequency out of bounds
+2018-03-09T12:36:21.246197Z [INFO] Applying configuration...
+2018-03-09T12:36:21.297631Z [INFO] Starting system audit task
+2018-03-09T12:36:21.298646Z [INFO] No need to watch partitions; no external partition is being used
+2018-03-09T12:36:21.299173Z [INFO] Starting periodic disk check
+2018-03-09T12:36:21.317805Z [INFO] Checking available disk space
+2018-03-09T12:36:25.671433Z [INFO] Current power status: ON
+2018-03-09T12:36:25.682660Z [INFO] Pools configuration:
+Group foreman, quota: 1:
+  Pools:
+  - url: sha256.poolbinance.com:443, user: NCATX.082
+
+2018-03-09T12:36:25.697514Z [INFO] Waiting for board initialization before starting chip healthchecker.
+2018-03-09T12:36:26.352707Z [INFO] 2 boards, 2 identified and 0 disabled
+2018-03-09T12:36:26.378607Z [INFO] Partner ID loaded: foreman
+2018-03-09T12:36:26.410703Z [INFO] Advanced Thermal Management (ATM) process started (off)
+2018-03-09T12:36:26.454470Z [INFO] Connecting to pool
+2018-03-09T12:36:26.455251Z [INFO] Pool status changed
+2018-03-09T12:36:26.457495Z [INFO] Starting API server
+2018-03-09T12:36:26.478120Z [INFO] Current power status: ON
+2018-03-09T12:36:26.480628Z [INFO] Opening TCP connection
+2018-03-09T12:36:26.485313Z [INFO] Starting HTTP API
+2018-03-09T12:36:26.491619Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:26.491882Z [INFO] Connecting to pool
+2018-03-09T12:36:26.491905Z [INFO] Pool status changed
+2018-03-09T12:36:26.492017Z [INFO] Pool status changed
+2018-03-09T12:36:26.641524Z [INFO] Starting PIC controller
+2018-03-09T12:36:26.641678Z [INFO] Starting PIC controller
+2018-03-09T12:36:26.796853Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:36:26.797960Z [INFO] Cycle board reset
+2018-03-09T12:36:26.835750Z [INFO] Board reset complete
+2018-03-09T12:36:27.298012Z [INFO] Cycle board reset
+2018-03-09T12:36:27.336208Z [INFO] Board reset complete
+2018-03-09T12:36:27.493998Z [INFO] Opening TCP connection
+2018-03-09T12:36:27.495587Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:27.495811Z [INFO] Pool status changed
+2018-03-09T12:36:27.495811Z [INFO] Connecting to pool
+2018-03-09T12:36:27.495916Z [INFO] Pool status changed
+2018-03-09T12:36:28.020869Z [INFO] ASIC Enumeration, Chip count (initialization)
+2018-03-09T12:36:28.022163Z [ERROR] Initialization of hashboard failed
+2018-03-09T12:36:28.065329Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 1/5 - asic enumeration failure]
+2018-03-09T12:36:28.065877Z [INFO] Board powered off
+2018-03-09T12:36:28.390160Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:36:28.511684Z [INFO] ASIC Enumeration, Chip count (initialization)
+2018-03-09T12:36:28.511833Z [ERROR] Initialization of hashboard failed
+2018-03-09T12:36:28.573810Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 1/5 - asic enumeration failure]
+2018-03-09T12:36:28.575566Z [INFO] Board powered off
+2018-03-09T12:36:29.488212Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:36:29.498074Z [INFO] Opening TCP connection
+2018-03-09T12:36:29.499508Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:29.499706Z [INFO] Connecting to pool
+2018-03-09T12:36:29.500008Z [INFO] Pool status changed
+2018-03-09T12:36:29.500141Z [INFO] Pool status changed
+2018-03-09T12:36:31.080901Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:36:31.721256Z [INFO] Current temperatures:
+-   0: TopLeft: 27.00, TopRight: 27.00, BottomRight: 27.00, BottomLeft: 27.00
+-   2: TopLeft: 27.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 27.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2018-03-09T12:36:32.500454Z [INFO] Opening TCP connection
+2018-03-09T12:36:32.501875Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:32.502114Z [INFO] Connecting to pool
+2018-03-09T12:36:32.502975Z [INFO] Pool status changed
+2018-03-09T12:36:32.503094Z [INFO] Pool status changed
+2018-03-09T12:36:32.678214Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:36:33.127899Z [INFO] Starting PIC controller
+2018-03-09T12:36:33.178750Z [INFO] Cycle board reset
+2018-03-09T12:36:33.259978Z [INFO] Board reset complete
+2018-03-09T12:36:33.633856Z [INFO] Starting PIC controller
+2018-03-09T12:36:34.273579Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:36:34.274026Z [INFO] Cycle board reset
+2018-03-09T12:36:34.283789Z [INFO] Board reset complete
+2018-03-09T12:36:34.423740Z [INFO] ASIC Enumeration, Chip count (initialization)
+2018-03-09T12:36:34.423895Z [ERROR] Initialization of hashboard failed
+2018-03-09T12:36:34.444126Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 2/5 - asic enumeration failure]
+2018-03-09T12:36:34.444635Z [INFO] Board powered off
+2018-03-09T12:36:35.511635Z [INFO] ASIC Enumeration, Chip count (initialization)
+2018-03-09T12:36:35.511791Z [ERROR] Initialization of hashboard failed
+2018-03-09T12:36:35.556862Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 2/5 - asic enumeration failure]
+2018-03-09T12:36:35.557509Z [INFO] Board powered off
+2018-03-09T12:36:35.866505Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:36:36.503867Z [INFO] Opening TCP connection
+2018-03-09T12:36:36.505326Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:36.505526Z [WARN] Too many consecutive errors, skipping to the next pool
+2018-03-09T12:36:36.505564Z [INFO] Pool status changed
+2018-03-09T12:36:36.505671Z [INFO] Pool status changed
+2018-03-09T12:36:36.506218Z [INFO] Connecting to pool
+2018-03-09T12:36:36.506472Z [INFO] Opening TCP connection
+2018-03-09T12:36:36.506747Z [INFO] Pool status changed
+2018-03-09T12:36:36.508155Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:36.508363Z [INFO] Connecting to pool
+2018-03-09T12:36:36.508643Z [INFO] Pool status changed
+2018-03-09T12:36:36.508776Z [INFO] Pool status changed
+2018-03-09T12:36:37.463734Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:36:37.509815Z [INFO] Opening TCP connection
+2018-03-09T12:36:37.511255Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:37.511570Z [INFO] Connecting to pool
+2018-03-09T12:36:37.512098Z [INFO] Pool status changed
+2018-03-09T12:36:37.512235Z [INFO] Pool status changed
+2018-03-09T12:36:39.058587Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:36:39.501701Z [INFO] Starting PIC controller
+2018-03-09T12:36:39.512821Z [INFO] Opening TCP connection
+2018-03-09T12:36:39.514204Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:39.514386Z [INFO] Connecting to pool
+2018-03-09T12:36:39.515100Z [INFO] Pool status changed
+2018-03-09T12:36:39.515239Z [INFO] Pool status changed
+2018-03-09T12:36:40.059365Z [INFO] Cycle board reset
+2018-03-09T12:36:40.108049Z [INFO] Board reset complete
+2018-03-09T12:36:40.615153Z [INFO] Starting PIC controller
+2018-03-09T12:36:40.651496Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:36:40.856604Z [INFO] Current fan status:
+- 0 FAN4:  OK 
+- 1 FAN2:  OK 
+- 2 FAN1:  OK 
+- 3 FAN3:  OK 
+
+2018-03-09T12:36:41.154393Z [INFO] Cycle board reset
+2018-03-09T12:36:41.227199Z [INFO] Board reset complete
+2018-03-09T12:36:41.323683Z [INFO] ASIC Enumeration, Chip count (initialization)
+2018-03-09T12:36:41.323844Z [ERROR] Initialization of hashboard failed
+2018-03-09T12:36:41.422908Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 3/5 - asic enumeration failure]
+2018-03-09T12:36:41.423455Z [INFO] Board powered off
+2018-03-09T12:36:42.246584Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:36:42.411776Z [INFO] ASIC Enumeration, Chip count (initialization)
+2018-03-09T12:36:42.411932Z [ERROR] Initialization of hashboard failed
+2018-03-09T12:36:42.436127Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 3/5 - asic enumeration failure]
+2018-03-09T12:36:42.436673Z [INFO] Board powered off
+2018-03-09T12:36:42.516866Z [INFO] Opening TCP connection
+2018-03-09T12:36:42.519395Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:42.519636Z [INFO] Connecting to pool
+2018-03-09T12:36:42.520078Z [INFO] Pool status changed
+2018-03-09T12:36:42.520217Z [INFO] Pool status changed
+2018-03-09T12:36:43.844093Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:36:45.439091Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:36:46.479924Z [INFO] Starting PIC controller
+2018-03-09T12:36:46.520813Z [INFO] Opening TCP connection
+2018-03-09T12:36:46.522461Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:46.522667Z [WARN] Too many consecutive errors, skipping to the next pool
+2018-03-09T12:36:46.522774Z [INFO] Connecting to pool
+2018-03-09T12:36:46.522968Z [INFO] Opening TCP connection
+2018-03-09T12:36:46.523018Z [INFO] Pool status changed
+2018-03-09T12:36:46.523123Z [INFO] Pool status changed
+2018-03-09T12:36:46.523219Z [INFO] Pool status changed
+2018-03-09T12:36:46.525446Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:46.525760Z [INFO] Pool status changed
+2018-03-09T12:36:46.526469Z [INFO] Connecting to pool
+2018-03-09T12:36:46.527415Z [INFO] Pool status changed
+2018-03-09T12:36:47.031911Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:36:47.034834Z [INFO] Cycle board reset
+2018-03-09T12:36:47.050686Z [INFO] Board reset complete
+2018-03-09T12:36:47.491246Z [INFO] Starting PIC controller
+2018-03-09T12:36:47.528461Z [INFO] Opening TCP connection
+2018-03-09T12:36:47.530158Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:47.530365Z [INFO] Connecting to pool
+2018-03-09T12:36:47.531277Z [INFO] Pool status changed
+2018-03-09T12:36:47.531484Z [INFO] Pool status changed
+2018-03-09T12:36:48.034908Z [INFO] Cycle board reset
+2018-03-09T12:36:48.070277Z [INFO] Board reset complete
+2018-03-09T12:36:48.227700Z [INFO] ASIC Enumeration, Chip count (initialization)
+2018-03-09T12:36:48.227853Z [ERROR] Initialization of hashboard failed
+2018-03-09T12:36:48.299538Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 4/5 - asic enumeration failure]
+2018-03-09T12:36:48.300178Z [INFO] Board powered off
+2018-03-09T12:36:48.629233Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:36:49.215721Z [INFO] ASIC Enumeration, Chip count (initialization)
+2018-03-09T12:36:49.215878Z [ERROR] Initialization of hashboard failed
+2018-03-09T12:36:49.311001Z [WARN] Rebooting board; automatic start scheduled [enumeration_reboot, 4/5 - asic enumeration failure]
+2018-03-09T12:36:49.311602Z [INFO] Board powered off
+2018-03-09T12:36:49.531423Z [INFO] Opening TCP connection
+2018-03-09T12:36:49.533147Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:49.533364Z [INFO] Connecting to pool
+2018-03-09T12:36:49.533637Z [INFO] Pool status changed
+2018-03-09T12:36:49.533747Z [INFO] Pool status changed
+2018-03-09T12:36:50.221921Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:36:51.819236Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:36:52.536813Z [INFO] Opening TCP connection
+2018-03-09T12:36:52.539157Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:52.539449Z [INFO] Connecting to pool
+2018-03-09T12:36:52.539451Z [INFO] Pool status changed
+2018-03-09T12:36:52.539579Z [INFO] Pool status changed
+2018-03-09T12:36:53.355099Z [INFO] Starting PIC controller
+2018-03-09T12:36:53.411945Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:36:53.414635Z [INFO] Cycle board reset
+2018-03-09T12:36:53.494829Z [INFO] Board reset complete
+2018-03-09T12:36:54.364742Z [INFO] Starting PIC controller
+2018-03-09T12:36:54.415099Z [INFO] Cycle board reset
+2018-03-09T12:36:54.514284Z [INFO] Board reset complete
+2018-03-09T12:36:54.727651Z [INFO] ASIC Enumeration, Chip count (initialization)
+2018-03-09T12:36:54.727805Z [ERROR] Initialization of hashboard failed
+2018-03-09T12:36:54.768522Z [WARN] Switching off the board; no automatic start scheduled, this board will remain offline [enumeration_reboot, 5/5 - asic enumeration failure]
+2018-03-09T12:36:54.769315Z [INFO] Board powered off
+2018-03-09T12:36:55.007051Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:36:55.715664Z [INFO] ASIC Enumeration, Chip count (initialization)
+2018-03-09T12:36:55.715823Z [ERROR] Initialization of hashboard failed
+2018-03-09T12:36:55.781428Z [WARN] Switching off the board; no automatic start scheduled, this board will remain offline [enumeration_reboot, 5/5 - asic enumeration failure]
+2018-03-09T12:36:55.781900Z [INFO] Board powered off
+2018-03-09T12:36:56.540309Z [INFO] Opening TCP connection
+2018-03-09T12:36:56.541881Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:56.542094Z [WARN] Too many consecutive errors, skipping to the next pool
+2018-03-09T12:36:56.542201Z [INFO] Connecting to pool
+2018-03-09T12:36:56.542398Z [INFO] Opening TCP connection
+2018-03-09T12:36:56.542780Z [INFO] Pool status changed
+2018-03-09T12:36:56.542888Z [INFO] Pool status changed
+2018-03-09T12:36:56.542984Z [INFO] Pool status changed
+2018-03-09T12:36:56.544115Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:56.544300Z [INFO] Connecting to pool
+2018-03-09T12:36:56.544505Z [INFO] Pool status changed
+2018-03-09T12:36:56.544611Z [INFO] Pool status changed
+2018-03-09T12:36:56.602364Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:36:57.546749Z [INFO] Opening TCP connection
+2018-03-09T12:36:57.549821Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:57.550042Z [INFO] Connecting to pool
+2018-03-09T12:36:57.550303Z [INFO] Pool status changed
+2018-03-09T12:36:57.550413Z [INFO] Pool status changed
+2018-03-09T12:36:58.197499Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:36:59.552822Z [INFO] Opening TCP connection
+2018-03-09T12:36:59.555823Z [ERROR] I/O error connecting to pool
+2018-03-09T12:36:59.556422Z [INFO] Pool status changed
+2018-03-09T12:36:59.557518Z [INFO] Connecting to pool
+2018-03-09T12:36:59.558626Z [INFO] Pool status changed
+2018-03-09T12:36:59.794823Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:01.390182Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:02.565934Z [INFO] Opening TCP connection
+2018-03-09T12:37:02.571484Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:02.571737Z [INFO] Connecting to pool
+2018-03-09T12:37:02.571785Z [INFO] Pool status changed
+2018-03-09T12:37:02.571893Z [INFO] Pool status changed
+2018-03-09T12:37:02.983148Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:04.578551Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:06.173954Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:06.573619Z [INFO] Opening TCP connection
+2018-03-09T12:37:06.575962Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:06.576208Z [WARN] Too many consecutive errors, skipping to the next pool
+2018-03-09T12:37:06.576210Z [INFO] Pool status changed
+2018-03-09T12:37:06.576325Z [INFO] Pool status changed
+2018-03-09T12:37:06.576330Z [INFO] Connecting to pool
+2018-03-09T12:37:06.576484Z [INFO] Pool status changed
+2018-03-09T12:37:06.576548Z [INFO] Opening TCP connection
+2018-03-09T12:37:06.578711Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:06.578919Z [INFO] Connecting to pool
+2018-03-09T12:37:06.578927Z [INFO] Pool status changed
+2018-03-09T12:37:06.579030Z [INFO] Pool status changed
+2018-03-09T12:37:07.580949Z [INFO] Opening TCP connection
+2018-03-09T12:37:07.582482Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:07.582718Z [INFO] Connecting to pool
+2018-03-09T12:37:07.582726Z [INFO] Pool status changed
+2018-03-09T12:37:07.582832Z [INFO] Pool status changed
+2018-03-09T12:37:07.771481Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:09.366836Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:09.583649Z [INFO] Opening TCP connection
+2018-03-09T12:37:09.585282Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:09.585487Z [INFO] Connecting to pool
+2018-03-09T12:37:09.586260Z [INFO] Pool status changed
+2018-03-09T12:37:09.586385Z [INFO] Pool status changed
+2018-03-09T12:37:10.961800Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:12.554413Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:12.586928Z [INFO] Opening TCP connection
+2018-03-09T12:37:12.588552Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:12.588738Z [INFO] Connecting to pool
+2018-03-09T12:37:12.588805Z [INFO] Pool status changed
+2018-03-09T12:37:12.588912Z [INFO] Pool status changed
+2018-03-09T12:37:14.149505Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:15.746769Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:16.590119Z [INFO] Opening TCP connection
+2018-03-09T12:37:16.591777Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:16.592031Z [WARN] Too many consecutive errors, skipping to the next pool
+2018-03-09T12:37:16.592057Z [INFO] Pool status changed
+2018-03-09T12:37:16.592170Z [INFO] Pool status changed
+2018-03-09T12:37:16.592173Z [INFO] Connecting to pool
+2018-03-09T12:37:16.592278Z [INFO] Pool status changed
+2018-03-09T12:37:16.592422Z [INFO] Opening TCP connection
+2018-03-09T12:37:16.594002Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:16.594190Z [INFO] Connecting to pool
+2018-03-09T12:37:16.594273Z [INFO] Pool status changed
+2018-03-09T12:37:16.594413Z [INFO] Pool status changed
+2018-03-09T12:37:17.339467Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:17.595581Z [INFO] Opening TCP connection
+2018-03-09T12:37:17.596972Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:17.597154Z [INFO] Connecting to pool
+2018-03-09T12:37:17.598257Z [INFO] Pool status changed
+2018-03-09T12:37:17.598371Z [INFO] Pool status changed
+2018-03-09T12:37:18.934519Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:19.600712Z [INFO] Opening TCP connection
+2018-03-09T12:37:19.602905Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:19.603136Z [INFO] Connecting to pool
+2018-03-09T12:37:19.603212Z [INFO] Pool status changed
+2018-03-09T12:37:19.603365Z [INFO] Pool status changed
+2018-03-09T12:37:20.532062Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:21.476594Z [INFO] System entering the HALTED state
+2018-03-09T12:37:22.126907Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:22.604537Z [INFO] Opening TCP connection
+2018-03-09T12:37:22.606118Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:22.606351Z [INFO] Connecting to pool
+2018-03-09T12:37:22.606677Z [INFO] Pool status changed
+2018-03-09T12:37:22.606827Z [INFO] Pool status changed
+2018-03-09T12:37:23.721873Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:24.709644Z [INFO] Set power supply pin to OFF
+2018-03-09T12:37:24.735267Z [INFO] Current power status: OFF
+2018-03-09T12:37:25.314741Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:26.608107Z [INFO] Opening TCP connection
+2018-03-09T12:37:26.609669Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:26.609852Z [WARN] Too many consecutive errors, skipping to the next pool
+2018-03-09T12:37:26.609959Z [INFO] Connecting to pool
+2018-03-09T12:37:26.610107Z [INFO] Pool status changed
+2018-03-09T12:37:26.610157Z [INFO] Opening TCP connection
+2018-03-09T12:37:26.610211Z [INFO] Pool status changed
+2018-03-09T12:37:26.610308Z [INFO] Pool status changed
+2018-03-09T12:37:26.611672Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:26.611902Z [INFO] Connecting to pool
+2018-03-09T12:37:26.612513Z [INFO] Pool status changed
+2018-03-09T12:37:26.612648Z [INFO] Pool status changed
+2018-03-09T12:37:26.909774Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:27.613432Z [INFO] Opening TCP connection
+2018-03-09T12:37:27.615240Z [ERROR] I/O error connecting to pool
+2018-03-09T12:37:27.615522Z [INFO] Connecting to pool
+2018-03-09T12:37:27.615552Z [INFO] Pool status changed
+2018-03-09T12:37:27.615663Z [INFO] Pool status changed
+2018-03-09T12:37:28.504719Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:29.616640Z [INFO] Opening TCP connection
+2018-03-09T12:37:29.700348Z [INFO] Connection successful
+2018-03-09T12:37:29.700620Z [INFO] Pool status changed
+2018-03-09T12:37:29.766306Z [INFO] System entering the NORMAL state
+2018-03-09T12:37:29.989724Z [INFO] Authorization successful
+2018-03-09T12:37:29.992409Z [INFO] New pool difficulty
+2018-03-09T12:37:30.069651Z [INFO] Set power supply pin to ON
+2018-03-09T12:37:30.099754Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:30.142042Z [INFO] Current power status: ON
+2018-03-09T12:37:30.531617Z [INFO] Connecting to pool
+2018-03-09T12:37:30.531912Z [INFO] Opening TCP connection
+2018-03-09T12:37:30.532817Z [INFO] Pool status changed
+2018-03-09T12:37:30.592441Z [INFO] Connection successful
+2018-03-09T12:37:30.593114Z [INFO] Pool status changed
+2018-03-09T12:37:30.941897Z [INFO] New pool difficulty
+2018-03-09T12:37:30.992316Z [INFO] Authorization successful
+2018-03-09T12:37:31.695018Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:33.292304Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:34.885018Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:36.482607Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:38.075182Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:39.672431Z [WARN] Temperature Sensor Read Failed
+2018-03-09T12:37:41.265073Z [WARN] Temperature Sensor Read Failed
+2026-04-15T23:42:16.808558Z [WARN] Temperature Sensor Read Failed
+2026-04-15T23:42:18.403448Z [WARN] Temperature Sensor Read Failed
+2026-04-15T23:42:19.996079Z [WARN] Temperature Sensor Read Failed
+2026-04-15T23:42:21.591412Z [WARN] Temperature Sensor Read Failed
+2026-04-15T23:42:23.186404Z [WARN] Temperature Sensor Read Failed
+2026-04-15T23:42:24.783756Z [WARN] Temperature Sensor Read Failed
+2026-04-15T23:44:11.404515Z [INFO] New pool difficulty
+2026-04-15T23:44:11.428583Z [INFO] New pool difficulty
+2026-04-15T23:45:55.266679Z [INFO] Checking available disk space
+2026-04-15T23:46:06.858128Z [INFO] Current temperatures:
+-   0: TopLeft: 41.00, TopRight: 33.00, BottomRight: 33.00, BottomLeft: 41.00
+-   2: TopLeft: 37.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 37.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-15T23:50:55.264951Z [INFO] Checking available disk space
+2026-04-15T23:51:08.034204Z [INFO] Current temperatures:
+-   0: TopLeft: 41.00, TopRight: 33.00, BottomRight: 33.00, BottomLeft: 41.00
+-   2: TopLeft: 38.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 38.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-15T23:52:22.018065Z [INFO] Connection closed by the server
+2026-04-15T23:52:22.018278Z [INFO] Connecting to pool
+2026-04-15T23:52:22.018383Z [INFO] Pool status changed
+2026-04-15T23:52:22.018489Z [INFO] Pool status changed
+2026-04-15T23:52:23.020016Z [INFO] Opening TCP connection
+2026-04-15T23:52:23.116826Z [INFO] Connection successful
+2026-04-15T23:52:23.117441Z [INFO] Pool status changed
+2026-04-15T23:52:23.405652Z [INFO] Authorization successful
+2026-04-15T23:52:23.406480Z [INFO] New pool difficulty
+2026-04-15T23:53:22.222442Z [ERROR] connection dropped due to pool inactivity
+2026-04-15T23:53:22.223863Z [ERROR] Stratum read failure
+2026-04-15T23:53:22.224506Z [INFO] Connection closed by the server
+2026-04-15T23:53:22.224745Z [INFO] Connecting to pool
+2026-04-15T23:53:22.224918Z [INFO] Pool status changed
+2026-04-15T23:53:22.225025Z [INFO] Pool status changed
+2026-04-15T23:53:23.225607Z [INFO] Opening TCP connection
+2026-04-15T23:53:23.275818Z [INFO] Connection successful
+2026-04-15T23:53:23.276697Z [INFO] Pool status changed
+2026-04-15T23:53:23.500299Z [INFO] New pool difficulty
+2026-04-15T23:53:23.547918Z [INFO] Authorization successful
+2026-04-15T23:54:35.096912Z [INFO] New pool difficulty
+2026-04-15T23:55:36.565602Z [INFO] New pool difficulty
+2026-04-15T23:55:55.266890Z [INFO] Checking available disk space
+2026-04-15T23:56:09.202628Z [INFO] Current temperatures:
+-   0: TopLeft: 41.00, TopRight: 33.00, BottomRight: 33.00, BottomLeft: 41.00
+-   2: TopLeft: 38.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 38.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T00:00:55.264612Z [INFO] Checking available disk space
+2026-04-16T00:01:10.427575Z [INFO] Current temperatures:
+-   0: TopLeft: 41.00, TopRight: 32.00, BottomRight: 32.00, BottomLeft: 41.00
+-   2: TopLeft: 37.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 37.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T00:02:28.794572Z [INFO] Connection closed by the server
+2026-04-16T00:02:28.794854Z [INFO] Pool status changed
+2026-04-16T00:02:28.794879Z [INFO] Connecting to pool
+2026-04-16T00:02:28.795065Z [INFO] Pool status changed
+2026-04-16T00:02:29.797223Z [INFO] Opening TCP connection
+2026-04-16T00:02:29.910330Z [INFO] Connection successful
+2026-04-16T00:02:29.911421Z [INFO] Pool status changed
+2026-04-16T00:02:30.129111Z [INFO] Authorization successful
+2026-04-16T00:02:30.129542Z [INFO] New pool difficulty
+2026-04-16T00:04:38.884149Z [ERROR] connection dropped due to pool inactivity
+2026-04-16T00:04:38.884353Z [ERROR] Stratum read failure
+2026-04-16T00:04:38.884868Z [INFO] Connection closed by the server
+2026-04-16T00:04:38.885077Z [INFO] Connecting to pool
+2026-04-16T00:04:38.885179Z [INFO] Pool status changed
+2026-04-16T00:04:38.885286Z [INFO] Pool status changed
+2026-04-16T00:04:39.886664Z [INFO] Opening TCP connection
+2026-04-16T00:04:39.952246Z [INFO] Connection successful
+2026-04-16T00:04:39.952490Z [INFO] Pool status changed
+2026-04-16T00:04:40.160474Z [INFO] New pool difficulty
+2026-04-16T00:04:40.220193Z [INFO] Authorization successful
+2026-04-16T00:04:48.476914Z [INFO] New pool difficulty
+2026-04-16T00:05:55.266117Z [INFO] Checking available disk space
+2026-04-16T00:06:11.598451Z [INFO] Current temperatures:
+-   0: TopLeft: 40.00, TopRight: 32.00, BottomRight: 32.00, BottomLeft: 40.00
+-   2: TopLeft: 37.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 37.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T00:07:06.585140Z [INFO] New pool difficulty
+2026-04-16T00:10:55.266505Z [INFO] Checking available disk space
+2026-04-16T00:11:12.781169Z [INFO] Current temperatures:
+-   0: TopLeft: 40.00, TopRight: 32.00, BottomRight: 32.00, BottomLeft: 40.00
+-   2: TopLeft: 37.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 37.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T00:12:58.632354Z [INFO] Connection closed by the server
+2026-04-16T00:12:58.632569Z [INFO] Connecting to pool
+2026-04-16T00:12:58.632744Z [INFO] Pool status changed
+2026-04-16T00:12:58.632851Z [INFO] Pool status changed
+2026-04-16T00:12:59.633373Z [INFO] Opening TCP connection
+2026-04-16T00:12:59.746152Z [INFO] Connection successful
+2026-04-16T00:12:59.747060Z [INFO] Pool status changed
+2026-04-16T00:13:00.071472Z [INFO] Authorization successful
+2026-04-16T00:13:00.072643Z [INFO] New pool difficulty
+2026-04-16T00:15:12.372400Z [INFO] New pool difficulty
+2026-04-16T00:15:35.648123Z [ERROR] connection dropped due to pool inactivity
+2026-04-16T00:15:35.648430Z [ERROR] Stratum read failure
+2026-04-16T00:15:35.649054Z [INFO] Connection closed by the server
+2026-04-16T00:15:35.649732Z [INFO] Pool status changed
+2026-04-16T00:15:35.649432Z [INFO] Connecting to pool
+2026-04-16T00:15:35.650431Z [INFO] Pool status changed
+2026-04-16T00:15:36.653551Z [INFO] Opening TCP connection
+2026-04-16T00:15:36.716507Z [INFO] Connection successful
+2026-04-16T00:15:36.716931Z [INFO] Pool status changed
+2026-04-16T00:15:37.117570Z [INFO] New pool difficulty
+2026-04-16T00:15:37.165173Z [INFO] Authorization successful
+2026-04-16T00:15:55.264338Z [INFO] Checking available disk space
+2026-04-16T00:16:13.985845Z [INFO] Current temperatures:
+-   0: TopLeft: 40.00, TopRight: 31.00, BottomRight: 31.00, BottomLeft: 40.00
+-   2: TopLeft: 36.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 36.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T00:17:41.138723Z [INFO] New pool difficulty
+2026-04-16T00:20:55.265072Z [INFO] Checking available disk space
+2026-04-16T00:21:15.200232Z [INFO] Current temperatures:
+-   0: TopLeft: 40.00, TopRight: 31.00, BottomRight: 31.00, BottomLeft: 40.00
+-   2: TopLeft: 36.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 36.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T00:23:20.418342Z [INFO] Connection closed by the server
+2026-04-16T00:23:20.418635Z [INFO] Connecting to pool
+2026-04-16T00:23:20.418616Z [INFO] Pool status changed
+2026-04-16T00:23:20.419465Z [INFO] Pool status changed
+2026-04-16T00:23:21.421574Z [INFO] Opening TCP connection
+2026-04-16T00:23:21.515794Z [INFO] Connection successful
+2026-04-16T00:23:21.516149Z [INFO] Pool status changed
+2026-04-16T00:23:21.755661Z [INFO] Authorization successful
+2026-04-16T00:23:21.756592Z [INFO] New pool difficulty
+2026-04-16T00:25:35.368890Z [INFO] New pool difficulty
+2026-04-16T00:25:55.265637Z [INFO] Checking available disk space
+2026-04-16T00:26:16.408761Z [INFO] Current temperatures:
+-   0: TopLeft: 40.00, TopRight: 31.00, BottomRight: 31.00, BottomLeft: 40.00
+-   2: TopLeft: 36.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 36.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T00:26:54.620614Z [ERROR] connection dropped due to pool inactivity
+2026-04-16T00:26:54.620799Z [ERROR] Stratum read failure
+2026-04-16T00:26:54.621396Z [INFO] Connection closed by the server
+2026-04-16T00:26:54.621618Z [INFO] Connecting to pool
+2026-04-16T00:26:54.622237Z [INFO] Pool status changed
+2026-04-16T00:26:54.622358Z [INFO] Pool status changed
+2026-04-16T00:26:55.623089Z [INFO] Opening TCP connection
+2026-04-16T00:26:55.738231Z [INFO] Connection successful
+2026-04-16T00:26:55.739153Z [INFO] Pool status changed
+2026-04-16T00:26:56.050125Z [INFO] New pool difficulty
+2026-04-16T00:26:56.113262Z [INFO] Authorization successful
+2026-04-16T00:27:39.962673Z [INFO] Received API command: curtail, params=5SpldEUl,sleep
+2026-04-16T00:27:39.979101Z [INFO] Skipping group connection due to curtailment
+2026-04-16T00:27:39.979101Z [INFO] Skipping group connection due to curtailment
+2026-04-16T00:27:39.995762Z [INFO] Configuration changed to: 
+[app]
++ curtailment_mode = "sleep"
+
+2026-04-16T00:27:39.995943Z [INFO] Pool status changed
+2026-04-16T00:27:39.996047Z [INFO] Pool status changed
+2026-04-16T00:27:40.062650Z [INFO] Setting curtailment to sleep mode...
+2026-04-16T00:27:42.617567Z [INFO] Pools configuration:
+Group foreman, quota: 1:
+  Pools:
+  - url: sha256.poolbinance.com:443, user: NCATX.082
+
+2026-04-16T00:27:43.403690Z [INFO] Set power supply pin to OFF
+2026-04-16T00:27:43.495454Z [INFO] Current power status: OFF
+2026-04-16T00:30:55.264670Z [INFO] Checking available disk space
+2026-04-16T00:31:17.560571Z [INFO] Current temperatures:
+-   0: TopLeft: 27.00, TopRight: 26.00, BottomRight: 26.00, BottomLeft: 27.00
+-   2: TopLeft: 26.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 26.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T00:35:55.264155Z [INFO] Checking available disk space
+2026-04-16T00:36:18.680484Z [INFO] Current temperatures:
+-   0: TopLeft: 25.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 25.00
+-   2: TopLeft: 25.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 25.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T00:40:55.264560Z [INFO] Checking available disk space
+2026-04-16T00:41:19.772966Z [INFO] Current temperatures:
+-   0: TopLeft: 25.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 25.00
+-   2: TopLeft: 25.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 25.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T00:45:55.264670Z [INFO] Checking available disk space
+2026-04-16T00:46:20.875448Z [INFO] Current temperatures:
+-   0: TopLeft: 25.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 25.00
+-   2: TopLeft: 25.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 25.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T00:50:55.264581Z [INFO] Checking available disk space
+2026-04-16T00:51:21.994237Z [INFO] Current temperatures:
+-   0: TopLeft: 25.00, TopRight: 25.00, BottomRight: 25.00, BottomLeft: 25.00
+-   2: TopLeft: 25.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 25.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T00:55:55.265098Z [INFO] Checking available disk space
+2026-04-16T00:56:23.124818Z [INFO] Current temperatures:
+-   0: TopLeft: 25.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 25.00
+-   2: TopLeft: 24.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 24.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T01:00:55.264621Z [INFO] Checking available disk space
+2026-04-16T01:01:24.247583Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+-   2: TopLeft: 24.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 24.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T01:05:55.265891Z [INFO] Checking available disk space
+2026-04-16T01:06:25.369524Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+-   2: TopLeft: 24.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 24.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T01:10:55.264805Z [INFO] Checking available disk space
+2026-04-16T01:11:26.499684Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+-   2: TopLeft: 24.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 24.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T01:15:55.264963Z [INFO] Checking available disk space
+2026-04-16T01:16:27.632619Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+-   2: TopLeft: 24.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 24.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T01:20:55.265056Z [INFO] Checking available disk space
+2026-04-16T01:21:28.749278Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+-   2: TopLeft: 24.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 24.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T01:25:55.264524Z [INFO] Checking available disk space
+2026-04-16T01:26:29.881463Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight: 24.00, BottomRight: 24.00, BottomLeft: 24.00
+-   2: TopLeft: 24.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 24.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T01:30:55.265410Z [INFO] Checking available disk space
+2026-04-16T01:31:30.981700Z [INFO] Current temperatures:
+-   0: TopLeft: 24.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 24.00
+-   2: TopLeft: 23.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T01:35:55.264644Z [INFO] Checking available disk space
+2026-04-16T01:36:32.121215Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T01:40:55.266029Z [INFO] Checking available disk space
+2026-04-16T01:41:33.245614Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T01:45:55.264988Z [INFO] Checking available disk space
+2026-04-16T01:46:34.350335Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T01:50:55.266873Z [INFO] Checking available disk space
+2026-04-16T01:51:35.473163Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T01:55:55.264914Z [INFO] Checking available disk space
+2026-04-16T01:56:36.611327Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T02:00:55.266666Z [INFO] Checking available disk space
+2026-04-16T02:01:37.738337Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T02:05:55.266597Z [INFO] Checking available disk space
+2026-04-16T02:06:38.872517Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T02:10:55.264364Z [INFO] Checking available disk space
+2026-04-16T02:11:40.006251Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   2: TopLeft: 23.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 23.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T02:15:55.266126Z [INFO] Checking available disk space
+2026-04-16T02:16:41.162567Z [INFO] Current temperatures:
+-   0: TopLeft: 23.00, TopRight: 23.00, BottomRight: 23.00, BottomLeft: 23.00
+-   2: TopLeft: 22.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 22.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T02:20:55.265144Z [INFO] Checking available disk space
+2026-04-16T02:21:42.293067Z [INFO] Current temperatures:
+-   0: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   2: TopLeft: 22.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 22.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T02:25:55.264888Z [INFO] Checking available disk space
+2026-04-16T02:26:43.423480Z [INFO] Current temperatures:
+-   0: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   2: TopLeft: 22.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 22.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T02:30:55.267479Z [INFO] Checking available disk space
+2026-04-16T02:31:44.542334Z [INFO] Current temperatures:
+-   0: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   2: TopLeft: 22.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 22.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T02:35:55.264881Z [INFO] Checking available disk space
+2026-04-16T02:36:45.677066Z [INFO] Current temperatures:
+-   0: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   2: TopLeft: 22.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 22.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T02:40:55.271017Z [INFO] Checking available disk space
+2026-04-16T02:41:46.810480Z [INFO] Current temperatures:
+-   0: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   2: TopLeft: 21.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T02:45:55.264522Z [INFO] Checking available disk space
+2026-04-16T02:46:47.934274Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T02:50:55.266938Z [INFO] Checking available disk space
+2026-04-16T02:51:49.076544Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T02:55:55.266714Z [INFO] Checking available disk space
+2026-04-16T02:56:50.196125Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T03:00:55.264380Z [INFO] Checking available disk space
+2026-04-16T03:01:51.321789Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T03:05:55.266171Z [INFO] Checking available disk space
+2026-04-16T03:06:52.448298Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T03:10:55.264479Z [INFO] Checking available disk space
+2026-04-16T03:11:53.568680Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T03:15:55.265561Z [INFO] Checking available disk space
+2026-04-16T03:16:54.715700Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T03:20:55.265476Z [INFO] Checking available disk space
+2026-04-16T03:21:55.836694Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T03:22:28.983520Z [INFO] Received API command: curtail, params=xLrzwu1e,wakeup
+2026-04-16T03:22:28.987650Z [INFO] Connecting to pool
+2026-04-16T03:22:28.987893Z [INFO] Opening TCP connection
+2026-04-16T03:22:28.988221Z [INFO] Connecting to pool
+2026-04-16T03:22:28.988447Z [INFO] Opening TCP connection
+2026-04-16T03:22:28.991835Z [INFO] Configuration changed to: 
+[app]
+- curtailment_mode = "sleep"
+
+2026-04-16T03:22:28.992568Z [INFO] Pool status changed
+2026-04-16T03:22:28.992680Z [INFO] Pool status changed
+2026-04-16T03:22:29.044289Z [INFO] Setting curtailment to wake up...
+2026-04-16T03:22:29.044556Z [INFO] Set power supply pin to ON
+2026-04-16T03:22:29.053122Z [INFO] Current power status: ON
+2026-04-16T03:22:29.068858Z [INFO] Connection successful
+2026-04-16T03:22:29.069656Z [INFO] Pool status changed
+2026-04-16T03:22:29.072776Z [INFO] Connection successful
+2026-04-16T03:22:29.073519Z [INFO] Pool status changed
+2026-04-16T03:22:29.299012Z [INFO] New pool difficulty
+2026-04-16T03:22:29.313967Z [INFO] Authorization successful
+2026-04-16T03:22:29.322355Z [INFO] New pool difficulty
+2026-04-16T03:22:29.346174Z [INFO] Authorization successful
+2026-04-16T03:22:35.213658Z [INFO] Set power supply pin to OFF
+2026-04-16T03:22:35.262156Z [INFO] Current power status: OFF
+2026-04-16T03:24:36.084560Z [INFO] New pool difficulty
+2026-04-16T03:25:55.265100Z [INFO] Checking available disk space
+2026-04-16T03:26:13.987598Z [INFO] New pool difficulty
+2026-04-16T03:26:56.991982Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 20.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T03:29:13.950270Z [ERROR] connection dropped due to pool inactivity
+2026-04-16T03:29:13.950455Z [ERROR] Stratum read failure
+2026-04-16T03:29:13.951007Z [INFO] Connection closed by the server
+2026-04-16T03:29:13.951220Z [INFO] Connecting to pool
+2026-04-16T03:29:13.951268Z [INFO] Pool status changed
+2026-04-16T03:29:13.951374Z [INFO] Pool status changed
+2026-04-16T03:29:14.954703Z [INFO] Opening TCP connection
+2026-04-16T03:29:15.036035Z [INFO] Connection successful
+2026-04-16T03:29:15.036634Z [INFO] Pool status changed
+2026-04-16T03:29:15.241431Z [INFO] New pool difficulty
+2026-04-16T03:29:15.335916Z [INFO] Authorization successful
+2026-04-16T03:30:55.267093Z [INFO] Checking available disk space
+2026-04-16T03:31:31.003828Z [INFO] New pool difficulty
+2026-04-16T03:31:58.122509Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T03:32:41.734138Z [INFO] Connection closed by the server
+2026-04-16T03:32:41.734905Z [INFO] Pool status changed
+2026-04-16T03:32:41.735521Z [INFO] Connecting to pool
+2026-04-16T03:32:41.735727Z [INFO] Pool status changed
+2026-04-16T03:32:42.738276Z [INFO] Opening TCP connection
+2026-04-16T03:32:42.796696Z [INFO] Connection successful
+2026-04-16T03:32:42.797635Z [INFO] Pool status changed
+2026-04-16T03:32:43.028831Z [INFO] Authorization successful
+2026-04-16T03:32:43.029610Z [INFO] New pool difficulty
+2026-04-16T03:35:00.979489Z [INFO] New pool difficulty
+2026-04-16T03:35:55.264440Z [INFO] Checking available disk space
+2026-04-16T03:36:59.247284Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T03:40:30.441866Z [ERROR] connection dropped due to pool inactivity
+2026-04-16T03:40:30.442056Z [ERROR] Stratum read failure
+2026-04-16T03:40:30.442642Z [INFO] Connection closed by the server
+2026-04-16T03:40:30.442855Z [INFO] Connecting to pool
+2026-04-16T03:40:30.443215Z [INFO] Pool status changed
+2026-04-16T03:40:30.443324Z [INFO] Pool status changed
+2026-04-16T03:40:31.447165Z [INFO] Opening TCP connection
+2026-04-16T03:40:31.492426Z [INFO] Connection successful
+2026-04-16T03:40:31.493640Z [INFO] Pool status changed
+2026-04-16T03:40:31.674876Z [INFO] New pool difficulty
+2026-04-16T03:40:31.712205Z [INFO] Authorization successful
+2026-04-16T03:40:55.264353Z [INFO] Checking available disk space
+2026-04-16T03:42:00.371806Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T03:42:58.709214Z [INFO] Connection closed by the server
+2026-04-16T03:42:58.709471Z [INFO] Connecting to pool
+2026-04-16T03:42:58.709919Z [INFO] Pool status changed
+2026-04-16T03:42:58.710030Z [INFO] Pool status changed
+2026-04-16T03:42:58.728913Z [INFO] New pool difficulty
+2026-04-16T03:42:59.712598Z [INFO] Opening TCP connection
+2026-04-16T03:42:59.785656Z [INFO] Connection successful
+2026-04-16T03:42:59.785971Z [INFO] Pool status changed
+2026-04-16T03:43:00.045073Z [INFO] Authorization successful
+2026-04-16T03:43:00.045903Z [INFO] New pool difficulty
+2026-04-16T03:45:07.475205Z [INFO] New pool difficulty
+2026-04-16T03:45:55.265103Z [INFO] Checking available disk space
+2026-04-16T03:47:01.494811Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T03:50:55.265720Z [INFO] Checking available disk space
+2026-04-16T03:51:45.728135Z [ERROR] connection dropped due to pool inactivity
+2026-04-16T03:51:45.728317Z [ERROR] Stratum read failure
+2026-04-16T03:51:45.728844Z [INFO] Connection closed by the server
+2026-04-16T03:51:45.729024Z [INFO] Connecting to pool
+2026-04-16T03:51:45.729032Z [INFO] Pool status changed
+2026-04-16T03:51:45.729139Z [INFO] Pool status changed
+2026-04-16T03:51:46.732466Z [INFO] Opening TCP connection
+2026-04-16T03:51:46.783379Z [INFO] Connection successful
+2026-04-16T03:51:46.783767Z [INFO] Pool status changed
+2026-04-16T03:51:47.130280Z [INFO] New pool difficulty
+2026-04-16T03:51:47.176766Z [INFO] Authorization successful
+2026-04-16T03:52:02.626744Z [INFO] Current temperatures:
+-   0: TopLeft: 22.00, TopRight: 22.00, BottomRight: 22.00, BottomLeft: 22.00
+-   2: TopLeft: 21.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T03:53:06.083378Z [INFO] Connection closed by the server
+2026-04-16T03:53:06.083613Z [INFO] Connecting to pool
+2026-04-16T03:53:06.083693Z [INFO] Pool status changed
+2026-04-16T03:53:06.083801Z [INFO] Pool status changed
+2026-04-16T03:53:07.085560Z [INFO] Opening TCP connection
+2026-04-16T03:53:07.181953Z [INFO] Connection successful
+2026-04-16T03:53:07.182580Z [INFO] Pool status changed
+2026-04-16T03:53:07.535966Z [INFO] Authorization successful
+2026-04-16T03:53:07.536445Z [INFO] New pool difficulty
+2026-04-16T03:53:58.882399Z [INFO] New pool difficulty
+2026-04-16T03:55:19.412790Z [INFO] New pool difficulty
+2026-04-16T03:55:55.265845Z [INFO] Checking available disk space
+2026-04-16T03:57:03.745102Z [INFO] Current temperatures:
+-   0: TopLeft: 22.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 22.00
+-   2: TopLeft: 21.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T04:00:55.266428Z [INFO] Checking available disk space
+2026-04-16T04:02:04.859371Z [INFO] Current temperatures:
+-   0: TopLeft: 22.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 22.00
+-   2: TopLeft: 21.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T04:02:55.898431Z [ERROR] connection dropped due to pool inactivity
+2026-04-16T04:02:55.898695Z [ERROR] Stratum read failure
+2026-04-16T04:02:55.899288Z [INFO] Connection closed by the server
+2026-04-16T04:02:55.899482Z [INFO] Connecting to pool
+2026-04-16T04:02:55.899896Z [INFO] Pool status changed
+2026-04-16T04:02:55.900007Z [INFO] Pool status changed
+2026-04-16T04:02:56.900833Z [INFO] Opening TCP connection
+2026-04-16T04:02:56.964618Z [INFO] Connection successful
+2026-04-16T04:02:56.965573Z [INFO] Pool status changed
+2026-04-16T04:02:57.630941Z [INFO] New pool difficulty
+2026-04-16T04:02:57.746731Z [INFO] Authorization successful
+2026-04-16T04:03:24.057409Z [INFO] Connection closed by the server
+2026-04-16T04:03:24.058642Z [INFO] Connecting to pool
+2026-04-16T04:03:24.058642Z [INFO] Pool status changed
+2026-04-16T04:03:24.058995Z [INFO] Pool status changed
+2026-04-16T04:03:25.059539Z [INFO] Opening TCP connection
+2026-04-16T04:03:25.164923Z [INFO] Connection successful
+2026-04-16T04:03:25.165551Z [INFO] Pool status changed
+2026-04-16T04:03:25.456596Z [INFO] Authorization successful
+2026-04-16T04:03:25.457387Z [INFO] New pool difficulty
+2026-04-16T04:05:04.172893Z [INFO] New pool difficulty
+2026-04-16T04:05:31.710329Z [INFO] New pool difficulty
+2026-04-16T04:05:55.264815Z [INFO] Checking available disk space
+2026-04-16T04:07:05.991098Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T04:10:55.264818Z [INFO] Checking available disk space
+2026-04-16T04:12:07.122357Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T04:13:33.415183Z [INFO] Connection closed by the server
+2026-04-16T04:13:33.415375Z [INFO] Connecting to pool
+2026-04-16T04:13:33.415666Z [INFO] Pool status changed
+2026-04-16T04:13:33.415778Z [INFO] Pool status changed
+2026-04-16T04:13:34.416967Z [INFO] Opening TCP connection
+2026-04-16T04:13:34.514807Z [INFO] Connection successful
+2026-04-16T04:13:34.515798Z [INFO] Pool status changed
+2026-04-16T04:13:34.748523Z [INFO] Authorization successful
+2026-04-16T04:13:34.749012Z [INFO] New pool difficulty
+2026-04-16T04:14:21.073449Z [ERROR] connection dropped due to pool inactivity
+2026-04-16T04:14:21.073653Z [ERROR] Stratum read failure
+2026-04-16T04:14:21.074185Z [INFO] Connection closed by the server
+2026-04-16T04:14:21.074361Z [INFO] Connecting to pool
+2026-04-16T04:14:21.074633Z [INFO] Pool status changed
+2026-04-16T04:14:21.074742Z [INFO] Pool status changed
+2026-04-16T04:14:22.079075Z [INFO] Opening TCP connection
+2026-04-16T04:14:22.156187Z [INFO] Connection successful
+2026-04-16T04:14:22.156468Z [INFO] Pool status changed
+2026-04-16T04:14:22.515174Z [INFO] New pool difficulty
+2026-04-16T04:14:22.840458Z [INFO] Authorization successful
+2026-04-16T04:15:43.234273Z [INFO] New pool difficulty
+2026-04-16T04:15:55.266632Z [INFO] Checking available disk space
+2026-04-16T04:16:27.370771Z [INFO] New pool difficulty
+2026-04-16T04:17:08.251614Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T04:20:55.264156Z [INFO] Checking available disk space
+2026-04-16T04:22:09.376517Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T04:23:36.846757Z [INFO] Connection closed by the server
+2026-04-16T04:23:36.846984Z [INFO] Connecting to pool
+2026-04-16T04:23:36.847687Z [INFO] Pool status changed
+2026-04-16T04:23:36.847798Z [INFO] Pool status changed
+2026-04-16T04:23:37.851468Z [INFO] Opening TCP connection
+2026-04-16T04:23:37.922258Z [INFO] Connection successful
+2026-04-16T04:23:37.923254Z [INFO] Pool status changed
+2026-04-16T04:23:38.178190Z [INFO] Authorization successful
+2026-04-16T04:23:38.179182Z [INFO] New pool difficulty
+2026-04-16T04:25:38.795190Z [INFO] New pool difficulty
+2026-04-16T04:25:44.437521Z [ERROR] connection dropped due to pool inactivity
+2026-04-16T04:25:44.437710Z [ERROR] Stratum read failure
+2026-04-16T04:25:44.438230Z [INFO] Connection closed by the server
+2026-04-16T04:25:44.438404Z [INFO] Connecting to pool
+2026-04-16T04:25:44.438599Z [INFO] Pool status changed
+2026-04-16T04:25:44.438710Z [INFO] Pool status changed
+2026-04-16T04:25:45.440057Z [INFO] Opening TCP connection
+2026-04-16T04:25:45.495803Z [INFO] Connection successful
+2026-04-16T04:25:45.496092Z [INFO] Pool status changed
+2026-04-16T04:25:45.680441Z [INFO] New pool difficulty
+2026-04-16T04:25:45.735328Z [INFO] Authorization successful
+2026-04-16T04:25:55.264926Z [INFO] Checking available disk space
+2026-04-16T04:27:10.499503Z [INFO] Current temperatures:
+-   0: TopLeft: 21.00, TopRight: 21.00, BottomRight: 21.00, BottomLeft: 21.00
+-   2: TopLeft: 21.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 21.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T04:27:57.168919Z [INFO] New pool difficulty
+2026-04-16T04:30:55.264910Z [INFO] Checking available disk space
+2026-04-16T04:32:11.629971Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T04:33:52.996307Z [INFO] Connection closed by the server
+2026-04-16T04:33:52.996502Z [INFO] Connecting to pool
+2026-04-16T04:33:52.997529Z [INFO] Pool status changed
+2026-04-16T04:33:52.997658Z [INFO] Pool status changed
+2026-04-16T04:33:54.000304Z [INFO] Opening TCP connection
+2026-04-16T04:33:54.055649Z [INFO] Connection successful
+2026-04-16T04:33:54.057792Z [INFO] Pool status changed
+2026-04-16T04:33:54.335509Z [INFO] Authorization successful
+2026-04-16T04:33:54.336306Z [INFO] New pool difficulty
+2026-04-16T04:35:55.264214Z [INFO] Checking available disk space
+2026-04-16T04:36:05.904116Z [INFO] New pool difficulty
+2026-04-16T04:36:52.139967Z [ERROR] connection dropped due to pool inactivity
+2026-04-16T04:36:52.140188Z [ERROR] Stratum read failure
+2026-04-16T04:36:52.140823Z [INFO] Connection closed by the server
+2026-04-16T04:36:52.141033Z [INFO] Connecting to pool
+2026-04-16T04:36:52.141362Z [INFO] Pool status changed
+2026-04-16T04:36:52.141511Z [INFO] Pool status changed
+2026-04-16T04:36:53.142654Z [INFO] Opening TCP connection
+2026-04-16T04:36:53.188741Z [INFO] Connection successful
+2026-04-16T04:36:53.189006Z [INFO] Pool status changed
+2026-04-16T04:36:53.393004Z [INFO] New pool difficulty
+2026-04-16T04:36:53.431521Z [INFO] Authorization successful
+2026-04-16T04:37:12.769812Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T04:39:00.267775Z [INFO] New pool difficulty
+2026-04-16T04:40:55.264843Z [INFO] Checking available disk space
+2026-04-16T04:42:13.928439Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T04:43:57.619430Z [INFO] Connection closed by the server
+2026-04-16T04:43:57.619655Z [INFO] Connecting to pool
+2026-04-16T04:43:57.620076Z [INFO] Pool status changed
+2026-04-16T04:43:57.620191Z [INFO] Pool status changed
+2026-04-16T04:43:58.621837Z [INFO] Opening TCP connection
+2026-04-16T04:43:58.702141Z [INFO] Connection successful
+2026-04-16T04:43:58.702412Z [INFO] Pool status changed
+2026-04-16T04:43:58.941937Z [INFO] Authorization successful
+2026-04-16T04:43:58.942653Z [INFO] New pool difficulty
+2026-04-16T04:45:55.264436Z [INFO] Checking available disk space
+2026-04-16T04:46:17.394706Z [INFO] New pool difficulty
+2026-04-16T04:47:15.035306Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T04:48:09.004406Z [ERROR] connection dropped due to pool inactivity
+2026-04-16T04:48:09.010563Z [ERROR] Stratum read failure
+2026-04-16T04:48:09.012818Z [INFO] Connection closed by the server
+2026-04-16T04:48:09.013792Z [INFO] Pool status changed
+2026-04-16T04:48:09.015422Z [INFO] Connecting to pool
+2026-04-16T04:48:09.015837Z [INFO] Pool status changed
+2026-04-16T04:48:10.017726Z [INFO] Opening TCP connection
+2026-04-16T04:48:10.076503Z [INFO] Connection successful
+2026-04-16T04:48:10.077743Z [INFO] Pool status changed
+2026-04-16T04:48:10.414537Z [INFO] New pool difficulty
+2026-04-16T04:48:10.473640Z [INFO] Authorization successful
+2026-04-16T04:50:12.524532Z [INFO] New pool difficulty
+2026-04-16T04:50:55.265931Z [INFO] Checking available disk space
+2026-04-16T04:52:16.152181Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T04:54:07.416146Z [INFO] Connection closed by the server
+2026-04-16T04:54:07.416372Z [INFO] Connecting to pool
+2026-04-16T04:54:07.417061Z [INFO] Pool status changed
+2026-04-16T04:54:07.417174Z [INFO] Pool status changed
+2026-04-16T04:54:08.417452Z [INFO] Opening TCP connection
+2026-04-16T04:54:08.482027Z [INFO] Connection successful
+2026-04-16T04:54:08.482616Z [INFO] Pool status changed
+2026-04-16T04:54:08.741784Z [INFO] Authorization successful
+2026-04-16T04:54:08.742625Z [INFO] New pool difficulty
+2026-04-16T04:55:55.265162Z [INFO] Checking available disk space
+2026-04-16T04:56:13.743844Z [INFO] New pool difficulty
+2026-04-16T04:57:17.292616Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T04:59:23.728048Z [ERROR] connection dropped due to pool inactivity
+2026-04-16T04:59:23.728258Z [ERROR] Stratum read failure
+2026-04-16T04:59:23.728857Z [INFO] Connection closed by the server
+2026-04-16T04:59:23.729070Z [INFO] Connecting to pool
+2026-04-16T04:59:23.729291Z [INFO] Pool status changed
+2026-04-16T04:59:23.729470Z [INFO] Pool status changed
+2026-04-16T04:59:24.730910Z [INFO] Opening TCP connection
+2026-04-16T04:59:24.807749Z [INFO] Connection successful
+2026-04-16T04:59:24.808913Z [INFO] Pool status changed
+2026-04-16T04:59:25.250693Z [INFO] New pool difficulty
+2026-04-16T04:59:25.290235Z [INFO] Authorization successful
+2026-04-16T05:00:55.266065Z [INFO] Checking available disk space
+2026-04-16T05:01:29.806046Z [INFO] New pool difficulty
+2026-04-16T05:02:18.429075Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T05:04:38.023601Z [INFO] Connection closed by the server
+2026-04-16T05:04:38.023836Z [INFO] Connecting to pool
+2026-04-16T05:04:38.023916Z [INFO] Pool status changed
+2026-04-16T05:04:38.024024Z [INFO] Pool status changed
+2026-04-16T05:04:39.025426Z [INFO] Opening TCP connection
+2026-04-16T05:04:39.078479Z [INFO] Connection successful
+2026-04-16T05:04:39.079128Z [INFO] Pool status changed
+2026-04-16T05:04:39.267374Z [INFO] Authorization successful
+2026-04-16T05:04:39.267898Z [INFO] New pool difficulty
+2026-04-16T05:05:55.265461Z [INFO] Checking available disk space
+2026-04-16T05:06:40.084176Z [INFO] New pool difficulty
+2026-04-16T05:07:19.552572Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T05:10:23.056212Z [ERROR] connection dropped due to pool inactivity
+2026-04-16T05:10:23.056397Z [ERROR] Stratum read failure
+2026-04-16T05:10:23.057066Z [INFO] Connection closed by the server
+2026-04-16T05:10:23.057245Z [INFO] Connecting to pool
+2026-04-16T05:10:23.057264Z [INFO] Pool status changed
+2026-04-16T05:10:23.057442Z [INFO] Pool status changed
+2026-04-16T05:10:24.058679Z [INFO] Opening TCP connection
+2026-04-16T05:10:24.114239Z [INFO] Connection successful
+2026-04-16T05:10:24.115028Z [INFO] Pool status changed
+2026-04-16T05:10:24.606997Z [INFO] New pool difficulty
+2026-04-16T05:10:24.668877Z [INFO] Authorization successful
+2026-04-16T05:10:55.264719Z [INFO] Checking available disk space
+2026-04-16T05:12:20.706853Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T05:12:42.316423Z [INFO] New pool difficulty
+2026-04-16T05:14:41.233631Z [INFO] Connection closed by the server
+2026-04-16T05:14:41.233884Z [INFO] Connecting to pool
+2026-04-16T05:14:41.234194Z [INFO] Pool status changed
+2026-04-16T05:14:41.234307Z [INFO] Pool status changed
+2026-04-16T05:14:42.235707Z [INFO] Opening TCP connection
+2026-04-16T05:14:42.307693Z [INFO] Connection successful
+2026-04-16T05:14:42.308593Z [INFO] Pool status changed
+2026-04-16T05:14:42.635325Z [INFO] Authorization successful
+2026-04-16T05:14:42.636394Z [INFO] New pool difficulty
+2026-04-16T05:15:55.264950Z [INFO] Checking available disk space
+2026-04-16T05:17:04.949475Z [INFO] New pool difficulty
+2026-04-16T05:17:21.840073Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T05:20:55.265002Z [INFO] Checking available disk space
+2026-04-16T05:21:30.130723Z [ERROR] connection dropped due to pool inactivity
+2026-04-16T05:21:30.130906Z [ERROR] Stratum read failure
+2026-04-16T05:21:30.131495Z [INFO] Connection closed by the server
+2026-04-16T05:21:30.131715Z [INFO] Connecting to pool
+2026-04-16T05:21:30.132259Z [INFO] Pool status changed
+2026-04-16T05:21:30.132371Z [INFO] Pool status changed
+2026-04-16T05:21:31.132816Z [INFO] Opening TCP connection
+2026-04-16T05:21:31.194350Z [INFO] Connection successful
+2026-04-16T05:21:31.194607Z [INFO] Pool status changed
+2026-04-16T05:21:31.419707Z [INFO] New pool difficulty
+2026-04-16T05:21:31.458480Z [INFO] Authorization successful
+2026-04-16T05:22:22.958766Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T05:23:35.924358Z [INFO] New pool difficulty
+2026-04-16T05:24:51.232738Z [INFO] Connection closed by the server
+2026-04-16T05:24:51.233828Z [INFO] Pool status changed
+2026-04-16T05:24:51.234563Z [INFO] Connecting to pool
+2026-04-16T05:24:51.234976Z [INFO] Pool status changed
+2026-04-16T05:24:52.235751Z [INFO] Opening TCP connection
+2026-04-16T05:24:52.292621Z [INFO] Connection successful
+2026-04-16T05:24:52.293856Z [INFO] Pool status changed
+2026-04-16T05:24:52.593908Z [INFO] Authorization successful
+2026-04-16T05:24:52.594931Z [INFO] New pool difficulty
+2026-04-16T05:25:55.264295Z [INFO] Checking available disk space
+2026-04-16T05:27:02.846667Z [INFO] New pool difficulty
+2026-04-16T05:27:24.088036Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T05:30:55.264251Z [INFO] Checking available disk space
+2026-04-16T05:32:25.226839Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T05:32:39.022743Z [ERROR] connection dropped due to pool inactivity
+2026-04-16T05:32:39.022926Z [ERROR] Stratum read failure
+2026-04-16T05:32:39.023492Z [INFO] Connection closed by the server
+2026-04-16T05:32:39.023729Z [INFO] Connecting to pool
+2026-04-16T05:32:39.023759Z [INFO] Pool status changed
+2026-04-16T05:32:39.023872Z [INFO] Pool status changed
+2026-04-16T05:32:40.027224Z [INFO] Opening TCP connection
+2026-04-16T05:32:40.071890Z [INFO] Connection successful
+2026-04-16T05:32:40.072168Z [INFO] Pool status changed
+2026-04-16T05:32:40.228498Z [INFO] New pool difficulty
+2026-04-16T05:32:40.267781Z [INFO] Authorization successful
+2026-04-16T05:34:47.500423Z [INFO] New pool difficulty
+2026-04-16T05:34:53.119937Z [INFO] Connection closed by the server
+2026-04-16T05:34:53.120118Z [INFO] Connecting to pool
+2026-04-16T05:34:53.120170Z [INFO] Pool status changed
+2026-04-16T05:34:53.120279Z [INFO] Pool status changed
+2026-04-16T05:34:54.121663Z [INFO] Opening TCP connection
+2026-04-16T05:34:54.179933Z [INFO] Connection successful
+2026-04-16T05:34:54.180313Z [INFO] Pool status changed
+2026-04-16T05:34:54.436410Z [INFO] Authorization successful
+2026-04-16T05:34:54.437497Z [INFO] New pool difficulty
+2026-04-16T05:35:55.265105Z [INFO] Checking available disk space
+2026-04-16T05:37:19.792388Z [INFO] New pool difficulty
+2026-04-16T05:37:26.354328Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T05:40:55.266935Z [INFO] Checking available disk space
+2026-04-16T05:42:27.462233Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T05:43:34.397424Z [ERROR] connection dropped due to pool inactivity
+2026-04-16T05:43:34.398577Z [ERROR] Stratum read failure
+2026-04-16T05:43:34.400998Z [INFO] Connection closed by the server
+2026-04-16T05:43:34.402252Z [INFO] Pool status changed
+2026-04-16T05:43:34.402266Z [INFO] Connecting to pool
+2026-04-16T05:43:34.402403Z [INFO] Pool status changed
+2026-04-16T05:43:35.403963Z [INFO] Opening TCP connection
+2026-04-16T05:43:35.456103Z [INFO] Connection successful
+2026-04-16T05:43:35.456516Z [INFO] Pool status changed
+2026-04-16T05:43:35.869504Z [INFO] New pool difficulty
+2026-04-16T05:43:35.936247Z [INFO] Authorization successful
+2026-04-16T05:45:04.595417Z [INFO] Connection closed by the server
+2026-04-16T05:45:04.595644Z [INFO] Connecting to pool
+2026-04-16T05:45:04.596196Z [INFO] Pool status changed
+2026-04-16T05:45:04.596375Z [INFO] Pool status changed
+2026-04-16T05:45:05.599593Z [INFO] Opening TCP connection
+2026-04-16T05:45:05.672224Z [INFO] Connection successful
+2026-04-16T05:45:05.672610Z [INFO] Pool status changed
+2026-04-16T05:45:05.912697Z [INFO] Authorization successful
+2026-04-16T05:45:05.913254Z [INFO] New pool difficulty
+2026-04-16T05:45:35.787746Z [INFO] New pool difficulty
+2026-04-16T05:45:55.267627Z [INFO] Checking available disk space
+2026-04-16T05:47:07.504361Z [INFO] New pool difficulty
+2026-04-16T05:47:28.594257Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T05:50:55.266250Z [INFO] Checking available disk space
+2026-04-16T05:52:29.727083Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T05:54:51.514194Z [ERROR] connection dropped due to pool inactivity
+2026-04-16T05:54:51.514439Z [ERROR] Stratum read failure
+2026-04-16T05:54:51.515031Z [INFO] Connection closed by the server
+2026-04-16T05:54:51.515231Z [INFO] Connecting to pool
+2026-04-16T05:54:51.515633Z [INFO] Pool status changed
+2026-04-16T05:54:51.515742Z [INFO] Pool status changed
+2026-04-16T05:54:52.516718Z [INFO] Opening TCP connection
+2026-04-16T05:54:52.573507Z [INFO] Connection successful
+2026-04-16T05:54:52.573762Z [INFO] Pool status changed
+2026-04-16T05:54:52.826901Z [INFO] New pool difficulty
+2026-04-16T05:54:52.874128Z [INFO] Authorization successful
+2026-04-16T05:55:08.859289Z [INFO] Connection closed by the server
+2026-04-16T05:55:08.859498Z [INFO] Connecting to pool
+2026-04-16T05:55:08.859738Z [INFO] Pool status changed
+2026-04-16T05:55:08.859860Z [INFO] Pool status changed
+2026-04-16T05:55:09.861091Z [INFO] Opening TCP connection
+2026-04-16T05:55:09.938824Z [INFO] Connection successful
+2026-04-16T05:55:09.939336Z [INFO] Pool status changed
+2026-04-16T05:55:10.199950Z [INFO] Authorization successful
+2026-04-16T05:55:10.201287Z [INFO] New pool difficulty
+2026-04-16T05:55:55.264517Z [INFO] Checking available disk space
+2026-04-16T05:56:20.303703Z [INFO] New pool difficulty
+2026-04-16T05:56:37.112878Z [INFO] New pool difficulty
+2026-04-16T05:57:30.859682Z [INFO] Current temperatures:
+-   0: TopLeft: 20.00, TopRight: 20.00, BottomRight: 20.00, BottomLeft: 20.00
+-   2: TopLeft: 20.00, TopRight:   NaN, BottomRight:   NaN, BottomLeft: 20.00
+
+Fan status:
+[ OK ] (0): FAN4
+[ OK ] (1): FAN2
+[ OK ] (2): FAN1
+[ OK ] (3): FAN3
+
+2026-04-16T05:57:33.848711Z [INFO] New pool difficulty
+
+[2026-04-16 00:58:36] [SUMMARY]
+{
+  "STATUS": [
+    {
+      "Code": 11,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "Summary",
+      "STATUS": "S",
+      "When": 1776319116
+    }
+  ],
+  "SUMMARY": [
+    {
+      "Accepted": 0,
+      "Best Share": 0,
+      "Device Hardware%": 0.0,
+      "Device Rejected%": 0.0,
+      "Difficulty Accepted": 0,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "Elapsed": 22656,
+      "Found Blocks": 0,
+      "GHS 15m": 0.0,
+      "GHS 1m": 0.0,
+      "GHS 24h": 0.0,
+      "GHS 30m": 0.0,
+      "GHS 5m": 0.0,
+      "GHS 5s": 0.0,
+      "GHS av": 0.0,
+      "Get Failures": 0,
+      "Getworks": 1146,
+      "Hardware Errors": 0,
+      "Last getwork": 1776319107,
+      "Local Work": 0,
+      "Network Blocks": 0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Total MH": 0.0,
+      "Utility": 0.0,
+      "Work Utility": 3.03
+    }
+  ],
+  "id": 1
+}
+
+[2026-04-16 00:58:36] [STATS]
+{
+  "STATS": [
+    {
+      "CompileTime": "Fri Dec 12 16:49:20 UTC 2025",
+      "Miner": "2025.12.12.164659",
+      "Type": "Antminer S19 XP"
+    },
+    {
+      "Calls": 0,
+      "Elapsed": 22656,
+      "GHS 5s": 0.0,
+      "GHS av": 0.0,
+      "ID": "BTM_SOC0",
+      "Max": 0,
+      "Min": 99999999,
+      "Mode": 2,
+      "STATS": 0,
+      "Wait": 0,
+      "chain_acn1": 0,
+      "chain_acn2": 0,
+      "chain_acn3": 0,
+      "chain_acn4": 0,
+      "chain_acs1": "",
+      "chain_acs2": "",
+      "chain_acs3": "",
+      "chain_acs4": "",
+      "chain_hw1": 0,
+      "chain_hw2": 0,
+      "chain_hw3": 0,
+      "chain_hw4": 0,
+      "chain_rate1": "0",
+      "chain_rate2": "0",
+      "chain_rate3": "0",
+      "chain_rate4": "0",
+      "fan1": 2340,
+      "fan2": 2280,
+      "fan3": 2280,
+      "fan4": 2280,
+      "fan_num": 4,
+      "freq1": 0.0,
+      "freq2": 0.0,
+      "freq3": 0.0,
+      "freq4": 0.0,
+      "frequency": 0,
+      "miner_count": 0,
+      "miner_id": "0274449ef0de",
+      "miner_version": "2025.12.12.164659",
+      "no_matching_work": 0,
+      "rate_30m": 0.0,
+      "rate_unit": "GH",
+      "temp1": 0.0,
+      "temp2": 0.0,
+      "temp2_1": 0.0,
+      "temp2_2": 0.0,
+      "temp2_3": 0.0,
+      "temp3": 0.0,
+      "temp_chip1": "0-0-0-0",
+      "temp_chip2": "0-0-0-0",
+      "temp_chip3": "0-0-0-0",
+      "temp_chip4": "0-0-0-0",
+      "temp_max": 0.0,
+      "temp_num": 3,
+      "temp_pcb1": "0-0-0-0",
+      "temp_pcb2": "0-0-0-0",
+      "temp_pcb3": "0-0-0-0",
+      "temp_pcb4": "0-0-0-0",
+      "temp_pic1": "0-0-0-0",
+      "temp_pic2": "0-0-0-0",
+      "temp_pic3": "0-0-0-0",
+      "temp_pic4": "0-0-0-0",
+      "total rate": null,
+      "total_acn": 4,
+      "total_freqavg": null,
+      "total_rateideal": 0.0
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 70,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "LUXminer stats",
+      "STATUS": "S",
+      "When": 1776319116
+    }
+  ],
+  "id": 1
+}
+
+[2026-04-16 00:58:36] [DEVS]
+{
+  "DEVS": [
+    {
+      "ASC": 2,
+      "Accepted": 0,
+      "Board": "BHB56801",
+      "Connector": "J12",
+      "ControllerIPVersionHex": "0x0A113D",
+      "ControllerIPVersionStr": "0.11.0",
+      "Device Elapsed": 0,
+      "Device Hardware%": 0,
+      "Device Rejected%": 0,
+      "Diff1 Work": 0,
+      "Difficulty Accepted": 0,
+      "Difficulty Rejected": 0,
+      "Enabled": "Y",
+      "Hardware Error MHS 15m": 0,
+      "Hardware Errors": 0,
+      "ID": 2,
+      "IsRamping": false,
+      "IsUserShutdown": false,
+      "Last Share Difficulty": 0,
+      "Last Share Pool": 0,
+      "Last Share Time": 0,
+      "Last Valid Work": 0,
+      "MHS 15m": 0.0,
+      "MHS 1m": 0.0,
+      "MHS 30m": 0.0,
+      "MHS 5m": 0.0,
+      "MHS 5s": 0.0,
+      "MHS 60m": 0.0,
+      "MHS av": 0.0,
+      "Name": "",
+      "Nominal MHS": 0.0,
+      "Profile": "default",
+      "Rejected": 0,
+      "SerialNumber": "YNAHYPDBCJFBJ1EP6",
+      "Status": "Dead",
+      "Temperature": 20.0,
+      "Total MH": 0.0,
+      "Utility": 0
+    },
+    {
+      "ASC": 0,
+      "Accepted": 0,
+      "Board": "BHB56801",
+      "Connector": "J11",
+      "ControllerIPVersionHex": "0x0A113D",
+      "ControllerIPVersionStr": "0.11.0",
+      "Device Elapsed": 0,
+      "Device Hardware%": 0,
+      "Device Rejected%": 0,
+      "Diff1 Work": 0,
+      "Difficulty Accepted": 0,
+      "Difficulty Rejected": 0,
+      "Enabled": "Y",
+      "Hardware Error MHS 15m": 0,
+      "Hardware Errors": 0,
+      "ID": 0,
+      "IsRamping": false,
+      "IsUserShutdown": false,
+      "Last Share Difficulty": 0,
+      "Last Share Pool": 0,
+      "Last Share Time": 0,
+      "Last Valid Work": 0,
+      "MHS 15m": 0.0,
+      "MHS 1m": 0.0,
+      "MHS 30m": 0.0,
+      "MHS 5m": 0.0,
+      "MHS 5s": 0.0,
+      "MHS 60m": 0.0,
+      "MHS av": 0.0,
+      "Name": "",
+      "Nominal MHS": 0.0,
+      "Profile": "default",
+      "Rejected": 0,
+      "SerialNumber": "SMTTYPDBCJABE016Y",
+      "Status": "Dead",
+      "Temperature": 20.0,
+      "Total MH": 0.0,
+      "Utility": 0
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 9,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "2 ASC(s)",
+      "STATUS": "S",
+      "When": 1776319116
+    }
+  ],
+  "id": 1
+}
+
+[2026-04-16 00:58:36] [POOLS]
+{
+  "POOLS": [
+    {
+      "Accepted": 0,
+      "AsicBoost": true,
+      "Bad Work": 0,
+      "Best Share": 0,
+      "Current Block Height": 0,
+      "Current Block Version": 536870912,
+      "Diff": "0",
+      "Diff1 Shares": 0,
+      "Difficulty Accepted": 0,
+      "Difficulty Rejected": 0,
+      "Difficulty Stale": 0,
+      "Discarded": 0,
+      "GROUP": 0,
+      "Get Failures": 0,
+      "Getworks": 1146,
+      "Has GBT": false,
+      "Has Stratum": true,
+      "Has Vmask": true,
+      "Last Share Difficulty": 0,
+      "Last Share Time": "06:17:36",
+      "Long Pool": "N",
+      "POOL": 0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Priority": 0,
+      "Proxy": "",
+      "Proxy Type": "",
+      "Quota": 1.0,
+      "Rejected": 0,
+      "Remote Failures": 0,
+      "Stale": 0,
+      "Status": "Alive",
+      "Stratum Active": true,
+      "Stratum Difficulty": 32768,
+      "Stratum URL": "sha256.poolbinance.com:443",
+      "URL": "stratum+tcp://sha256.poolbinance.com:443",
+      "User": "NCATX.082",
+      "Work Difficulty": 0,
+      "Works": 0
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 7,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "1 Pool(s)",
+      "STATUS": "S",
+      "When": 1776319116
+    }
+  ],
+  "id": 1
+}
+
+[2026-04-16 00:58:36] [CONFIG]
+{
+  "CONFIG": [
+    {
+      "ASC Count": 2,
+      "ActualPowerTarget": 0,
+      "BcastAddr": "link",
+      "ControlBoardType": "amlogic",
+      "Cooling": "Air",
+      "CurtailMode": "WakeUp",
+      "DHCP": true,
+      "DNS Servers": "",
+      "Device Code": "",
+      "FPGABuildIdHex": "0x000A113D",
+      "FPGABuildIdStr": "2000-0A-11 3D:00",
+      "FeeStatus": "Ok",
+      "Gateway": "unknown",
+      "GreenLed": "auto",
+      "Hostname": "Antminer",
+      "Hotplug": "None",
+      "IPAddr": "fe80::74:44ff:fe9e:f0de",
+      "IdealPowerTarget": 0,
+      "ImmersionMode": false,
+      "IsAtmEnabled": false,
+      "IsPowerSupplyOn": false,
+      "IsPowerTargetEnabled": false,
+      "IsSingleVoltage": true,
+      "IsTuning": false,
+      "Log Interval": 0,
+      "LogFileLevel": "info",
+      "MACAddr": "02:74:44:9e:f0:de",
+      "Model": "Antminer S19 XP",
+      "NameplateTHS": 134.0,
+      "Netmask": "255.255.255.255",
+      "OS": "LuxOS",
+      "PGA Count": 0,
+      "PIC": "NoPIC",
+      "PSUHwVersion": "75",
+      "PSULabel": "APW121215e",
+      "Pool Count": 1,
+      "PowerLimit": 0,
+      "Profile": "default",
+      "ProfileStep": "0",
+      "RedLed": "auto",
+      "SerialNumber": "YNAHEAUBCJFBJ0LEF",
+      "Strategy": "Failover",
+      "SystemStatus": "Normal",
+      "UpdateOnStartup": "off",
+      "UpdateOnTimeout": "off",
+      "UpdateOnUser": "full",
+      "UpdateSource": "https://storage.googleapis.com/luxor-firmware/stable",
+      "UpdateTimeout": 60
+    }
+  ],
+  "STATUS": [
+    {
+      "Code": 33,
+      "Description": "LUXminer 2025.12.12.164659-e88514b22",
+      "Msg": "LUXminer config",
+      "STATUS": "S",
+      "When": 1776319116
+    }
+  ],
+  "id": 1
+}

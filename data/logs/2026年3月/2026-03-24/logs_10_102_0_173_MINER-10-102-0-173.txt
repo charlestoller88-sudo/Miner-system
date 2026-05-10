@@ -1,0 +1,1160 @@
+============================================================
+矿机运行日志 - 10.102.0.173
+导出时间: 2026-03-24 01:01:26
+IP: 10.102.0.173  序列号: MINER-10-102-0-173  型号: Antminer S19 XP
+============================================================
+
+[2026-03-24 01:01:26] [SYSTEM_LOG] 矿机后台系统日志（与 Web 界面一致）
+[    0.000000@0] Booting Linux on physical CPU 0x0
+[    0.000000@0] Linux version 4.9.113 (jenkins@nomd-nomd-fwc-bj) (gcc version 6.3.1 20170109 (Linaro GCC 6.3-2017.02) ) #1 SMP PREEMPT Thu Nov 7 12:03:02 CST 2024
+[    0.000000@0] Boot CPU: AArch64 Processor [410fd034]
+[    0.000000@0] earlycon: aml_uart0 at MMIO 0x00000000ff803000 (options '')
+[    0.000000@0] bootconsole [aml_uart0] enabled
+[    0.000000@0] efi: Getting EFI parameters from FDT:
+[    0.000000@0] efi: UEFI not found.
+[    0.000000@0] 	07400000 - 07500000,     1024 KB, ramoops@0x07400000
+[    0.000000@0] __reserved_mem_alloc_size, start:0x0000000005000000, end:0x0000000005400000, len:4 MiB
+[    0.000000@0] 	05000000 - 05400000,     4096 KB, linux,secmon
+[    0.000000@0] cma: Reserved 16 MiB at 0x000000000f000000
+[    0.000000@0] On node 0 totalpages: 65536
+[    0.000000@0]   DMA zone: 1024 pages used for memmap
+[    0.000000@0]   DMA zone: 0 pages reserved
+[    0.000000@0]   DMA zone: 65536 pages, LIFO batch:15
+[    0.000000@0] psci: probing for conduit method from DT.
+[    0.000000@0] psci: PSCIv1.0 detected in firmware.
+[    0.000000@0] psci: Using standard PSCI v0.2 function IDs
+[    0.000000@0] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000@0] psci: SMC Calling Convention v1.1
+[    0.000000@0] percpu: Embedded 25 pages/cpu @ffffffc00ef53000 s64536 r8192 d29672 u102400
+[    0.000000@0] pcpu-alloc: s64536 r8192 d29672 u102400 alloc=25*4096
+[    0.000000@0] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 
+[    0.000000@0] Detected VIPT I-cache on CPU0
+[    0.000000@0] CPU features: enabling workaround for ARM erratum 845719
+[    0.000000@0] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 64512
+[    0.000000@0] Kernel command line: init=/init console=ttyS0,115200 no_console_suspend earlycon=aml_uart,0xff803000 ramoops.pstore_en=1 ramoops.record_size=0x8000 ramoops.console_size=0x4000 logo=,loaded,androidboot.selinux=enforcing androidboot.firstboot=1 jtag=disable androidboot.hardware=amlogic androidboot.bootloader=U-Boot 2015.01 androidboot.build.expect.baseband=N/A androidboot.serialno=1234567890 androidboot.rpmb_state=0 rootfstype=ramfs init=/sbin/init
+[    0.000000@0] PID hash table entries: 1024 (order: 1, 8192 bytes)
+[    0.000000@0] Dentry cache hash table entries: 32768 (order: 6, 262144 bytes)
+[    0.000000@0] Inode-cache hash table entries: 16384 (order: 5, 131072 bytes)
+[    0.000000@0] Memory: 209436K/262144K available (8764K kernel code, 1194K rwdata, 2424K rodata, 3648K init, 1017K bss, 32228K reserved, 20480K cma-reserved)
+[    0.000000@0] Virtual kernel memory layout:
+[    0.000000@0]     modules : 0xffffff8000000000 - 0xffffff8008000000   (   128 MB)
+[    0.000000@0]     vmalloc : 0xffffff8008000000 - 0xffffffbebfff0000   (   250 GB)
+[    0.000000@0]       .text : 0xffffff8009080000 - 0xffffff8009910000   (  8768 KB)
+[    0.000000@0]     .rodata : 0xffffff8009910000 - 0xffffff8009b80000   (  2496 KB)
+[    0.000000@0]       .init : 0xffffff8009b80000 - 0xffffff8009f10000   (  3648 KB)
+[    0.000000@0]       .data : 0xffffff8009f10000 - 0xffffff800a03aa00   (  1195 KB)
+[    0.000000@0]        .bss : 0xffffff800a03aa00 - 0xffffff800a139034   (  1018 KB)
+[    0.000000@0]     fixed   : 0xffffffbefe7fb000 - 0xffffffbefec00000   (  4116 KB)
+[    0.000000@0]     PCI I/O : 0xffffffbefee00000 - 0xffffffbeffe00000   (    16 MB)
+[    0.000000@0]     vmemmap : 0xffffffbf00000000 - 0xffffffc000000000   (     4 GB maximum)
+[    0.000000@0]               0xffffffbf00000000 - 0xffffffbf00400000   (     4 MB actual)
+[    0.000000@0]     memory  : 0xffffffc000000000 - 0xffffffc010000000   (   256 MB)
+[    0.000000@0] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000@0] Preemptible hierarchical RCU implementation.
+[    0.000000@0] 	Build-time adjustment of leaf fanout to 64.
+[    0.000000@0] 	RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=4.
+[    0.000000@0] RCU: Adjusting geometry for rcu_fanout_leaf=64, nr_cpu_ids=4
+[    0.000000@0] NR_IRQS:64 nr_irqs:64 0
+[    0.000000@0] irq_meson_gpio: 100 to 8 gpio interrupt mux initialized
+[    0.000000@0] axg_aoclkc_init: register ao clk ok!
+[    0.000000@0] axg_amlogic_init_sdemmc: register amlogic sdemmc clk
+[    0.000000@0] axg_amlogic_init_sdemmc: register amlogic sdemmc clk
+[    0.000000@0] axg_amlogic_init_media: register meson media clk
+[    0.000000@0] axg_amlogic_init_misc: register amlogic axg misc clks
+[    0.000000@0] axg_amlogic_init_misc: register amlogic sdemmc clk
+[    0.000000@0] axg_clkc_init initialization complete
+[    0.000000@0] arm_arch_timer: Architected cp15 timer(s) running at 24.00MHz (phys).
+[    0.000000@0] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
+[    0.000003@0] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
+[    0.008252@0] meson_bc_timer: mclk->mux_reg =ffffff800800a190,mclk->reg =ffffff800800c194
+[    0.016897@0] Console: colour dummy device 80x25
+[    0.021105@0] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=96000)
+[    0.031585@0] pid_max: default: 32768 minimum: 301
+[    0.036435@0] thread_stack_cache_init, vmap:ffffffc00e5af600, bitmap:ffffffc00e5a3000, cache page:e5e0
+[    0.045771@0] thread_stack_cache_init, allocation vm area:ffffffc00e5d94c0, addr:ffffff8020000000, size:20001000
+[    0.056004@0] cpu 0, vmap_stack:[ffffffc00ef5c960-ffffffc00ef60950]
+[    0.062303@0] cpu 0, irq_stack: [ffffffc00ef53060-ffffffc00ef57050]
+[    0.068603@0] cpu 1, vmap_stack:[ffffffc00ef75960-ffffffc00ef79950]
+[    0.074903@0] cpu 1, irq_stack: [ffffffc00ef6c060-ffffffc00ef70050]
+[    0.081203@0] cpu 2, vmap_stack:[ffffffc00ef8e960-ffffffc00ef92950]
+[    0.087503@0] cpu 2, irq_stack: [ffffffc00ef85060-ffffffc00ef89050]
+[    0.093803@0] cpu 3, vmap_stack:[ffffffc00efa7960-ffffffc00efab950]
+[    0.100103@0] cpu 3, irq_stack: [ffffffc00ef9e060-ffffffc00efa2050]
+[    0.106464@0] Security Framework initialized
+[    0.110695@0] SELinux:  Initializing.
+[    0.114385@0] SELinux:  Starting in permissive mode
+[    0.114421@0] Mount-cache hash table entries: 512 (order: 0, 4096 bytes)
+[    0.121106@0] Mountpoint-cache hash table entries: 512 (order: 0, 4096 bytes)
+[    0.128836@0] ftrace: allocating 30061 entries in 118 pages
+[    0.186710@0] sched-energy: CPU device node has no sched-energy-costs
+[    0.187522@0] CPU0: update cpu_capacity 1024
+[    0.191847@0] ASID allocator initialised with 32768 entries
+[    0.229986@0] secmon: can't fine clear_range
+[    0.230188@0] EFI services will not be available.
+[    0.233451@0] Meson chip version = RevC (25:C - 23:0)
+[    0.267124@1] Detected VIPT I-cache on CPU1
+[    0.267184@1] CPU1: update cpu_capacity 1024
+[    0.267186@1] CPU1: Booted secondary processor [410fd034]
+[    0.295185@2] Detected VIPT I-cache on CPU2
+[    0.295238@2] CPU2: update cpu_capacity 1024
+[    0.295240@2] CPU2: Booted secondary processor [410fd034]
+[    0.323241@3] Detected VIPT I-cache on CPU3
+[    0.323290@3] CPU3: update cpu_capacity 1024
+[    0.323293@3] CPU3: Booted secondary processor [410fd034]
+[    0.323382@0] Brought up 4 CPUs
+[    0.362599@0] SMP: Total of 4 processors activated.
+[    0.367508@0] CPU features: detected feature: 32-bit EL0 Support
+[    0.373544@0] CPU features: detected feature: Kernel page table isolation (KPTI)
+[    0.384097@0] CPU: All CPU(s) started at EL2
+[    0.385283@0] alternatives: patching kernel code
+[    0.390587@1] addr:ffffff802007be10 is in kernel, size fix 4096->10, data:mode=0755
+[    0.397804@0] devtmpfs: initialized
+[    0.412863@0] DMI not present or invalid.
+[    0.413264@0] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.421231@0] futex hash table entries: 1024 (order: 4, 65536 bytes)
+[    0.427802@0] pinctrl core: initialized pinctrl subsystem
+[    0.434188@0] NET: Registered protocol family 16
+[    0.457752@0] cpuidle: using governor menu
+[    0.458261@0] vdso: 2 pages (1 code @ ffffff8009917000, 1 data @ ffffff8009f14000)
+[    0.463850@0] hw-breakpoint: found 6 breakpoint and 2 watchpoint registers.
+[    0.471263@0] DMA: preallocated 256 KiB pool for atomic allocations
+[    0.477424@0] clkmsr: clkmsr: driver init
+[    0.481454@0] aml_watch_point_probe, in, wp:2
+[    0.486905@0] pstore: using zlib compression
+[    0.490298@0] console [pstore-1] enabled
+[    0.493736@0] pstore: Registered ramoops as persistent store backend
+[    0.500150@0] ramoops: attached 0x100000@0x7400000, ecc: 0/0
+[    0.514487@0] aml_iomap: amlogic iomap probe done
+[    0.521311@0] clkmsr: msr_clk_reg0=ffffff800817e004,msr_clk_reg2=ffffff80081d100c
+[    0.523250@0] clkmsr ffd18004.meson_clk_msr: failed to get msr ring reg0
+[    0.611714@0] usbcore: registered new interface driver usbfs
+[    0.611876@0] usbcore: registered new interface driver hub
+[    0.617479@0] usbcore: registered new device driver usb
+[    0.622789@0] pps_core: LinuxPPS API ver. 1 registered
+[    0.627718@0] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.637105@0] PTP clock support registered
+[    0.641446@0] dmi: Firmware registration failed.
+[    0.650250@0] secmon: reserve_mem_size:0x300000
+[    0.650425@0] secmon secmon: assigned reserved memory node linux,secmon
+[    0.657365@0] secmon: get page:ffffffbf00140000, 5000
+[    0.662087@0] secmon: share in base: 0xffffffc0050fe000, share out base: 0xffffffc0050ff000
+[    0.670474@0] secmon: phy_in_base: 0x50fe000, phy_out_base: 0x50ff000
+[    0.678345@0] NetLabel: Initializing
+[    0.680524@0] NetLabel:  domain hash size = 128
+[    0.685108@0] NetLabel:  protocols = UNLABELED CIPSOv4
+[    0.690342@0] NetLabel:  unlabeled traffic allowed by default
+[    0.696982@0] clocksource: Switched to clocksource arch_sys_counter
+[    0.823828@0] VFS: Disk quotas dquot_6.6.0
+[    0.823975@0] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    0.849990@1] NET: Registered protocol family 2
+[    0.851061@1] TCP established hash table entries: 2048 (order: 2, 16384 bytes)
+[    0.856271@1] TCP bind hash table entries: 2048 (order: 3, 32768 bytes)
+[    0.862900@1] TCP: Hash tables configured (established 2048 bind 2048)
+[    0.869511@1] UDP hash table entries: 256 (order: 1, 8192 bytes)
+[    0.875451@1] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+[    0.882189@1] NET: Registered protocol family 1
+[    0.887144@1] RPC: Registered named UNIX socket transport module.
+[    0.892587@1] RPC: Registered udp transport module.
+[    0.897473@1] RPC: Registered tcp transport module.
+[    0.902362@1] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.911506@1] Unpacking initramfs...
+[    1.523813@1] Initramfs unpacking failed: no cpio magic
+[    1.532011@1] Freeing initrd memory: 8828K
+[    1.532940@1] hw perfevents: clusterb_enabled = 0
+[    1.535276@1] hw perfevents: cpumasks 0xf, 0x0
+[    1.539734@1] hw perfevents: cluster A irq = 7
+[    1.544305@1] hw perfevents: enabled with armv8_pmuv3 PMU driver, 7 counters available
+[    1.554418@1] audit: initializing netlink subsys (disabled)
+[    1.557806@1] audit: type=2000 audit(1.372:1): initialized
+[    1.565193@1] workingset: timestamp_bits=62 max_order=16 bucket_order=0
+[    1.589214@1] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    1.592087@1] NFS: Registering the id_resolver key type
+[    1.594927@1] Key type id_resolver registered
+[    1.599256@1] Key type id_legacy registered
+[    1.603891@1] fuse init (API version 7.26)
+[    1.609337@1] SELinux:  Registering netfilter hooks
+[    1.615435@1] NET: Registered protocol family 38
+[    1.615497@1] Key type asymmetric registered
+[    1.618738@1] Asymmetric key parser 'x509' registered
+[    1.624222@1] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 248)
+[    1.631498@1] io scheduler noop registered (default)
+[    1.636407@1] io scheduler deadline registered
+[    1.641240@1] io scheduler cfq registered
+[    1.661567@0] random: fast init done
+[    1.661667@0] random: crng init done
+[    1.663111@1] Unable to detect cache hierarchy for CPU 0
+[    1.704749@1] loop: module loaded
+[    1.710329@1] zram: Added device: zram0
+[    1.710720@1] mtdoops: mtd device (mtddev=name/number) must be supplied
+[    1.715879@1] libphy: Fixed MDIO Bus: probed
+[    1.720423@1] tun: Universal TUN/TAP device driver, 1.6
+[    1.724751@1] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    1.732957@1]  ee eth reset:Addr = ffffff80081fd008
+[    1.740396@1] meson6-dwmac ff3f0000.ethernet: no reset control found
+[    1.742432@1] stmmac - user ID: 0x11, Synopsys ID: 0x37
+[    1.747650@1]  Ring mode enabled
+[    1.750894@1]  DMA HW capability register supported
+[    1.755612@1]  Normal descriptors
+[    1.758943@1]  RX Checksum Offload Engine supported
+[    1.763836@1] 	COE Type 2
+[    1.766467@1]  TX Checksum insertion supported
+[    1.770922@1]  Wake-Up On Lan supported
+[    1.774872@1]  Enable RX Mitigation via HW Watchdog Timer
+[    1.793730@1] libphy: stmmac: probed
+[    1.793783@1] eth%d: PHY ID 00000128 at 0 IRQ POLL (stmmac-0:00) active
+[    1.798336@1] eth%d: PHY ID 00000128 at 3 IRQ POLL (stmmac-0:03)
+[    1.806308@1] PPP generic driver version 2.4.2
+[    1.809289@1] PPP BSD Compression module registered
+[    1.813754@1] PPP Deflate Compression module registered
+[    1.819005@1] PPP MPPE Compression module registered
+[    1.823969@1] NET: Registered protocol family 24
+[    1.829494@1] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    1.835364@1] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    1.842462@1] usbcore: registered new interface driver cdc_acm
+[    1.847615@1] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+[    1.856042@1] usbcore: registered new interface driver usbserial
+[    1.862730@1] mousedev: PS/2 mouse device common for all mice
+[    1.868157@1] usbcore: registered new interface driver xpad
+[    1.873554@0] i2c /dev entries driver
+[    1.878310@1] cpu cpu0: bL_cpufreq_init: CPU 0 initialized
+[    1.882575@1] arm_big_little: bL_cpufreq_register: Registered platform driver: scpi
+[    1.893561@1] ff803000.serial: clock gate not found
+[    1.895076@1] meson_uart ff803000.serial: ==uart0 reg addr = ffffff800830d000
+[    1.902319@1] ff803000.serial: ttyS0 at MMIO 0xff803000 (irq = 13, base_baud = 1500000) is a meson_uart
+[    1.917228@1] meson_uart ff803000.serial: ttyS0 use xtal(24M) 24000000 change 0 to 115200
+[    1.919916@1] console [ttyS0] enabled
+[    1.927159@1] bootconsole [aml_uart0] disabled
+[    1.936822@3] ff804000.serial: clock gate not found
+[    1.940932@3] meson_uart ff804000.serial: ==uart3 reg addr = ffffff8008321000
+[    1.948054@3] ff804000.serial: ttyS3 at MMIO 0xff804000 (irq = 14, base_baud = 1500000) is a meson_uart
+[    1.958408@0] meson_uart ffd24000.serial: ==uart1 reg addr = ffffff8008323000
+[    1.964530@0] ffd24000.serial: ttyS1 at MMIO 0xffd24000 (irq = 25, base_baud = 1500000) is a meson_uart
+[    1.974753@1] meson_uart ffd23000.serial: ==uart2 reg addr = ffffff8008325000
+[    1.981046@1] ffd23000.serial: ttyS2 at MMIO 0xffd23000 (irq = 26, base_baud = 1500000) is a meson_uart
+[    1.991922@3] amlogic-new-usb2 ffe09000.usb2phy: USB2 phy probe:phy_mem:0xffe09000, iomap phy_base:0xffffff8008348000
+[    2.001322@3] amlogic-new-usb3 ffe09080.usb3phy: This phy has no usb port
+[    2.007769@3] amlogic-new-usb3 ffe09080.usb3phy: USB3 phy probe:phy_mem:0xffe09080, iomap phy_base:0xffffff800834c080
+[    2.022782@3] i2c i2c-1: of_i2c: modalias failure on /soc/aobus@ff800000/i2c@5000/mcu6350@40
+[    2.026595@3] i2c i2c-1: Failed to create I2C device for /soc/aobus@ff800000/i2c@5000/mcu6350@40
+[    2.038976@3] aml_dma ff63e000.aml_dma: Aml dma
+[    2.042047@3] aml_aes_dma ff63e000.aml_dma:aml_aes: Aml AES_dma
+[    2.047075@3] aml_sha_dma ff63e000.aml_dma:aml_sha: Aml SHA1/SHA224/SHA256 dma
+[    2.053475@3] efusekeynum: 4
+[    2.055776@3] efusekeyname:             mac	offset:     0	size:     6
+[    2.062219@3] efusekeyname:          mac_bt	offset:     6	size:     6
+[    2.068624@3] efusekeyname:        mac_wifi	offset:    12	size:     6
+[    2.075034@3] efusekeyname:            usid	offset:    18	size:    16
+[    2.081852@0] efuse efuse: probe OK!
+[    2.087326@0] meson-mmc: mmc driver version: 3.02, 2017-05-15: New Emmc Host Controller
+[    2.094613@1] meson-mmc: >>>>>>>>hostbase ffffff8008358000, dmode 
+[    2.099649@1] meson-mmc: actual_clock :400000, HHI_nand: 0x80
+[    2.104840@1] meson-mmc: [meson_mmc_clk_set_rate_v3] after clock: 0x1000033c
+[    2.149122@1] meson-mmc: meson_mmc_probe() : success!
+[    2.149380@1] amlogic mtd driver init
+[    2.153440@1] prase_get_dtb_nand_parameter:128,parse dts start
+[    2.158195@1] bl mode descrete
+[    2.161076@1] fip_copies 4
+[    2.163740@1] fip_size 0x200000
+[    2.166880@1] nand_clk_ctrl 0xffe07000
+[    2.170604@1] prase_get_dtb_nand_parameter:234,parse dts end
+[    2.176272@1] nand_clk_ctrl 0xffe07000
+[    2.179992@1] nand register base ffffff80083df800, nand clock register ffffff80083e1000
+[    2.188754@1] plat->aml_nand_device ffffff800a005c10
+[    2.192910@1] m3_nand_probe() aml_nand_device ffffff800a005c10
+[    2.198965@1] NAND device id: 2c da 90 95 6 0
+[    2.203027@1] NAND device: Manufacturer ID: 
+[    2.207093@1]  0x2c, Chip ID: 0x2c (Micron A revision NAND 2Gib MT29F2G08-A)
+[    2.214135@1] oob_fill_cnt =32 oob_size =64, bch_bytes =14
+[    2.219570@1] ecc mode:6 ecc_page_num=2 eep_need_oobsize=16
+[    2.225118@1] plane_num=1 writesize=0x800 ecc.size=0x200 bch_mode=1
+[    2.231364@1] mtd->oobavail: 0x8
+[    2.234848@1] aml_nand_init 2119: plat-name:bootloader
+[    2.239689@1] Creating 1 MTD partitions on "bootloader":
+[    2.245034@1] 0x000000000000-0x000000200000 : "bootloader"
+[    2.253852@2] bootloader initialized ok
+[    2.254230@2] plat->aml_nand_device ffffff800a005c10
+[    2.259209@2] m3_nand_probe() aml_nand_device ffffff800a005c10
+[    2.265347@2] NAND device id: 2c da 90 95 6 0
+[    2.269344@2] NAND device: Manufacturer ID: 
+[    2.273406@2]  0x2c, Chip ID: 0x2c (Micron A revision NAND 2Gib MT29F2G08-A)
+[    2.280438@2] oob_fill_cnt =32 oob_size =64, bch_bytes =14
+[    2.285879@2] ecc mode:6 ecc_page_num=2 eep_need_oobsize=16
+[    2.291421@2] plane_num=1 writesize=0x800 ecc.size=0x200 bch_mode=1
+[    2.297666@2] mtd->oobavail: 0x8
+[    2.301092@2] aml_nand_init 2119: plat-name:nandnormal
+[    2.306028@2] bbt_start=20
+[    2.308644@2] env_start=24
+[    2.311359@2] key_start=32
+[    2.314037@2] dtb_start=40
+[    2.316704@2] ddr_start=44
+[    2.319412@2] nbbt: info size=0x800 max_scan_blk=24, start_blk=20
+[    2.325902@2] get_free_node 43: bitmap=0
+[    2.329378@2] get_free_node 55: bitmap=1
+[    2.333469@2] get_free_node 43: bitmap=1
+[    2.337177@2] get_free_node 55: bitmap=3
+[    2.341268@2] get_free_node 43: bitmap=3
+[    2.344977@2] get_free_node 55: bitmap=7
+[    2.348860@2] nbbt : phy_blk_addr=20, ec=0, phy_page_addr=0, timestamp=1
+[    2.355548@2] nbbt free list:
+[    2.358495@2] blockN=21, ec=-1, dirty_flag=0
+[    2.362742@2] blockN=22, ec=-1, dirty_flag=0
+[    2.366986@2] blockN=23, ec=-1, dirty_flag=0
+[    2.371236@2] aml_nand_scan_rsv_info 1141: page_num=1
+[    2.376645@2] nbbt valid addr: 280000
+[    2.379904@2] aml_nand_bbt_check 1306 bbt is valid, reading.
+[    2.385537@2] aml_nand_read_rsv_info:423,read nbbt info at 280000
+[    2.391797@2] nenv: info size=0x10000 max_scan_blk=32, start_blk=24
+[    2.398036@2] get_free_node 43: bitmap=7
+[    2.401743@2] get_free_node 55: bitmap=f
+[    2.406024@2] get_free_node 43: bitmap=f
+[    2.409544@2] get_free_node 55: bitmap=1f
+[    2.413721@2] get_free_node 43: bitmap=1f
+[    2.417517@2] get_free_node 55: bitmap=3f
+[    2.421695@2] get_free_node 43: bitmap=3f
+[    2.425490@2] get_free_node 55: bitmap=7f
+[    2.429668@2] get_free_node 43: bitmap=7f
+[    2.433463@2] get_free_node 55: bitmap=ff
+[    2.437641@2] get_free_node 43: bitmap=ff
+[    2.441437@2] get_free_node 55: bitmap=1ff
+[    2.445701@2] get_free_node 43: bitmap=1ff
+[    2.449583@2] get_free_node 55: bitmap=3ff
+[    2.453656@2] nenv : phy_blk_addr=25, ec=0, phy_page_addr=0, timestamp=2
+[    2.460327@2] nenv free list:
+[    2.463275@2] blockN=24, ec=-1, dirty_flag=0
+[    2.467521@2] blockN=26, ec=-1, dirty_flag=0
+[    2.471768@2] blockN=27, ec=-1, dirty_flag=0
+[    2.476015@2] blockN=28, ec=-1, dirty_flag=0
+[    2.480261@2] blockN=29, ec=-1, dirty_flag=0
+[    2.484508@2] blockN=30, ec=-1, dirty_flag=0
+[    2.488755@2] blockN=31, ec=-1, dirty_flag=0
+[    2.493002@2] aml_nand_scan_rsv_info 1141: page_num=32
+[    2.510261@2] nenv valid addr: 330000
+[    2.510294@2] nkey: info size=0x8000 max_scan_blk=40, start_blk=32
+[    2.514655@2] get_free_node 43: bitmap=3ff
+[    2.518536@2] get_free_node 55: bitmap=7ff
+[    2.522801@2] get_free_node 43: bitmap=7ff
+[    2.526682@2] get_free_node 55: bitmap=fff
+[    2.530946@2] get_free_node 43: bitmap=fff
+[    2.534829@2] get_free_node 55: bitmap=1fff
+[    2.539180@2] get_free_node 43: bitmap=1fff
+[    2.543149@2] get_free_node 55: bitmap=3fff
+[    2.547500@2] get_free_node 43: bitmap=3fff
+[    2.551469@2] get_free_node 55: bitmap=7fff
+[    2.555820@2] get_free_node 43: bitmap=7fff
+[    2.559789@2] get_free_node 55: bitmap=ffff
+[    2.564138@2] get_free_node 43: bitmap=ffff
+[    2.568109@2] get_free_node 55: bitmap=1ffff
+[    2.572547@2] get_free_node 43: bitmap=1ffff
+[    2.576602@2] get_free_node 55: bitmap=3ffff
+[    2.580849@2] nkey : phy_blk_addr=-1, ec=0, phy_page_addr=0, timestamp=0
+[    2.587517@2] nkey free list:
+[    2.590467@2] blockN=32, ec=-1, dirty_flag=0
+[    2.594713@2] blockN=33, ec=-1, dirty_flag=0
+[    2.598960@2] blockN=34, ec=-1, dirty_flag=0
+[    2.603207@2] blockN=35, ec=-1, dirty_flag=0
+[    2.607453@2] blockN=36, ec=-1, dirty_flag=0
+[    2.611700@2] blockN=37, ec=-1, dirty_flag=0
+[    2.615946@2] blockN=38, ec=-1, dirty_flag=0
+[    2.620193@2] blockN=39, ec=-1, dirty_flag=0
+[    2.624440@2] aml_nand_scan_rsv_info 1141: page_num=16
+[    2.629553@2] nkey valid addr: fffffffffffe0000
+[    2.634061@2] aml_nand_key_check 1251 NO key exist
+[    2.638828@2] ndtb: info size=0x20000 max_scan_blk=44, start_blk=40
+[    2.645260@2] get_free_node 43: bitmap=3ffff
+[    2.649316@2] get_free_node 55: bitmap=7ffff
+[    2.653943@2] get_free_node 43: bitmap=7ffff
+[    2.657809@2] get_free_node 55: bitmap=fffff
+[    2.662246@2] get_free_node 43: bitmap=fffff
+[    2.666302@2] get_free_node 55: bitmap=1fffff
+[    2.670635@2] ndtb : phy_blk_addr=41, ec=0, phy_page_addr=0, timestamp=2
+[    2.677306@2] ndtb free list:
+[    2.680236@2] blockN=40, ec=-1, dirty_flag=0
+[    2.684500@2] blockN=42, ec=-1, dirty_flag=0
+[    2.688746@2] blockN=43, ec=-1, dirty_flag=0
+[    2.692993@2] aml_nand_scan_rsv_info 1141: page_num=64
+[    2.710236@2] ndtb valid addr: 520000
+[    2.710269@2] nddr: info size=0x20000 max_scan_blk=46, start_blk=44
+[    2.714716@2] get_free_node 43: bitmap=1fffff
+[    2.718857@2] get_free_node 55: bitmap=3fffff
+[    2.723382@2] get_free_node 43: bitmap=3fffff
+[    2.727523@2] get_free_node 55: bitmap=7fffff
+[    2.731856@2] nddr : phy_blk_addr=-1, ec=0, phy_page_addr=0, timestamp=0
+[    2.738527@2] nddr free list:
+[    2.741474@2] blockN=44, ec=-1, dirty_flag=0
+[    2.745721@2] blockN=45, ec=-1, dirty_flag=0
+[    2.749968@2] aml_nand_scan_rsv_info 1141: page_num=64
+[    2.755081@2] nddr valid addr: fffffffffffe0000
+[    2.759588@2] aml_nand_ddr_check 1281 NO ddr exist
+[    2.764358@2] tpl: off 8388608, size 8388608
+[    2.896152@2] Creating 6 MTD partitions on "nandnormal":
+[    2.896201@2] 0x000000800000-0x000001000000 : "tpl"
+[    2.907845@2] 0x000001000000-0x000001200000 : "misc"
+[    2.911510@0] 0x000001200000-0x000002200000 : "recovery"
+[    2.923174@2] 0x000002200000-0x000004200000 : "boot"
+[    2.942489@2] 0x000004200000-0x000004700000 : "config"
+[    2.947109@2] 0x000004700000-0x000010000000 : "nvdata"
+[    3.047956@1] nandnormal initialized ok
+[    3.048065@1] aml_ubootenv_init: register env chardev
+[    3.051740@1] aml_ubootenv_init: register env chardev OK
+[    3.056639@1] amlnf_dtb_init: register dtb cdev
+[    3.061583@1] amlnf_dtb_init: register dtd cdev OK
+[    3.065824@1] mtd_nand_probe 267 , err = 0
+[    3.071133@1] aml_vrtc rtc: rtc core: registered aml_vrtc as rtc0
+[    3.076393@1] input: aml_vkeypad as /devices/platform/rtc/input/input0
+[    3.083564@1] unifykey: storage in base: 0xffffffc005000000
+[    3.088010@1] unifykey: storage out base: 0xffffffc005040000
+[    3.093596@1] unifykey: storage block base: 0xffffffc005080000
+[    3.099406@1] unifykey: probe done!
+[    3.103603@1] unifykey: no efuse-version set, use default value: -1
+[    3.109143@1] unifykey: key unify config unifykey-num is 6
+[    3.114655@1] unifykey: key unify fact unifykey-num is 6
+[    3.119867@1] unifykey: unifykey_devno: f200000
+[    3.125057@1] unifykey: device unifykeys created ok
+[    3.129331@1] unifykey: aml_unifykeys_init done!
+[    3.134246@1] sysled: module init
+[    3.137739@1] meson_wdt ffd0f0d0.watchdog: start watchdog
+[    3.142505@1] meson_wdt ffd0f0d0.watchdog: creat work queue for watch dog
+[    3.149908@0] meson_wdt ffd0f0d0.watchdog: AML Watchdog Timer probed done
+[    3.158763@1] dmc_monitor_probe
+[    3.164597@0] defendkey defendkey: Reserved memory is not enough!
+[    3.165227@0] defendkey: probe of defendkey failed with error -22
+[    3.171567@0] GACT probability NOT on
+[    3.174958@0] Mirror/redirect action on
+[    3.178726@0] u32 classifier
+[    3.181559@0]     Actions configured
+[    3.185127@0] Netfilter messages via NETLINK v0.30.
+[    3.190387@0] nf_conntrack version 0.5.0 (2048 buckets, 8192 max)
+[    3.196604@0] ctnetlink v0.93: registering with nfnetlink.
+[    3.202466@0] xt_time: kernel timezone is -0000
+[    3.206196@0] ipip: IPv4 and MPLS over IPv4 tunneling driver
+[    3.212819@0] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    3.217522@0] arp_tables: arp_tables: (C) 2002 David S. Miller
+[    3.223000@0] Initializing XFRM netlink socket
+[    3.228526@0] NET: Registered protocol family 10
+[    3.234249@0] mip6: Mobile IPv6
+[    3.235067@0] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[    3.241092@0] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    3.249060@0] NET: Registered protocol family 17
+[    3.251276@0] NET: Registered protocol family 15
+[    3.255912@0] bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to load br_netfilter if you need this.
+[    3.269089@0] l2tp_core: L2TP core driver, V2.0
+[    3.273446@0] l2tp_ppp: PPPoL2TP kernel driver, V2.0
+[    3.278370@0] l2tp_ip: L2TP IP encapsulation support (L2TPv3)
+[    3.284120@0] l2tp_netlink: L2TP netlink interface
+[    3.288939@0] l2tp_eth: L2TP ethernet pseudowire support (L2TPv3)
+[    3.294990@0] l2tp_debugfs: L2TP debugfs support
+[    3.299517@0] l2tp_ip6: L2TP IP encapsulation support for IPv6 (L2TPv3)
+[    3.306174@0] NET: Registered protocol family 35
+[    3.311095@0] Key type dns_resolver registered
+[    3.315689@0] Registered swp emulation handler
+[    3.319558@0] Registered cp15_barrier emulation handler
+[    3.324748@0] Registered setend emulation handler
+[    3.329490@0] disable EAS feature
+[    3.334085@3] registered taskstats version 1
+[    3.350595@0] dwc3 ff500000.dwc3: Configuration mismatch. dr_mode forced to host
+[    3.857080@0] xhci-hcd xhci-hcd.0.auto: xHCI Host Controller
+[    3.857172@0] xhci-hcd xhci-hcd.0.auto: new USB bus registered, assigned bus number 1
+[    3.865455@0] xhci-hcd xhci-hcd.0.auto: hcc params 0x0220f664 hci version 0x100 quirks 0x02010010
+[    3.873871@0] xhci-hcd xhci-hcd.0.auto: irq 22, io mem 0xff500000
+[    3.881443@1] hub 1-0:1.0: USB hub found
+[    3.883789@1] hub 1-0:1.0: 1 port detected
+[    3.888487@1] xhci-hcd xhci-hcd.0.auto: xHCI Host Controller
+[    3.893473@1] xhci-hcd xhci-hcd.0.auto: new USB bus registered, assigned bus number 2
+[    3.901369@1] usb usb2: We don't know the algorithms for LPM for this host, disabling LPM.
+[    3.910843@2] hub 2-0:1.0: USB hub found
+[    3.913461@2] hub 2-0:1.0: config failed, hub doesn't have any ports! (err -19)
+[    3.920741@2] usb usb2: Unsupported the hub
+[    3.925632@2] aml_vrtc rtc: setting system clock to 2026-03-23 00:19:56 UTC (1774225196)
+[    3.933604@2] dwc_otg ff400000.dwc2_a: dwc_otg_driver_probe(ffffffc00cd9f000)
+[    3.933680@2] dwc_otg: usb0: type: 2 speed: 0, config: 0, dma: 0, id: 0, phy: ffe09000, ctrl: 0
+[    3.941577@2] dwc_otg ff400000.dwc2_a: base=0xffffff8008580000
+[    3.941589@2] dwc_otg ff400000.dwc2_a: dwc_otg_device=0xffffffc00b38a200
+[    4.042359@2] dwc_otg: Core Release: 3.10a
+[    4.042416@2] dwc_otg: Setting default values for core params
+[    4.046605@2] dwc_otg: curmode: 0, host_only: 0
+[    4.051113@2] dwc_otg ff400000.dwc2_a: DMA config: BURST_DEFAULT
+[    4.063627@2] dwc_otg: Using Buffer DMA mode
+[    4.063665@2] dwc_otg: OTG VER PARAM: 1, OTG VER FLAG: 1
+[    4.067571@2] dwc_otg: Working on port type = SLAVE
+[    4.072428@2] dwc_otg: Dedicated Tx FIFOs mode
+[    4.079343@2] thermal thermal_zone0: binding zone soc_thermal with cdev thermal-cpufreq-0 failed:-22
+[    4.086142@2] cpucore_cooling_register, max_cpu_core_num:4
+[    4.098290@0] gxbb_pm: enter meson_pm_probe!
+[    4.098348@0] no vddio3v3_en pin
+[    4.099993@0] pm-meson aml_pm: Can't get switch_clk81
+[    4.105100@0] gxbb_pm: meson_pm_probe done
+[    4.110043@0] meson_uart ff803000.serial: ttyS0 use xtal(24M) 24000000 change 115200 to 115200
+[    4.116332@0] Freeing unused kernel memory: 3648K
+[    4.130760@0] meson_uart ff803000.serial: ttyS0 use xtal(24M) 24000000 change 115200 to 115200
+[    4.384519@1] ubi0: attaching mtd5
+[    4.403041@1] ubi0: scanning is finished
+[    4.407658@3] ubi0: attached mtd5 (name "config", size 5 MiB)
+[    4.407790@3] ubi0: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
+[    4.414871@3] ubi0: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
+[    4.421763@3] ubi0: VID header offset: 2048 (aligned 2048), data offset: 4096
+[    4.428873@3] ubi0: good PEBs: 40, bad PEBs: 0, corrupted PEBs: 0
+[    4.434928@3] ubi0: user volume: 1, internal volumes: 1, max. volumes count: 128
+[    4.442303@3] ubi0: max/mean erase counter: 354/227, WL threshold: 4096, image sequence number: 452763658
+[    4.451827@3] ubi0: available PEBs: 0, total reserved PEBs: 40, PEBs reserved for bad PEB handling: 4
+[    4.461052@1] ubi0: background thread "ubi_bgt0d" started, PID 1078
+[    4.473965@3] UBIFS (ubi0:0): background thread "ubifs_bgt0_0" started, PID 1082
+[    4.510688@2] UBIFS (ubi0:0): UBIFS: mounted UBI device 0, volume 0, name "config_data"
+[    4.513114@2] UBIFS (ubi0:0): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
+[    4.523160@2] UBIFS (ubi0:0): FS size: 2793472 bytes (2 MiB, 22 LEBs), journal size 1015809 bytes (0 MiB, 6 LEBs)
+[    4.533365@2] UBIFS (ubi0:0): reserved for root: 131942 bytes (128 KiB)
+[    4.539953@2] UBIFS (ubi0:0): media format: w4/r0 (latest is w4/r0), UUID F430DAA2-1479-429E-BA8B-79B4209B132D, small LPT model
+[    4.564555@1] ubi2: attaching mtd6
+[    5.239390@1] ubi2: scanning is finished
+[    5.246748@0] ubi2: attached mtd6 (name "nvdata", size 185 MiB)
+[    5.247053@0] ubi2: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
+[    5.254108@0] ubi2: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
+[    5.261017@0] ubi2: VID header offset: 2048 (aligned 2048), data offset: 4096
+[    5.268122@0] ubi2: good PEBs: 1480, bad PEBs: 0, corrupted PEBs: 0
+[    5.274373@0] ubi2: user volume: 1, internal volumes: 1, max. volumes count: 128
+[    5.281732@0] ubi2: max/mean erase counter: 4101/2152, WL threshold: 4096, image sequence number: 2009159942
+[    5.291531@0] ubi2: available PEBs: 0, total reserved PEBs: 1480, PEBs reserved for bad PEB handling: 4
+[    5.300904@1] ubi2: background thread "ubi_bgt2d" started, PID 1090
+[    5.313805@0] UBIFS (ubi2:0): background thread "ubifs_bgt2_0" started, PID 1094
+[    5.351902@3] UBIFS (ubi2:0): UBIFS: mounted UBI device 2, volume 0, name "nvdada_log"
+[    5.354232@3] UBIFS (ubi2:0): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
+[    5.364274@3] UBIFS (ubi2:0): FS size: 185384960 bytes (176 MiB, 1460 LEBs), journal size 9269248 bytes (8 MiB, 73 LEBs)
+[    5.375096@3] UBIFS (ubi2:0): reserved for root: 4952683 bytes (4836 KiB)
+[    5.381875@3] UBIFS (ubi2:0): media format: w4/r0 (latest is w4/r0), UUID 6AC7DC13-CD10-4272-8AD1-DC6EB76ED89B, small LPT model
+[    5.612611@0] eth0: device MAC address 02:f4:c2:87:96:fa
+[    5.694099@0] meson6-dwmac ff3f0000.ethernet eth0: fail to init PTP.
+[    5.695455@0] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+[    5.941971@3] uart_trans: loading out-of-tree module taints kernel.
+[    5.944259@3] register uart_trans chrdev success.
+[    5.947824@3] meson_uart ff804000.serial: ttyS3 use xtal(24M) 24000000 change 0 to 9600
+[    5.955389@3] tty port open success [/dev/ttyS3]!
+[    5.960069@3] meson_uart ff804000.serial: ttyS3 use xtal(24M) 24000000 change 9600 to 115200
+[    5.968470@3] init sucess for tty struct (246:3)  [/dev/ttyS3]
+[    5.974825@3] meson_uart ffd23000.serial: ttyS2 use xtal(24M) 24000000 change 0 to 9600
+[    5.982236@3] tty port open success [/dev/ttyS2]!
+[    5.986929@3] meson_uart ffd23000.serial: ttyS2 use xtal(24M) 24000000 change 9600 to 115200
+[    5.995307@3] init sucess for tty struct (246:2)  [/dev/ttyS2]
+[    6.001423@3] meson_uart ffd24000.serial: ttyS1 use xtal(24M) 24000000 change 0 to 9600
+[    6.009076@3] tty port open success [/dev/ttyS1]!
+[    6.013754@3] meson_uart ffd24000.serial: ttyS1 use xtal(24M) 24000000 change 9600 to 115200
+[    6.022207@3] init sucess for tty struct (246:1)  [/dev/ttyS1]
+[    6.028436@0] create workqueue success!
+[    7.737202@0] meson6-dwmac ff3f0000.ethernet eth0: Link is Up - 100Mbps/Full - flow control off
+[    7.740324@0] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[   20.435289@0] uart trans dev open.
+[   20.435411@0] uart_buf virt addr = 0xffffffc00da00000
+[   20.438246@0] uart_buf phys addr = 0x0da00000
+[   20.442538@0] uart_buf pfn       = 0x0000da00
+[   20.446848@0] uart trans stop send work timer.
+[   20.451466@0] uart trans set chain exist bits:0x7.
+[   20.456018@0] uart trans set work queue count 768.
+[  278.198770@3] uart set baud to: 4098
+[  278.198832@3] uart set baud to: 4098
+[  278.200290@3] uart set baud to: 4098
+[  283.311785@2] uart trans stop send work timer.
+[  288.534083@0] uart trans start send work timer.
+[72528.143866@0] uart trans dev open.
+[72528.144018@0] uart_buf virt addr = 0xffffffc00da00000
+[72528.146764@0] uart_buf phys addr = 0x0da00000
+[72528.151078@0] uart_buf pfn       = 0x0000da00
+[72528.155489@0] uart trans stop send work timer.
+[72528.160087@0] uart trans set chain exist bits:0x7.
+[72528.164624@0] uart trans set work queue count 768.
+[72778.846079@3] uart set baud to: 4098
+[72778.846139@3] uart set baud to: 4098
+[72778.847644@3] uart set baud to: 4098
+[72783.959279@1] uart trans stop send work timer.
+[72793.886334@1] uart trans start send work timer.
+[73667.894776@2] uart trans stop send work timer.
+[82973.648472@0] uart trans dev open.
+[82973.648590@0] uart_buf virt addr = 0xffffffc00da00000
+[82973.651471@0] uart_buf phys addr = 0x0da00000
+[82973.655866@0] uart_buf pfn       = 0x0000da00
+[82973.660142@0] uart trans stop send work timer.
+[82973.664635@0] uart trans set chain exist bits:0x7.
+[82973.669264@0] uart trans set work queue count 768.
+[83263.441011@3] uart trans stop send work timer.
+
+
+===========================================Miner log===========================================
+2026-03-23 00:20:03 Miner compile time: Thu Nov  7 11:04:11 CST 2024 type: Antminer S19 XP sn :SMTTEAUBCJDJC05NG
+2026-03-23 00:20:04 This is fix-freq version
+2026-03-23 00:20:04 Miner compile time: Thu Nov  7 11:04:11 CST 2024 type: Antminer S19 XP
+2026-03-23 00:20:04 Miner sn: SMTTEAUBCJDJC05NG
+2026-03-23 00:20:04 commit version: 62efe336 2024-08-15 13:07:46, build by: jenkins 2024-11-07 11:32:43
+2026-03-23 00:20:04 opt_multi_version     = 1
+2026-03-23 00:20:04 opt_bitmain_ab        = 1
+2026-03-23 00:20:04 mid_auto_gen          = 1
+2026-03-23 00:20:04 opt_bitmain_work_mode = 3
+2026-03-23 00:20:04 MINER POOLS CONFIG INFO LIST BELOW
+2026-03-23 00:20:04 Pool Config 1 |Miner Addr:stratum+tcp://sha256.poolbinance.com:443 |Miner Name: NCATX.100                     
+2026-03-23 00:20:04 Pool Config 2 |Miner Addr:stratum+tcp://btc.poolbinance.com:1800 |Miner Name: NCATX.100                     
+2026-03-23 00:20:04 Pool Config 3 |Miner Addr:stratum+tcp://bs.poolbinance.com:3333 |Miner Name: NCATX.100                     
+2026-03-23 00:20:04 port 439 already exported
+2026-03-23 00:20:04 port 454 already exported
+2026-03-23 00:20:04 port 440 already exported
+2026-03-23 00:20:04 port 455 already exported
+2026-03-23 00:20:04 port 441 already exported
+2026-03-23 00:20:04 port 456 already exported
+2026-03-23 00:20:04 port 438 already exported
+2026-03-23 00:20:04 port 453 already exported
+2026-03-23 00:20:04 port 446 already exported
+2026-03-23 00:20:04 port 445 already exported
+2026-03-23 00:20:04 Note: front fan is power on!
+2026-03-23 00:20:04 Note: rear fan is power on!
+2026-03-23 00:20:04 start the http log.
+2026-03-23 00:20:04 httpListenThread start ret=0
+2026-03-23 00:20:04 start listen on 6060 ...
+2026-03-23 00:20:04 load machine BHB56801 conf
+2026-03-23 00:20:04 machine : BHB56801 
+2026-03-23 00:20:04 get test_loop_securely_find_asic_num failed
+2026-03-23 00:20:04 get mix boardname[0][BHB56801], name:BHB56801
+2026-03-23 00:20:04 get mix boardname[1][BHB56802], name:BHB56802
+2026-03-23 00:20:04 get mix boardname[2][BHB56806], name:BHB56806
+2026-03-23 00:20:04 bad chain id = 3
+2026-03-23 00:20:07 bad chain id = 3
+2026-03-23 00:20:09 power off
+2026-03-23 00:20:11 ==========================capability start==========================
+2026-03-23 00:20:11 board num = 3
+2026-03-23 00:20:11 board id = 0, chain num = 1
+2026-03-23 00:20:11 	chain id = 0
+2026-03-23 00:20:11 board id = 1, chain num = 1
+2026-03-23 00:20:11 	chain id = 1
+2026-03-23 00:20:11 board id = 2, chain num = 1
+2026-03-23 00:20:11 	chain id = 2
+2026-03-23 00:20:11 ==========================capability end============================
+2026-03-23 00:20:11 chain num = 3
+2026-03-23 00:20:12 load chain 0 eeprom data
+2026-03-23 00:20:13 load chain 1 eeprom data
+2026-03-23 00:20:13 load chain 2 eeprom data
+2026-03-23 00:20:13 eeprom load ret:0
+2026-03-23 00:20:13 miner:BHB56801,board_name:BHB56801
+2026-03-23 00:20:13 eeprom load levels
+2026-03-23 00:20:13 acceptable min_vol = 1240 min_freq = 410 max_vol = 1320 max_freq = 485
+2026-03-23 00:20:13 create thread cgminer_config_monitor_thread
+2026-03-23 00:20:13 create thread get_nonce_and_register_thread
+2026-03-23 00:20:13 fixed working voltage = 1290
+2026-03-23 00:20:13 Chain [0] PCB Version: 0x0202
+2026-03-23 00:20:13 Chain [0] BOM Version: 0x0000
+2026-03-23 00:20:13 Chain [1] PCB Version: 0x0100
+2026-03-23 00:20:13 Chain [1] BOM Version: 0x0020
+2026-03-23 00:20:13 Chain [2] PCB Version: 0x0220
+2026-03-23 00:20:13 Chain [2] BOM Version: 0x0000
+2026-03-23 00:20:13 bad chain id = 3
+2026-03-23 00:20:13 Fan check passed.
+2026-03-23 00:20:13 init fan pid target=50
+2026-03-23 00:20:13 max sensor num = 4
+2026-03-23 00:20:13 STATUS_INITED: soc init done!
+2026-03-23 00:20:13 waiting job sem..
+2026-03-23 00:20:13 temperature_monitor_thread start...
+2026-03-23 00:20:16 start to init...
+2026-03-23 00:20:17 Wait for hashboard cool, please wait, this may take up to 2 minutes...
+2026-03-23 00:22:17 Slept 120 seconds, diff = 1.
+2026-03-23 00:22:17 start up min temp by 75a = 30, limit -40
+2026-03-23 00:22:17 i2c_sim_init start
+2026-03-23 00:22:17 init gpio477
+2026-03-23 00:22:17 init gpio476
+2026-03-23 00:22:17 i2c_sim_init end
+2026-03-23 00:22:18 power open power_version = 0x75
+2026-03-23 00:22:21 power is Calibrated
+2026-03-23 00:22:21 power sn:OLTT324BCJCCA4195
+2026-03-23 00:22:21 enable_power_calibration,calibration date:211208.
+2026-03-23 00:22:21 will random delay 114s to avoid impact on the power grid
+2026-03-23 00:24:15 start init power
+2026-03-23 00:24:16 power type version: 0x0075
+2026-03-23 00:24:18 disable power watchdog: 0x0000
+2026-03-23 00:24:29 set_voltage_by_steps to 1300.
+2026-03-23 00:24:31 bad chain id = 3
+2026-03-23 00:24:33 Chain[0]: find 0 asic, times 0
+2026-03-23 00:24:34 Chain[0]: find 0 asic, times 1
+2026-03-23 00:24:36 Chain[0]: find 0 asic, times 2
+2026-03-23 00:24:36 Chain 0 only find 0 asic, will power off hash board 0
+2026-03-23 00:24:36 ERROR_SOC_INIT: soc init failed!
+2026-03-23 00:24:36 stop_mining: soc init failed!
+2026-03-23 00:24:36 uninit_temp_info
+2026-03-23 00:24:36 do not read temp anymore...
+2026-03-23 00:24:36 cancel thread
+2026-03-23 00:24:36 ****power off hashboard****
+2026-03-23 00:24:36 power off
+2026-03-23 00:24:36 temp monitor thread exit
+2026-03-23 00:24:41 Version num 65536
+2026-03-23 00:24:41 Mask num 0x1fffe000
+2026-03-23 00:24:41 Note: addrInterval or corenum is not initialized.
+2026-03-23 20:28:32 Miner compile time: Thu Nov  7 11:04:11 CST 2024 type: Antminer S19 XP sn :SMTTEAUBCJDJC05NG
+2026-03-23 20:28:34 This is fix-freq version
+2026-03-23 20:28:34 Miner compile time: Thu Nov  7 11:04:11 CST 2024 type: Antminer S19 XP
+2026-03-23 20:28:34 Miner sn: SMTTEAUBCJDJC05NG
+2026-03-23 20:28:34 commit version: 62efe336 2024-08-15 13:07:46, build by: jenkins 2024-11-07 11:32:43
+2026-03-23 20:28:34 opt_multi_version     = 1
+2026-03-23 20:28:34 opt_bitmain_ab        = 1
+2026-03-23 20:28:34 mid_auto_gen          = 1
+2026-03-23 20:28:34 opt_bitmain_work_mode = 0
+2026-03-23 20:28:34 MINER POOLS CONFIG INFO LIST BELOW
+2026-03-23 20:28:34 Pool Config 1 |Miner Addr:stratum+tcp://sha256.poolbinance.com:443 |Miner Name: NCATX.100                     
+2026-03-23 20:28:34 Pool Config 2 |Miner Addr:stratum+tcp://btc.poolbinance.com:1800 |Miner Name: NCATX.100                     
+2026-03-23 20:28:34 Pool Config 3 |Miner Addr:stratum+tcp://bs.poolbinance.com:3333 |Miner Name: NCATX.100                     
+2026-03-23 20:28:34 port 439 already exported
+2026-03-23 20:28:34 port 454 already exported
+2026-03-23 20:28:34 port 440 already exported
+2026-03-23 20:28:34 port 455 already exported
+2026-03-23 20:28:34 port 441 already exported
+2026-03-23 20:28:34 port 456 already exported
+2026-03-23 20:28:34 port 438 already exported
+2026-03-23 20:28:34 port 453 already exported
+2026-03-23 20:28:34 port 446 already exported
+2026-03-23 20:28:34 port 445 already exported
+2026-03-23 20:28:34 Note: front fan is power on!
+2026-03-23 20:28:34 Note: rear fan is power on!
+2026-03-23 20:28:34 start the http log.
+2026-03-23 20:28:34 httpListenThread start ret=0
+2026-03-23 20:28:34 start listen on 6060 ...
+2026-03-23 20:28:34 load machine BHB56801 conf
+2026-03-23 20:28:34 machine : BHB56801 
+2026-03-23 20:28:34 get test_loop_securely_find_asic_num failed
+2026-03-23 20:28:34 get mix boardname[0][BHB56801], name:BHB56801
+2026-03-23 20:28:34 get mix boardname[1][BHB56802], name:BHB56802
+2026-03-23 20:28:34 get mix boardname[2][BHB56806], name:BHB56806
+2026-03-23 20:28:34 bad chain id = 3
+2026-03-23 20:28:37 bad chain id = 3
+2026-03-23 20:28:39 power off
+2026-03-23 20:28:40 ==========================capability start==========================
+2026-03-23 20:28:40 board num = 3
+2026-03-23 20:28:40 board id = 0, chain num = 1
+2026-03-23 20:28:40 	chain id = 0
+2026-03-23 20:28:40 board id = 1, chain num = 1
+2026-03-23 20:28:40 	chain id = 1
+2026-03-23 20:28:40 board id = 2, chain num = 1
+2026-03-23 20:28:40 	chain id = 2
+2026-03-23 20:28:40 ==========================capability end============================
+2026-03-23 20:28:40 chain num = 3
+2026-03-23 20:28:41 load chain 0 eeprom data
+2026-03-23 20:28:41 load chain 1 eeprom data
+2026-03-23 20:28:42 load chain 2 eeprom data
+2026-03-23 20:28:42 eeprom load ret:0
+2026-03-23 20:28:42 miner:BHB56801,board_name:BHB56801
+2026-03-23 20:28:42 eeprom load levels
+2026-03-23 20:28:42 acceptable min_vol = 1240 min_freq = 410 max_vol = 1320 max_freq = 485
+2026-03-23 20:28:42 create thread cgminer_config_monitor_thread
+2026-03-23 20:28:42 create thread get_nonce_and_register_thread
+2026-03-23 20:28:42 fixed working voltage = 1290
+2026-03-23 20:28:42 Chain [0] PCB Version: 0x0202
+2026-03-23 20:28:42 Chain [0] BOM Version: 0x0000
+2026-03-23 20:28:42 Chain [1] PCB Version: 0x0100
+2026-03-23 20:28:42 Chain [1] BOM Version: 0x0020
+2026-03-23 20:28:42 Chain [2] PCB Version: 0x0220
+2026-03-23 20:28:42 Chain [2] BOM Version: 0x0000
+2026-03-23 20:28:42 bad chain id = 3
+2026-03-23 20:28:42 Fan check passed.
+2026-03-23 20:28:42 init fan pid target=50
+2026-03-23 20:28:42 max sensor num = 4
+2026-03-23 20:28:42 temperature_monitor_thread start...
+2026-03-23 20:28:42 STATUS_INITED: soc init done!
+2026-03-23 20:28:42 waiting job sem..
+2026-03-23 20:28:45 start to init...
+2026-03-23 20:28:46 Wait for hashboard cool, please wait, this may take up to 2 minutes...
+2026-03-23 20:30:46 Slept 120 seconds, diff = 1.
+2026-03-23 20:30:46 start up min temp by 75a = 22, limit -40
+2026-03-23 20:30:46 i2c_sim_init start
+2026-03-23 20:30:46 i2c_sim_init end
+2026-03-23 20:30:47 power open power_version = 0x75
+2026-03-23 20:30:50 power is Calibrated
+2026-03-23 20:30:50 power sn:OLTT324BCJCCA4195
+2026-03-23 20:30:50 enable_power_calibration,calibration date:211208.
+2026-03-23 20:30:50 will random delay 107s to avoid impact on the power grid
+2026-03-23 20:32:37 start init power
+2026-03-23 20:32:38 power type version: 0x0075
+2026-03-23 20:32:39 disable power watchdog: 0x0000
+2026-03-23 20:32:50 set_voltage_by_steps to 1300.
+2026-03-23 20:32:52 bad chain id = 3
+2026-03-23 20:32:54 Chain[0]: find 0 asic, times 0
+2026-03-23 20:32:56 Chain[0]: find 0 asic, times 1
+2026-03-23 20:32:58 Chain[0]: find 0 asic, times 2
+2026-03-23 20:32:58 Chain 0 only find 0 asic, will power off hash board 0
+2026-03-23 20:32:58 ERROR_SOC_INIT: soc init failed!
+2026-03-23 20:32:58 stop_mining: soc init failed!
+2026-03-23 20:32:58 uninit_temp_info
+2026-03-23 20:32:58 do not read temp anymore...
+2026-03-23 20:32:58 cancel thread
+2026-03-23 20:32:58 ****power off hashboard****
+2026-03-23 20:32:58 power off
+2026-03-23 20:32:58 temp monitor thread exit
+2026-03-23 20:33:08 Version num 65536
+2026-03-23 20:33:08 Mask num 0x1fffe000
+2026-03-23 20:33:08 Note: addrInterval or corenum is not initialized.
+2026-03-23 20:47:42 ****power off hashboard****
+2026-03-23 20:47:42 power off
+2026-03-23 20:47:47 Miner compile time: Thu Nov  7 11:04:11 CST 2024 type: Antminer S19 XP sn :SMTTEAUBCJDJC05NG
+2026-03-23 20:47:48 This is fix-freq version
+2026-03-23 20:47:48 Miner compile time: Thu Nov  7 11:04:11 CST 2024 type: Antminer S19 XP
+2026-03-23 20:47:48 Miner sn: SMTTEAUBCJDJC05NG
+2026-03-23 20:47:48 commit version: 62efe336 2024-08-15 13:07:46, build by: jenkins 2024-11-07 11:32:43
+2026-03-23 20:47:48 opt_multi_version     = 1
+2026-03-23 20:47:48 opt_bitmain_ab        = 1
+2026-03-23 20:47:48 mid_auto_gen          = 1
+2026-03-23 20:47:48 opt_bitmain_work_mode = 1
+2026-03-23 20:47:48 MINER POOLS CONFIG INFO LIST BELOW
+2026-03-23 20:47:48 Pool Config 1 |Miner Addr:stratum+tcp://sha256.poolbinance.com:443 |Miner Name: NCATX.100                     
+2026-03-23 20:47:48 Pool Config 2 |Miner Addr:stratum+tcp://btc.poolbinance.com:1800 |Miner Name: NCATX.100                     
+2026-03-23 20:47:48 Pool Config 3 |Miner Addr:stratum+tcp://bs.poolbinance.com:3333 |Miner Name: NCATX.100                     
+2026-03-23 20:47:48 port 439 already exported
+2026-03-23 20:47:48 port 454 already exported
+2026-03-23 20:47:48 port 440 already exported
+2026-03-23 20:47:48 port 455 already exported
+2026-03-23 20:47:48 port 441 already exported
+2026-03-23 20:47:48 port 456 already exported
+2026-03-23 20:47:48 port 438 already exported
+2026-03-23 20:47:48 port 453 already exported
+2026-03-23 20:47:48 port 446 already exported
+2026-03-23 20:47:48 port 445 already exported
+2026-03-23 20:47:48 Note: front fan is power on!
+2026-03-23 20:47:48 Note: rear fan is power on!
+2026-03-23 20:47:48 start the http log.
+2026-03-23 20:47:48 httpListenThread start ret=0
+2026-03-23 20:47:48 start listen on 6060 ...
+2026-03-23 20:47:48 load machine BHB56801 conf
+2026-03-23 20:47:48 machine : BHB56801 
+2026-03-23 20:47:48 get test_loop_securely_find_asic_num failed
+2026-03-23 20:47:48 get mix boardname[0][BHB56801], name:BHB56801
+2026-03-23 20:47:48 get mix boardname[1][BHB56802], name:BHB56802
+2026-03-23 20:47:48 get mix boardname[2][BHB56806], name:BHB56806
+2026-03-23 20:47:48 bad chain id = 3
+2026-03-23 20:47:51 bad chain id = 3
+2026-03-23 20:47:53 power off
+2026-03-23 20:47:54 ==========================capability start==========================
+2026-03-23 20:47:54 board num = 3
+2026-03-23 20:47:54 board id = 0, chain num = 1
+2026-03-23 20:47:54 	chain id = 0
+2026-03-23 20:47:54 board id = 1, chain num = 1
+2026-03-23 20:47:54 	chain id = 1
+2026-03-23 20:47:54 board id = 2, chain num = 1
+2026-03-23 20:47:54 	chain id = 2
+2026-03-23 20:47:54 ==========================capability end============================
+2026-03-23 20:47:54 chain num = 3
+2026-03-23 20:47:55 load chain 0 eeprom data
+2026-03-23 20:47:55 load chain 1 eeprom data
+2026-03-23 20:47:56 load chain 2 eeprom data
+2026-03-23 20:47:56 eeprom load ret:0
+2026-03-23 20:47:56 miner:BHB56801,board_name:BHB56801
+2026-03-23 20:47:56 eeprom load levels
+2026-03-23 20:47:56 acceptable min_vol = 1240 min_freq = 410 max_vol = 1320 max_freq = 485
+2026-03-23 20:47:56 enter sleep mode.
+2026-03-23 20:47:56 power off
+2026-03-23 23:22:33 ****power off hashboard****
+2026-03-23 23:22:33 power off
+2026-03-23 23:22:38 Miner compile time: Thu Nov  7 11:04:11 CST 2024 type: Antminer S19 XP sn :SMTTEAUBCJDJC05NG
+2026-03-23 23:22:39 This is fix-freq version
+2026-03-23 23:22:39 Miner compile time: Thu Nov  7 11:04:11 CST 2024 type: Antminer S19 XP
+2026-03-23 23:22:39 Miner sn: SMTTEAUBCJDJC05NG
+2026-03-23 23:22:39 commit version: 62efe336 2024-08-15 13:07:46, build by: jenkins 2024-11-07 11:32:43
+2026-03-23 23:22:39 opt_multi_version     = 1
+2026-03-23 23:22:39 opt_bitmain_ab        = 1
+2026-03-23 23:22:39 mid_auto_gen          = 1
+2026-03-23 23:22:39 opt_bitmain_work_mode = 3
+2026-03-23 23:22:39 MINER POOLS CONFIG INFO LIST BELOW
+2026-03-23 23:22:39 Pool Config 1 |Miner Addr:stratum+tcp://sha256.poolbinance.com:443 |Miner Name: NCATX.100                     
+2026-03-23 23:22:39 Pool Config 2 |Miner Addr:stratum+tcp://btc.poolbinance.com:1800 |Miner Name: NCATX.100                     
+2026-03-23 23:22:39 Pool Config 3 |Miner Addr:stratum+tcp://bs.poolbinance.com:3333 |Miner Name: NCATX.100                     
+2026-03-23 23:22:39 port 439 already exported
+2026-03-23 23:22:39 port 454 already exported
+2026-03-23 23:22:39 port 440 already exported
+2026-03-23 23:22:39 port 455 already exported
+2026-03-23 23:22:39 port 441 already exported
+2026-03-23 23:22:39 port 456 already exported
+2026-03-23 23:22:39 port 438 already exported
+2026-03-23 23:22:39 port 453 already exported
+2026-03-23 23:22:39 port 446 already exported
+2026-03-23 23:22:39 port 445 already exported
+2026-03-23 23:22:39 Note: front fan is power on!
+2026-03-23 23:22:39 Note: rear fan is power on!
+2026-03-23 23:22:39 start the http log.
+2026-03-23 23:22:39 httpListenThread start ret=0
+2026-03-23 23:22:39 start listen on 6060 ...
+2026-03-23 23:22:39 load machine BHB56801 conf
+2026-03-23 23:22:39 machine : BHB56801 
+2026-03-23 23:22:39 get test_loop_securely_find_asic_num failed
+2026-03-23 23:22:39 get mix boardname[0][BHB56801], name:BHB56801
+2026-03-23 23:22:39 get mix boardname[1][BHB56802], name:BHB56802
+2026-03-23 23:22:39 get mix boardname[2][BHB56806], name:BHB56806
+2026-03-23 23:22:39 bad chain id = 3
+2026-03-23 23:22:42 bad chain id = 3
+2026-03-23 23:22:44 power off
+2026-03-23 23:22:45 ==========================capability start==========================
+2026-03-23 23:22:45 board num = 3
+2026-03-23 23:22:45 board id = 0, chain num = 1
+2026-03-23 23:22:45 	chain id = 0
+2026-03-23 23:22:45 board id = 1, chain num = 1
+2026-03-23 23:22:45 	chain id = 1
+2026-03-23 23:22:45 board id = 2, chain num = 1
+2026-03-23 23:22:45 	chain id = 2
+2026-03-23 23:22:45 ==========================capability end============================
+2026-03-23 23:22:45 chain num = 3
+2026-03-23 23:22:46 load chain 0 eeprom data
+2026-03-23 23:22:47 load chain 1 eeprom data
+2026-03-23 23:22:47 load chain 2 eeprom data
+2026-03-23 23:22:47 eeprom load ret:0
+2026-03-23 23:22:47 miner:BHB56801,board_name:BHB56801
+2026-03-23 23:22:47 eeprom load levels
+2026-03-23 23:22:47 acceptable min_vol = 1240 min_freq = 410 max_vol = 1320 max_freq = 485
+2026-03-23 23:22:47 create thread cgminer_config_monitor_thread
+2026-03-23 23:22:47 create thread get_nonce_and_register_thread
+2026-03-23 23:22:47 fixed working voltage = 1290
+2026-03-23 23:22:47 Chain [0] PCB Version: 0x0202
+2026-03-23 23:22:47 Chain [0] BOM Version: 0x0000
+2026-03-23 23:22:47 Chain [1] PCB Version: 0x0100
+2026-03-23 23:22:47 Chain [1] BOM Version: 0x0020
+2026-03-23 23:22:47 Chain [2] PCB Version: 0x0220
+2026-03-23 23:22:47 Chain [2] BOM Version: 0x0000
+2026-03-23 23:22:47 bad chain id = 3
+2026-03-23 23:22:47 Fan check passed.
+2026-03-23 23:22:47 init fan pid target=50
+2026-03-23 23:22:47 max sensor num = 4
+2026-03-23 23:22:47 STATUS_INITED: soc init done!
+2026-03-23 23:22:47 waiting job sem..
+2026-03-23 23:22:47 temperature_monitor_thread start...
+2026-03-23 23:22:50 start to init...
+2026-03-23 23:22:51 Wait for hashboard cool, please wait, this may take up to 2 minutes...
+2026-03-23 23:24:51 Slept 120 seconds, diff = 0.
+2026-03-23 23:24:51 start up min temp by 75a = 22, limit -40
+2026-03-23 23:24:51 i2c_sim_init start
+2026-03-23 23:24:51 i2c_sim_init end
+2026-03-23 23:24:53 power open power_version = 0x75
+2026-03-23 23:24:55 power is Calibrated
+2026-03-23 23:24:55 power sn:OLTT324BCJCCA4195
+2026-03-23 23:24:55 enable_power_calibration,calibration date:211208.
+2026-03-23 23:24:55 will random delay 285s to avoid impact on the power grid
+2026-03-23 23:27:37 ****power off hashboard****
+2026-03-23 23:27:37 power off
+2026-03-23 23:27:42 Miner compile time: Thu Nov  7 11:04:11 CST 2024 type: Antminer S19 XP sn :SMTTEAUBCJDJC05NG
+2026-03-23 23:27:44 This is fix-freq version
+2026-03-23 23:27:44 Miner compile time: Thu Nov  7 11:04:11 CST 2024 type: Antminer S19 XP
+2026-03-23 23:27:44 Miner sn: SMTTEAUBCJDJC05NG
+2026-03-23 23:27:44 commit version: 62efe336 2024-08-15 13:07:46, build by: jenkins 2024-11-07 11:32:43
+2026-03-23 23:27:44 opt_multi_version     = 1
+2026-03-23 23:27:44 opt_bitmain_ab        = 1
+2026-03-23 23:27:44 mid_auto_gen          = 1
+2026-03-23 23:27:44 opt_bitmain_work_mode = 1
+2026-03-23 23:27:44 MINER POOLS CONFIG INFO LIST BELOW
+2026-03-23 23:27:44 Pool Config 1 |Miner Addr:stratum+tcp://sha256.poolbinance.com:443 |Miner Name: NCATX.100                     
+2026-03-23 23:27:44 Pool Config 2 |Miner Addr:stratum+tcp://btc.poolbinance.com:1800 |Miner Name: NCATX.100                     
+2026-03-23 23:27:44 Pool Config 3 |Miner Addr:stratum+tcp://bs.poolbinance.com:3333 |Miner Name: NCATX.100                     
+2026-03-23 23:27:44 port 439 already exported
+2026-03-23 23:27:44 port 454 already exported
+2026-03-23 23:27:44 port 440 already exported
+2026-03-23 23:27:44 port 455 already exported
+2026-03-23 23:27:44 port 441 already exported
+2026-03-23 23:27:44 port 456 already exported
+2026-03-23 23:27:44 port 438 already exported
+2026-03-23 23:27:44 port 453 already exported
+2026-03-23 23:27:44 port 446 already exported
+2026-03-23 23:27:44 port 445 already exported
+2026-03-23 23:27:44 Note: front fan is power on!
+2026-03-23 23:27:44 Note: rear fan is power on!
+2026-03-23 23:27:44 start the http log.
+2026-03-23 23:27:44 httpListenThread start ret=0
+2026-03-23 23:27:44 start listen on 6060 ...
+2026-03-23 23:27:44 load machine BHB56801 conf
+2026-03-23 23:27:44 machine : BHB56801 
+2026-03-23 23:27:44 get test_loop_securely_find_asic_num failed
+2026-03-23 23:27:44 get mix boardname[0][BHB56801], name:BHB56801
+2026-03-23 23:27:44 get mix boardname[1][BHB56802], name:BHB56802
+2026-03-23 23:27:44 get mix boardname[2][BHB56806], name:BHB56806
+2026-03-23 23:27:44 bad chain id = 3
+2026-03-23 23:27:47 bad chain id = 3
+2026-03-23 23:27:49 power off
+2026-03-23 23:27:50 ==========================capability start==========================
+2026-03-23 23:27:50 board num = 3
+2026-03-23 23:27:50 board id = 0, chain num = 1
+2026-03-23 23:27:50 	chain id = 0
+2026-03-23 23:27:50 board id = 1, chain num = 1
+2026-03-23 23:27:50 	chain id = 1
+2026-03-23 23:27:50 board id = 2, chain num = 1
+2026-03-23 23:27:50 	chain id = 2
+2026-03-23 23:27:50 ==========================capability end============================
+2026-03-23 23:27:50 chain num = 3
+2026-03-23 23:27:50 load chain 0 eeprom data
+2026-03-23 23:27:51 load chain 1 eeprom data
+2026-03-23 23:27:52 load chain 2 eeprom data
+2026-03-23 23:27:52 eeprom load ret:0
+2026-03-23 23:27:52 miner:BHB56801,board_name:BHB56801
+2026-03-23 23:27:52 eeprom load levels
+2026-03-23 23:27:52 acceptable min_vol = 1240 min_freq = 410 max_vol = 1320 max_freq = 485
+2026-03-23 23:27:52 enter sleep mode.
+2026-03-23 23:27:52 power off
+
+[2026-03-24 01:01:09] [SUMMARY]
+{
+  "STATUS": [
+    {
+      "STATUS": "S",
+      "When": 1774332069,
+      "Code": 11,
+      "Msg": "Summary",
+      "Description": "cgminer 1.0.0"
+    }
+  ],
+  "SUMMARY": [
+    {
+      "Elapsed": 1,
+      "GHS 5s": 0.0,
+      "GHS av": 0.0,
+      "GHS 30m": 0.0,
+      "Found Blocks": 0,
+      "Getwork": 0,
+      "Accepted": 0,
+      "Rejected": 0,
+      "Hardware Errors": 0,
+      "Utility": 0.0,
+      "Discarded": 0,
+      "Stale": 0,
+      "Get Failures": 0,
+      "Local Work": 0,
+      "Remote Failures": 0,
+      "Network Blocks": 0,
+      "Total MH": 0.0,
+      "Work Utility": 0.0,
+      "Difficulty Accepted": 0.0,
+      "Difficulty Rejected": 0.0,
+      "Difficulty Stale": 0.0,
+      "Best Share": 0,
+      "Device Hardware%": 0.0,
+      "Device Rejected%": 0.0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%": 0.0,
+      "Last getwork": 0
+    }
+  ],
+  "id": 1
+}
+
+[2026-03-24 01:01:09] [STATS]
+{
+  "STATUS": [
+    {
+      "STATUS": "S",
+      "When": 1774332069,
+      "Code": 70,
+      "Msg": "CGMiner stats",
+      "Description": "cgminer 1.0.0"
+    }
+  ],
+  "STATS": [
+    {
+      "BMMiner": "1.0.0",
+      "Miner": "",
+      "CompileTime": "Thu Nov  7 11:04:11 CST 2024",
+      "Type": "Antminer S19 XP"
+    }
+  ],
+  "id": 1
+}
+
+[2026-03-24 01:01:09] [POOLS]
+{
+  "STATUS": [
+    {
+      "STATUS": "S",
+      "When": 1774332069,
+      "Code": 7,
+      "Msg": "3 Pool(s)",
+      "Description": "cgminer 1.0.0"
+    }
+  ],
+  "POOLS": [
+    {
+      "POOL": 0,
+      "URL": "stratum+tcp://sha256.poolbinance.com:443",
+      "Status": "Disabled",
+      "Priority": 0,
+      "Quota": 1,
+      "Long Poll": "N",
+      "Getworks": 0,
+      "Accepted": 0,
+      "Rejected": 0,
+      "Discarded": 0,
+      "Stale": 0,
+      "Get Failures": 0,
+      "Remote Failures": 0,
+      "User": "NCATX.100",
+      "Last Share Time": "0",
+      "Diff": "",
+      "Diff1 Shares": 0,
+      "Proxy Type": "",
+      "Proxy": "",
+      "Difficulty Accepted": 0.0,
+      "Difficulty Rejected": 0.0,
+      "Difficulty Stale": 0.0,
+      "Last Share Difficulty": 0.0,
+      "Has Stratum": true,
+      "Stratum Active": false,
+      "Stratum URL": "",
+      "Has GBT": false,
+      "Best Share": 0.0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%%": 0.0
+    },
+    {
+      "POOL": 1,
+      "URL": "stratum+tcp://btc.poolbinance.com:1800",
+      "Status": "Disabled",
+      "Priority": 1,
+      "Quota": 1,
+      "Long Poll": "N",
+      "Getworks": 0,
+      "Accepted": 0,
+      "Rejected": 0,
+      "Discarded": 0,
+      "Stale": 0,
+      "Get Failures": 0,
+      "Remote Failures": 0,
+      "User": "NCATX.100",
+      "Last Share Time": "0",
+      "Diff": "",
+      "Diff1 Shares": 0,
+      "Proxy Type": "",
+      "Proxy": "",
+      "Difficulty Accepted": 0.0,
+      "Difficulty Rejected": 0.0,
+      "Difficulty Stale": 0.0,
+      "Last Share Difficulty": 0.0,
+      "Has Stratum": true,
+      "Stratum Active": false,
+      "Stratum URL": "",
+      "Has GBT": false,
+      "Best Share": 0.0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%%": 0.0
+    },
+    {
+      "POOL": 2,
+      "URL": "stratum+tcp://bs.poolbinance.com:3333",
+      "Status": "Disabled",
+      "Priority": 2,
+      "Quota": 1,
+      "Long Poll": "N",
+      "Getworks": 0,
+      "Accepted": 0,
+      "Rejected": 0,
+      "Discarded": 0,
+      "Stale": 0,
+      "Get Failures": 0,
+      "Remote Failures": 0,
+      "User": "NCATX.100",
+      "Last Share Time": "0",
+      "Diff": "",
+      "Diff1 Shares": 0,
+      "Proxy Type": "",
+      "Proxy": "",
+      "Difficulty Accepted": 0.0,
+      "Difficulty Rejected": 0.0,
+      "Difficulty Stale": 0.0,
+      "Last Share Difficulty": 0.0,
+      "Has Stratum": true,
+      "Stratum Active": false,
+      "Stratum URL": "",
+      "Has GBT": false,
+      "Best Share": 0.0,
+      "Pool Rejected%": 0.0,
+      "Pool Stale%%": 0.0
+    }
+  ],
+  "id": 1
+}
